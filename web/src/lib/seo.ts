@@ -5,7 +5,7 @@ import { brand, reviewProfiles, siteContact } from "@/content/brand";
 /** Public site URL - set NEXT_PUBLIC_SITE_URL in production. */
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://northlinedigital.com").replace(/\/$/, "");
 
-const defaultOgImage = `${siteUrl}/brand/og-default.png`;
+const defaultOgImage = `${siteUrl}/brand/og-default.jpg`;
 
 export function absoluteUrl(path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -17,6 +17,7 @@ type PageMetadataInput = {
   description: string;
   path: string;
   image?: string;
+  keywords?: readonly string[];
   type?: "website" | "article";
   publishedTime?: string;
   locale?: "en_US" | "en_GB";
@@ -27,6 +28,7 @@ export function buildPageMetadata({
   description,
   path,
   image,
+  keywords,
   type = "website",
   publishedTime,
   locale = "en_US",
@@ -38,6 +40,7 @@ export function buildPageMetadata({
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords: [...keywords] } : {}),
     alternates: {
       canonical: url,
       ...(isUkFocused ? { languages: { "en-GB": url, "en-US": url } } : {}),
@@ -79,12 +82,6 @@ export function organizationJsonLd() {
       "QuickBooks integration",
       "Xero integration",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: reviewProfiles.google.rating,
-      bestRating: reviewProfiles.google.maxRating,
-      reviewCount: String(parseInt(reviewProfiles.google.reviewCount, 10) || 0),
-    },
     sameAs: [
       "https://www.linkedin.com/company/northline-digital",
       reviewProfiles.google.href,

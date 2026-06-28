@@ -5,7 +5,6 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { MarketingTrustSection, MarketingTrustSignals } from "@/components/marketing/marketing-trust-signals";
 import { WorkFilterGrid } from "@/components/marketing/work-filter-grid";
 import { buttonVariants } from "@/components/ui/button";
@@ -59,12 +58,6 @@ export default async function WorkPage({ searchParams }: Props) {
       <MarketingTrustSection>
         <MarketingTrustSignals withRatings withStats withLogos withCertifications withTestimonials />
       </MarketingTrustSection>
-
-      <LeadCaptureCta
-        eyebrow="Start a project"
-        title="Want results like these for your product?"
-        description="Share your goals and timeline - we'll outline a clear path forward."
-      />
     </>
   );
 }

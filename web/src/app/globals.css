@@ -8,8 +8,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -50,16 +50,22 @@
 }
 
 :root {
-  --color-accent: #BFFF00;
-  --color-accent-strong: #9ecc00;
-  --text-secondary: oklch(0.42 0 0);
-  --text-body: oklch(0.35 0 0);
-  --image-radius: 12px;
-  --card-radius: 8px;
-  --surface-border: oklch(0.922 0 0);
-  --surface-muted: oklch(0.975 0 0);
-  --card-on-dark-border: oklch(0.922 0 0);
-  --section-divider: oklch(0.922 0 0);
+  --color-accent: #0d6e4d;
+  --color-accent-strong: #085a3c;
+  --color-accent-soft: #e8f7f0;
+  --color-accent-muted: #d4f0e3;
+  --focus-ring-color: color-mix(in oklab, var(--color-accent) 42%, transparent);
+  --text-secondary: oklch(0.4 0.02 155);
+  --text-body: oklch(0.32 0.025 155);
+  --image-radius: 14px;
+  --card-radius: 12px;
+  --surface-border: oklch(0.88 0.02 155);
+  --surface-muted: oklch(0.965 0.012 155);
+  --surface-elevated: oklch(1 0.006 155);
+  --card-on-dark-border: oklch(0.88 0.02 155);
+  --section-divider: oklch(0.9 0.015 155);
+  --shadow-card: 0 1px 2px oklch(0.2 0.02 155 / 0.04), 0 8px 24px oklch(0.2 0.02 155 / 0.06);
+  --shadow-card-hover: 0 4px 12px oklch(0.2 0.02 155 / 0.06), 0 16px 40px oklch(0.15 0.03 155 / 0.1);
 
   --header-offset: 5rem;
   --space-section-hero: clamp(5rem, 8vw, 7.5rem);
@@ -71,8 +77,8 @@
   --space-stack-md: 1.25rem;
   --space-stack-lg: 2rem;
 
-  --background: oklch(0.995 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.992 0.006 155);
+  --foreground: oklch(0.16 0.02 155);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -106,8 +112,10 @@
 }
 
 .dark {
-  --color-accent: #BFFF00;
+  --color-accent: #bfff00;
   --color-accent-strong: #9ecc00;
+  --color-accent-soft: #1a1d21;
+  --focus-ring-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
   --text-secondary: rgba(255, 255, 255, 0.72);
   --text-body: rgba(255, 255, 255, 0.72);
   --surface-border: rgba(255, 255, 255, 0.1);
@@ -247,7 +255,11 @@
   .surface-card {
     border-radius: var(--card-radius);
     border: 1px solid var(--surface-border);
-    background: var(--card);
+    background: var(--surface-elevated);
+    box-shadow: var(--shadow-card);
+  }
+  :root:not(.dark) .surface-card {
+    background: var(--surface-elevated);
   }
 
   .content-card {
@@ -363,13 +375,13 @@
   }
 
   .nav-link {
-    @apply rounded-lg px-3 py-2 text-sm font-normal text-[color:var(--text-secondary)] transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35;
+    @apply rounded-lg px-3 py-2 text-sm font-normal text-[color:var(--text-secondary)] transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)];
   }
   .nav-link:hover {
     @apply text-foreground;
   }
   .nav-link-active {
-    @apply bg-muted text-foreground;
+    @apply bg-[var(--color-accent-soft)] font-medium text-[var(--color-accent-strong)];
   }
 
   .scrollbar-hide {
@@ -512,11 +524,11 @@ figure[class*="aspect-"] {
   pointer-events: none;
   background-image: radial-gradient(
     circle,
-    color-mix(in oklab, var(--color-accent) 18%, transparent) 1px,
+    color-mix(in oklab, var(--color-accent) 22%, transparent) 1px,
     transparent 1px
   );
   background-size: 28px 28px;
-  opacity: 0.35;
+  opacity: 0.55;
   mask-image: radial-gradient(ellipse 80% 60% at 70% 40%, black 0%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 70% 40%, black 0%, transparent 80%);
 }
@@ -877,6 +889,36 @@ figure[class*="aspect-"] {
   margin-top: 0.55em;
   border-radius: 50%;
   background: var(--color-accent);
+}
+
+/* ─── Prominent marketing surfaces (light theme) ──────────────── */
+.section-mint {
+  background: linear-gradient(180deg, var(--color-accent-soft) 0%, var(--background) 100%);
+}
+:root:not(.dark) .cta-band-emerald {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 12px 40px color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
+:root:not(.dark) .cta-band-emerald .type-h2,
+:root:not(.dark) .cta-band-emerald .type-body,
+:root:not(.dark) .cta-band-emerald .trust-badge {
+  color: rgba(255, 255, 255, 0.92);
+}
+:root:not(.dark) .cta-band-emerald .highlight-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+:root:not(.dark) .cta-band-emerald .accent-live-dot {
+  background: white;
+}
+
+@media (max-width: 1023px) {
+  #main-content {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

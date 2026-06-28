@@ -22,29 +22,30 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
+const defaultTitle = `${brand.shortName} · SaaS & Trucking Digital Product Agency`;
+const defaultDescription =
+  "We design and build SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.shortName} · AI-powered digital product agency`,
+    default: defaultTitle,
     template: `%s · ${brand.shortName}`,
   },
-  description:
-    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+  description: defaultDescription,
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: `${brand.shortName} · AI-powered digital product agency`,
-    description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
-    images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [{ url: `${siteUrl}/brand/og-default.jpg`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.shortName} · AI-powered digital product agency`,
-    description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
-    images: [`${siteUrl}/brand/og-default.png`],
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [`${siteUrl}/brand/og-default.jpg`],
   },
   robots: {
     index: true,
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
   manifest: "/manifest.webmanifest",
 };
@@ -74,7 +75,6 @@ export default function RootLayout({
       className={`${instrumentSans.variable} ${instrumentSans.className} h-full font-sans`}
     >
       <head>
-        <link rel="preload" href="/brand/og-default.png" as="image" type="image/png" />
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>

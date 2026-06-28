@@ -58,6 +58,7 @@ export function SiteBreadcrumbs() {
   if (!pathname || pathname === "/") return null;
 
   const segments = pathname.split("/").filter(Boolean);
+  if (segments.length <= 1) return null;
   const crumbs: { href: string; label: string }[] = [{ href: "/", label: "Home" }];
 
   let acc = "";
@@ -105,7 +106,7 @@ export function SiteBreadcrumbs() {
                       href={c.href}
                       className={cn(
                         "min-w-0 truncate rounded transition-colors hover:text-foreground",
-                        "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
+                        "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]"
                       )}
                     >
                       {c.label}

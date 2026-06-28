@@ -20,7 +20,7 @@ export function ReviewProofBar({ className, variant = "default" }: ReviewProofBa
           href={profile.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="surface-card group flex flex-col gap-3 p-5 transition-colors hover:border-[var(--color-accent)]/35 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+          className="surface-card group flex flex-col gap-3 border-l-4 border-l-[var(--color-accent)] p-5 transition-colors hover:border-[var(--color-accent)]/35 sm:flex-row sm:items-center sm:justify-between sm:p-6"
         >
           <div className="space-y-2">
             <p className="type-badge-label">{profile.label}</p>

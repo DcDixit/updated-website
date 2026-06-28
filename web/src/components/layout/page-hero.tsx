@@ -36,7 +36,11 @@ export function PageHero({
       {eyebrow ? <HeroEyebrow>{eyebrow}</HeroEyebrow> : null}
       <h1 className="type-hero text-foreground text-balance">{title}</h1>
       {description ? (
-        <p className="type-body max-w-[640px] text-[color:var(--text-secondary)]">{description}</p>
+        typeof description === "string" ? (
+          <p className="type-body max-w-[640px] text-[color:var(--text-secondary)]">{description}</p>
+        ) : (
+          <div className="type-body max-w-[640px] text-[color:var(--text-secondary)]">{description}</div>
+        )
       ) : null}
       {actions ? <div className="flex flex-wrap gap-3">{actions}</div> : null}
       {children}

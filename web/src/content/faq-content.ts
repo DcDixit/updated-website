@@ -130,7 +130,7 @@ export const pillars = [
 ] as const;
 
 export const industries = [
-  { label: "SaaS & Startups", href: "/solutions/saas", caption: "UK-focused SaaS UI/UX, MVP development, dashboards, and AI-powered workflows that drive activation." },
+  { label: "SaaS & Startups", href: "/solutions/saas", caption: "UK-focused SaaS UI/UX, MVP development, dashboards, and product workflows that drive activation." },
   { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking websites, dispatch CRM, fleet dashboards, driver apps, and transportation SaaS platforms." },
   { label: "Accounting Integrations", href: "/solutions/accounting-integrations", caption: "QuickBooks and Xero API sync, reconciliation dashboards, and reliable operator tooling." },
   { label: "Car Transportation", href: "/solutions/car-transportation", caption: "Booking portals, carrier dispatch, customer tracking, and ops automation for vehicle logistics." },

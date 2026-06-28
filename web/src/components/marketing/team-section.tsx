@@ -63,7 +63,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
               rel="noopener noreferrer"
               className={cn(
                 "type-caption mt-5 inline-flex items-center gap-2 font-medium text-[color:var(--text-secondary)]",
-                "transition-colors hover:text-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
+                "transition-colors hover:text-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]"
               )}
             >
               <IconBrandLinkedin size={16} stroke={1.5} aria-hidden />

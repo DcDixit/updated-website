@@ -7,7 +7,7 @@ type LeadCaptureCtaProps = {
   className?: string;
 };
 
-/** Standard bottom conversion block - use on secondary pages after main content. */
+/** Optional page-specific CTA band — footer CtaBand handles sitewide conversion on inner pages. */
 export function LeadCaptureCta({
   title,
   description,

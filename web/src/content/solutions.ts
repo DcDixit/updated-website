@@ -50,7 +50,7 @@ export const solutionPillars: SolutionPillar[] = [
     title: "SaaS Product Solutions",
     headline: "SaaS product design agency for UK startups and scaling teams",
     summary:
-      "UI/UX, dashboards, MVP development, and AI-powered workflows - built by an in-house product team from discovery through launch.",
+      "UI/UX, dashboards, MVP development, and AI-assisted workflows — built by an in-house product team from discovery through launch.",
     market: "Primary · UK · Secondary · US",
     href: "/solutions/saas",
     icon: IconLayoutDashboard,
@@ -59,7 +59,7 @@ export const solutionPillars: SolutionPillar[] = [
     seo: {
       title: "SaaS Product Design Agency UK",
       description:
-        "SaaS UI/UX agency for UK startups - MVP development, dashboard design, AI-powered workflows, and scalable product systems.",
+        "SaaS UI/UX agency for UK startups — MVP development, dashboard design, AI-assisted workflows, and scalable product systems.",
       keywords: ["SaaS product design agency UK", "SaaS UI/UX agency", "Product design consultancy UK", "AI SaaS development company"],
     },
   },
@@ -157,7 +157,7 @@ export const homepageSolutionSections = [
     cta: "Explore AI solutions",
     seo: {
       title: "AI SaaS Development & Productivity Automation",
-      description: "AI-powered product development and workflow automation for SaaS and logistics teams.",
+      description: "AI-assisted product development and workflow automation for SaaS and logistics teams.",
       keywords: ["AI SaaS development company", "AI product development agency"],
     },
   },
@@ -187,7 +187,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
         description: "From validated prototype to production-ready Next.js or low-code MVP - scoped for speed and clarity.",
       },
       {
-        title: "AI-powered workflows",
+        title: "AI-assisted workflows",
         description: "Embed AI into product UX and internal delivery - with review gates and audit-friendly processes.",
       },
       {

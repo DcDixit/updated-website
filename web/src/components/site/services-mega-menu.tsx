@@ -79,7 +79,7 @@ export function SolutionsMegaMenu({ active }: SolutionsMegaMenuProps) {
       <button
         type="button"
         className={cn(
-          "nav-link inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35",
+          "nav-link inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]",
           active && "nav-link-active"
         )}
         aria-expanded={open}

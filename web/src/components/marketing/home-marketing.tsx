@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/accordion";
 import { buttonVariants } from "@/components/ui/button";
 import { HeroCtaGroup } from "@/components/marketing/hero-cta-group";
-import { clientPersonas } from "@/content/audience";
+import { HeroEyebrow } from "@/components/marketing/hero-eyebrow";
 import {
   faqHome,
   featuredCaseStudies,
@@ -49,7 +49,7 @@ import {
   type HomepageCaseStudySlug,
 } from "@/data/homepage";
 import { pageHeroVisuals } from "@/content/visuals";
-import { faqJsonLd, reviewJsonLd, webPageJsonLd } from "@/lib/seo";
+import { faqJsonLd, webPageJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: string }) {
@@ -102,14 +102,6 @@ export function HomeMarketing() {
     description: brand.positioning,
     path: "/",
   });
-  const reviewSchema = reviewJsonLd(
-    homepageTestimonials.map((item) => ({
-      author: item.name,
-      reviewBody: item.quote,
-      ratingValue: item.rating,
-      itemReviewed: `${item.company} - ${item.project}`,
-    }))
-  );
   const solutionListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -126,13 +118,6 @@ export function HomeMarketing() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
-      {reviewSchema.map((node, index) => (
-        <script
-          key={`review-${index}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
-        />
-      ))}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(solutionListSchema) }} />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
@@ -150,11 +135,8 @@ export function HomeMarketing() {
         <Reveal>
           <Container className="relative z-[1]">
             <div className="grid-layout-12 items-center gap-y-8 lg:gap-y-0">
-              <div className="col-span-12 flex flex-col gap-3 lg:col-span-6 lg:pr-4">
-                {/* Eyebrow badge */}
-                <p className="hero-eyebrow-badge type-badge-label inline-block self-start rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1 text-[11px] text-[color:var(--text-secondary)]">
-                  {homeHero.eyebrowBadge} · UK SaaS · US Trucking
-                </p>
+              <div className="col-span-12 flex flex-col gap-4 lg:col-span-6 lg:pr-4">
+                <HeroEyebrow>{homeHero.eyebrowBadge}</HeroEyebrow>
 
                 <h1 className="type-hero text-foreground text-balance">
                   <HeroHeadline headline={homeHero.headline} emphasis={homeHero.headlineEmphasis} />
@@ -209,11 +191,25 @@ export function HomeMarketing() {
       {/* ── TECH / PLATFORM STRIP ─────────────────────────────────── */}
       <HomeClientLogoStrip clients={homepageClients} />
 
-      {/* ── REVIEW PROOF ─────────────────────────────────────────── */}
-      <SectionShell id="trust" size="compact">
+      {/* ── TRUST + STATS (prominent band) ─────────────────────────── */}
+      <SectionShell id="trust" size="default" className="section-mint" bordered={false}>
         <Reveal>
-          <Container>
+          <Container className="space-y-8">
             <ReviewProofBar variant="compact" />
+            <div className="surface-card stat-card-accent flex flex-col divide-y divide-[var(--section-divider)] md:flex-row md:divide-x md:divide-y-0">
+              {homepageStats.map((s) => (
+                <div
+                  key={s.label}
+                  className="group flex flex-1 flex-col items-center px-6 py-10 text-center transition-colors hover:bg-[var(--color-accent-soft)]/50 md:py-8"
+                >
+                  <p className="tabular-nums">
+                    <AnimatedStatValue value={s.value} className="type-stat text-[var(--color-accent)]" />
+                  </p>
+                  <p className="type-stat-label mt-4 font-medium text-foreground">{s.label}</p>
+                  <p className="type-caption mt-2 max-w-[14rem] text-center">{s.caption}</p>
+                </div>
+              ))}
+            </div>
           </Container>
         </Reveal>
       </SectionShell>
@@ -230,23 +226,35 @@ export function HomeMarketing() {
       {/* ── INDUSTRY SPOTLIGHTS ──────────────────────────────────── */}
       <HomeIndustrySpotlights saas={homepageSolutionSections[0]} trucking={homepageSolutionSections[1]} />
 
-      {/* ── STATS ────────────────────────────────────────────────── */}
-      <SectionShell id="stats" size="default" aria-labelledby="stats-heading">
+      {/* ── PORTFOLIO (moved up) ─────────────────────────────────── */}
+      <SectionShell id="work" size="default">
         <Reveal>
           <Container>
-            <h2 id="stats-heading" className="sr-only">Key metrics</h2>
-            <div className="surface-card stat-card-accent flex flex-col divide-y divide-[var(--section-divider)] md:flex-row md:divide-x md:divide-y-0">
-              {homepageStats.map((s) => (
-                <div
-                  key={s.label}
-                  className="group flex flex-1 flex-col items-center px-6 py-10 text-center transition-colors hover:bg-[var(--surface-muted)] md:py-8"
-                >
-                  <p className="tabular-nums">
-                    <AnimatedStatValue value={s.value} className="type-stat text-[var(--color-accent)]" />
-                  </p>
-                  <p className="type-stat-label mt-4">{s.label}</p>
-                  <p className="type-caption mt-2 max-w-[14rem] text-center">{s.caption}</p>
-                </div>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <SectionHeader
+                className="sm:max-w-lg"
+                eyebrow="Portfolio"
+                title="Selected work"
+                description="Recent projects across SaaS, trucking & logistics, CRM, integrations, and AI automation."
+              />
+              <Link
+                href={primaryCtas.viewWork.href}
+                className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full shrink-0 sm:w-auto")}
+              >
+                View all work
+              </Link>
+            </div>
+            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-6 lg:grid-cols-3">
+              {featuredCaseStudies.map((c) => (
+                <HomeCaseStudyCard
+                  key={c.slug}
+                  slug={c.slug as HomepageCaseStudySlug}
+                  title={c.title}
+                  summary={c.summary}
+                  metric={c.metric}
+                  href={`/work/${c.slug}`}
+                  tags={c.tags}
+                />
               ))}
             </div>
           </Container>
@@ -255,15 +263,6 @@ export function HomeMarketing() {
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
       <HomeTestimonialsSection items={homepageTestimonials} />
-
-      {/* ── MID-PAGE CTA ─────────────────────────────────────────── */}
-      <SectionShell size="compact">
-        <Reveal>
-          <Container>
-            <HeroCtaGroup className="justify-center" trackingLocation="home-post-testimonials" />
-          </Container>
-        </Reveal>
-      </SectionShell>
 
       {/* ── DIFFERENTIATORS ──────────────────────────────────────── */}
       <SectionShell id="why" size="default" className="bg-[var(--surface-muted)]">
@@ -310,71 +309,6 @@ export function HomeMarketing() {
               See our full stack
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-          </Container>
-        </Reveal>
-      </SectionShell>
-
-      {/* ── WHO WE WORK WITH ─────────────────────────────────────── */}
-      <SectionShell id="clients" size="default" className="bg-[var(--surface-muted)]">
-        <Reveal>
-          <Container>
-            <SectionHeader
-              eyebrow="Who we work with"
-              title="Built for SaaS founders and ops teams."
-              description="UK SaaS startups, US trucking operators, and finance teams who need a reliable product partner — not just a vendor."
-            />
-            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-6 md:grid-cols-3">
-              {clientPersonas.map((persona) => (
-                <article key={persona.title} className="surface-card card-hover-rise flex h-full flex-col p-6 sm:p-7">
-                  <h3 className="type-h3">{persona.title}</h3>
-                  <p className="type-body mt-3 max-w-none flex-1 text-sm text-[color:var(--text-secondary)]">
-                    {persona.description}
-                  </p>
-                  <Link
-                    href={persona.href}
-                    className="link-subtle type-body mt-6 inline-flex items-center gap-2 font-semibold text-[var(--color-accent)]"
-                  >
-                    {persona.cta}
-                    <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
-      </SectionShell>
-
-      {/* ── PORTFOLIO ────────────────────────────────────────────── */}
-      <SectionShell id="work" size="default">
-        <Reveal>
-          <Container>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                className="sm:max-w-lg"
-                eyebrow="Portfolio"
-                title="Selected work"
-                description="Recent projects across SaaS, trucking & logistics, CRM, integrations, and AI automation."
-              />
-              <Link
-                href={primaryCtas.viewWork.href}
-                className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full shrink-0 sm:w-auto")}
-              >
-                View all work
-              </Link>
-            </div>
-            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-6 lg:grid-cols-3">
-              {featuredCaseStudies.map((c) => (
-                <HomeCaseStudyCard
-                  key={c.slug}
-                  slug={c.slug as HomepageCaseStudySlug}
-                  title={c.title}
-                  summary={c.summary}
-                  metric={c.metric}
-                  href={`/work/${c.slug}`}
-                  tags={c.tags}
-                />
-              ))}
-            </div>
           </Container>
         </Reveal>
       </SectionShell>
@@ -429,17 +363,17 @@ export function HomeMarketing() {
                   </p>
                   <div className="flex flex-col gap-3">
                     <Link
-                      href={primaryCtas.book.href}
+                      href={primaryCtas.brief.href}
                       className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow w-full gap-2")}
                     >
-                      {primaryCtas.book.label}
+                      {primaryCtas.brief.label}
                       <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
                     </Link>
                     <Link
-                      href={primaryCtas.brief.href}
+                      href={primaryCtas.book.href}
                       className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full")}
                     >
-                      {primaryCtas.brief.label}
+                      {primaryCtas.book.label}
                     </Link>
                   </div>
                   <ul className="space-y-1.5">

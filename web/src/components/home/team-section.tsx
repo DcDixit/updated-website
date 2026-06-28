@@ -24,7 +24,7 @@ export function TeamSection({ team, className }: TeamSectionProps) {
             className="content-card flex h-full min-w-[200px] flex-col p-6"
           >
             <div
-              className="flex size-20 items-center justify-center rounded-full bg-[#BFFF00] text-base font-semibold text-black"
+              className="flex size-20 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-base font-semibold text-[var(--color-accent-strong)] dark:bg-[var(--color-accent)] dark:text-black"
               role="img"
               aria-label={`${member.name}, ${member.role}`}
             >

@@ -60,9 +60,13 @@ export function SiteHeader() {
         "sticky top-0 z-[100] border-b transition-[box-shadow] duration-300 ease-out",
         backdropBlur
       )}
-      style={{
-        borderColor: `color-mix(in oklab, var(--section-divider) ${Math.round(borderOpacity * 100)}%, transparent)`,
-        backgroundColor: `color-mix(in oklab, var(--background) ${Math.round(bgOpacity * 100)}%, transparent)`,
+        style={{
+        borderColor: scrollProgress > 0.05
+          ? `color-mix(in oklab, var(--color-accent) 25%, var(--section-divider))`
+          : `color-mix(in oklab, var(--section-divider) ${Math.round(borderOpacity * 100)}%, transparent)`,
+        backgroundColor: scrollProgress > 0.05
+          ? `color-mix(in oklab, var(--color-accent-soft) 85%, var(--background))`
+          : `color-mix(in oklab, var(--background) ${Math.round(bgOpacity * 100)}%, transparent)`,
         boxShadow:
           scrollProgress > 0.05
             ? `0 1px 0 color-mix(in oklab, var(--section-divider) ${Math.round(scrollProgress * 100)}%, transparent), 0 4px 24px color-mix(in oklab, var(--foreground) ${Math.round(scrollProgress * 4)}%, transparent)`
@@ -154,7 +158,7 @@ export function SiteHeader() {
                           key={item.href}
                           href={item.href}
                           className={cn(
-                            "rounded-lg px-3 py-3 text-base transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35",
+                            "rounded-lg px-3 py-3 text-base transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]",
                             active
                               ? "bg-muted font-medium text-foreground"
                               : "text-[color:var(--text-secondary)] hover:bg-muted/70 hover:text-foreground"
@@ -166,15 +170,24 @@ export function SiteHeader() {
                       );
                     })}
                   <p className="type-badge-label mb-2 mt-6 px-3">More</p>
-                  {navSecondary.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="rounded-lg px-3 py-2.5 text-sm text-[color:var(--text-secondary)] transition-colors hover:bg-muted/70 hover:text-foreground"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                  {navSecondary.map((item) => {
+                    const active = pathname ? isNavActive(pathname, item.href) : false;
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={cn(
+                          "rounded-lg px-3 py-2.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]",
+                          active
+                            ? "bg-muted font-medium text-foreground"
+                            : "text-[color:var(--text-secondary)] hover:bg-muted/70 hover:text-foreground"
+                        )}
+                        aria-current={active ? "page" : undefined}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
                   <div className="mt-6 grid gap-2 border-t border-[var(--surface-border)] pt-6">
                     <Link
                       href={primaryCtas.brief.href}

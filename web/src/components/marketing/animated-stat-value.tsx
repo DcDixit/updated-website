@@ -85,8 +85,8 @@ export function AnimatedStatValue({ value, className }: { value: string; classNa
   }
 
   return (
-    <span ref={ref} className={cn("tabular-nums", className)}>
-      {display}
+    <span ref={ref} className={cn("tabular-nums", className)} aria-label={value}>
+      <span aria-hidden="true">{display}</span>
     </span>
   );
 }

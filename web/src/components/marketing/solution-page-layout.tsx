@@ -5,7 +5,6 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
 import { CaseStudyCard } from "@/components/marketing/case-study-card";
-import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import {
   Accordion,
@@ -193,12 +192,6 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
           </Accordion>
         </Container>
       </Section>
-
-      <LeadCaptureCta
-        eyebrow={solution.title}
-        title={`Ready to discuss your ${solution.title.toLowerCase()} project?`}
-        description="Share your goals and timeline - we'll respond with a clear plan, relevant case studies, and honest next steps."
-      />
     </>
   );
 }

@@ -40,6 +40,8 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 ### 2. Brand & content
 
+**Marketing images:** Commit `public/images/` and `public/brand/og-default.jpg` to the repository so deploys work offline. The build runs `npm run images:fetch` automatically (`prebuild`) and skips files that already exist. To refresh all assets: `FORCE_IMAGES=1 npm run images:fetch`.
+
 Edit `src/content/brand.ts`:
 
 - [ ] Company name (`shortName`, `legalName`)
@@ -135,7 +137,7 @@ Or connect the Git repository in the Vercel dashboard:
 ## Performance notes
 
 - All marketing pages are statically generated at build time.
-- Images use local `/brand/*` SVG assets (no remote image dependencies).
+- Marketing images live in `public/images/` (JPG) with `public/brand/og-default.jpg` for social previews. Run `npm run images:fetch` after clone if images are missing.
 - Theme preference persists via `localStorage` (`northline-theme` key).
 
 ## Support

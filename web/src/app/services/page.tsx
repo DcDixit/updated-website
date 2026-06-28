@@ -5,7 +5,6 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
-import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { MarketingImage } from "@/components/marketing/marketing-image";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { ServiceCard } from "@/components/marketing/service-card";
@@ -118,12 +117,6 @@ export default function ServicesPage() {
           </div>
         </Container>
       </Section>
-
-      <LeadCaptureCta
-        eyebrow="Get started"
-        title="Have a project in mind?"
-        description="Send a brief or book a call — we'll respond within 24 hours with a plan tailored to your scope and timeline."
-      />
     </>
   );
 }
