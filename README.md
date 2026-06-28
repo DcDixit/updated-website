@@ -23,3 +23,14 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000).
 
 See `web/README.md` and `web/DEPLOYMENT.md` for environment variables and deployment.
+
+## Deploy to Vercel (live demo URL)
+
+1. Open [Import on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/DcDixit/updated-website) and sign in with GitHub.
+2. Set **Root Directory** to `web` (click **Edit** on the import screen).
+3. Leave **Framework Preset** as **Next.js**; build command stays `npm run build`.
+4. Add environment variable (optional for demo, recommended after deploy):
+   - `NEXT_PUBLIC_SITE_URL` = your `*.vercel.app` URL (update after first deploy)
+5. Click **Deploy** — your live URL appears in ~2 minutes.
+
+The contact form needs `RESEND_API_KEY` in Vercel env vars; all other pages work without it.
