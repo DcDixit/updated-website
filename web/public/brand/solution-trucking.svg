@@ -1,0 +1,11 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trucking dispatch dashboard">
+  <rect width="1600" height="900" fill="#0C0E0F"/>
+  <rect x="100" y="90" width="1400" height="720" rx="28" fill="#121518" stroke="#2A3138" stroke-width="2"/>
+  <rect x="150" y="150" width="900" height="580" rx="18" fill="#11161A" stroke="#2A3138"/>
+  <rect x="1080" y="150" width="370" height="270" rx="18" fill="#11161A" stroke="#2A3138"/>
+  <rect x="1080" y="460" width="370" height="270" rx="18" fill="#11161A" stroke="#2A3138"/>
+  <path d="M200 620L320 540L440 580L560 500L680 540L800 480" stroke="#A3E635" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="560" cy="500" r="10" fill="#A3E635"/>
+  <rect x="1120" y="190" width="200" height="12" rx="6" fill="#2F3841"/>
+  <rect x="1120" y="500" width="200" height="12" rx="6" fill="#2F3841"/>
+</svg>

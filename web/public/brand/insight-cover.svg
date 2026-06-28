@@ -1,0 +1,10 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Insight article cover">
+  <rect width="1200" height="630" fill="#0C0E10"/>
+  <rect x="80" y="70" width="1040" height="490" rx="24" fill="#121518" stroke="#2A3138" stroke-width="2"/>
+  <rect x="130" y="130" width="520" height="370" rx="16" fill="#171D22" stroke="#2A3138"/>
+  <rect x="690" y="130" width="380" height="160" rx="16" fill="#171D22" stroke="#2A3138"/>
+  <rect x="690" y="320" width="380" height="180" rx="16" fill="#171D22" stroke="#2A3138"/>
+  <rect x="160" y="170" width="220" height="14" rx="7" fill="#2F3841"/>
+  <rect x="160" y="200" width="380" height="10" rx="5" fill="#273039"/>
+  <circle cx="1040" cy="150" r="16" fill="#A3E635"/>
+</svg>

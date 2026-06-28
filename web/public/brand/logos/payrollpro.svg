@@ -1,0 +1,6 @@
+<svg width="180" height="52" viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="52" rx="10" fill="#11161A"/>
+  <rect x="20" y="16" width="24" height="20" rx="4" fill="#A3E635" fill-opacity="0.22"/>
+  <path d="M26 25H38M26 30H34" stroke="#A3E635" stroke-width="2" stroke-linecap="round"/>
+  <text x="52" y="31" fill="#F4F6F8" font-family="Arial, sans-serif" font-size="15" font-weight="700">PayrollPro</text>
+</svg>

@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Solitons – Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0a0a;
+--bg-2:#111111;
+--bg-3:#161616;
+--bg-card:#141414;
+--border:#1f1f1f;
+--border-light:#2a2a2a;
+--accent:#c8f135;
+--accent-dim:#9bbf20;
+--accent-glow:rgba(200,241,53,0.12);
+--accent-glow-sm:rgba(200,241,53,0.07);
+--text-primary:#f0ede6;
+--text-secondary:#8a8780;
+--text-muted:#4a4845;
+--white:#ffffff;
+--font-display:'Syne',sans-serif;
+--font-body:'DM Sans',sans-serif;
+--radius-sm:6px;
+--radius-md:10px;
+--radius-lg:16px;
+--radius-xl:24px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-primary);font-family:var(--font-body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);transition:border-color 0.3s}
+nav.scrolled{border-bottom-color:var(--border)}
+.nav-logo{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--text-primary);letter-spacing:-0.3px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:13px;font-weight:400;color:var(--text-secondary);text-decoration:none;letter-spacing:0.2px;transition:color 0.2s}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-ctas{display:flex;align-items:center;gap:10px}
+.btn-ghost{padding:8px 16px;font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-secondary);background:transparent;border:1px solid var(--border-light);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.2s;text-decoration:none}
+.btn-ghost:hover{color:var(--text-primary);border-color:var(--text-muted)}
+.btn-accent{padding:8px 18px;font-family:var(--font-body);font-size:13px;font-weight:600;color:#0a0a0a;background:var(--accent);border:none;border-radius:var(--radius-sm);cursor:pointer;transition:all 0.2s;text-decoration:none;letter-spacing:0.1px}
+.btn-accent:hover{background:#d4f545;transform:translateY(-1px)}
+
+/* SECTIONS */
+section{padding:100px 48px;max-width:1200px;margin:0 auto}
+.section-tag{font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.section-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent);vertical-align:middle;margin-right:8px}
+
+/* HERO */
+.hero-wrap{max-width:none;padding:0}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-100px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,241,53,0.06) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-light),transparent)}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-label{display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 8px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:40px;font-size:11px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:32px}
+.hero-label span{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+h1{font-family:var(--font-display);font-size:clamp(42px,5vw,68px);font-weight:800;line-height:1.03;letter-spacing:-2px;color:var(--text-primary);margin-bottom:24px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:16px;font-weight:300;color:var(--text-secondary);line-height:1.7;max-width:420px;margin-bottom:36px}
+.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-family:var(--font-body);font-size:14px;font-weight:600;color:#0a0a0a;background:var(--accent);border:none;border-radius:var(--radius-md);cursor:pointer;transition:all 0.25s;text-decoration:none;letter-spacing:0.1px}
+.btn-primary:hover{background:#d4f545;transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,241,53,0.25)}
+.btn-primary svg,.btn-outline svg{flex-shrink:0}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--text-primary);background:transparent;border:1px solid var(--border-light);border-radius:var(--radius-md);cursor:pointer;transition:all 0.25s;text-decoration:none}
+.btn-outline:hover{border-color:var(--text-muted);background:var(--bg-card)}
+.hero-trust{margin-top:40px;display:flex;align-items:center;gap:16px}
+.trust-avatars{display:flex}
+.trust-avatars span{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;margin-left:-8px;background:var(--bg-3);color:var(--text-secondary)}
+.trust-avatars span:first-child{margin-left:0}
+.trust-text{font-size:12px;color:var(--text-secondary);line-height:1.4}
+.trust-text strong{color:var(--text-primary);font-weight:500}
+.hero-visual{position:relative}
+.hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center}
+.hero-card-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--bg-3) 0%,var(--bg-card) 50%,#0f1a00 100%);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px}
+.hero-card-badge{position:absolute;top:24px;left:24px;background:var(--accent-glow);border:1px solid rgba(200,241,53,0.2);border-radius:var(--radius-sm);padding:6px 12px;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:0.5px}
+.hero-card-screen{position:absolute;top:60px;left:24px;right:24px;height:55%;background:var(--bg-2);border-radius:var(--radius-md);border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column}
+.screen-bar{height:28px;background:var(--bg-3);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 10px;gap:5px}
+.screen-dot{width:7px;height:7px;border-radius:50%}
+.screen-content{flex:1;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.screen-block{background:var(--bg-card);border-radius:6px;border:1px solid var(--border)}
+.screen-block.accent{background:var(--accent-glow-sm);border-color:rgba(200,241,53,0.15)}
+.hero-stat-row{display:flex;gap:16px;width:100%}
+.hero-stat{flex:1;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px}
+.hero-stat-num{font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--accent);line-height:1}
+.hero-stat-label{font-size:11px;color:var(--text-secondary);margin-top:3px}
+
+/* LOGOS */
+.logos-section{padding:40px 48px 60px;max-width:1200px;margin:0 auto;border-bottom:1px solid var(--border)}
+.logos-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:24px;font-weight:500}
+.logos-track{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.logo-item{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text-muted);letter-spacing:-0.3px;transition:color 0.2s}
+.logo-item:hover{color:var(--text-secondary)}
+
+/* STATS */
+.stats-band{padding:60px 48px;max-width:1200px;margin:0 auto}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
+.stat-cell{background:var(--bg-card);padding:36px 32px;text-align:center}
+.stat-number{font-family:var(--font-display);font-size:48px;font-weight:800;line-height:1;letter-spacing:-2px;color:var(--text-primary)}
+.stat-number span{color:var(--accent)}
+.stat-desc{font-size:13px;color:var(--text-secondary);margin-top:8px;line-height:1.5}
+
+/* TEAM SECTION */
+.team-section{padding:100px 48px}
+.team-section>*{max-width:1200px;margin-left:auto;margin-right:auto}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+.section-title{font-family:var(--font-display);font-size:clamp(32px,3.5vw,48px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;color:var(--text-primary)}
+.section-title em{font-style:normal;color:var(--accent)}
+.section-desc{font-size:14px;color:var(--text-secondary);max-width:360px;line-height:1.7;text-align:right}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto}
+.team-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all 0.25s;position:relative;overflow:hidden}
+.team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background 0.25s}
+.team-card:hover{border-color:var(--border-light);transform:translateY(-3px)}
+.team-card:hover::before{background:var(--accent)}
+.card-icon-wrap{width:44px;height:44px;border-radius:var(--radius-md);background:var(--accent-glow);border:1px solid rgba(200,241,53,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0}
+.card-icon{font-size:20px;color:var(--accent)}
+.team-card h3{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:8px;letter-spacing:-0.3px}
+.team-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.card-meta{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);letter-spacing:0.5px;text-transform:uppercase}
+
+/* INDUSTRIES */
+.industries-section{padding:100px 48px;background:var(--bg-2);position:relative}
+.industries-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--border)}
+.industries-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border)}
+.industries-inner{max-width:1200px;margin:0 auto}
+.industries-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:60px}
+.industries-left .section-title{max-width:380px}
+.industries-right{padding-top:40px}
+.industries-right p{font-size:15px;color:var(--text-secondary);line-height:1.75;margin-bottom:24px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-secondary)}
+.check-list li::before{content:'';width:16px;height:16px;border-radius:4px;background:var(--accent-glow);border:1px solid rgba(200,241,53,0.25);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3 3 7-6' stroke='%23c8f135' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:14px;background-repeat:no-repeat;background-position:center}
+.industry-tabs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.industry-tab{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:all 0.25s;cursor:pointer;position:relative;overflow:hidden}
+.industry-tab.active,.industry-tab:hover{border-color:rgba(200,241,53,0.25);background:var(--bg-3)}
+.industry-tab .tab-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.industry-tab h4{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-primary);margin-bottom:10px;letter-spacing:-0.4px}
+.industry-tab p{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:20px}
+.tab-link{font-size:12px;font-weight:500;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.tab-corner{position:absolute;bottom:24px;right:24px;width:32px;height:32px;border-radius:50%;background:var(--accent-glow);border:1px solid rgba(200,241,53,0.2);display:flex;align-items:center;justify-content:center}
+.tab-corner svg{color:var(--accent)}
+
+/* SHOWCASE */
+.showcase-section{padding:100px 48px;max-width:1200px;margin:0 auto}
+.showcase-header{margin-bottom:48px}
+.showcase-header .section-title{max-width:560px}
+.showcase-header p{font-size:15px;color:var(--text-secondary);margin-top:16px;max-width:480px}
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.showcase-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--bg-card);transition:all 0.25s}
+.showcase-card:hover{border-color:var(--border-light);transform:translateY(-2px)}
+.showcase-visual{height:220px;position:relative;overflow:hidden}
+.showcase-visual.v1{background:linear-gradient(135deg,#0d1a00 0%,#1a3300 40%,#0a2000 100%)}
+.showcase-visual.v2{background:linear-gradient(135deg,#001a10 0%,#002a1a 40%,#001510 100%)}
+.showcase-visual-label{position:absolute;top:20px;left:20px;background:rgba(10,10,10,0.85);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:5px 10px;font-size:11px;font-weight:500;color:var(--text-secondary);backdrop-filter:blur(8px)}
+.showcase-visual-accent{position:absolute;bottom:20px;right:20px;width:56px;height:56px;border-radius:var(--radius-md);background:var(--accent-glow);border:1px solid rgba(200,241,53,0.2);display:flex;align-items:center;justify-content:center}
+.showcase-body{padding:24px}
+.showcase-body h4{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:8px;letter-spacing:-0.3px}
+.showcase-body p{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
+.showcase-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{padding:4px 10px;background:var(--bg-2);border:1px solid var(--border);border-radius:40px;font-size:11px;color:var(--text-muted);font-weight:500}
+
+/* METRICS */
+.metrics-section{padding:80px 48px;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.metrics-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center}
+.metrics-left .section-title{margin-bottom:12px}
+.metrics-left p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:28px}
+.metrics-right{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-width:440px}
+.metric-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 28px}
+.metric-val{font-family:var(--font-display);font-size:40px;font-weight:800;letter-spacing:-1.5px;color:var(--text-primary);line-height:1}
+.metric-val em{font-style:normal;color:var(--accent)}
+.metric-label{font-size:12px;color:var(--text-secondary);margin-top:6px;line-height:1.4}
+
+/* TESTIMONIAL */
+.testimonial-section{padding:100px 48px;max-width:1200px;margin:0 auto}
+.testimonial-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:border-color 0.25s}
+.testimonial-card:hover{border-color:var(--border-light)}
+.testimonial-card.featured{background:var(--bg-3);border-color:rgba(200,241,53,0.15)}
+.stars{display:flex;gap:3px;margin-bottom:20px}
+.star{width:12px;height:12px;background:var(--accent);clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)}
+.testimonial-quote{font-size:15px;color:var(--text-secondary);line-height:1.75;margin-bottom:28px;font-style:italic;font-weight:300}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.author-avatar{width:36px;height:36px;border-radius:50%;background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--text-secondary);flex-shrink:0}
+.author-name{font-size:13px;font-weight:500;color:var(--text-primary)}
+.author-role{font-size:11px;color:var(--text-muted)}
+
+/* STACK */
+.stack-section{padding:80px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stack-inner{max-width:1200px;margin:0 auto}
+.stack-header{text-align:center;margin-bottom:48px}
+.stack-header .section-title{font-size:clamp(28px,3vw,38px);margin:0 auto 12px}
+.stack-header p{font-size:14px;color:var(--text-secondary);max-width:420px;margin:0 auto}
+.stack-logos{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.stack-item{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:all 0.2s}
+.stack-item:hover{transform:translateY(-2px)}
+.stack-logo-box{width:52px;height:52px;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--text-secondary);transition:all 0.2s}
+.stack-item:hover .stack-logo-box{border-color:var(--border-light);color:var(--text-primary)}
+.stack-item span{font-size:10px;color:var(--text-muted);letter-spacing:0.5px;font-weight:500}
+
+/* DELIVERY */
+.delivery-section{padding:100px 48px;max-width:1200px;margin:0 auto}
+.delivery-header{margin-bottom:60px}
+.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:all 0.25s;position:relative}
+.delivery-card:hover{border-color:var(--border-light);transform:translateY(-2px)}
+.delivery-num{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-muted);margin-bottom:24px}
+.delivery-card h4{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:12px;letter-spacing:-0.4px}
+.delivery-card p{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:20px}
+.delivery-features{list-style:none;display:flex;flex-direction:column;gap:6px}
+.delivery-features li{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:7px}
+.delivery-features li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* WORK */
+.work-section{padding:100px 48px;background:var(--bg-2);border-top:1px solid var(--border)}
+.work-inner{max-width:1200px;margin:0 auto}
+.work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--bg-card);transition:all 0.25s;cursor:pointer}
+.work-card:hover{border-color:var(--border-light);transform:translateY(-3px)}
+.work-visual{height:160px;position:relative;overflow:hidden;background:var(--bg-3)}
+.work-visual-bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent)}
+.work-tag{position:absolute;top:14px;left:14px;background:rgba(10,10,10,0.9);border:1px solid var(--border-light);border-radius:40px;padding:4px 10px;font-size:10px;font-weight:600;color:var(--text-secondary);letter-spacing:0.5px;backdrop-filter:blur(4px)}
+.work-body{padding:20px}
+.work-body h4{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:6px;letter-spacing:-0.2px}
+.work-body p{font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:12px}
+.work-tags{display:flex;gap:5px;flex-wrap:wrap}
+
+/* PROCESS */
+.process-section{padding:100px 48px;max-width:1200px;margin:0 auto}
+.process-header{margin-bottom:60px}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:80px;right:80px;height:1px;background:var(--border);z-index:0}
+.process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;z-index:1}
+.step-circle{width:56px;height:56px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative;transition:all 0.25s}
+.process-step:hover .step-circle{border-color:var(--accent);background:var(--accent-glow)}
+.step-num{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--text-muted)}
+.process-step.active .step-circle{background:var(--accent);border-color:var(--accent)}
+.process-step.active .step-num{color:#0a0a0a}
+.step-title{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:6px;letter-spacing:-0.2px}
+.step-desc{font-size:11px;color:var(--text-muted);line-height:1.5}
+
+/* FAQ */
+.faq-section{padding:100px 48px;background:var(--bg-2);border-top:1px solid var(--border)}
+.faq-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.faq-left .section-title{font-size:clamp(28px,3vw,40px);margin-bottom:16px}
+.faq-left p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:28px}
+.faq-list{display:flex;flex-direction:column;gap:2px}
+.faq-item{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);background:var(--bg-card)}
+.faq-item+.faq-item{margin-top:2px}
+.faq-q{width:100%;padding:20px 24px;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;color:var(--text-primary);font-family:var(--font-body);font-size:14px;font-weight:500;transition:color 0.2s}
+.faq-q:hover{color:var(--accent)}
+.faq-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-muted);font-size:14px;transition:all 0.25s}
+.faq-item.open .faq-icon{background:var(--accent);border-color:var(--accent);color:#0a0a0a;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s}
+.faq-a-inner{padding:0 24px 20px;font-size:13px;color:var(--text-secondary);line-height:1.7}
+.faq-item.open .faq-a{max-height:200px}
+
+/* CTA */
+.cta-section{padding:80px 48px}
+.cta-inner{max-width:1200px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:64px;text-align:center;position:relative;overflow:hidden}
+.cta-inner::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(200,241,53,0.07) 0%,transparent 70%);pointer-events:none}
+.cta-inner .section-tag{justify-content:center;display:inline-flex;align-items:center}
+.cta-inner .section-title{font-size:clamp(32px,4vw,52px);margin:0 auto 16px;max-width:560px}
+.cta-inner p{font-size:15px;color:var(--text-secondary);max-width:440px;margin:0 auto 36px;line-height:1.7}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:12px}
+
+/* FOOTER */
+footer{padding:60px 48px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px}
+.footer-brand p{font-size:13px;color:var(--text-secondary);margin-top:12px;max-width:260px;line-height:1.6}
+.footer-col h5{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:var(--text-secondary);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.footer-col a:hover{color:var(--text-primary)}
+.footer-bottom{padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:12px;color:var(--text-muted)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.footer-legal a:hover{color:var(--text-secondary)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.animate{opacity:0;animation:fadeUp 0.6s ease forwards}
+.animate.d1{animation-delay:0.1s}.animate.d2{animation-delay:0.2s}.animate.d3{animation-delay:0.3s}.animate.d4{animation-delay:0.4s}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Solitons</div>
+  <div class="nav-links">
+    <a href="#">Work</a>
+    <a href="#">Services</a>
+    <a href="#">Process</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="nav-ctas">
+    <a href="#" class="btn-ghost">Book a call</a>
+    <a href="#" class="btn-accent">Start a project</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+<div class="hero">
+  <div class="hero-inner">
+    <div class="animate d1">
+      <div class="hero-label"><span class="live-dot"></span>Now accepting projects for Q3 2025</div>
+      <h1>SaaS products<br>for <em>UK teams.</em><br>Trucking software<br>for US operators.</h1>
+      <p class="hero-sub">A focused in-house product team — not a freelance network. We ship design-led digital products that work in the real world.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">
+          Start a project
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" class="btn-outline">
+          View our work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <span>JM</span><span>KR</span><span>AT</span><span>+8</span>
+        </div>
+        <div class="trust-text"><strong>11 product teams</strong> shipped this year<br>across UK SaaS &amp; US logistics</div>
+      </div>
+    </div>
+    <div class="animate d3">
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-card-badge">Live Dashboard</div>
+          <div class="hero-card-screen">
+            <div class="screen-bar">
+              <div class="screen-dot" style="background:#ff5f57"></div>
+              <div class="screen-dot" style="background:#febc2e"></div>
+              <div class="screen-dot" style="background:#28c840"></div>
+            </div>
+            <div class="screen-content">
+              <div class="screen-block accent"></div>
+              <div class="screen-block"></div>
+              <div class="screen-block"></div>
+              <div class="screen-block accent"></div>
+            </div>
+          </div>
+          <div class="hero-stat-row">
+            <div class="hero-stat">
+              <div class="hero-stat-num">15+</div>
+              <div class="hero-stat-label">Products shipped</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">98%</div>
+              <div class="hero-stat-label">Client retention</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos-section">
+  <div class="logos-label">Trusted by product teams at</div>
+  <div class="logos-track">
+    <span class="logo-item">FleetPro</span>
+    <span class="logo-item">PayrollFlo</span>
+    <span class="logo-item">HaulerSync</span>
+    <span class="logo-item">QuoteKit</span>
+    <span class="logo-item">DashRoute</span>
+    <span class="logo-item">TrackWise</span>
+    <span class="logo-item">GarageOS</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-number">10<span>+</span></div>
+      <div class="stat-desc">Years shipping product, not just designs</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-number">4<span>+</span></div>
+      <div class="stat-desc">Years dedicated to SaaS &amp; logistics software</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-number">15<span>+</span></div>
+      <div class="stat-desc">End-to-end products launched this year</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-number">98<span>%</span></div>
+      <div class="stat-desc">Client satisfaction across all engagements</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Why Solitons</div>
+      <div class="section-title">A focused in-house team,<br>not a <em>freelance network.</em></div>
+    </div>
+    <div class="section-desc">Every project runs through a dedicated core team — same people, start to finish. No handoffs to strangers.</div>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="card-icon-wrap">
+        <svg class="card-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="2" stroke="#c8f135" stroke-width="1.5"/><rect x="11" y="2" width="7" height="7" rx="2" stroke="#c8f135" stroke-width="1.5"/><rect x="2" y="11" width="7" height="7" rx="2" stroke="#c8f135" stroke-width="1.5"/><circle cx="14.5" cy="14.5" r="3.5" stroke="#c8f135" stroke-width="1.5"/></svg>
+      </div>
+      <h3>UX &amp; Product Design</h3>
+      <p>Intuitive interfaces built from user insight, not templates. We design for adoption — screens that feel obvious from day one.</p>
+      <div class="card-meta">UI / UX · Product Strategy · Figma</div>
+    </div>
+    <div class="team-card">
+      <div class="card-icon-wrap">
+        <svg class="card-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><polyline points="4,14 8,10 11,13 16,7" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="16" height="16" rx="2" stroke="#c8f135" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Full-Stack Engineering</h3>
+      <p>Clean, scalable code that ships on time. React, Next.js, Node — built to integrate with your existing stack from day one.</p>
+      <div class="card-meta">React · Next.js · Node · PostgreSQL</div>
+    </div>
+    <div class="team-card">
+      <div class="card-icon-wrap">
+        <svg class="card-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#c8f135" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Rapid Prototyping</h3>
+      <p>From concept to clickable prototype in days, not weeks. Validate ideas early so you spend budget on what actually works.</p>
+      <div class="card-meta">Figma Prototypes · Framer · Storybook</div>
+    </div>
+    <div class="team-card">
+      <div class="card-icon-wrap">
+        <svg class="card-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17l4-4m10-6a7 7 0 11-14 0 7 7 0 0114 0z" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Product Discovery</h3>
+      <p>We map the real problem before we touch Figma. User research, competitive analysis, and strategic framing — upfront.</p>
+      <div class="card-meta">User Research · Jobs-to-be-done · Workshops</div>
+    </div>
+    <div class="team-card">
+      <div class="card-icon-wrap">
+        <svg class="card-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10h16M10 2l3 8-3 8M10 2L7 10l3 8" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>API &amp; Integrations</h3>
+      <p>ELD systems, dispatch platforms, payroll APIs — we've connected them all. Complex integrations delivered cleanly.</p>
+      <div class="card-meta">REST · GraphQL · ELD · Stripe · Plaid</div>
+    </div>
+    <div class="team-card">
+      <div class="card-icon-wrap">
+        <svg class="card-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="8" width="14" height="9" rx="2" stroke="#c8f135" stroke-width="1.5"/><path d="M7 8V6a3 3 0 016 0v2" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Post-Launch Support</h3>
+      <p>We stay after the launch party. Monitoring, iteration, and continuous improvements — your long-term product partner.</p>
+      <div class="card-meta">Monitoring · Bug Fixes · Feature Sprints</div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<div class="industries-section">
+<div class="industries-inner">
+  <div class="industries-top">
+    <div class="industries-left">
+      <div class="section-tag">Two markets, one team</div>
+      <div class="section-title">Two industries.<br>One <em>focused</em> team.</div>
+    </div>
+    <div class="industries-right">
+      <p>We don't take every project that comes our way. We operate exclusively in two verticals — UK SaaS products and US trucking &amp; logistics platforms. That depth is our advantage.</p>
+      <ul class="check-list">
+        <li>Deep domain expertise in both verticals</li>
+        <li>Pre-built component libraries for faster delivery</li>
+        <li>Regulatory knowledge baked in from day one</li>
+        <li>Active relationships with ELD vendors &amp; logistics APIs</li>
+      </ul>
+    </div>
+  </div>
+  <div class="industry-tabs">
+    <div class="industry-tab active">
+      <div class="tab-tag">UK SaaS</div>
+      <h4>SaaS Product Solutions</h4>
+      <p>Design-led platforms for UK startups and scaling teams — from first MVP to Series A-ready products with real users.</p>
+      <a href="#" class="tab-link">Explore SaaS work →</a>
+      <div class="tab-corner">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div class="industry-tab">
+      <div class="tab-tag">US Trucking &amp; Logistics</div>
+      <h4>Digital Products for Fleets</h4>
+      <p>Dispatch systems, driver apps, and operations dashboards for trucking companies, brokers, and fleet operators across the US.</p>
+      <a href="#" class="tab-link">Explore trucking work →</a>
+      <div class="tab-corner">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="#c8f135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-section">
+<div class="metrics-inner">
+  <div class="metrics-left">
+    <div class="section-tag">By the numbers</div>
+    <div class="section-title">Results that<br><em>speak</em> for themselves.</div>
+    <p>Across every engagement — SaaS or logistics — our track record holds. On time, on budget, and built to last past launch day.</p>
+    <a href="#" class="btn-primary" style="display:inline-flex">
+      See our work
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="metrics-right">
+    <div class="metric-card">
+      <div class="metric-val">10<em>+</em></div>
+      <div class="metric-label">Years shipping real digital products</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">4<em>+</em></div>
+      <div class="metric-label">Years in SaaS &amp; logistics verticals</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">15<em>+</em></div>
+      <div class="metric-label">Products launched this year</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">98<em>%</em></div>
+      <div class="metric-label">Client retention rate</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+  <div class="testimonial-header">
+    <div>
+      <div class="section-tag">Client voices</div>
+      <div class="section-title">Trusted by product teams.</div>
+    </div>
+    <a href="#" class="btn-outline" style="flex-shrink:0">
+      Read all reviews
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card featured">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-quote">"Solitons completely transformed how we think about our fleet management platform. The UX improvements alone reduced driver support tickets by 60%. These aren't designers who dabble in code — they're product engineers who care about outcomes."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">TM</div>
+        <div>
+          <div class="author-name">Thomas Mitchell</div>
+          <div class="author-role">CTO · FleetPro USA</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-quote">"We'd worked with three agencies before Solitons. The difference was night and day. They asked questions no one else did, caught edge cases in week one, and delivered a product that actually matched the brief."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <div class="author-name">Sarah Raines</div>
+          <div class="author-role">Founder · PayrollFlo UK</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<div class="stack-section">
+<div class="stack-inner">
+  <div class="stack-header">
+    <div class="section-tag" style="justify-content:center;display:inline-flex;width:100%">Modern stack</div>
+    <div class="section-title">Modern stack. Human oversight.</div>
+    <p>We choose technology that scales with your business — not what's trendy this quarter.</p>
+  </div>
+  <div class="stack-logos">
+    <div class="stack-item"><div class="stack-logo-box">Nxt</div><span>Next.js</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Rct</div><span>React</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Ts</div><span>TypeScript</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Pg</div><span>PostgreSQL</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Ver</div><span>Vercel</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Fig</div><span>Figma</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Str</div><span>Stripe</span></div>
+    <div class="stack-item"><div class="stack-logo-box">Aws</div><span>AWS</span></div>
+  </div>
+</div>
+</div>
+
+<!-- DELIVERY -->
+<section class="delivery-section">
+  <div class="delivery-header">
+    <div class="section-tag">Specialisations</div>
+    <div class="section-title">Enterprise-level delivery<br>for <em>focused</em> industries.</div>
+  </div>
+  <div class="delivery-grid">
+    <div class="delivery-card">
+      <div class="delivery-num">01</div>
+      <h4>UK SaaS Founders</h4>
+      <p>We build platforms that are ready for scale from day one — architecture, UX, and positioning built to grow with your ambitions.</p>
+      <ul class="delivery-features">
+        <li>MVP to Series A product strategy</li>
+        <li>Design systems that scale with headcount</li>
+        <li>Investor-ready product documentation</li>
+        <li>SaaS metric dashboards built in</li>
+      </ul>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-num">02</div>
+      <h4>US Trucking &amp; Logistics</h4>
+      <p>Dispatch systems, ELD integrations, driver apps — built for the operational realities of fleets that run 24/7.</p>
+      <ul class="delivery-features">
+        <li>ELD &amp; FMCSA compliance built in</li>
+        <li>Driver mobile apps for Android &amp; iOS</li>
+        <li>Real-time dispatch &amp; route management</li>
+        <li>Broker &amp; carrier portal development</li>
+      </ul>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-num">03</div>
+      <h4>Finance &amp; Ops Teams</h4>
+      <p>Custom back-office tooling and finance dashboards that replace spreadsheets and give operations teams actual leverage.</p>
+      <ul class="delivery-features">
+        <li>Payroll &amp; invoicing automation</li>
+        <li>Accounts receivable dashboards</li>
+        <li>Multi-entity financial reporting</li>
+        <li>Stripe &amp; Plaid integrations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<div class="work-section">
+<div class="work-inner">
+  <div class="work-header">
+    <div>
+      <div class="section-tag">Portfolio</div>
+      <div class="section-title">Selected work.</div>
+    </div>
+    <a href="#" class="btn-outline">
+      View all projects
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-visual v1" style="background:linear-gradient(135deg,#0a1500,#1e3300)">
+        <div class="work-tag">SaaS · UK</div>
+        <div class="work-visual-bar"></div>
+      </div>
+      <div class="work-body">
+        <h4>FleetPro — Trucking Platform</h4>
+        <p>End-to-end fleet management SaaS — dispatch, compliance, and driver mobile app for 500+ trucks.</p>
+        <div class="work-tags"><span class="tag">Next.js</span><span class="tag">React Native</span><span class="tag">ELD API</span></div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-visual" style="background:linear-gradient(135deg,#001020,#002040)">
+        <div class="work-tag">SaaS · B2B</div>
+        <div class="work-visual-bar"></div>
+      </div>
+      <div class="work-body">
+        <h4>PayrollFlo — £32k MRR SaaS</h4>
+        <p>UK payroll automation for SMBs. Built from scratch to £32k MRR in 14 months post-launch.</p>
+        <div class="work-tags"><span class="tag">React</span><span class="tag">Stripe</span><span class="tag">HMRC API</span></div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-visual" style="background:linear-gradient(135deg,#100010,#200030)">
+        <div class="work-tag">Logistics · US</div>
+        <div class="work-visual-bar"></div>
+      </div>
+      <div class="work-body">
+        <h4>HaulerSync — QuickBooks Integration</h4>
+        <p>Carrier billing &amp; invoice platform with deep QuickBooks sync for independent owner-operators.</p>
+        <div class="work-tags"><span class="tag">Node.js</span><span class="tag">QuickBooks</span><span class="tag">Plaid</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-header">
+    <div class="section-tag">How we work</div>
+    <div class="section-title">From first brief to live product —<br>a <em>clear</em> process.</div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step active">
+      <div class="step-circle"><span class="step-num">01</span></div>
+      <div class="step-title">Discovery</div>
+      <div class="step-desc">Scoping, user research, and project strategy</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle"><span class="step-num">02</span></div>
+      <div class="step-title">UX Design</div>
+      <div class="step-desc">Wireframes, flows, and validated prototypes</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle"><span class="step-num">03</span></div>
+      <div class="step-title">Development</div>
+      <div class="step-desc">Agile sprints with weekly delivery checkpoints</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle"><span class="step-num">04</span></div>
+      <div class="step-title">QA &amp; Launch</div>
+      <div class="step-desc">Testing, staging review, and go-live support</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle"><span class="step-num">05</span></div>
+      <div class="step-title">Post-Launch</div>
+      <div class="step-desc">Monitoring, iteration, and ongoing feature work</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="faq-section">
+<div class="faq-inner">
+  <div class="faq-left">
+    <div class="section-tag">FAQ</div>
+    <div class="section-title">Common questions.</div>
+    <p>If you don't see your answer here, drop us a message — we respond to every enquiry within one business day.</p>
+    <a href="#" class="btn-primary" style="display:inline-flex">
+      Get in touch
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="faq-list" id="faqList">
+    <div class="faq-item">
+      <button class="faq-q">How long does a typical project take?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Most projects run 8–20 weeks depending on scope. An MVP with core features typically takes 8–12 weeks; a full platform with integrations runs 16–24 weeks. We give you a realistic timeline in week one, not a padded estimate.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you work with early-stage startups?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes — a significant portion of our work is with pre-seed and seed-stage founders. We're comfortable with ambiguity and good at helping founders define what to build before we start building it.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What does the engagement process look like?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">It starts with a 30-minute discovery call. From there we produce a scoped proposal with timeline and fixed pricing. Once agreed, we kick off with a discovery sprint before any design or code begins.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you offer post-launch support?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Most clients retain us on a monthly basis after launch for feature development, monitoring, and bug fixes. We offer flexible support plans from 20 hours/month upward.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Are you able to handle US-based trucking regulations?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. We have deep experience with FMCSA compliance requirements, HOS regulations, ELD mandates, and IFTA reporting. We've built products for both asset-based carriers and freight brokers.</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<section style="padding:80px 48px">
+<div class="cta-inner">
+  <div class="section-tag">Let's build</div>
+  <div class="section-title">Ready to build your<br>SaaS or trucking platform?</div>
+  <p>Tell us about your project. We'll come back within one business day with a clear path forward — no sales pitch, just strategy.</p>
+  <div class="cta-buttons">
+    <a href="#" class="btn-primary">
+      Start a project
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="#" class="btn-outline">Book a call</a>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--text-primary)">Solitons</div>
+      <p>A focused in-house product team building SaaS platforms for UK teams and trucking software for US operators.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Work</h5>
+      <a href="#">SaaS Products</a>
+      <a href="#">Trucking Software</a>
+      <a href="#">Case Studies</a>
+      <a href="#">All Projects</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#">About</a>
+      <a href="#">Process</a>
+      <a href="#">Team</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="#">Start a project</a>
+      <a href="#">Book a call</a>
+      <a href="#">hello@solitons.io</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Solitons. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+const items=document.querySelectorAll('.faq-item');
+items.forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    items.forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
+},{threshold:0.1});
+document.querySelectorAll('.team-card,.delivery-card,.work-card,.metric-card,.testimonial-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
