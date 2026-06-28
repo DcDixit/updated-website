@@ -9,10 +9,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "btn-accent-glow border border-transparent bg-[#BFFF00] text-black hover:opacity-95",
+          "btn-accent-glow border border-transparent bg-[var(--color-accent)] text-black hover:opacity-95",
         secondary:
-          "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 dark:border-white dark:text-white dark:hover:bg-white/5",
-        link: "border-transparent bg-transparent text-[#BFFF00] underline-offset-4 hover:underline",
+          "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 dark:border-[var(--surface-border)] dark:hover:bg-white/5",
+        link: "border-transparent bg-transparent text-[var(--color-accent-strong)] underline-offset-4 hover:underline",
       },
       size: {
         default:

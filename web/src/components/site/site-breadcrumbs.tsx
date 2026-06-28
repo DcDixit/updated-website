@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRight } from "lucide-react";
+import { IconChevronRight } from "@tabler/icons-react";
 
 import { Container } from "@/components/layout/container";
 import { caseStudies, insightPosts, services } from "@/content/site-content";
@@ -58,9 +58,6 @@ export function SiteBreadcrumbs() {
   if (!pathname || pathname === "/") return null;
 
   const segments = pathname.split("/").filter(Boolean);
-  /** Show breadcrumbs only on nested/detail routes. */
-  if (segments.length < 2) return null;
-
   const crumbs: { href: string; label: string }[] = [{ href: "/", label: "Home" }];
 
   let acc = "";
@@ -83,6 +80,7 @@ export function SiteBreadcrumbs() {
 
     crumbs.push({ href: acc, label });
   });
+
   const breadcrumbSchema = breadcrumbJsonLd(crumbs.map((crumb) => ({ name: crumb.label, path: crumb.href })));
 
   return (
@@ -96,7 +94,7 @@ export function SiteBreadcrumbs() {
               return (
                 <li key={c.href} className="flex max-w-full items-center gap-1">
                   {i > 0 ? (
-                    <ChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden />
+                    <IconChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden stroke={1.5} />
                   ) : null}
                   {isLast ? (
                     <span className="min-w-0 truncate font-medium text-foreground" aria-current="page">

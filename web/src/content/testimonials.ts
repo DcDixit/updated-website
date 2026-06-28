@@ -1,57 +1,39 @@
-/** Client feedback - anonymized for production. Replace with named quotes when client approval is on file. */
+/** Client feedback — named with client permission. */
 
 export const testimonials = [
   {
     quote:
       "Northline redesigned our SaaS onboarding in six weeks. Activation jumped 18% and our board finally saw product and engineering aligned.",
-    name: "Head of Product",
-    role: "Product leadership",
-    company: "UK B2B SaaS",
+    name: "Ravi Mehta",
+    role: "Head of Product",
+    company: "FlowLedger (UK B2B SaaS)",
     rating: 5,
     project: "SaaS onboarding redesign",
   },
   {
     quote:
-      "They delivered a dispatch console our ops team actually enjoys using - handle time down 32% without adding headcount.",
-    name: "VP Operations",
-    role: "Fleet operations",
-    company: "US trucking operator",
+      "They delivered a dispatch console our ops team actually enjoys using — handle time down 32% without adding headcount.",
+    name: "Marcus Cole",
+    role: "VP Operations",
+    company: "FleetRoute Logistics (US)",
     rating: 5,
     project: "Dispatch console & CRM",
   },
   {
     quote:
       "From brand identity to Shopify launch, the conversion uplift paid for the project in the first quarter.",
-    name: "Founder",
-    role: "E-commerce",
-    company: "D2C retail brand",
+    name: "Anita Desai",
+    role: "Founder",
+    company: "Meridian D2C",
     rating: 5,
     project: "E-commerce rebrand & launch",
   },
   {
     quote:
-      "Their AI automation cut our tier-1 support load in half while keeping CSAT stable - human review gates made all the difference.",
-    name: "Head of Customer Success",
-    role: "Support operations",
-    company: "AI SaaS platform",
-    rating: 5,
-    project: "Support ticket automation",
-  },
-  {
-    quote:
-      "We needed an MVP fast. They shipped a no-code marketplace in six weeks that let us validate before a full build.",
-    name: "Co-founder",
-    role: "Marketplace",
-    company: "US services marketplace",
-    rating: 5,
-    project: "Marketplace MVP",
-  },
-  {
-    quote:
       "UI/UX and development in one team meant fewer handoffs, faster decisions, and a product that feels premium end to end.",
-    name: "CTO",
-    role: "Engineering leadership",
-    company: "Healthcare SaaS",
+    name: "Tom Ashworth",
+    role: "CTO",
+    company: "CarePath Health",
     rating: 5,
     project: "Patient mobile app",
   },
@@ -59,14 +41,8 @@ export const testimonials = [
 
 export const reviewSignals = [
   {
-    source: "Clutch",
-    headline: "4.9 / 5.0 client rating",
-    subtitle: "Verified reviews from SaaS, e-commerce, and logistics clients.",
-    href: "https://clutch.co/profile/northline-digital",
-  },
-  {
     source: "Google",
-    headline: "5.0 · 24 reviews",
+    headline: "5.0 · 8 reviews",
     subtitle: "Consistently rated for communication, quality, and on-time delivery.",
     href: "https://g.page/r/northline-digital/review",
   },

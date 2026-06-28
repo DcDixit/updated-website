@@ -5,6 +5,7 @@ import { SectionShell, type SectionShellSize } from "@/components/layout/section
 import { HeroWithImage } from "@/components/marketing/hero-with-image";
 import { HeroEyebrow } from "@/components/marketing/hero-eyebrow";
 import type { VisualAsset } from "@/content/visuals";
+import { cn } from "@/lib/utils";
 
 type PageHeroProps = {
   eyebrow?: string;
@@ -43,7 +44,7 @@ export function PageHero({
   );
 
   return (
-    <SectionShell size={size} bordered className={className}>
+    <SectionShell size={size} bordered className={cn(size === "hero" && "hero-mesh-bg hero-dot-grid", className)}>
       {visual ? (
         <HeroWithImage visual={visual} priority={priority}>
           {content}

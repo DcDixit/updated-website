@@ -72,7 +72,7 @@ export function HomeTestimonialsSection({ items }: { items: readonly Testimonial
 
                 <div className="col-span-12 lg:col-span-7">
 
-                  <TestimonialSlideCard item={item} />
+                  <TestimonialSlideCard item={item} live />
 
                 </div>
 

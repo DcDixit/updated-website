@@ -111,12 +111,16 @@ export function TestimonialCarousel({
 export function TestimonialSlideCard({
   item,
   className,
+  live = false,
 }: {
   item: TestimonialItem;
   className?: string;
+  live?: boolean;
 }) {
   return (
     <Card
+      aria-live={live ? "polite" : undefined}
+      aria-atomic={live ? true : undefined}
       className={cn(
         "card-hover-rise card-on-dark relative overflow-hidden rounded-[var(--card-radius)] p-6",
         className
@@ -126,7 +130,7 @@ export function TestimonialSlideCard({
         <div className="relative shrink-0">
           <div className="relative size-[4.5rem] overflow-hidden rounded-[var(--image-radius)] border border-[var(--card-on-dark-border)] bg-background sm:size-[5.25rem]">
             <div
-              className="flex size-full items-center justify-center bg-[linear-gradient(145deg,#14181c,#1e242b)] text-lg font-semibold tracking-wide text-[var(--color-accent)]"
+              className="flex size-full items-center justify-center bg-[var(--surface-muted)] text-lg font-semibold tracking-wide text-[var(--color-accent-strong)]"
               aria-label={`${item.name}, ${item.role} at ${item.company}`}
               role="img"
             >

@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Industries · SaaS, Trucking, Integrations & CRM",
   description:
-    "How Northline approaches product delivery across UK SaaS, US trucking & logistics, accounting integrations, car transportation, and CRM — each with dedicated case studies and a tailored process.",
+    "How Northline delivers for UK SaaS, US trucking, accounting integrations, car transportation, and CRM — with case studies and tailored playbooks.",
   path: "/industries",
   image: pageHeroVisuals.industries.src,
 });

@@ -212,7 +212,7 @@ export default function AboutPage() {
 
       <Section tone="default" dividerTop>
         <Container className="max-w-4xl">
-          <SectionHeader eyebrow="Reviews" title="Rated by clients on Clutch and Google." align="center" />
+          <SectionHeader eyebrow="Reviews" title="Rated by clients on Google." align="center" />
           <ReviewProofBar className="mt-10" />
         </Container>
       </Section>

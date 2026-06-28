@@ -10,7 +10,7 @@ function FleetFlowPreview() {
   ];
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#1A1A1A] p-4">
+    <div className="relative h-full w-full overflow-hidden rounded-lg bg-[var(--surface-muted)] p-4">
       <svg viewBox="0 0 220 148" className="h-full w-full" aria-hidden>
         <defs>
           <pattern id="fleet-grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -22,7 +22,7 @@ function FleetFlowPreview() {
           <circle key={i} cx={cx} cy={cy} r="3" fill="var(--color-accent)" opacity={0.5 + (i % 3) * 0.15} />
         ))}
       </svg>
-      <span className="absolute bottom-3 right-3 rounded-md border border-[var(--color-accent)]/40 bg-[#0D0D0D]/90 px-2 py-1 text-[10px] font-medium text-[var(--color-accent)]">
+      <span className="absolute bottom-3 right-3 rounded-md border border-[var(--color-accent)]/40 bg-background/90 px-2 py-1 text-[10px] font-medium text-[var(--color-accent-strong)]">
         400+ daily routes
       </span>
     </div>

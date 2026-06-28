@@ -10,16 +10,10 @@ type ReviewProofBarProps = {
 };
 
 export function ReviewProofBar({ className, variant = "default" }: ReviewProofBarProps) {
-  const profiles = [reviewProfiles.clutch, reviewProfiles.google];
+  const profiles = [reviewProfiles.google];
 
   return (
-    <div
-      className={cn(
-        "grid gap-4 sm:grid-cols-2",
-        variant === "compact" && "gap-3",
-        className
-      )}
-    >
+    <div className={cn("grid gap-4", variant === "compact" && "gap-3", className)}>
       {profiles.map((profile) => (
         <Link
           key={profile.label}

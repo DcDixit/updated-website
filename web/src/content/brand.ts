@@ -26,22 +26,13 @@ export const siteContact = {
 } as const;
 
 export const reviewProfiles = {
-  clutch: {
-    label: "Clutch",
-    rating: "4.9",
-    maxRating: "5.0",
-    reviewCount: "12 reviews",
-    href: "https://clutch.co/profile/northline-digital",
-    headline: "4.9 / 5.0 client rating",
-    subtitle: "Verified reviews from SaaS, e-commerce, and logistics clients.",
-  },
   google: {
     label: "Google",
     rating: "5.0",
     maxRating: "5.0",
-    reviewCount: "24 reviews",
+    reviewCount: "8 reviews",
     href: "https://g.page/r/northline-digital/review",
-    headline: "5.0 · 24 reviews",
+    headline: "5.0 · 8 reviews",
     subtitle: "Rated for communication, quality, and on-time delivery.",
   },
 } as const;

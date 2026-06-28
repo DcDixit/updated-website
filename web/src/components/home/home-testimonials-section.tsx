@@ -146,18 +146,20 @@ export function HomeTestimonialsSection({ items }: { items: readonly HomepageTes
               </div>
 
               <p className="type-caption text-[11px] text-[color:var(--text-secondary)]">
-                All feedback is anonymized with client permission. Names and roles are accurate; company names are categories.
+                Named feedback shared with client permission.
               </p>
             </div>
 
             {/* Right: card + preview */}
             <div className="flex flex-1 flex-col gap-4 md:flex-row md:gap-5">
               {/* Active card */}
+            <div aria-live="polite" aria-atomic="true" className="flex-1">
               <TestimonialCard
                 item={items[activeIndex]!}
                 isActive
                 className="flex-1"
               />
+            </div>
               {/* Secondary cards (desktop) */}
               {items.length > 1 ? (
                 <div className="hidden flex-col gap-4 md:flex md:w-64 lg:w-72">

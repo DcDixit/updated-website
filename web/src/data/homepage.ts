@@ -6,7 +6,7 @@ export type HomepageStat = {
 
 export const homepageStats: HomepageStat[] = [
   {
-    value: "250+",
+    value: "40+",
     label: "Projects delivered",
     caption: "SaaS, logistics, CRM & automation",
   },
@@ -21,9 +21,9 @@ export const homepageStats: HomepageStat[] = [
     caption: "Designers, engineers & strategists",
   },
   {
-    value: "4.9",
-    label: "Clutch rating",
-    caption: "12 verified client reviews",
+    value: "5.0",
+    label: "Google rating",
+    caption: "8 verified client reviews",
   },
 ];
 
@@ -101,33 +101,33 @@ export type HomepageTestimonial = {
 
 export const homepageTestimonials: HomepageTestimonial[] = [
   {
-    initials: "HO",
+    initials: "RM",
     quote:
       "Northline redesigned our SaaS onboarding in six weeks. Activation jumped 18% and our board finally saw product and engineering aligned.",
-    name: "Head of Product",
-    role: "Product leadership",
-    company: "UK B2B SaaS",
+    name: "Ravi Mehta",
+    role: "Head of Product",
+    company: "FlowLedger (UK B2B SaaS)",
     project: "SaaS onboarding redesign",
     rating: 5,
   },
   {
-    initials: "MD",
+    initials: "MC",
     quote:
-      "Northline shipped our driver app MVP in 6 weeks. The Dispatch CRM reduced our manual workload by 40%. We've since expanded to a full retainer.",
-    name: "Head of Engineering",
-    role: "Engineering leadership",
-    company: "US Logistics SaaS",
-    project: "Driver app + Dispatch CRM",
+      "They delivered a dispatch console our ops team actually enjoys using — handle time down 32% without adding headcount.",
+    name: "Marcus Cole",
+    role: "VP Operations",
+    company: "FleetRoute Logistics (US)",
+    project: "Dispatch console & CRM",
     rating: 5,
   },
   {
-    initials: "CL",
+    initials: "AD",
     quote:
-      "Best agency experience we've had. They think like a product team, not a vendor. Our onboarding drop-off went from 60% to 22% after the redesign.",
-    name: "Founder",
+      "From brand identity to Shopify launch, the conversion uplift paid for the project in the first quarter.",
+    name: "Anita Desai",
     role: "Founder",
-    company: "UK B2B SaaS",
-    project: "SaaS onboarding redesign",
+    company: "Meridian D2C",
+    project: "E-commerce rebrand & launch",
     rating: 5,
   },
 ];

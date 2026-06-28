@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [],
   },
   experimental: {
-    optimizePackageImports: ["@tabler/icons-react", "lucide-react"],
+    optimizePackageImports: ["@tabler/icons-react"],
   },
 };
 

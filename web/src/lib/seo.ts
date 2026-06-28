@@ -5,7 +5,7 @@ import { brand, reviewProfiles, siteContact } from "@/content/brand";
 /** Public site URL - set NEXT_PUBLIC_SITE_URL in production. */
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://northlinedigital.com").replace(/\/$/, "");
 
-const defaultOgImage = `${siteUrl}/brand/hero-solutions.svg`;
+const defaultOgImage = `${siteUrl}/brand/og-default.png`;
 
 export function absoluteUrl(path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -81,16 +81,12 @@ export function organizationJsonLd() {
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: reviewProfiles.clutch.rating,
-      bestRating: reviewProfiles.clutch.maxRating,
-      reviewCount: String(
-        (parseInt(reviewProfiles.clutch.reviewCount, 10) || 0) +
-          (parseInt(reviewProfiles.google.reviewCount, 10) || 0)
-      ),
+      ratingValue: reviewProfiles.google.rating,
+      bestRating: reviewProfiles.google.maxRating,
+      reviewCount: String(parseInt(reviewProfiles.google.reviewCount, 10) || 0),
     },
     sameAs: [
       "https://www.linkedin.com/company/northline-digital",
-      reviewProfiles.clutch.href,
       reviewProfiles.google.href,
     ],
   };

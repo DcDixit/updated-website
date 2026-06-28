@@ -8,6 +8,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
 import { MarketingTrustSignals } from "@/components/marketing/marketing-trust-signals";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { buttonVariants } from "@/components/ui/button";
 import { brand, primaryCtas } from "@/content/site-content";
 import { pageHeroVisuals } from "@/content/visuals";
@@ -53,7 +54,9 @@ export default function ContactPage() {
         <Container className="max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
             <ContactSidebar />
-            <ContactForm />
+            <ErrorBoundary>
+              <ContactForm />
+            </ErrorBoundary>
           </div>
         </Container>
       </Section>

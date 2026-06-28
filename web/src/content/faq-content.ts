@@ -45,9 +45,9 @@ export const faqPageExtra = [
 ] as const;
 
 export const stats = [
-  { value: "250+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
+  { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
   { value: "15+", label: "In-house team", caption: "Designers, engineers & strategists" },
-  { value: "4.9★", label: "Clutch rating", caption: "12 verified client reviews" },
+  { value: "5.0★", label: "Google rating", caption: "8 verified client reviews" },
   { value: "8+", label: "Years shipping", caption: "Products and digital platforms" },
 ] as const;
 

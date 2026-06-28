@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { StickyCtaBar } from "@/components/site/sticky-cta-bar";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { brand } from "@/content/site-content";
 import { organizationJsonLd, siteUrl, websiteJsonLd } from "@/lib/seo";
 import { themeInitScript } from "@/lib/theme";
@@ -27,20 +28,23 @@ export const metadata: Metadata = {
     default: `${brand.shortName} · AI-powered digital product agency`,
     template: `%s · ${brand.shortName}`,
   },
-  description: brand.positioning,
+  description:
+    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
     title: `${brand.shortName} · AI-powered digital product agency`,
-    description: brand.positioning,
-    images: [{ url: `${siteUrl}/brand/hero-solutions.svg`, width: 1200, height: 630, alt: brand.shortName }],
+    description:
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+    images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${brand.shortName} · AI-powered digital product agency`,
-    description: brand.positioning,
-    images: [`${siteUrl}/brand/hero-solutions.svg`],
+    description:
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+    images: [`${siteUrl}/brand/og-default.png`],
   },
   robots: {
     index: true,
@@ -48,7 +52,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
   manifest: "/manifest.webmanifest",
 };
@@ -70,6 +74,7 @@ export default function RootLayout({
       className={`${instrumentSans.variable} ${instrumentSans.className} h-full font-sans`}
     >
       <head>
+        <link rel="preload" href="/brand/og-default.png" as="image" type="image/png" />
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
@@ -137,8 +142,12 @@ gtag('config', '${gaMeasurementId}', { anonymize_ip: true, send_page_view: false
               {children}
             </main>
             <SiteFooter />
-            <StickyCtaBar />
-            <WhatsAppButton />
+            <ErrorBoundary>
+              <StickyCtaBar />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <WhatsAppButton />
+            </ErrorBoundary>
           </AnalyticsProvider>
         </ThemeProvider>
       </body>

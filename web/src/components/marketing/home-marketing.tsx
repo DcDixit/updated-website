@@ -66,7 +66,7 @@ function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: str
 }
 
 const heroTrustSignals = [
-  { icon: IconStar, label: "4.9★ on Clutch" },
+  { icon: IconStar, label: "5.0★ on Google" },
   { icon: IconUsers, label: "15+ in-house team" },
   { icon: IconShieldCheck, label: "NDA-first" },
 ];
@@ -139,7 +139,7 @@ export function HomeMarketing() {
       <SectionShell
         id="hero"
         size="hero"
-        className="hero-dot-grid relative overflow-hidden !py-[clamp(3rem,5.5vw,4.75rem)]"
+        className="hero-dot-grid hero-mesh-bg relative overflow-hidden !py-[clamp(3rem,5.5vw,4.75rem)]"
       >
         {/* Subtle radial gradient accent */}
         <div

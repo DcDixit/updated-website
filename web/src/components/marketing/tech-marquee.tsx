@@ -1,6 +1,6 @@
 "use client";
 
-import { Cpu } from "lucide-react";
+import { IconCpu } from "@tabler/icons-react";
 
 import { cn } from "@/lib/utils";
 
@@ -35,7 +35,7 @@ export function TechMarquee({
             key={`${label}-${reverse ? "r" : "f"}-${i}`}
             className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[var(--surface-border)] bg-background px-4 py-1.5 text-xs font-medium tracking-tight text-[color:var(--text-secondary)] transition-colors hover:border-[var(--color-accent)]/35 hover:text-foreground"
           >
-            <Cpu className="size-3.5 shrink-0 text-[var(--color-accent)] opacity-80" />
+            <IconCpu size={14} stroke={1.5} className="shrink-0 text-[var(--color-accent)] opacity-80" />
             {label}
           </span>
         ))}

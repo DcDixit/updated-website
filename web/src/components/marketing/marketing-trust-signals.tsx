@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { Quote, ShieldCheck, ArrowUpRight, Star, ExternalLink } from "lucide-react";
+import {
+  IconArrowUpRight,
+  IconExternalLink,
+  IconQuote,
+  IconShieldCheck,
+  IconStarFilled,
+} from "@tabler/icons-react";
 
 import { Container } from "@/components/layout/container";
 import {
@@ -19,7 +25,7 @@ function StarFive({ className }: { className?: string }) {
   return (
     <div className={cn("flex gap-0.5 text-[var(--color-accent)]", className)} aria-hidden>
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="fill-[var(--color-accent)] size-3.5 sm:size-4" strokeWidth={0} />
+        <IconStarFilled key={i} size={14} className="sm:size-4" />
       ))}
     </div>
   );
@@ -50,7 +56,7 @@ export function MarketingTrustSignals({
   return (
     <div className={cn("space-y-10", className)}>
       {withRatings ? (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-1">
           {reviewSignals.map((r) => (
             <Link
               key={r.source}
@@ -69,7 +75,7 @@ export function MarketingTrustSignals({
                   <StarFive />
                   <span className="type-caption flex items-center gap-1 text-[10px] text-[color:var(--text-secondary)]">
                     View reviews
-                    <ExternalLink className="size-2.5 opacity-70" aria-hidden />
+                    <IconExternalLink size={10} className="opacity-70" aria-hidden stroke={1.5} />
                   </span>
                 </div>
               </div>
@@ -95,8 +101,8 @@ export function MarketingTrustSignals({
           <p className="type-badge-label mb-4 text-center sm:text-left">Industries &amp; verticals we deliver for</p>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
             {clientLogos.map((client) => (
-              <Badge key={client.name} variant="secondary" className="font-normal gap-1.5 py-1 px-3">
-                <span className="size-1.5 rounded-full bg-[var(--color-accent)] opacity-70 shrink-0" aria-hidden />
+              <Badge key={client.name} variant="secondary" className="gap-1.5 px-3 py-1 font-normal">
+                <span className="size-1.5 shrink-0 rounded-full bg-[var(--color-accent)] opacity-70" aria-hidden />
                 {client.name}
               </Badge>
             ))}
@@ -111,7 +117,7 @@ export function MarketingTrustSignals({
               key={c}
               className="surface-card inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-medium text-[color:var(--text-secondary)]"
             >
-              <ShieldCheck className="size-3.5 shrink-0 text-[var(--color-accent)]" aria-hidden />
+              <IconShieldCheck size={14} className="shrink-0 text-[var(--color-accent)]" aria-hidden stroke={1.5} />
               {c}
             </span>
           ))}
@@ -124,8 +130,10 @@ export function MarketingTrustSignals({
           <div className="grid gap-5 lg:grid-cols-2">
             {miniQuotes.map((t, i) => (
               <div key={`${t.name}-${i}`} className="testimonial-card relative p-6 sm:p-7">
-                <Quote
-                  className="absolute right-5 top-5 size-8 text-[var(--color-accent)]/30 rotate-180"
+                <IconQuote
+                  size={32}
+                  stroke={1.5}
+                  className="absolute right-5 top-5 rotate-180 text-[var(--color-accent)]/30"
                   aria-hidden
                 />
                 <StarFive className="mb-4" />
@@ -152,7 +160,7 @@ export function MarketingTrustSignals({
         <div className="flex flex-wrap justify-center gap-3 pt-2 sm:justify-start">
           <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}>
             {primaryCtas.book.label}
-            <ArrowUpRight className="size-4 opacity-80" aria-hidden />
+            <IconArrowUpRight size={16} className="opacity-80" aria-hidden stroke={1.5} />
           </Link>
           <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
             {primaryCtas.brief.label}
@@ -183,9 +191,9 @@ export function MarketingTrustSection({
             <span className="accent-live-dot" aria-hidden />
             Proof
           </p>
-          <h2 className="type-h2 text-foreground">Verified ratings. Real outcomes.</h2>
+          <h2 className="type-h2 text-balance text-foreground">Verified ratings. Real outcomes.</h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            Clutch and Google ratings, delivery metrics, and anonymized client feedback from recent engagements.
+            Google ratings, delivery metrics, and client feedback from recent engagements.
           </p>
         </div>
         {children}

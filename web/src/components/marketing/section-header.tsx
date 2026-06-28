@@ -33,7 +33,7 @@ export function SectionHeader({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={cn("type-h2 text-foreground", titleClassName)}>{title}</h2>
+      <h2 className={cn("type-h2 text-balance text-foreground", titleClassName)}>{title}</h2>
       {description ? (
         <p
           className={cn(

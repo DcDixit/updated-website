@@ -17,8 +17,21 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function NotFound() {
   return (
-    <SectionShell size="default" className="min-h-[60vh]">
-      <Container className="flex max-w-xl flex-col gap-6 py-12">
+    <SectionShell size="default" className="hero-mesh-bg min-h-[60vh]">
+      <Container className="flex max-w-xl flex-col items-start gap-6 py-12">
+        <div
+          className="surface-card flex size-20 items-center justify-center rounded-[var(--card-radius)] border border-[var(--surface-border)]"
+          aria-hidden
+        >
+          <svg viewBox="0 0 64 64" className="size-12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 48V16h6.4l9.6 14.6V16H34v32h-6.2l-10-15.6V48H12z"
+              fill="var(--color-accent)"
+            />
+            <circle cx="48" cy="48" r="10" stroke="var(--color-accent)" strokeWidth="2" strokeDasharray="4 3" opacity="0.6" />
+            <path d="M44 48h8M48 44v8" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+          </svg>
+        </div>
         <p className="type-badge-label">404</p>
         <h1 className="type-hero text-balance">This page doesn&apos;t exist.</h1>
         <p className="type-body text-[color:var(--text-secondary)]">

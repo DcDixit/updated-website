@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,12 +40,22 @@ const timelines = [
 ] as const;
 
 const selectClass =
-  "h-12 w-full rounded-lg border border-[var(--surface-border)] bg-background px-3 text-base text-foreground outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35 dark:bg-background";
+  "h-12 w-full rounded-lg border border-[var(--surface-border)] bg-background px-3 text-base text-foreground outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35 dark:bg-card";
+
+function FormFieldSkeleton() {
+  return (
+    <div className="space-y-2" aria-hidden>
+      <div className="form-skeleton-pulse h-4 w-24 rounded bg-[var(--surface-border)]" />
+      <div className="form-skeleton-pulse h-12 w-full rounded-lg bg-[var(--surface-border)]" />
+    </div>
+  );
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const formStarted = useRef(false);
+  const errorId = useId();
 
   function trackFormStart() {
     if (formStarted.current) return;
@@ -110,13 +120,16 @@ export function ContactForm() {
     }
   }
 
+  const isLoading = status === "loading";
+
   return (
     <form
       id="brief"
-      className="surface-card space-y-6 p-6 sm:p-8"
+      className="surface-card relative space-y-6 p-[var(--space-card)] sm:p-8"
       onSubmit={handleSubmit}
       onFocusCapture={trackFormStart}
       aria-labelledby="contact-form-title"
+      aria-busy={isLoading}
       noValidate={false}
     >
       <h2 id="contact-form-title" className="sr-only">
@@ -129,166 +142,191 @@ export function ContactForm() {
       </div>
 
       <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {status === "loading" ? "Sending your message." : null}
         {status === "sent" ? "Your message was sent successfully." : null}
         {status === "error" && errorMessage ? errorMessage : null}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      {isLoading ? (
+        <div className="pointer-events-none space-y-6" aria-hidden>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <FormFieldSkeleton />
+            <FormFieldSkeleton />
+          </div>
+          <FormFieldSkeleton />
+          <div className="grid gap-6 sm:grid-cols-2">
+            <FormFieldSkeleton />
+            <FormFieldSkeleton />
+          </div>
+          <FormFieldSkeleton />
+          <div className="form-skeleton-pulse h-32 w-full rounded-lg bg-[var(--surface-border)]" />
+        </div>
+      ) : null}
+
+      <div className={cn("space-y-6", isLoading && "sr-only")}>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="type-body font-semibold text-foreground">
+              Name *
+            </Label>
+            <Input
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              autoComplete="name"
+              disabled={status === "sent"}
+              aria-invalid={status === "error" ? true : undefined}
+              aria-describedby={status === "error" ? errorId : undefined}
+              className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="company" className="type-body font-semibold text-foreground">
+              Company
+            </Label>
+            <Input
+              id="company"
+              name="company"
+              placeholder="Company name (optional)"
+              autoComplete="organization"
+              disabled={status === "sent"}
+              className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
+            />
+          </div>
+        </div>
+
         <div className="space-y-2">
-          <Label htmlFor="name" className="type-body font-semibold text-foreground">
-            Name *
+          <Label htmlFor="email" className="type-body font-semibold text-foreground">
+            Work email *
           </Label>
           <Input
-            id="name"
-            name="name"
+            id="email"
+            name="email"
+            type="email"
             required
-            placeholder="Your name"
-            autoComplete="name"
+            placeholder="you@company.com"
+            autoComplete="email"
             disabled={status === "sent"}
-            className="h-12 rounded-lg border-[var(--surface-border)] bg-background"
+            aria-invalid={status === "error" ? true : undefined}
+            aria-describedby={status === "error" ? errorId : undefined}
+            className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
           />
         </div>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="projectType" className="type-body font-semibold text-foreground">
+              Project type *
+            </Label>
+            <select id="projectType" name="projectType" required disabled={status === "sent"} className={cn(selectClass)}>
+              <option value="" disabled>
+                Select project type
+              </option>
+              {projectTypes.map((type) => (
+                <option key={type.value} value={type.value}>
+                  {type.label}
+                </option>
+              ))}
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="market" className="type-body font-semibold text-foreground">
+              Primary market *
+            </Label>
+            <select id="market" name="market" required disabled={status === "sent"} className={cn(selectClass)}>
+              <option value="" disabled>
+                Select market
+              </option>
+              {markets.map((market) => (
+                <option key={market} value={market}>
+                  {market}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="category" className="type-body font-semibold text-foreground">
+              Service interest
+            </Label>
+            <select id="category" name="category" disabled={status === "sent"} className={cn(selectClass)}>
+              <option value="">Select a service (optional)</option>
+              {services.map((s) => (
+                <option key={s.slug} value={s.title}>
+                  {s.title}
+                </option>
+              ))}
+              {solutionPillars.map((s) => (
+                <option key={s.slug} value={s.title}>
+                  {s.title}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="budget" className="type-body font-semibold text-foreground">
+              Budget range
+            </Label>
+            <select id="budget" name="budget" disabled={status === "sent"} className={cn(selectClass)}>
+              <option value="">Select budget (optional)</option>
+              {budgets.map((b) => (
+                <option key={b} value={b}>
+                  {b}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className="space-y-2">
-          <Label htmlFor="company" className="type-body font-semibold text-foreground">
-            Company
+          <Label htmlFor="timeline" className="type-body font-semibold text-foreground">
+            Timeline *
           </Label>
-          <Input
-            id="company"
-            name="company"
-            placeholder="Company name (optional)"
-            autoComplete="organization"
+          <select id="timeline" name="timeline" required disabled={status === "sent"} className={cn(selectClass)}>
+            <option value="" disabled>
+              When do you need this?
+            </option>
+            {timelines.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="message" className="type-body font-semibold text-foreground">
+            Project details *
+          </Label>
+          <Textarea
+            id="message"
+            name="message"
+            required
+            minLength={20}
+            rows={5}
             disabled={status === "sent"}
-            className="h-12 rounded-lg border-[var(--surface-border)] bg-background"
+            aria-invalid={status === "error" ? true : undefined}
+            aria-describedby={status === "error" ? errorId : undefined}
+            placeholder="Tell us about your SaaS product, trucking platform, integration needs, or timeline."
+            className="type-body rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
           />
         </div>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="email" className="type-body font-semibold text-foreground">
-          Work email *
-        </Label>
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          required
-          placeholder="you@company.com"
-          autoComplete="email"
-          disabled={status === "sent"}
-          className="h-12 rounded-lg border-[var(--surface-border)] bg-background"
-        />
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="projectType" className="type-body font-semibold text-foreground">
-            Project type *
-          </Label>
-          <select id="projectType" name="projectType" required disabled={status === "sent"} className={cn(selectClass)}>
-            <option value="" disabled>
-              Select project type
-            </option>
-            {projectTypes.map((type) => (
-              <option key={type.value} value={type.value}>
-                {type.label}
-              </option>
-            ))}
-            <option value="Not sure yet">Not sure yet</option>
-          </select>
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="market" className="type-body font-semibold text-foreground">
-            Primary market *
-          </Label>
-          <select id="market" name="market" required disabled={status === "sent"} className={cn(selectClass)}>
-            <option value="" disabled>
-              Select market
-            </option>
-            {markets.map((market) => (
-              <option key={market} value={market}>
-                {market}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="category" className="type-body font-semibold text-foreground">
-            Service interest
-          </Label>
-          <select id="category" name="category" disabled={status === "sent"} className={cn(selectClass)}>
-            <option value="">Select a service (optional)</option>
-            {services.map((s) => (
-              <option key={s.slug} value={s.title}>
-                {s.title}
-              </option>
-            ))}
-            {solutionPillars.map((s) => (
-              <option key={s.slug} value={s.title}>
-                {s.title}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="budget" className="type-body font-semibold text-foreground">
-            Budget range
-          </Label>
-          <select id="budget" name="budget" disabled={status === "sent"} className={cn(selectClass)}>
-            <option value="">Select budget (optional)</option>
-            {budgets.map((b) => (
-              <option key={b} value={b}>
-                {b}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="timeline" className="type-body font-semibold text-foreground">
-          Timeline *
-        </Label>
-        <select id="timeline" name="timeline" required disabled={status === "sent"} className={cn(selectClass)}>
-          <option value="" disabled>
-            When do you need this?
-          </option>
-          {timelines.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="message" className="type-body font-semibold text-foreground">
-          Project details *
-        </Label>
-        <Textarea
-          id="message"
-          name="message"
-          required
-          minLength={20}
-          rows={5}
-          disabled={status === "sent"}
-          placeholder="Tell us about your SaaS product, trucking platform, integration needs, or timeline."
-          className="type-body rounded-lg border-[var(--surface-border)] bg-background"
-        />
       </div>
 
       {status === "error" && errorMessage ? (
-        <p className="type-caption text-destructive" role="alert">
+        <p id={errorId} className="type-caption text-destructive" role="alert">
           {errorMessage}
         </p>
       ) : null}
 
       {status === "sent" ? (
         <div className="surface-card border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-4" role="status">
-          <p className="type-body font-semibold text-foreground">Message sent - thank you!</p>
+          <p className="type-body font-semibold text-foreground">Message sent — thank you!</p>
           <p className="type-caption mt-2">We typically reply within 24 hours on business days.</p>
         </div>
       ) : null}
@@ -298,9 +336,10 @@ export function ContactForm() {
           type="submit"
           variant="primary"
           size="cta"
-          disabled={status === "loading" || status === "sent"}
+          disabled={isLoading || status === "sent"}
+          aria-busy={isLoading}
         >
-          {status === "loading" ? "Sending…" : status === "sent" ? "Sent" : "Send message"}
+          {isLoading ? "Sending…" : status === "sent" ? "Sent" : "Send message"}
         </Button>
         <p className="type-caption max-w-sm">We respond within 24 hours. Your details are kept confidential.</p>
       </div>

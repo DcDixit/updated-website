@@ -26,14 +26,14 @@ export function StickyCtaBar() {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 z-40 px-4 transition-[opacity,transform] duration-300 ease-out lg:hidden",
+        "fixed inset-x-0 z-40 px-4 pl-4 pr-[4.75rem] transition-[opacity,transform] duration-300 ease-out lg:hidden",
         "bottom-[max(1rem,env(safe-area-inset-bottom))]",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       )}
       aria-hidden={visible ? undefined : true}
     >
       <div
-        className="surface-card mx-auto flex max-w-sm gap-2 p-2 shadow-lg backdrop-blur-xl"
+        className="surface-card mx-auto flex w-full max-w-[min(20rem,calc(100vw-5.5rem))] gap-2 p-2 shadow-lg backdrop-blur-xl"
         style={{ borderColor: "color-mix(in oklab, var(--color-accent) 15%, var(--surface-border))" }}
         role="region"
         aria-label="Quick action"

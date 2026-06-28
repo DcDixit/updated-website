@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: homeTitle,
     description:
-      "AI-powered digital product agency for UK SaaS startups and US trucking companies - dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and SaaS MVP development.",
+      "AI-powered product agency for UK SaaS and US trucking — dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and SaaS MVP development.",
     path: "/",
     image: pageHeroVisuals.home.src,
   }),
