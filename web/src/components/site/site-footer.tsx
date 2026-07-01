@@ -1,37 +1,19 @@
 import Link from "next/link";
 
-import { CtaBand } from "@/components/marketing/cta-band";
 import { Container } from "@/components/layout/container";
 import { Separator } from "@/components/ui/separator";
-import {
-  brand,
-  footerColumns,
-  primaryCtas,
-  socialLinks,
-  siteContact,
-} from "@/content/site-content";
+import { brand, footerColumns, siteContact, socialLinks } from "@/content/site-content";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--section-divider)]">
-      <CtaBand
-        variant="prominent"
-        eyebrow="Start a project"
-        title="Have a product to build or improve?"
-        description="Share your scope and timeline — we'll reply within one business day with a clear plan, honest pricing approach, and relevant examples."
-        primaryLabel={primaryCtas.brief.label}
-        primaryHref={primaryCtas.brief.href}
-        secondaryLabel={primaryCtas.book.label}
-        secondaryHref={primaryCtas.book.href}
-        bordered={false}
-      />
-
+    <footer className="bg-bg-dark text-white/60">
+      <div className="h-px w-full bg-accent/30" />
       <Container className="py-16">
         <div className="grid-layout-12 gap-y-12">
           <div className="col-span-12 lg:col-span-5">
-            <p className="type-h3 text-foreground">{brand.shortName}</p>
-            <p className="type-body mt-4 max-w-md text-[color:var(--text-secondary)]">{brand.positioning}</p>
-            <p className="type-caption mt-4">{siteContact.hqLabel}</p>
+            <p className="text-h3 font-bold text-white/90">{brand.shortName}</p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">{brand.positioning}</p>
+            <p className="mt-4 text-xs text-white/40">{siteContact.hqLabel}</p>
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
               {socialLinks.map((s) => (
                 <Link
@@ -39,7 +21,8 @@ export function SiteFooter() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="type-caption font-medium underline-offset-4 transition-opacity hover:opacity-80 hover:underline"
+                  aria-label={s.label}
+                  className="text-sm text-white/60 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark"
                 >
                   {s.label}
                 </Link>
@@ -47,22 +30,31 @@ export function SiteFooter() {
             </div>
             <Link
               href={`mailto:${siteContact.email}`}
-              className="type-caption mt-4 inline-flex font-semibold text-[var(--color-accent)] underline-offset-4 hover:underline"
+              className="mt-4 inline-flex text-sm font-semibold text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {siteContact.email}
             </Link>
+            <p className="mt-6 text-xs text-white/40">
+              Replies within 24 hours on business days ·{" "}
+              <Link
+                href="/contact#book"
+                className="text-accent transition-colors hover:text-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                Book a call →
+              </Link>
+            </p>
           </div>
 
           <div className="col-span-12 grid gap-10 sm:grid-cols-3 lg:col-span-7">
             {footerColumns.map((col) => (
               <div key={col.heading}>
-                <p className="type-badge-label mb-4 text-[12px]">{col.heading}</p>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">{col.heading}</p>
                 <ul className="space-y-3">
                   {col.links.map((l) => (
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="type-body inline-block text-[color:var(--text-secondary)] transition-colors hover:text-foreground"
+                        className="text-sm text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                       >
                         {l.label}
                       </Link>
@@ -74,22 +66,18 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <Separator className="my-10 bg-[var(--section-divider)]" />
+        <Separator className="my-10 bg-white/10" />
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="type-caption">
+          <p className="text-xs text-white/40">
             © {new Date().getFullYear()} {brand.legalName}. All rights reserved.
           </p>
-          <div className="type-caption flex flex-wrap gap-x-4 gap-y-2">
-            <Link href="/privacy" className="hover:text-foreground">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/40">
+            <Link href="/privacy" className="transition-colors hover:text-white">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-foreground">
+            <Link href="/terms" className="transition-colors hover:text-white">
               Terms
             </Link>
-            <span className="inline-flex items-center gap-1.5">
-              <span className="inline-block size-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden />
-              {siteContact.responseTime}
-            </span>
           </div>
         </div>
       </Container>

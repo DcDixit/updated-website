@@ -63,7 +63,7 @@ export function WorkFilterGrid({ initialTag = null }: WorkFilterGridProps) {
                 onClick={() => handleTagChange(tag)}
                 aria-pressed={isActive}
                 className={cn(
-                  "rounded-full border px-3.5 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]",
+                  "rounded-full border px-3.5 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35",
                   isActive
                     ? "border-[var(--color-accent)] bg-[var(--color-accent)]/10 font-medium text-foreground"
                     : "border-[var(--surface-border)] bg-background text-[color:var(--text-secondary)] hover:border-[var(--color-accent)]/40 hover:text-foreground"

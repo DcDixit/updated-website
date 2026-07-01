@@ -11,6 +11,7 @@ import {
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { MarketingImage } from "@/components/marketing/marketing-image";
 import { MarketingTrustSection, MarketingTrustSignals } from "@/components/marketing/marketing-trust-signals";
 import { ReviewProofBar } from "@/components/marketing/review-proof-bar";
@@ -27,7 +28,7 @@ const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description: `${brand.legalName} — digital product agency founded in ${brand.founded}. 15+ in-house team serving UK SaaS and US trucking clients. Remote-first, based in Ahmedabad, India.`,
+  description: `${brand.legalName} - an AI-powered digital product agency founded in ${brand.founded}. 15+ in-house team serving UK SaaS and US trucking clients from Ahmedabad, India.`,
   path: "/about",
 });
 
@@ -219,6 +220,12 @@ export default function AboutPage() {
       <MarketingTrustSection>
         <MarketingTrustSignals withRatings={false} withStats={false} withLogos withTestimonials />
       </MarketingTrustSection>
+
+      <LeadCaptureCta
+        eyebrow="Work with us"
+        title="Tell us what you're building."
+        description="Share your brief — we'll respond with a plan and relevant case studies within 24 hours."
+      />
     </>
   );
 }

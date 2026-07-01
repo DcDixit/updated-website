@@ -5,7 +5,7 @@ export const brand = {
   legalName: "Northline Digital Pvt. Ltd.",
   founded: 2018,
   positioning:
-    "Northline is a digital product agency with a 15+ person in-house team. We design and build SaaS platforms for UK startups and trucking & logistics software for US operators — including dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
+    "Northline is an AI-powered digital product agency with a 15+ person in-house team. We design and build SaaS platforms for UK startups and trucking & logistics software for US operators - including dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
   tagline: "SaaS products. Trucking platforms. Accounting integrations.",
   mission:
     "Help product companies and logistics operators ship reliable, conversion-focused digital products - with one in-house team from discovery through launch and beyond.",

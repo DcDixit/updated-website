@@ -23,6 +23,7 @@ const techCategoryIcons: Record<string, React.ComponentType<{ size?: number; str
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -107,6 +108,12 @@ export default function TechnologiesPage() {
           </div>
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow="Technical fit"
+        title="Need a specific stack or integration?"
+        description="Tell us about your existing tools and constraints - we'll map the right approach for your team."
+      />
     </>
   );
 }

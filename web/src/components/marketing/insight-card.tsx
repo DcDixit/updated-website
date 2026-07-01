@@ -71,14 +71,14 @@ export function InsightCard({
           </span>
         </div>
 
-        <h3 className="type-h3">
+        <h2 className="type-h3">
           <Link
             href={`/insights/${slug}`}
             className="link-subtle hover:text-[var(--color-accent)] transition-colors"
           >
             {title}
           </Link>
-        </h3>
+        </h2>
         <p className="type-body mt-3 flex-1 text-sm text-[color:var(--text-secondary)]">{excerpt}</p>
 
         {showCta ? (

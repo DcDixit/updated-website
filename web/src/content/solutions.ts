@@ -48,31 +48,45 @@ export const solutionPillars: SolutionPillar[] = [
   {
     slug: "saas",
     title: "SaaS Product Solutions",
-    headline: "SaaS product design agency for UK startups and scaling teams",
+    headline: "SaaS that closes. Onboarding that sticks.",
     summary:
-      "UI/UX, dashboards, MVP development, and AI-assisted workflows — built by an in-house product team from discovery through launch.",
+      "UK SaaS founders come to us when their product is technically sound but the UX is losing demos. We've redesigned onboarding flows that lifted activation by 18%, built dashboards that impress at board level, and shipped MVPs from zero in under 10 weeks. Pre-Series A and need investor-ready UI? Post-Series A and fixing churn? This is what we do.",
     market: "Primary · UK · Secondary · US",
     href: "/solutions/saas",
     icon: IconLayoutDashboard,
-    services: ["SaaS UI/UX", "Dashboard design", "MVP development", "AI workflows", "Product scalability", "SaaS branding"],
+    services: [
+      "SaaS UI/UX & onboarding",
+      "Dashboard design",
+      "MVP build (10-week sprints)",
+      "AI-powered workflows",
+      "Design system setup",
+      "Post-launch retainer",
+    ],
     cta: "Explore SaaS solutions",
     seo: {
       title: "SaaS Product Design Agency UK",
       description:
-        "SaaS UI/UX agency for UK startups — MVP development, dashboard design, AI-assisted workflows, and scalable product systems.",
+        "SaaS UI/UX agency for UK startups - MVP development, dashboard design, AI-powered workflows, and scalable product systems.",
       keywords: ["SaaS product design agency UK", "SaaS UI/UX agency", "Product design consultancy UK", "AI SaaS development company"],
     },
   },
   {
     slug: "trucking-logistics",
     title: "Trucking & Logistics Solutions",
-    headline: "Digital products for US trucking companies, brokers, and fleet operators",
+    headline: "Dispatch tools built for real operations, not demos.",
     summary:
-      "Trucking websites, dispatch CRM, fleet dashboards, driver mobile apps, and transportation SaaS platforms - designed for real ops teams.",
+      "US trucking operators don't need another dashboard that looks great in a sales deck. They need a console that handles 400 routes a day, surfaces exceptions without hunting, and doesn't require three screens. We've built that. Ops teams report 30%+ handle time reductions. No new headcount required.",
     market: "Primary · United States",
     href: "/solutions/trucking-logistics",
     icon: IconTruck,
-    services: ["Trucking websites", "Dispatch CRM", "Fleet dashboards", "Driver mobile apps", "Logistics branding", "Transportation SaaS"],
+    services: [
+      "Dispatch CRM",
+      "Fleet dashboards",
+      "Driver mobile apps",
+      "Trucking websites",
+      "Logistics SaaS",
+      "Carrier onboarding flows",
+    ],
     cta: "Explore trucking solutions",
     seo: {
       title: "Trucking Website Design & Logistics Software Development USA",
@@ -89,13 +103,20 @@ export const solutionPillars: SolutionPillar[] = [
   {
     slug: "accounting-integrations",
     title: "QuickBooks & Xero Integrations",
-    headline: "Reliable accounting sync for product teams and operations",
+    headline: "Your sync drifts every month-end. Ours doesn't.",
     summary:
-      "QuickBooks and Xero API integrations with clear error handling, operator dashboards, and reconciliation workflows your finance team trusts.",
+      "Finance teams shouldn't be reconciling data manually two days before close. We build QuickBooks and Xero integrations that run at 99.3% nightly reliability and surface exceptions before month-end becomes a crisis.",
     market: "UK · US · Global",
     href: "/solutions/accounting-integrations",
     icon: IconReceipt2,
-    services: ["QuickBooks Online sync", "Xero API integration", "Invoice & payment flows", "Reconciliation dashboards", "Multi-entity mapping", "Webhook monitoring"],
+    services: [
+      "QuickBooks API integration",
+      "Xero sync & reconciliation",
+      "Exception dashboards",
+      "Operator reporting",
+      "Automated workflows",
+      "Finance team handoff docs",
+    ],
     cta: "Explore integrations",
     seo: {
       title: "QuickBooks & Xero Integration Development",
@@ -107,13 +128,20 @@ export const solutionPillars: SolutionPillar[] = [
   {
     slug: "car-transportation",
     title: "Car Transportation",
-    headline: "Software and digital experiences for vehicle transport operators",
+    headline: "Vehicle logistics software that matches how carriers actually operate.",
     summary:
-      "Booking portals, carrier dashboards, dispatch workflows, and customer-facing tracking for auto transport and vehicle logistics businesses.",
+      "Auto transport companies lose deals when quote flows are slow and customers can't track shipments. We build booking portals, carrier dispatch, and tracking UX that reduce quote-to-book time and support volume — without adding ops headcount.",
     market: "United States · Canada",
     href: "/solutions/car-transportation",
     icon: IconRoute,
-    services: ["Transport booking portals", "Carrier dispatch tools", "Customer tracking UX", "Quote & pricing flows", "Driver coordination apps", "Ops automation"],
+    services: [
+      "Transport booking portals",
+      "Carrier dispatch tools",
+      "Customer tracking UX",
+      "Quote & pricing flows",
+      "Driver coordination apps",
+      "Ops automation",
+    ],
     cta: "Explore car transport solutions",
     seo: {
       title: "Car Transportation Software & Digital Product Design",
@@ -130,13 +158,20 @@ export const homepageSolutionSections = [
   {
     slug: "crm-automation" as const,
     title: "CRM & Workflow Automation",
-    headline: "Operational dashboards and automation your team actually uses",
+    headline: "CRM your ops team opens every morning — not just at month-end.",
     summary:
-      "Custom CRM UX, sales pipelines, dispatch consoles, and Make/Zapier workflows - designed around how your team works day to day.",
+      "Sales and dispatch teams abandon CRMs that don't match their workflow. We design dispatch consoles, pipeline views, and Make/Zapier automations around how your team actually works — with dashboards that surface exceptions, not spreadsheets.",
     market: "SaaS · Trucking · Professional services",
     href: "/services/crm-development",
     icon: IconChartBar,
-    services: ["Dispatch CRM UX", "Sales pipeline design", "Custom dashboards", "Workflow automation", "CRM integrations", "Reporting views"],
+    services: [
+      "Dispatch CRM UX",
+      "Sales pipeline design",
+      "Custom dashboards",
+      "Workflow automation",
+      "CRM integrations",
+      "Reporting views",
+    ],
     cta: "Explore CRM solutions",
     seo: {
       title: "CRM & Workflow Automation",
@@ -147,17 +182,24 @@ export const homepageSolutionSections = [
   {
     slug: "ai-productivity" as const,
     title: "AI Productivity & Automation",
-    headline: "AI-accelerated delivery with human oversight at every step",
+    headline: "AI that saves hours — with a human sign-off before anything ships.",
     summary:
-      "Embed AI into design, development, and ops workflows - faster iteration without sacrificing quality, compliance, or brand trust.",
+      "We embed AI into design, development, and ops workflows to move faster without sacrificing quality. Every AI-assisted output is reviewed by a senior team member. Faster iteration, same accountability.",
     market: "UK · US · Global",
     href: "/services/ai-assisted-development",
     icon: IconBrain,
-    services: ["AI-assisted design", "Smart prototyping", "Workflow automation", "Support triage", "Document processing", "QA acceleration"],
+    services: [
+      "AI-assisted design",
+      "Smart prototyping",
+      "Workflow automation",
+      "Support triage",
+      "Document processing",
+      "QA acceleration",
+    ],
     cta: "Explore AI solutions",
     seo: {
       title: "AI SaaS Development & Productivity Automation",
-      description: "AI-assisted product development and workflow automation for SaaS and logistics teams.",
+      description: "AI-powered product development and workflow automation for SaaS and logistics teams.",
       keywords: ["AI SaaS development company", "AI product development agency"],
     },
   },
@@ -187,7 +229,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
         description: "From validated prototype to production-ready Next.js or low-code MVP - scoped for speed and clarity.",
       },
       {
-        title: "AI-assisted workflows",
+        title: "AI-powered workflows",
         description: "Embed AI into product UX and internal delivery - with review gates and audit-friendly processes.",
       },
       {

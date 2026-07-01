@@ -15,6 +15,7 @@ const processStepIcons = [IconSearch, IconPencil, IconCode, IconRocket, IconHear
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -135,6 +136,12 @@ export default function ProcessPage() {
           </div>
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow="Get started"
+        title="Want to see how this works for your project?"
+        description="Send a brief or book a discovery call — we'll walk through a realistic timeline and specific deliverables for your scope."
+      />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { buttonVariants } from "@/components/ui/button";
 import { industries, primaryCtas } from "@/content/site-content";
@@ -86,6 +87,12 @@ export default function IndustriesPage() {
           })}
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow="Your market"
+        title="Working in a market we haven't listed?"
+        description="Share your product and constraints — we'll tell you honestly whether we're the right fit and show you relevant examples if we are."
+      />
     </>
   );
 }

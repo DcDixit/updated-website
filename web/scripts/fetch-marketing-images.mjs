@@ -5,14 +5,12 @@
  * License: Unsplash (free) — https://unsplash.com/license
  * Refresh: npm run images:fetch
  */
-import { copyFile, mkdir, writeFile, access } from "node:fs/promises";
-import { constants } from "node:fs";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, "..", "public", "images");
-const BRAND_DIR = path.join(__dirname, "..", "public", "brand");
 
 /** Verified assets — each URL was checked against its intended theme. */
 const U = {
@@ -112,22 +110,9 @@ const MANIFEST = [
   { file: "tech/tech-nocode.jpg", url: U.laptopCollab, theme: "No-code low-code platforms" },
 ];
 
-async function fileExists(filePath) {
-  try {
-    await access(filePath, constants.F_OK);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-async function download(entry, { force = false } = {}) {
+async function download(entry) {
   const dest = path.join(OUT_DIR, entry.file);
   await mkdir(path.dirname(dest), { recursive: true });
-
-  if (!force && (await fileExists(dest))) {
-    return { skipped: true, bytes: 0 };
-  }
 
   const res = await fetch(entry.url);
   if (!res.ok) {
@@ -136,50 +121,27 @@ async function download(entry, { force = false } = {}) {
 
   const buffer = Buffer.from(await res.arrayBuffer());
   await writeFile(dest, buffer);
-  return { skipped: false, bytes: buffer.length };
+  return buffer.length;
 }
 
 async function main() {
-  const force = process.env.FORCE_IMAGES === "1";
-  console.log(`Fetching ${MANIFEST.length} verified images${force ? " (force refresh)" : ""}…\n`);
+  console.log(`Fetching ${MANIFEST.length} verified images…\n`);
 
   let ok = 0;
-  let skipped = 0;
   let failed = 0;
 
   for (const entry of MANIFEST) {
     try {
-      const result = await download(entry, { force });
-      if (result.skipped) {
-        skipped += 1;
-        console.log(`↷ ${entry.file} (already exists)`);
-      } else {
-        ok += 1;
-        console.log(`✓ ${entry.file} (${entry.theme}, ${result.bytes} bytes)`);
-      }
+      const bytes = await download(entry);
+      ok += 1;
+      console.log(`✓ ${entry.file} (${entry.theme}, ${bytes} bytes)`);
     } catch (err) {
       failed += 1;
       console.error(`✗ ${entry.file}: ${err.message}`);
     }
   }
 
-  console.log(`\nDone: ${ok} saved, ${skipped} skipped, ${failed} failed.`);
-
-  await mkdir(BRAND_DIR, { recursive: true });
-  const ogSource = path.join(OUT_DIR, "heroes", "hero-home.jpg");
-  const ogDest = path.join(BRAND_DIR, "og-default.jpg");
-  try {
-    if (force || !(await fileExists(ogDest))) {
-      await copyFile(ogSource, ogDest);
-      console.log(`✓ brand/og-default.jpg (copied from hero-home.jpg)`);
-    } else {
-      console.log(`↷ brand/og-default.jpg (already exists)`);
-    }
-  } catch (err) {
-    console.error(`✗ brand/og-default.jpg: ${err.message}`);
-    failed += 1;
-  }
-
+  console.log(`\nDone: ${ok} saved, ${failed} failed.`);
   if (failed) process.exit(1);
 }
 

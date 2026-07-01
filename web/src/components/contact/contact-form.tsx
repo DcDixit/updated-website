@@ -40,7 +40,7 @@ const timelines = [
 ] as const;
 
 const selectClass =
-  "h-12 w-full rounded-lg border border-[var(--surface-border)] bg-background px-3 text-base text-foreground outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)] invalid:border-destructive dark:bg-card";
+  "h-12 w-full rounded-lg border border-[var(--surface-border)] bg-background px-3 text-base text-foreground outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35 dark:bg-card";
 
 function FormFieldSkeleton() {
   return (

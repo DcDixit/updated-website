@@ -8,6 +8,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { InsightArticleBody } from "@/components/marketing/insight-article-body";
 import { InsightCard } from "@/components/marketing/insight-card";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -189,6 +190,12 @@ export default async function InsightArticlePage({ params }: Props) {
           </div>
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow="Apply these ideas"
+        title="Want help implementing this on your product?"
+        description="Share your context - we'll suggest a practical next step, timeline, and approach."
+      />
     </>
   );
 }

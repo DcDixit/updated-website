@@ -5,6 +5,7 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { SolutionPillarCard } from "@/components/marketing/solution-pillar-card";
 import { buttonVariants } from "@/components/ui/button";
@@ -80,6 +81,12 @@ export default function SolutionsPage() {
           </div>
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow="Not sure which solution fits?"
+        title="Tell us about your product and market."
+        description="We'll recommend the right starting point - SaaS MVP, dispatch CRM, integration project, or automation workflow."
+      />
     </>
   );
 }

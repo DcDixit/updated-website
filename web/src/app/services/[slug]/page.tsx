@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
 import { CaseStudyCard } from "@/components/marketing/case-study-card";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import {
   Accordion,
@@ -173,6 +174,12 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow={service.title}
+        title={`Need help with ${service.title.toLowerCase()}?`}
+        description="Share your timeline and goals - we'll reply with a scoped plan and honest next steps."
+      />
     </>
   );
 }

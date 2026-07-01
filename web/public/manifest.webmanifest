@@ -1,16 +1,22 @@
 {
   "name": "Northline Digital",
   "short_name": "Northline",
-  "description": "Digital product agency for SaaS and trucking software.",
+  "description": "AI-powered digital product agency for SaaS and trucking software.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5fbf8",
-  "theme_color": "#0d6e4d",
+  "background_color": "#0c0e0f",
+  "theme_color": "#84cc16",
   "icons": [
     {
       "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

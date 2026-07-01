@@ -15,7 +15,7 @@ export const testimonials = [
       "They delivered a dispatch console our ops team actually enjoys using — handle time down 32% without adding headcount.",
     name: "Marcus Cole",
     role: "VP Operations",
-    company: "FleetFlow Logistics (US)",
+    company: "FleetRoute Logistics (US)",
     rating: 5,
     project: "Dispatch console & CRM",
   },

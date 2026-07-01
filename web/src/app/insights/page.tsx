@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
 import { InsightCard } from "@/components/marketing/insight-card";
+import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { buttonVariants } from "@/components/ui/button";
 import { brand, primaryCtas } from "@/content/site-content";
@@ -77,6 +78,12 @@ export default function InsightsPage() {
           </div>
         </Container>
       </Section>
+
+      <LeadCaptureCta
+        eyebrow="Start a project"
+        title="Read enough? Let's talk about your product."
+        description="Send a brief or book a discovery call — we respond within 24 hours with a clear plan."
+      />
     </>
   );
 }

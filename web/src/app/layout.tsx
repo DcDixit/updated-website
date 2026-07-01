@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 
 import { AnalyticsProvider } from "@/components/site/analytics-provider";
@@ -16,36 +16,41 @@ import { themeInitScript } from "@/lib/theme";
 
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
-const defaultTitle = `${brand.shortName} · SaaS & Trucking Digital Product Agency`;
-const defaultDescription =
-  "We design and build SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.";
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: defaultTitle,
+    default: `${brand.shortName} · AI-powered digital product agency`,
     template: `%s · ${brand.shortName}`,
   },
-  description: defaultDescription,
+  description:
+    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: defaultTitle,
-    description: defaultDescription,
-    images: [{ url: `${siteUrl}/brand/og-default.jpg`, width: 1200, height: 630, alt: brand.shortName }],
+    title: `${brand.shortName} · AI-powered digital product agency`,
+    description:
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+    images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: defaultTitle,
-    description: defaultDescription,
-    images: [`${siteUrl}/brand/og-default.jpg`],
+    title: `${brand.shortName} · AI-powered digital product agency`,
+    description:
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+    images: [`${siteUrl}/brand/og-default.png`],
   },
   robots: {
     index: true,
@@ -53,7 +58,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
   manifest: "/manifest.webmanifest",
 };
@@ -72,9 +77,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${instrumentSans.variable} ${instrumentSans.className} h-full font-sans`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${inter.className} h-full font-sans`}
     >
       <head>
+        <link rel="preload" href="/brand/og-default.png" as="image" type="image/png" />
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>

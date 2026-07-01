@@ -66,14 +66,14 @@ export function ContactSidebar() {
           <p className="type-badge-label">Direct contact</p>
           <Link
             href={`mailto:${siteContact.email}`}
-            className="flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]"
+            className="flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
           >
             <IconMail size={18} className="shrink-0 text-[var(--color-accent)]" aria-hidden />
             {siteContact.email}
           </Link>
           <Link
             href={`tel:${siteContact.telHref}`}
-            className="flex items-center gap-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]"
+            className="flex items-center gap-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
             data-track="cta_click"
             data-track-location="contact-sidebar"
             data-track-label="Phone call"
@@ -85,7 +85,7 @@ export function ContactSidebar() {
             href={siteContact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]"
+            className="flex items-center gap-3 text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
             data-track="whatsapp_click"
             data-track-location="contact-sidebar"
             data-track-label="WhatsApp us"
@@ -105,7 +105,7 @@ export function ContactSidebar() {
             href={siteContact.mapSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex gap-3 rounded-lg border border-[var(--surface-border)] p-4 transition-colors hover:border-[var(--color-accent)]/40 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring-color)]"
+            className="group flex gap-3 rounded-lg border border-[var(--surface-border)] p-4 transition-colors hover:border-[var(--color-accent)]/40 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
           >
             <IconMapPin size={18} className="mt-0.5 shrink-0 text-[var(--color-accent)]" aria-hidden />
             <span className="type-caption group-hover:text-foreground">

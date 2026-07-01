@@ -102,10 +102,10 @@ function SolutionListItem({
       className={cn(
         "group relative flex shrink-0 items-center gap-3 text-left transition-colors",
         compact ? "rounded-full px-4 py-2.5" : "w-full px-5 py-3.5",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--focus-ring-color)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-accent)]/35",
         isActive
           ? compact
-            ? "bg-[var(--color-accent)] text-white dark:text-black"
+            ? "bg-primary text-white"
             : "bg-[var(--card)]"
           : compact
             ? "border border-[var(--surface-border)] bg-[var(--card)] hover:border-[var(--color-accent)]/40"
@@ -128,7 +128,7 @@ function SolutionListItem({
           compact ? "whitespace-nowrap font-medium" : "flex-1",
           isActive
             ? compact
-              ? "text-white dark:text-black"
+              ? "text-white"
               : "font-semibold text-foreground"
             : compact
               ? "text-[color:var(--text-body)]"
