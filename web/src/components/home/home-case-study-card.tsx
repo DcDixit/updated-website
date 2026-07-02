@@ -31,12 +31,12 @@ export function HomeCaseStudyCard({
   return (
     <div
       className={cn(
-        "group overflow-hidden rounded-xl border border-border bg-white shadow-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg",
+        "surface-card card-hover-rise group overflow-hidden",
         className
       )}
     >
       <div className="relative">
-        <div className="relative aspect-[16/9] overflow-hidden bg-bg-alt">
+        <div className="relative aspect-[16/9] overflow-hidden bg-[var(--surface-muted)]">
           {visual ? (
             <Image
               src={visual.src}
@@ -48,27 +48,27 @@ export function HomeCaseStudyCard({
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
-              <span className="font-mono text-xs text-text-muted">[ UI screenshot ]</span>
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-accent)]/5">
+              <span className="font-mono text-xs text-[color:var(--text-secondary)]">[ UI screenshot ]</span>
             </div>
           )}
         </div>
-        <div className="absolute right-3 top-3 rounded-full border border-success/20 bg-white/95 px-2.5 py-1 text-xs font-bold text-success shadow-sm backdrop-blur-sm">
+        <div className="absolute right-3 top-3 rounded-full border border-[var(--color-success)]/20 bg-[var(--surface-elevated)]/95 px-2.5 py-1 text-xs font-bold text-[var(--color-success)] shadow-sm backdrop-blur-sm">
           {metric}
         </div>
         <div className="absolute left-3 top-3">
-          <span className="rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-white">
+          <span className="rounded-full bg-[var(--color-primary)] px-2.5 py-1 text-xs font-semibold text-white">
             {industry}
           </span>
         </div>
       </div>
 
       <div className="p-5">
-        <h3 className="mb-1 font-bold text-text-primary">{title}</h3>
-        <p className="mb-4 text-sm leading-relaxed text-text-secondary">{summary}</p>
+        <h3 className="mb-1.5 font-semibold text-foreground">{title}</h3>
+        <p className="mb-4 text-sm leading-relaxed text-[color:var(--text-secondary)]">{summary}</p>
         <Link
           href={href}
-          className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
         >
           Read case study →
         </Link>

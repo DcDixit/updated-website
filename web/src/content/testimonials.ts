@@ -12,7 +12,7 @@ export const testimonials = [
   },
   {
     quote:
-      "They delivered a dispatch console our ops team actually enjoys using — handle time down 32% without adding headcount.",
+      "They delivered a dispatch console our ops team actually enjoys using. Handle time dropped 32% without adding headcount.",
     name: "Marcus Cole",
     role: "VP Operations",
     company: "FleetRoute Logistics (US)",

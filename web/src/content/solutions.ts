@@ -130,7 +130,7 @@ export const solutionPillars: SolutionPillar[] = [
     title: "Car Transportation",
     headline: "Vehicle logistics software that matches how carriers actually operate.",
     summary:
-      "Auto transport companies lose deals when quote flows are slow and customers can't track shipments. We build booking portals, carrier dispatch, and tracking UX that reduce quote-to-book time and support volume — without adding ops headcount.",
+      "Auto transport companies lose deals when quote flows are slow and customers can't track shipments. We build booking portals, carrier dispatch, and tracking UX that reduce quote-to-book time and support volume growth, without adding ops headcount.",
     market: "United States · Canada",
     href: "/solutions/car-transportation",
     icon: IconRoute,
@@ -158,9 +158,9 @@ export const homepageSolutionSections = [
   {
     slug: "crm-automation" as const,
     title: "CRM & Workflow Automation",
-    headline: "CRM your ops team opens every morning — not just at month-end.",
+    headline: "CRM your ops team opens every morning, not just at month-end.",
     summary:
-      "Sales and dispatch teams abandon CRMs that don't match their workflow. We design dispatch consoles, pipeline views, and Make/Zapier automations around how your team actually works — with dashboards that surface exceptions, not spreadsheets.",
+      "Sales and dispatch teams abandon CRMs that don't match their workflow. We design dispatch consoles, pipeline views, and Make/Zapier automations around how your team actually works, with dashboards that surface exceptions rather than generating more spreadsheets.",
     market: "SaaS · Trucking · Professional services",
     href: "/services/crm-development",
     icon: IconChartBar,
@@ -182,7 +182,7 @@ export const homepageSolutionSections = [
   {
     slug: "ai-productivity" as const,
     title: "AI Productivity & Automation",
-    headline: "AI that saves hours — with a human sign-off before anything ships.",
+    headline: "AI that saves hours. A human signs off before anything ships.",
     summary:
       "We embed AI into design, development, and ops workflows to move faster without sacrificing quality. Every AI-assisted output is reviewed by a senior team member. Faster iteration, same accountability.",
     market: "UK · US · Global",
@@ -209,7 +209,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   saas: {
     ...solutionPillars[0],
     heroLead:
-      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards - with an in-house team that ships, not slides.",
+      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards. An in-house team that ships, not just presents.",
     outcomes: [
       { label: "Typical MVP timeline", value: "8–12 weeks" },
       { label: "Activation uplift", value: "+15–25%" },
@@ -226,11 +226,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         title: "MVP design & development",
-        description: "From validated prototype to production-ready Next.js or low-code MVP - scoped for speed and clarity.",
+        description: "From validated prototype to production-ready Next.js or low-code MVP, scoped for speed and a clear timeline.",
       },
       {
         title: "AI-powered workflows",
-        description: "Embed AI into product UX and internal delivery - with review gates and audit-friendly processes.",
+        description: "Embed AI into product UX and internal delivery, with review gates and audit-friendly processes.",
       },
       {
         title: "Product scalability",
@@ -242,7 +242,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
     ],
     processSteps: [
-      { title: "Discovery", body: "Align on ICP, activation metrics, and MVP scope - documented before design starts." },
+      { title: "Discovery", body: "Align on ICP, activation metrics, and MVP scope. Everything is documented before design starts." },
       { title: "Design sprints", body: "Flows, prototypes, and UI validated with stakeholders and target users." },
       { title: "Build & iterate", body: "Incremental delivery with demos, QA, and analytics baselines." },
       { title: "Launch & scale", body: "Handoff, design system docs, and roadmap support for the next release." },
@@ -250,7 +250,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     faq: [
       {
         q: "Do you work with early-stage UK SaaS startups?",
-        a: "Yes - from pre-seed MVPs to Series A scaling. We tailor team size and engagement model to your stage and runway.",
+        a: "Yes. We work with teams from pre-seed MVPs through to Series A scaling. Team size and engagement model are tailored to your stage and runway.",
       },
       {
         q: "Can you redesign an existing SaaS product?",
@@ -267,7 +267,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   "trucking-logistics": {
     ...solutionPillars[1],
     heroLead:
-      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators - freight brokers, dispatch companies, logistics startups, and fleet businesses.",
+      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators: freight brokers, dispatch companies, logistics startups, and fleet businesses.",
     outcomes: [
       { label: "Dispatch handle time", value: "−20–35%" },
       { label: "Routes managed daily", value: "400+" },
@@ -276,7 +276,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     capabilities: [
       {
         title: "Trucking company websites",
-        description: "Conversion-focused sites for carriers, brokers, and logistics brands - fast, credible, and SEO-ready.",
+        description: "Conversion-focused sites for carriers, brokers, and logistics brands. Fast, credible, and built for search.",
       },
       {
         title: "Dispatch CRM solutions",
@@ -284,7 +284,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         title: "Fleet management dashboards",
-        description: "Real-time fleet visibility, route performance, and exception handling - designed for dispatchers and managers.",
+        description: "Real-time fleet visibility, route performance, and exception handling, designed for dispatchers and operations managers.",
       },
       {
         title: "Driver mobile apps",
@@ -301,14 +301,14 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     ],
     processSteps: [
       { title: "Ops discovery", body: "Shadow dispatch workflows, map pain points, and define success metrics with your ops team." },
-      { title: "UX for the floor", body: "Design for speed, error recovery, and high-volume actions - validated with real operators." },
+      { title: "UX for the floor", body: "Design for speed, error recovery, and high-volume actions, validated with real operators before anything ships." },
       { title: "Build & integrate", body: "Connect ELD, mapping, accounting, and CRM systems with reliable sync and monitoring." },
       { title: "Rollout & training", body: "Phased launch, operator docs, and iteration based on floor feedback." },
     ],
     faq: [
       {
         q: "Do you work with US trucking companies and freight brokers?",
-        a: "Yes - this is a primary focus. We align stand-ups and delivery to US time zones and ops realities.",
+        a: "Yes, this is a primary focus. We align stand-ups and delivery to US time zones and ops realities.",
       },
       {
         q: "Can you redesign our dispatch CRM without stopping operations?",
@@ -325,7 +325,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   "accounting-integrations": {
     ...solutionPillars[2],
     heroLead:
-      "Connect your product or ops platform to QuickBooks Online and Xero - with sync jobs finance teams trust, operator dashboards, and alerts when something breaks.",
+      "Connect your product or ops platform to QuickBooks Online and Xero, with sync jobs finance teams trust, operator dashboards, and alerts when something breaks.",
     outcomes: [
       { label: "Nightly sync reliability", value: "99%+" },
       { label: "Manual reconciliation", value: "−60–80%" },
@@ -338,11 +338,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         title: "Xero API integration",
-        description: "Two-way sync for contacts, invoices, and bank feeds - with clear error states and retry logic.",
+        description: "Two-way sync for contacts, invoices, and bank feeds, with clear error states and retry logic.",
       },
       {
         title: "Reconciliation dashboards",
-        description: "Operator views for sync status, exceptions, and month-end close - built for finance, not engineers.",
+        description: "Operator views for sync status, exceptions, and month-end close. Built for finance teams, not engineers.",
       },
       {
         title: "Webhook & job monitoring",
@@ -370,7 +370,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         q: "Can you sync both Xero and QuickBooks for different regions?",
-        a: "Yes - multi-region billing setups with separate connectors and unified operator dashboards are common for SaaS clients.",
+        a: "Yes. Multi-region billing setups with separate connectors and unified operator dashboards are common for SaaS clients.",
       },
       {
         q: "How do you handle sync failures?",
@@ -383,7 +383,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   "car-transportation": {
     ...solutionPillars[3],
     heroLead:
-      "Digital products for auto transport companies - quote flows, carrier dispatch, customer tracking, and ops automation built for vehicle logistics.",
+      "Digital products for auto transport companies: quote flows, carrier dispatch, customer tracking, and ops automation built for vehicle logistics.",
     outcomes: [
       { label: "Quote-to-book time", value: "−40%" },
       { label: "Customer self-serve", value: "+30%" },
@@ -392,7 +392,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     capabilities: [
       {
         title: "Transport booking portals",
-        description: "Quote, book, and pay flows optimized for conversion - with clear pricing and trust signals.",
+        description: "Quote, book, and pay flows optimized for conversion, with clear pricing and trust signals throughout.",
       },
       {
         title: "Carrier dispatch tools",
@@ -416,23 +416,23 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
     ],
     processSteps: [
-      { title: "Journey mapping", body: "Map customer, carrier, and ops journeys - identify friction in quote-to-delivery." },
-      { title: "Product design", body: "High-fidelity UX for portals, dispatch, and tracking - validated before build." },
+      { title: "Journey mapping", body: "Map customer, carrier, and ops journeys to identify friction in the quote-to-delivery process." },
+      { title: "Product design", body: "High-fidelity UX for portals, dispatch, and tracking, validated before build begins." },
       { title: "Platform build", body: "Next.js web apps, mobile coordination tools, and integrations with your existing stack." },
       { title: "Launch & optimize", body: "Analytics, conversion tuning, and ops feedback loops post-launch." },
     ],
     faq: [
       {
         q: "Do you build for auto transport brokers and carriers?",
-        a: "Yes - both sides of the market: customer-facing portals and internal dispatch/ops tools.",
+        a: "Yes. We build for both sides: customer-facing portals and internal dispatch and ops tools.",
       },
       {
         q: "Can this connect to our existing TMS or CRM?",
-        a: "We integrate with common logistics and CRM platforms via API - or build custom connectors where needed.",
+        a: "We integrate with common logistics and CRM platforms via API, or build custom connectors where needed.",
       },
       {
         q: "How is this different from general trucking solutions?",
-        a: "Car transportation has unique quote, tracking, and customer communication patterns - we design specifically for vehicle logistics.",
+        a: "Car transportation has unique quote, tracking, and customer communication patterns. We design specifically for vehicle logistics, not general trucking.",
       },
     ],
     relatedServiceSlugs: ["web-development", "crm-development", "mobile-applications", "api-integrations"],

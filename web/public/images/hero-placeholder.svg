@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" fill="none">
+  <rect width="1100" height="620" fill="#0B1020"/>
+  <rect x="1" y="1" width="1098" height="618" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <rect x="24" y="24" width="1052" height="48" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <circle cx="48" cy="48" r="6" fill="#F59E0B" opacity="0.6"/>
+  <circle cx="68" cy="48" r="6" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="88" cy="48" r="6" fill="rgba(255,255,255,0.15)"/>
+  <rect x="24" y="96" width="220" height="500" rx="8" fill="rgba(27,42,107,0.20)" stroke="rgba(27,42,107,0.35)"/>
+  <rect x="40" y="120" width="120" height="10" rx="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="40" y="148" width="180" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+  <rect x="40" y="168" width="160" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+  <rect x="40" y="188" width="170" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+  <rect x="260" y="96" width="816" height="240" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="280" y="120" width="200" height="12" rx="4" fill="rgba(245,158,11,0.35)"/>
+  <rect x="280" y="148" width="320" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="280" y="180" width="760" height="120" rx="6" fill="rgba(27,42,107,0.15)" stroke="rgba(27,42,107,0.25)"/>
+  <rect x="260" y="356" width="260" height="120" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="540" y="356" width="260" height="120" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="820" y="356" width="256" height="120" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="260" y="496" width="816" height="100" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="550" y="580" text-anchor="middle" fill="rgba(90,100,128,0.8)" font-family="system-ui,sans-serif" font-size="14">Dashboard placeholder  replace with real screenshot</text>
+</svg>

@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Services",
   description:
-    "UI/UX design, SaaS product development, mobile apps, branding, AI-assisted delivery, and workflow automation — all delivered by one in-house team.",
+    "UI/UX design, SaaS product development, mobile apps, branding, AI-assisted delivery, and workflow automation, all delivered by one in-house team.",
   path: "/services",
   image: pageHeroVisuals.services.src,
 });
@@ -33,8 +33,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Design, build, and automate - with one in-house team."
-        description="From UI/UX and product design to web, mobile, SaaS, AI-assisted development, and workflow automation - we cover the full digital product lifecycle."
+        title="Design, build, and automate. One in-house team."
+        description="UI/UX and product design, web and mobile development, SaaS platforms, API integrations, and workflow automation. We cover the full product lifecycle."
         visual={pageHeroVisuals.services}
         priority
         actions={
@@ -57,8 +57,8 @@ export default function ServicesPage() {
         <Container className="grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-center">
           <SectionHeader
             eyebrow="Full-stack delivery"
-            title="One team from discovery to launch."
-            description="Design, engineering, integrations, and automation - coordinated under one roof so your product ships faster with fewer handoffs."
+            title="One team, start to finish."
+            description="Design, engineering, integrations, and automation, all coordinated under one roof. Fewer handoffs means faster decisions and a cleaner product."
           />
           <MarketingImage
             src={marketingSectionImages.servicesOverview.src}
@@ -97,9 +97,9 @@ export default function ServicesPage() {
                   <span className="accent-live-dot" aria-hidden />
                   Not sure where to start?
                 </p>
-                <h2 className="type-h3 text-foreground">Tell us your goals — we&apos;ll recommend the right approach.</h2>
+                <h2 className="type-h3 text-foreground">Tell us your goals and we&apos;ll recommend the right approach.</h2>
                 <p className="type-body text-[color:var(--text-secondary)]">
-                  A short discovery call is all it takes to get a clear scope, timeline, and honest recommendation.
+                  A short discovery call is enough to get a clear scope, realistic timeline, and an honest recommendation.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

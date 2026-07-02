@@ -31,7 +31,7 @@ export default async function WorkPage({ searchParams }: Props) {
       <PageHero
         eyebrow="Portfolio"
         title="Products we've designed, built, and shipped."
-        description="Case studies across SaaS, US trucking & logistics, CRM, QuickBooks/Xero integrations, and AI automation - with measurable outcomes."
+        description="Case studies across SaaS, US trucking and logistics, CRM, QuickBooks/Xero integrations, and AI automation, with measurable outcomes."
         visual={pageHeroVisuals.work}
         priority
         actions={
@@ -63,7 +63,7 @@ export default async function WorkPage({ searchParams }: Props) {
       <LeadCaptureCta
         eyebrow="Start a project"
         title="Want results like these for your product?"
-        description="Share your goals and timeline - we'll outline a clear path forward."
+        description="Share your goals and timeline and we'll outline a clear path forward."
       />
     </>
   );

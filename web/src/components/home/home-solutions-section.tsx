@@ -182,7 +182,7 @@ export function HomeSolutionsSection() {
       <SectionHeader
         eyebrow="Solutions"
         title="Two industries. One focused team."
-        description="Design, engineering, and AI delivery under one roof — each solution area backed by specialists who know the market."
+        description="Design, engineering, and AI delivery under one roof. Each solution area is backed by specialists who know the market."
       />
 
       <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">

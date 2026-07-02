@@ -30,7 +30,7 @@ export default function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title="Join a focused product team."
-        description="We're looking for designers, engineers, and automation specialists who care about craft, honest communication, and shipping work that measurably helps clients."
+        description="We're looking for designers, engineers, and automation specialists who care about the craft, communicate honestly, and ship work that actually makes a difference for clients."
         visual={pageHeroVisuals.careers}
         priority
       />
@@ -75,7 +75,7 @@ export default function CareersPage() {
       <LeadCaptureCta
         eyebrow="General applications"
         title="Don't see your role listed?"
-        description="Send your portfolio and a note about what you do best — we review every application and reach out when there's a fit."
+        description="Send your portfolio and a short note about what you do best. We review every application and get back to you when there's a fit."
       />
     </>
   );

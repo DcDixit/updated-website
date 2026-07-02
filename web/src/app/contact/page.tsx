@@ -28,7 +28,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Tell us what you're building."
-        description="Send a brief or book a discovery call — we respond within 24 hours on business days with a clear plan and honest next steps."
+        description="Send a brief or book a discovery call. We respond within 24 hours on business days with a clear plan and honest next steps."
         visual={pageHeroVisuals.contact}
         priority
         actions={

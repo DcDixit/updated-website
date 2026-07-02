@@ -326,7 +326,7 @@ export function ContactForm() {
 
       {status === "sent" ? (
         <div className="surface-card border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-4" role="status">
-          <p className="type-body font-semibold text-foreground">Message sent — thank you!</p>
+          <p className="type-body font-semibold text-foreground">Message sent. Thank you!</p>
           <p className="type-caption mt-2">We typically reply within 24 hours on business days.</p>
         </div>
       ) : null}

@@ -17,7 +17,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function NotFound() {
   return (
-    <SectionShell size="default" className="hero-mesh-bg min-h-[60vh]">
+    <SectionShell size="default" glow="dual" bordered={false}>
       <Container className="flex max-w-xl flex-col items-start gap-6 py-12">
         <div
           className="surface-card flex size-20 items-center justify-center rounded-[var(--card-radius)] border border-[var(--surface-border)]"
@@ -33,8 +33,8 @@ export default function NotFound() {
           </svg>
         </div>
         <p className="type-badge-label">404</p>
-        <h1 className="type-hero text-balance">This page doesn&apos;t exist.</h1>
-        <p className="type-body text-[color:var(--text-secondary)]">
+        <h1 className="type-hero font-heading text-balance text-text-primary-v2">This page doesn&apos;t exist.</h1>
+        <p className="type-body font-body text-text-secondary-v2">
           The link may be outdated or the page may have moved. Try one of these instead:
         </p>
         <nav aria-label="Helpful links" className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

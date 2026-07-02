@@ -16,7 +16,6 @@ import {
   stats,
   testimonials,
 } from "@/content/site-content";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -88,7 +87,7 @@ export function MarketingTrustSignals({
         <div className="grid gap-4 sm:grid-cols-3">
           {miniStats.map((s) => (
             <div key={s.label} className="surface-card stat-card-accent p-6 text-center sm:text-left">
-              <p className="type-stat text-[var(--color-accent)]">{s.value}</p>
+              <p className="type-stat text-brand-cobalt dark:text-brand-amber">{s.value}</p>
               <p className="type-stat-label mt-2">{s.label}</p>
               <p className="type-caption mt-1">{s.caption}</p>
             </div>
@@ -98,13 +97,21 @@ export function MarketingTrustSignals({
 
       {withLogos ? (
         <div className="surface-card px-5 py-6 sm:px-8">
-          <p className="type-badge-label mb-4 text-center sm:text-left">Industries &amp; verticals we deliver for</p>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+          <p className="type-badge-label mb-4 text-center sm:text-left">Products we&apos;ve designed &amp; shipped</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:justify-start">
             {clientLogos.map((client) => (
-              <Badge key={client.name} variant="secondary" className="gap-1.5 px-3 py-1 font-normal">
-                <span className="size-1.5 shrink-0 rounded-full bg-[var(--color-accent)] opacity-70" aria-hidden />
-                {client.name}
-              </Badge>
+              <div key={client.name} className="flex flex-col items-center gap-1.5 text-center">
+                <img
+                  src={client.logoSrc}
+                  alt=""
+                  width={120}
+                  height={36}
+                  className="h-8 w-auto object-contain dark:brightness-110"
+                  aria-hidden
+                />
+                <span className="sr-only">{client.name}</span>
+                <span className="text-xs font-medium text-text-secondary-v2">{client.industry}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -181,18 +188,15 @@ export function MarketingTrustSection({
   return (
     <section
       className={cn(
-        "scroll-mt-[var(--header-offset)] border-y border-[var(--section-divider)] bg-[var(--surface-muted)] py-16 sm:py-20 lg:py-24",
+        "relative overflow-hidden scroll-mt-[var(--header-offset)] border-y border-surface-card-border bg-surface-alt py-16 sm:py-20 lg:py-24",
         className
       )}
     >
-      <Container className="max-w-6xl">
+      <Container className="relative z-10 max-w-6xl">
         <div className="mb-10 max-w-2xl space-y-3">
-          <p className="highlight-badge">
-            <span className="accent-live-dot" aria-hidden />
-            Proof
-          </p>
-          <h2 className="type-h2 text-balance text-foreground">Verified ratings. Real outcomes.</h2>
-          <p className="type-body text-[color:var(--text-secondary)]">
+          <p className="eyebrow-amber">Proof</p>
+          <h2 className="type-h2 font-heading text-balance text-text-primary-v2">Verified ratings. Real outcomes.</h2>
+          <p className="type-body font-body text-text-secondary-v2">
             Google ratings, delivery metrics, and client feedback from recent engagements.
           </p>
         </div>

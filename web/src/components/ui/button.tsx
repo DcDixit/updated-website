@@ -11,7 +11,7 @@ const buttonVariants = cva(
         primary:
           "btn-accent-glow border border-transparent bg-primary text-white hover:bg-primary-dark transition-colors duration-200 focus-visible:ring-accent",
         secondary:
-          "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 dark:border-[var(--surface-border)] dark:hover:bg-white/5",
+          "border border-[var(--btn-secondary-border)] bg-transparent text-text-primary-v2 hover:border-[var(--btn-secondary-border-hover)] hover:bg-[var(--btn-secondary-hover-bg)]",
         link: "border-transparent bg-transparent text-[var(--color-accent-strong)] underline-offset-4 hover:underline",
       },
       size: {

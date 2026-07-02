@@ -82,7 +82,7 @@ export default function InsightsPage() {
       <LeadCaptureCta
         eyebrow="Start a project"
         title="Read enough? Let's talk about your product."
-        description="Send a brief or book a discovery call — we respond within 24 hours with a clear plan."
+        description="Send a brief or book a discovery call. We respond within 24 hours with a clear plan."
       />
     </>
   );

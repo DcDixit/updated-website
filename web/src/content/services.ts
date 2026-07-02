@@ -53,7 +53,7 @@ export const services: {
     slug: "product-design",
     category: "design",
     title: "Product Design",
-    summary: "End-to-end product design for SaaS, dashboards, and digital platforms - from concept to launch-ready UI.",
+    summary: "Full product design for SaaS, dashboards, and digital platforms, from concept through to launch-ready UI.",
     bullets: ["Product strategy", "UX architecture", "High-fidelity UI"],
   },
   {
@@ -67,7 +67,7 @@ export const services: {
     slug: "mobile-applications",
     category: "design",
     title: "Mobile App Design",
-    summary: "Native-quality mobile UX for iOS and Android - focused on clarity, onboarding, and retention.",
+    summary: "Native-quality mobile UX for iOS and Android, focused on clarity, onboarding, and retention.",
     bullets: ["App UX flows", "iOS & Android UI", "Prototype testing"],
   },
   {
@@ -95,14 +95,14 @@ export const services: {
     slug: "api-integrations",
     category: "development",
     title: "Integrations & APIs",
-    summary: "Reliable connectors between your product, CRM, ERP, and third-party tools - with clear error handling.",
+    summary: "Reliable connectors between your product, CRM, ERP, and third-party tools, with clear error handling and monitoring.",
     bullets: ["REST & webhooks", "CRM / ERP sync", "Monitoring & alerts"],
   },
   {
     slug: "ai-assisted-development",
     category: "ai-automation",
     title: "AI-Assisted Product Development",
-    summary: "Ship faster with AI-augmented design, development, and QA - Claude, GPT, Copilot, and modern toolchains.",
+    summary: "Ship faster with AI-augmented design, development, and QA. We use Claude, GPT, Copilot, and modern toolchains with human oversight at every step.",
     bullets: ["AI-accelerated delivery", "Smart prototyping", "Quality automation"],
   },
   {
@@ -148,7 +148,7 @@ export const serviceDetails: Record<
       "Design system that scales with your roadmap",
     ],
     faq: [
-      { q: "Do you work with our in-house team?", a: "Yes - we embed alongside your designers or product managers and share Figma libraries your team owns." },
+      { q: "Do you work with our in-house team?", a: "Yes. We embed alongside your designers or product managers and share Figma libraries your team owns." },
       { q: "Which tools do you use?", a: "Figma-first, with optional FigJam for workshops. We deliver dev-ready specs and tokens." },
     ],
   },
@@ -170,14 +170,14 @@ export const serviceDetails: Record<
       "Premium feel that supports pricing and trust",
     ],
     faq: [
-      { q: "Is this different from UI/UX design?", a: "Product design spans strategy, flows, and UI for the full product - not just individual screens or marketing pages." },
+      { q: "Is this different from UI/UX design?", a: "Product design spans strategy, flows, and UI for the full product, not just individual screens or marketing pages." },
     ],
   },
   branding: {
     challenges: [
       "Brand looks generic compared to competitors",
       "Marketing and product visuals don't match",
-      "No reusable templates - everything is one-off",
+      "No reusable templates; everything built from scratch",
     ],
     deliverables: [
       "Logo refinement or new mark",
@@ -191,7 +191,7 @@ export const serviceDetails: Record<
       "Faster production for marketing assets",
     ],
     faq: [
-      { q: "Do you only do full rebrands?", a: "No - we often stabilize existing brands with a focused visual system refresh." },
+      { q: "Do you only do full rebrands?", a: "No. We often stabilize existing brands with a focused visual system refresh." },
     ],
   },
   "mobile-applications": {
@@ -212,7 +212,7 @@ export const serviceDetails: Record<
       "Polished presence on App Store and Play Store",
     ],
     faq: [
-      { q: "Do you also build the app?", a: "Yes - we offer design-only or design + development with React Native, Flutter, or native paths." },
+      { q: "Do you also build the app?", a: "Yes. We offer design-only or design and development with React Native, Flutter, or native paths." },
     ],
   },
   "web-development": {
@@ -233,7 +233,7 @@ export const serviceDetails: Record<
       "SEO-friendly structure out of the box",
     ],
     faq: [
-      { q: "Which stack do you prefer?", a: "Next.js, React, and TypeScript for most marketing and product marketing sites - chosen for speed, SEO, and maintainability." },
+      { q: "Which stack do you prefer?", a: "Next.js, React, and TypeScript for most marketing and product sites. Chosen for speed, SEO, and maintainability." },
     ],
   },
   "saas-platforms": {
@@ -254,7 +254,7 @@ export const serviceDetails: Record<
       "Enterprise-ready visual polish",
     ],
     faq: [
-      { q: "Can you redesign an existing SaaS?", a: "Yes - we typically roll out redesigns in phases to reduce risk and maintain continuity." },
+      { q: "Can you redesign an existing SaaS?", a: "Yes. We typically roll out redesigns in phases to reduce risk and maintain continuity." },
     ],
   },
   "crm-development": {
@@ -275,7 +275,7 @@ export const serviceDetails: Record<
       "Dashboards leadership uses weekly",
     ],
     faq: [
-      { q: "Which CRM platforms?", a: "HubSpot, Salesforce, Pipedrive, and custom CRM builds - we design for the tool you use or the one you're building." },
+      { q: "Which CRM platforms?", a: "HubSpot, Salesforce, Pipedrive, and custom CRM builds. We design for the tool you use or the one you're building." },
     ],
   },
   "api-integrations": {
@@ -296,7 +296,7 @@ export const serviceDetails: Record<
       "Faster troubleshooting when issues arise",
     ],
     faq: [
-      { q: "Do you integrate with payment or accounting systems?", a: "Yes - QuickBooks Online, Xero, Stripe, Razorpay, Zoho, and common ERP APIs depending on your stack." },
+      { q: "Do you integrate with payment or accounting systems?", a: "Yes. QuickBooks Online, Xero, Stripe, Razorpay, Zoho, and common ERP APIs depending on your stack." },
     ],
   },
   "ai-assisted-development": {
@@ -317,7 +317,7 @@ export const serviceDetails: Record<
       "Modern positioning for investors and clients",
     ],
     faq: [
-      { q: "Which AI tools do you use?", a: "Claude, ChatGPT, GitHub Copilot, Figma AI plugins, and Cursor - selected per task with human oversight." },
+      { q: "Which AI tools do you use?", a: "Claude, ChatGPT, GitHub Copilot, Figma AI plugins, and Cursor. Each is selected for the task at hand, always with human oversight." },
     ],
   },
   "no-code-low-code": {
@@ -338,7 +338,7 @@ export const serviceDetails: Record<
       "Easy iteration for non-technical teams",
     ],
     faq: [
-      { q: "When is no-code the wrong choice?", a: "Highly custom logic, strict compliance, or massive scale usually need custom code - we'll tell you honestly in discovery." },
+      { q: "When is no-code the wrong choice?", a: "Highly custom logic, strict compliance, or massive scale usually need custom code. We'll tell you honestly in discovery." },
     ],
   },
   "automation-systems": {
@@ -359,7 +359,7 @@ export const serviceDetails: Record<
       "Scalable ops without hiring immediately",
     ],
     faq: [
-      { q: "Can you automate AI steps too?", a: "Yes - we chain LLM steps into Make workflows for summarization, routing, and draft generation with approval gates." },
+      { q: "Can you automate AI steps too?", a: "Yes. We chain LLM steps into Make workflows for summarization, routing, and draft generation, with approval gates throughout." },
     ],
   },
 };

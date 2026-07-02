@@ -45,7 +45,7 @@ export default function TechnologiesPage() {
       <PageHero
         eyebrow="Tools & stack"
         title="The tools behind our delivery."
-        description="Figma, Next.js, Claude, React Native, Make, and more — chosen for reliability and maintainability. Every tool used with human oversight, not as a replacement for it."
+        description="Figma, Next.js, Claude, React Native, Make, and more. We choose tools for reliability and maintainability, and we use them with human oversight."
         visual={pageHeroVisuals.technologies}
         priority
         actions={
@@ -112,7 +112,7 @@ export default function TechnologiesPage() {
       <LeadCaptureCta
         eyebrow="Technical fit"
         title="Need a specific stack or integration?"
-        description="Tell us about your existing tools and constraints - we'll map the right approach for your team."
+        description="Tell us about your existing tools and constraints. We'll figure out the right approach for your team."
       />
     </>
   );

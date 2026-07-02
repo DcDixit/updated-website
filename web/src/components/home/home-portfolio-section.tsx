@@ -6,6 +6,7 @@ import { useState } from "react";
 import { HomeCaseStudyCard } from "@/components/home/home-case-study-card";
 import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
+import { SectionHeader } from "@/components/marketing/section-header";
 import { Reveal } from "@/components/marketing/reveal";
 import { featuredCaseStudies } from "@/content/site-content";
 import {
@@ -29,20 +30,17 @@ export function HomePortfolioSection() {
   return (
     <SectionShell id="work" size="default">
       <Reveal>
-        <Container className="max-w-6xl">
-          <div className="mb-10 flex items-end justify-between">
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">
-                Selected work
-              </p>
-              <h2 className="text-h2 font-bold text-text-primary">Projects that moved the needle.</h2>
-              <p className="mt-2 max-w-lg text-text-secondary">
-                Recent work across SaaS, trucking, CRM, integrations, and AI automation.
-              </p>
-            </div>
+        <Container>
+          <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeader
+              eyebrow="Selected work"
+              title="Projects that moved the needle."
+              description="Recent work across SaaS, trucking, CRM, integrations, and AI automation."
+              className="sm:max-w-lg"
+            />
             <Link
               href="/work"
-              className="hidden text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 md:block"
+              className="hidden shrink-0 text-sm font-semibold text-[var(--color-primary)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 sm:block"
             >
               View all work →
             </Link>
@@ -53,11 +51,12 @@ export function HomePortfolioSection() {
               <button
                 key={tab}
                 type="button"
-                data-active={activeFilter === tab}
                 onClick={() => setActiveFilter(tab)}
                 className={cn(
-                  "rounded-full border border-border px-4 py-1.5 text-sm font-medium text-text-secondary transition-colors duration-150 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
-                  activeFilter === tab && "border-primary bg-primary text-white"
+                  "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2",
+                  activeFilter === tab
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-white"
+                    : "border-[var(--surface-border)] text-[color:var(--text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                 )}
               >
                 {tab}
@@ -65,7 +64,7 @@ export function HomePortfolioSection() {
             ))}
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="stagger-grid stagger-grid-visible grid gap-6 lg:grid-cols-3">
             {filtered.map((c) => (
               <HomeCaseStudyCard
                 key={c.slug}
@@ -81,7 +80,7 @@ export function HomePortfolioSection() {
 
           <Link
             href="/work"
-            className="mt-8 inline-flex text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 md:hidden"
+            className="mt-8 inline-flex text-sm font-semibold text-[var(--color-primary)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 sm:hidden"
           >
             View all work →
           </Link>

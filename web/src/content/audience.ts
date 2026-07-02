@@ -9,13 +9,13 @@ export const clientPersonas = [
   },
   {
     title: "US trucking operators",
-    description: "Carriers, freight brokers, dispatch companies, and fleet businesses who need CRM, driver apps, or fleet dashboards — and can't afford weeks of downtime to switch tools.",
+    description: "Carriers, freight brokers, dispatch companies, and fleet businesses who need CRM, driver apps, or fleet dashboards. Tools that fit how you actually work, without weeks of downtime to switch.",
     href: "/solutions/trucking-logistics",
     cta: "Trucking solutions",
   },
   {
-    title: "Finance & ops teams",
-    description: "Product and operations teams who need QuickBooks or Xero sync that doesn't drift, with dashboards that surface exceptions before month-end becomes a crisis.",
+    title: "Finance and ops teams",
+    description: "Product and operations teams who need QuickBooks or Xero sync that stays reliable, with dashboards that surface problems before month-end becomes a crisis.",
     href: "/solutions/accounting-integrations",
     cta: "Integration solutions",
   },

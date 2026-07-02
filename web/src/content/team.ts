@@ -28,28 +28,28 @@ export const leadershipTeam = [
   {
     name: "Product & Delivery Leadership",
     role: "Founder-led squads",
-    bio: `${brand.shortName} runs founder-led discovery with dedicated design, engineering, and delivery leads on every engagement - from SaaS MVPs to dispatch CRM platforms.`,
+    bio: `${brand.shortName} runs founder-led discovery with dedicated design, engineering, and delivery leads on every project, from SaaS MVPs to dispatch CRM platforms.`,
     focus: ["Discovery", "Roadmapping", "Delivery quality"],
     linkedIn: companyLinkedIn,
   },
   {
     name: "Design Practice",
     role: "UI/UX & product design",
-    bio: "In-house designers specializing in SaaS onboarding, ops dashboards, design systems, and conversion-focused marketing sites for UK and US markets.",
+    bio: "In-house designers specialising in SaaS onboarding, ops dashboards, design systems, and conversion-focused marketing sites for UK and US markets.",
     focus: ["UI/UX", "Product design", "Design systems"],
     linkedIn: companyLinkedIn,
   },
   {
     name: "Engineering Practice",
     role: "Web, mobile & integrations",
-    bio: "Full-stack engineers focused on Next.js, React Native, API integrations, and maintainable codebases - including QuickBooks, Xero, and logistics data pipelines.",
+    bio: "Full-stack engineers focused on Next.js, React Native, API integrations, and maintainable codebases. Includes QuickBooks, Xero, and logistics data pipelines.",
     focus: ["Web & mobile", "APIs", "Integrations"],
     linkedIn: companyLinkedIn,
   },
   {
     name: "AI & Automation",
     role: "Workflow automation",
-    bio: "Specialists in AI-assisted development, internal tooling, and ops automation with human-in-the-loop review for production-grade reliability.",
+    bio: "Specialists in AI-assisted development, internal tooling, and ops automation. Every output is reviewed before going into production.",
     focus: ["AI workflows", "Automation", "Support tooling"],
     linkedIn: companyLinkedIn,
   },
@@ -58,14 +58,14 @@ export const leadershipTeam = [
 export const culturePoints = [
   {
     title: "One team, one outcome",
-    body: "Design and engineering work together from day one — no handoff theater, no blame between disciplines. One conversation, one delivery standard.",
+    body: "Design and engineering work together from day one. No pointing fingers between disciplines, no gaps in communication. One conversation, one delivery standard.",
   },
   {
-    title: "Proof over promises",
-    body: "We share work-in-progress weekly, measure what matters, and document every decision so clients stay in control — not just informed.",
+    title: "We show the work",
+    body: "We share work-in-progress every week, measure what matters, and document every decision. Clients stay in control, not just in the loop.",
   },
   {
-    title: "Built to last",
-    body: "Clean Figma libraries, typed codebases, and handoff documentation your team can actually use — long after the project closes.",
+    title: "Built to hand over",
+    body: "Clean Figma libraries, typed codebases, and handoff documentation your team can actually use. Long after the project closes, you shouldn't need to call us for basics.",
   },
 ] as const;

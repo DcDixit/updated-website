@@ -36,8 +36,8 @@ export default function ProcessPage() {
     <>
       <PageHero
         eyebrow="Process"
-        title="Five phases. No black-box delivery."
-        description="Discovery, design, build, launch, and support — each phase with clear milestones, weekly demos, and deliverables you review before we move on. AI tools accelerate where they can; humans own every decision."
+        title="Five phases. Nothing hidden."
+        description="Discovery, design, build, launch, and support. Each phase has clear milestones, weekly demos, and deliverables you review before we move forward. We use AI tools where they help, but people own every decision."
         visual={pageHeroVisuals.process}
         priority
         actions={
@@ -108,9 +108,9 @@ export default function ProcessPage() {
       <Section tone="default" dividerTop>
         <Container>
           <SectionHeader
-            eyebrow="AI-accelerated"
+            eyebrow="Our stack"
             title="Tools we use at every phase"
-            description="Claude, ChatGPT, Figma, GitHub Copilot, Make, and Cursor - integrated into our workflow with human review at every step."
+            description="Claude, ChatGPT, Figma, GitHub Copilot, Make, and Cursor are all part of our workflow. Every output is reviewed before it ships."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {techCategories.map((cat) => {
@@ -140,7 +140,7 @@ export default function ProcessPage() {
       <LeadCaptureCta
         eyebrow="Get started"
         title="Want to see how this works for your project?"
-        description="Send a brief or book a discovery call — we'll walk through a realistic timeline and specific deliverables for your scope."
+        description="Send a brief or book a discovery call. We'll walk through a realistic timeline and specific deliverables for your scope."
       />
     </>
   );

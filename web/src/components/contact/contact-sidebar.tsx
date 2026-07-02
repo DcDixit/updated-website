@@ -85,7 +85,7 @@ export function ContactSidebar() {
             href={siteContact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
+            className="flex items-center gap-3 text-sm font-medium text-brand-cobalt transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-brand-amber/35 dark:text-brand-amber"
             data-track="whatsapp_click"
             data-track-location="contact-sidebar"
             data-track-label="WhatsApp us"
@@ -110,7 +110,7 @@ export function ContactSidebar() {
             <IconMapPin size={18} className="mt-0.5 shrink-0 text-[var(--color-accent)]" aria-hidden />
             <span className="type-caption group-hover:text-foreground">
               {siteContact.addressLine}
-              <span className="mt-2 block font-semibold text-[var(--color-accent)]">View on Google Maps →</span>
+              <span className="mt-2 block font-semibold text-brand-cobalt dark:text-brand-amber">View on Google Maps →</span>
             </span>
           </Link>
         </div>

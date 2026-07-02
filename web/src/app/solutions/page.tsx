@@ -41,7 +41,7 @@ export default function SolutionsPage() {
       <PageHero
         eyebrow="Solutions"
         title="Focused product solutions for SaaS and trucking teams."
-        description="Four dedicated solution areas — each with its own capabilities, delivery process, and case studies. One in-house team from discovery to launch."
+        description="Four dedicated solution areas, each with its own capabilities, delivery process, and case studies. One in-house team handles everything."
         visual={pageHeroVisuals.solutions}
         priority
         actions={
@@ -62,7 +62,7 @@ export default function SolutionsPage() {
           <SectionHeader
             eyebrow="By industry"
             title="Four solutions. Each built for a specific market."
-            description="Click any solution to see capabilities, delivery process, related case studies, and FAQs — before you commit to anything."
+            description="Click any solution to see capabilities, delivery approach, related case studies, and FAQs before you commit to anything."
           />
           <div className="mt-12 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:gap-6">
             {solutionPillars.map((solution, idx) => (
@@ -85,7 +85,7 @@ export default function SolutionsPage() {
       <LeadCaptureCta
         eyebrow="Not sure which solution fits?"
         title="Tell us about your product and market."
-        description="We'll recommend the right starting point - SaaS MVP, dispatch CRM, integration project, or automation workflow."
+        description="We'll point you to the right starting point, whether that's a SaaS MVP, dispatch CRM, integration project, or automation workflow."
       />
     </>
   );

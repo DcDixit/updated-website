@@ -37,7 +37,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="15 designers and engineers. One in-house team."
+        title="15 designers and engineers. One team."
         description={brand.positioning}
         visual={pageHeroVisuals.about}
         priority
@@ -59,7 +59,7 @@ export default function AboutPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="surface-card stat-card-accent p-6 text-center">
-                <p className="type-stat text-[var(--color-accent)]">{s.value}</p>
+                <p className="type-stat text-brand-cobalt dark:text-brand-amber">{s.value}</p>
                 <p className="type-stat-label mt-2">{s.label}</p>
                 <p className="type-caption mt-1">{s.caption}</p>
               </div>
@@ -74,13 +74,13 @@ export default function AboutPage() {
             <SectionHeader eyebrow="Our story" title="Why we exist." />
             <div className="space-y-4">
               <p className="type-body text-[color:var(--text-secondary)]">
-                {brand.shortName} started in {brand.founded} with one observation: most digital agencies sell strategy but struggle to ship. Product teams end up managing multiple vendors — one for design, another for development, a third for integrations — and paying for the gaps between them.
+                {brand.shortName} started in {brand.founded} with one observation: most digital agencies sell strategy but struggle to ship. Product teams end up managing multiple vendors, one for design, another for development, a third for integrations, and paying for the gaps between them.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                We built an in-house team that covers the full stack — UI/UX design, web and mobile development, API integrations, and AI automation — so clients get one point of contact, one delivery standard, and no handoff theater.
+                We built an in-house team that covers the full stack: UI/UX design, web and mobile development, API integrations, and AI automation. One point of contact, one delivery standard, no handoffs between agencies.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                Today we focus on two verticals where we have depth: UK SaaS startups that need design and development to keep pace with their roadmap, and US trucking & logistics operators who need purpose-built software for dispatch, fleet, and operations.
+                Today we focus on two areas where we have real experience: UK SaaS startups that need design and development to keep pace with their roadmap, and US trucking operators who need purpose-built software for dispatch, fleet, and operations.
               </p>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
           <div className="surface-card space-y-4 p-6 sm:p-8">
             <p className="type-badge-label">Contact</p>
             <p className="type-body text-[color:var(--text-secondary)]">
-              Reach the team directly for project briefs, discovery calls, and partnership inquiries.
+              Reach us directly for project briefs, discovery calls, or just to ask a question.
             </p>
             <ul className="space-y-3 text-sm">
               <li>
@@ -150,7 +150,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
             {teamStats.map((s) => (
               <div key={s.label} className="surface-card p-5 text-center">
-                <p className="type-stat text-[var(--color-accent)]">{s.value}</p>
+                <p className="type-stat text-brand-cobalt dark:text-brand-amber">{s.value}</p>
                 <p className="type-stat-label mt-2">{s.label}</p>
                 <p className="type-caption mt-1">{s.caption}</p>
               </div>
@@ -224,7 +224,7 @@ export default function AboutPage() {
       <LeadCaptureCta
         eyebrow="Work with us"
         title="Tell us what you're building."
-        description="Share your brief — we'll respond with a plan and relevant case studies within 24 hours."
+        description="Share your brief and we'll respond within 24 hours with a clear plan and relevant case studies."
       />
     </>
   );

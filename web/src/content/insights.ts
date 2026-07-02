@@ -31,7 +31,7 @@ export const insightPosts: {
     published: "January 2026",
     publishedISO: "2026-01-15",
     excerpt:
-      "Practical ways agencies use Claude, GPT, and Figma AI to accelerate research, prototyping, and design QA - without sacrificing quality.",
+      "Practical ways agencies use Claude, GPT, and Figma AI to accelerate research, prototyping, and design QA without sacrificing quality.",
   },
   {
     slug: "saas-onboarding-patterns",
@@ -41,7 +41,7 @@ export const insightPosts: {
     published: "December 2025",
     publishedISO: "2025-12-08",
     excerpt:
-      "Five onboarding patterns we see work repeatedly across B2B SaaS - with metrics from recent client projects.",
+      "Five onboarding patterns we see work repeatedly across B2B SaaS, with metrics from recent client projects.",
   },
   {
     slug: "saas-mvp-uk-guide",
@@ -61,7 +61,7 @@ export const insightPosts: {
     published: "November 2025",
     publishedISO: "2025-11-20",
     excerpt:
-      "When Bubble or Webflow gets you to market in weeks, and when you need custom code from day one - an honest framework.",
+      "When Bubble or Webflow gets you to market in weeks, and when you need custom code from day one. An honest framework.",
   },
   {
     slug: "trucking-dispatch-crm-guide",
@@ -81,7 +81,7 @@ export const insightPosts: {
     published: "October 2025",
     publishedISO: "2025-10-12",
     excerpt:
-      "How to reduce clutter, surface the right KPIs, and design CRM views reps open every morning - not once a quarter.",
+      "How to reduce clutter, surface the right KPIs, and design CRM views reps actually open every morning instead of once a quarter.",
   },
   {
     slug: "choosing-a-digital-agency",
@@ -91,7 +91,7 @@ export const insightPosts: {
     published: "September 2025",
     publishedISO: "2025-09-05",
     excerpt:
-      "Red flags, good signals, and the questions that reveal whether an agency can actually ship - not just pitch.",
+      "Red flags, good signals, and the questions that reveal whether an agency can actually ship, not just pitch.",
   },
 ];
 

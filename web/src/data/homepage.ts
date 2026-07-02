@@ -43,20 +43,12 @@ export type HomepageClient = {
   category?: string;
 };
 
-/** Tech & platform logos shown in the trusted-by strip. Replace with approved client marks when available. */
+/** Client product logos shown in trust strips and marquees. */
 export const homepageClients: HomepageClient[] = [
-  { name: "Next.js", logoUrl: null, category: "Frontend" },
-  { name: "React Native", logoUrl: null, category: "Mobile" },
-  { name: "QuickBooks", logoUrl: null, category: "Integrations" },
-  { name: "Xero", logoUrl: null, category: "Integrations" },
-  { name: "HubSpot", logoUrl: null, category: "CRM" },
-  { name: "Figma", logoUrl: null, category: "Design" },
-  { name: "Webflow", logoUrl: null, category: "No-Code" },
-  { name: "Bubble", logoUrl: null, category: "No-Code" },
-  { name: "Make", logoUrl: null, category: "Automation" },
-  { name: "Stripe", logoUrl: null, category: "Payments" },
-  { name: "Supabase", logoUrl: null, category: "Backend" },
-  { name: "Vercel", logoUrl: null, category: "Deployment" },
+  { name: "FleetFlow", logoUrl: "/brand/logos/fleetflow.svg", category: "Logistics CRM" },
+  { name: "PayrollPro", logoUrl: "/brand/logos/payrollpro.svg", category: "SaaS" },
+  { name: "FinanceSync", logoUrl: "/brand/logos/financesync.svg", category: "Integrations" },
+  { name: "SupportAI", logoUrl: "/brand/logos/supportai.svg", category: "AI Automation" },
 ];
 
 export type HomepageTeamMember = {
@@ -104,7 +96,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
   {
     initials: "MC",
     quote:
-      "They delivered a dispatch console our ops team actually enjoys using — handle time down 32% without adding headcount.",
+      "They delivered a dispatch console our ops team actually enjoys using. Handle time dropped 32% without adding headcount.",
     name: "Marcus Cole",
     role: "Operations Director",
     company: "FleetRoute Logistics (US)",
@@ -158,21 +150,21 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "Discovery",
     description:
-      "Goals, users, constraints, and success metrics — captured in a written brief so everyone starts aligned.",
+      "We capture goals, users, constraints, and success metrics in a written brief so everyone starts on the same page.",
     timeEstimate: "Week 1–2",
     deliverable: "Written brief + success metrics doc",
   },
   {
     title: "UX Design",
     description:
-      "Wireframes, interactive prototypes, and UI — reviewed and signed off before a single line of code is written.",
+      "Wireframes, interactive prototypes, and high-fidelity UI, all reviewed and signed off before development starts.",
     timeEstimate: "Week 3–5",
     deliverable: "Signed-off wireframes + interactive prototype",
   },
   {
     title: "Development",
     description:
-      "In-house engineers build iteratively with weekly demos and transparent progress. No black-box sprints.",
+      "In-house engineers build in stages with weekly demos and open progress tracking.",
     timeEstimate: "Week 6–12",
     deliverable: "Weekly demos, staging environment",
   },
@@ -186,7 +178,7 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "Post-launch",
     description:
-      "Iteration sprints, monitoring, and roadmap support — most clients keep us on retainer after go-live.",
+      "Iteration sprints, monitoring, and roadmap support. Most clients stay on a monthly retainer after launch.",
     timeEstimate: "Ongoing",
     deliverable: "Monthly retainer or ad-hoc sprints",
   },

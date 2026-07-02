@@ -43,6 +43,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [resolved, setResolved] = useState<"light" | "dark">(() => resolveTheme(readStoredPreference()));
 
   useEffect(() => {
+    setResolved(applyTheme(preference));
+  }, [preference]);
+
+  useEffect(() => {
     if (preference !== "system") return;
 
     const media = window.matchMedia("(prefers-color-scheme: dark)");

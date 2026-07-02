@@ -56,7 +56,7 @@ export function SolutionSpotlightCard({
 
       <div className="flex flex-1 flex-col gap-4 p-6 sm:p-7">
         <div className="space-y-2">
-          <h3 className="type-h3 text-balance transition-colors group-hover:text-[var(--color-accent)]">
+          <h3 className="type-h3 text-balance text-foreground transition-colors group-hover:text-[var(--color-primary)]">
             {title}
           </h3>
           <p className="type-body max-w-none text-sm leading-relaxed text-[color:var(--text-secondary)]">
@@ -81,7 +81,7 @@ export function SolutionSpotlightCard({
 
         <Link
           href={href}
-          className="mt-auto inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)] text-sm no-underline transition-opacity hover:opacity-80"
+          className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] no-underline transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
         >
           {ctaLabel}
           <IconArrowUpRight

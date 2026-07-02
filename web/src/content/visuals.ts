@@ -1,7 +1,6 @@
 /**
- * Production imagery - verified Unsplash assets stored locally for performance.
- * Source: https://unsplash.com - replace with licensed client screenshots when available.
- * Refresh assets: npm run images:fetch (see scripts/fetch-marketing-images.mjs)
+ * Production imagery — licensed Unsplash photos in /public/images/.
+ * Case study product mockups use /brand/ SVGs where a UI screenshot is shown.
  */
 import type { CaseSlug, ServiceSlug } from "@/content/site-content";
 import type { SolutionSlug } from "@/content/solutions";
@@ -51,6 +50,11 @@ const img = {
     aisupport: "/images/cases/case-aisupport.jpg",
     marketplace: "/images/cases/case-marketplace.jpg",
   },
+  caseMockups: {
+    fleetflow: "/brand/case-fleetflow.svg",
+    payrollpro: "/brand/case-payrollpro.svg",
+    financesync: "/brand/case-financesync.svg",
+  },
   insights: {
     aiDesign: "/images/insights/insight-ai-design.jpg",
     onboarding: "/images/insights/insight-onboarding.jpg",
@@ -77,6 +81,16 @@ const img = {
     carTransport: "/images/industries/industry-car-transport.jpg",
     crm: "/images/industries/industry-crm.jpg",
   },
+  industryIcons: {
+    saas: "/brand/industries/saas.svg",
+    trucking: "/brand/industries/trucking.svg",
+    accounting: "/brand/industries/accounting.svg",
+    crm: "/brand/industries/crm.svg",
+    healthcare: "/brand/industries/healthcare.svg",
+    ecommerce: "/brand/industries/ecommerce.svg",
+    ai: "/brand/industries/ai.svg",
+    marketplace: "/brand/industries/marketplace.svg",
+  },
 } as const;
 
 /** @deprecated Use file extension check instead - kept for legacy SVG brand assets */
@@ -85,7 +99,7 @@ export function isLocalBrandAsset(src: string) {
 }
 
 export const pageHeroVisuals = {
-  home: { src: img.heroes.home, alt: "SaaS analytics dashboard on laptop - product design and development" },
+  home: { src: img.heroes.home, alt: "SaaS analytics dashboard on laptop — product design and development" },
   about: { src: img.heroes.about, alt: "Cross-functional product team collaborating in a modern workspace" },
   services: { src: img.heroes.services, alt: "UI/UX design workspace with interface wireframes and screens" },
   contact: { src: img.heroes.contact, alt: "Client and agency team in a project discovery meeting" },
@@ -139,17 +153,17 @@ function gallery(primary: VisualAsset, secondary: VisualAsset, tertiary: VisualA
 
 export const caseStudyGallery: Record<CaseSlug, VisualAsset[]> = {
   "fleetflow-dispatch": gallery(
-    caseStudyVisuals["fleetflow-dispatch"],
+    { src: img.caseMockups.fleetflow, alt: "FleetFlow dispatch console product screenshot" },
     { src: img.sections.trucking, alt: "Dispatch queue management interface" },
     { src: img.industries.trucking, alt: "Operations analytics and SLA reporting" }
   ),
   "payroll-pro-saas": gallery(
-    caseStudyVisuals["payroll-pro-saas"],
+    { src: img.caseMockups.payrollpro, alt: "PayrollPro onboarding dashboard product screenshot" },
     { src: img.sections.saas, alt: "Onboarding checklist and setup progress" },
     { src: img.heroes.process, alt: "Admin permissions and role configuration" }
   ),
   "finance-sync-hub": gallery(
-    caseStudyVisuals["finance-sync-hub"],
+    { src: img.caseMockups.financesync, alt: "FinanceSync reconciliation hub product screenshot" },
     { src: img.industries.accounting, alt: "Month-end reconciliation summary view" },
     { src: img.solutions.accounting, alt: "Integration health monitoring panel" }
   ),
@@ -236,3 +250,10 @@ export const marketingSectionImages = {
   ctaPipeline: { src: img.heroes.process, alt: "Product team coordinating a release pipeline" },
 } as const satisfies Record<string, VisualAsset>;
 
+/** Client product logos from brand assets */
+export const clientProductLogos = [
+  { name: "FleetFlow", src: "/brand/logos/fleetflow.svg", alt: "FleetFlow dispatch CRM" },
+  { name: "PayrollPro", src: "/brand/logos/payrollpro.svg", alt: "PayrollPro SaaS platform" },
+  { name: "FinanceSync", src: "/brand/logos/financesync.svg", alt: "FinanceSync accounting integration hub" },
+  { name: "SupportAI", src: "/brand/logos/supportai.svg", alt: "SupportAI automation platform" },
+] as const;

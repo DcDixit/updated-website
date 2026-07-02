@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 
 import { AnalyticsProvider } from "@/components/site/analytics-provider";
@@ -16,14 +16,8 @@ import { themeInitScript } from "@/lib/theme";
 
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -31,25 +25,25 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.shortName} · AI-powered digital product agency`,
+    default: `${brand.shortName} · Digital product agency`,
     template: `%s · ${brand.shortName}`,
   },
   description:
-    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators: dispatch CRM, fleet dashboards, and accounting integrations.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: `${brand.shortName} · AI-powered digital product agency`,
+    title: `${brand.shortName} · Digital product agency`,
     description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators: dispatch CRM, fleet dashboards, and accounting integrations.",
     images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.shortName} · AI-powered digital product agency`,
+    title: `${brand.shortName} · Digital product agency`,
     description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators: dispatch CRM, fleet dashboards, and accounting integrations.",
     images: [`${siteUrl}/brand/og-default.png`],
   },
   robots: {
@@ -77,7 +71,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} ${inter.className} h-full font-sans`}
+      className={`${instrumentSans.variable} ${instrumentSans.className} h-full font-sans`}
     >
       <head>
         <link rel="preload" href="/brand/og-default.png" as="image" type="image/png" />
@@ -122,7 +116,7 @@ gtag('config', '${gaMeasurementId}', { anonymize_ip: true, send_page_view: false
       </head>
       <body
         suppressHydrationWarning
-        className="text-foreground bg-background relative flex min-h-full flex-col font-sans antialiased"
+        className="bg-background text-foreground relative flex min-h-full flex-col font-body antialiased"
       >
         {gtmId ? (
           <noscript>

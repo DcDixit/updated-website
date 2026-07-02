@@ -102,7 +102,7 @@ export default async function CaseDetailPage({ params }: Props) {
           <div className="grid gap-6 sm:grid-cols-3">
             {d.metrics.map((m) => (
               <div key={m.label} className="surface-card stat-card-accent p-6 text-center sm:text-left">
-                <p className="type-stat text-[var(--color-accent)]">{m.value}</p>
+                <p className="type-stat text-brand-cobalt dark:text-brand-amber">{m.value}</p>
                 <p className="type-stat-label mt-2">{m.label}</p>
               </div>
             ))}

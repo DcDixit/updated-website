@@ -86,9 +86,9 @@ export function SiteBreadcrumbs() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <nav aria-label="Breadcrumb" className="border-b border-[var(--section-divider)] bg-background/80">
+      <nav aria-label="Breadcrumb" className="border-b border-surface-card-border bg-surface-base/80 backdrop-blur-md">
         <Container>
-          <ol className="m-0 flex list-none flex-wrap items-center gap-1 py-2.5 text-xs text-[color:var(--text-secondary)] sm:text-sm">
+          <ol className="m-0 flex list-none flex-wrap items-center gap-1 py-2.5 font-body text-xs text-text-muted-v2 sm:text-sm">
             {crumbs.map((c, i) => {
               const isLast = i === crumbs.length - 1;
               return (
@@ -97,14 +97,14 @@ export function SiteBreadcrumbs() {
                     <IconChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden stroke={1.5} />
                   ) : null}
                   {isLast ? (
-                    <span className="min-w-0 truncate font-medium text-foreground" aria-current="page">
+                    <span className="min-w-0 truncate font-medium text-text-primary-v2" aria-current="page">
                       {c.label}
                     </span>
                   ) : (
                     <Link
                       href={c.href}
                       className={cn(
-                        "min-w-0 truncate rounded transition-colors hover:text-foreground",
+                        "min-w-0 truncate rounded transition-colors hover:text-text-primary-v2",
                         "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
                       )}
                     >

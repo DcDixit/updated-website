@@ -17,19 +17,20 @@ export type SectionTone =
   | "glow";
 
 const toneClasses: Record<SectionTone, string> = {
-  default: "bg-background",
-  muted: "border-y border-[var(--section-divider)] bg-[var(--surface-muted)]",
-  contrast: "border-y border-[var(--section-divider)] bg-card/60",
-  soft: "border-y border-[var(--section-divider)] bg-[var(--surface-muted)]",
-  panel: "border-y border-[var(--section-divider)] bg-card/60",
-  band: "border-y border-[var(--section-divider)] bg-[var(--surface-muted)]",
-  depth: "border-y border-[var(--section-divider)] bg-card/60",
-  glow: "border-y border-[var(--section-divider)] bg-[var(--surface-muted)]",
+  default: "bg-surface-base",
+  muted: "border-y border-surface-card-border bg-surface-alt",
+  contrast: "border-y border-surface-card-border bg-[var(--v2-surface-contrast)]",
+  soft: "border-y border-surface-card-border bg-surface-alt",
+  panel: "border-y border-surface-card-border bg-[var(--v2-surface-contrast)]",
+  band: "border-y border-surface-card-border bg-surface-alt",
+  depth: "border-y border-surface-card-border bg-[var(--v2-surface-contrast)]",
+  glow: "border-y border-surface-card-border bg-surface-alt",
 };
 
 export function Section({
   id,
   tone = "default",
+  glow,
   className,
   children,
   dividerTop,
@@ -37,25 +38,30 @@ export function Section({
 }: {
   id?: string;
   tone?: SectionTone;
+  glow?: "cobalt" | "amber" | "dual";
   className?: string;
   children: React.ReactNode;
   dividerTop?: boolean;
   dividerBottom?: boolean;
 }) {
+  const glowClass =
+    glow === "cobalt" ? "glow-cobalt" : glow === "amber" ? "glow-amber" : glow === "dual" ? "glow-dual" : null;
+
   return (
     <section
       id={id}
       className={cn(
-        "relative py-[var(--space-section-y)] scroll-mt-[var(--header-offset)]",
+        "relative overflow-hidden py-[var(--space-section-y)] scroll-mt-[var(--header-offset)]",
         toneClasses[tone],
         dividerTop &&
-          "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-px before:bg-[var(--section-divider)]",
+          "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-px before:bg-surface-card-border",
         dividerBottom &&
-          "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-[1] after:h-px after:bg-[var(--section-divider)]",
+          "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-[1] after:h-px after:bg-surface-card-border",
         className
       )}
     >
-      {children}
+      {glowClass ? <div className={glowClass} aria-hidden="true" /> : null}
+      <div className="relative z-10">{children}</div>
     </section>
   );
 }

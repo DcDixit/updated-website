@@ -36,8 +36,8 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <PageHero
         eyebrow="FAQ"
-        title="Straight answers to common questions."
-        description="Everything you need to know about our services, process, pricing, and how we work with your team."
+        title="Common questions, straight answers."
+        description="What you need to know about our services, process, pricing, and how we work with your team."
         visual={pageHeroVisuals.faq}
         priority
         actions={
@@ -77,7 +77,7 @@ export default function FAQPage() {
       <LeadCaptureCta
         eyebrow="Still have questions?"
         title="Not finding the answer you need?"
-        description="Send a specific question or book a 20-minute call — we'll give you a direct answer, no pitch attached."
+        description="Send a specific question or book a 20-minute call. We'll give you a straight answer, no pitch attached."
       />
     </>
   );
