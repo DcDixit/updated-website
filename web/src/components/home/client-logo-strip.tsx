@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import type { HomepageClient } from "@/data/homepage";
 import { cn } from "@/lib/utils";
 
@@ -8,26 +6,11 @@ type HomeClientLogoStripProps = {
   className?: string;
 };
 
-function ClientLogo({ client }: { client: HomepageClient }) {
-  if (client.logoUrl) {
-    return (
-      <div className="flex shrink-0 items-center justify-center rounded-xl border border-surface-card-border bg-surface-card px-5 py-2.5">
-        <Image
-          src={client.logoUrl}
-          alt={`${client.name} logo`}
-          width={120}
-          height={36}
-          className="h-7 w-auto max-w-[120px] object-contain dark:brightness-110"
-          unoptimized
-        />
-      </div>
-    );
-  }
-
+function TechLabel({ client }: { client: HomepageClient }) {
   return (
-    <div className="flex shrink-0 items-center gap-2 rounded-full border border-surface-card-border bg-surface-alt px-4 py-2">
-      <span className="size-1.5 rounded-full bg-brand-amber opacity-80" aria-hidden />
-      <span className="whitespace-nowrap font-body text-[12px] font-medium text-text-secondary-v2">
+    <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-4 py-2">
+      <span className="size-1.5 rounded-full bg-[var(--color-accent)] opacity-80" aria-hidden />
+      <span className="type-caption whitespace-nowrap text-[12px] font-medium text-[color:var(--text-secondary)]">
         {client.name}
       </span>
     </div>
@@ -39,17 +22,18 @@ export function HomeClientLogoStrip({ clients, className }: HomeClientLogoStripP
 
   return (
     <section
-      className={cn("relative overflow-hidden border-y border-surface-card-border bg-surface-alt py-8", className)}
-      aria-label="Client products we've built"
+      className={cn("border-y border-[var(--surface-border)] bg-background py-7", className)}
+      aria-label="Technologies and platforms we work with"
     >
-      <div className="glow-amber pointer-events-none absolute inset-0 opacity-50" aria-hidden="true" />
-      <p className="relative z-10 mb-5 text-center font-body text-[11px] font-bold tracking-[1.2px] text-text-muted-v2 uppercase">
-        Client products we&apos;ve shipped
+      <p className="type-badge-label mb-5 text-center text-[11px] uppercase tracking-widest text-[color:var(--text-secondary)]">
+        Technologies &amp; platforms we work with
       </p>
-      <div className="marquee-fade relative z-10 overflow-hidden">
-        <div className="marquee-track flex w-max gap-4 px-4">
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-16 bg-gradient-to-r from-background to-transparent sm:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-16 bg-gradient-to-l from-background to-transparent sm:w-24" />
+        <div className="home-client-marquee flex w-max gap-3 px-4">
           {doubled.map((client, i) => (
-            <ClientLogo key={`${client.name}-${i}`} client={client} />
+            <TechLabel key={`${client.name}-${i}`} client={client} />
           ))}
         </div>
       </div>

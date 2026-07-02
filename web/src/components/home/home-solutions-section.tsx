@@ -105,7 +105,7 @@ function SolutionListItem({
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-accent)]/35",
         isActive
           ? compact
-            ? "bg-primary text-white"
+            ? "bg-[var(--color-accent)] text-black"
             : "bg-[var(--card)]"
           : compact
             ? "border border-[var(--surface-border)] bg-[var(--card)] hover:border-[var(--color-accent)]/40"
@@ -128,7 +128,7 @@ function SolutionListItem({
           compact ? "whitespace-nowrap font-medium" : "flex-1",
           isActive
             ? compact
-              ? "text-white"
+              ? "text-black"
               : "font-semibold text-foreground"
             : compact
               ? "text-[color:var(--text-body)]"
@@ -182,7 +182,7 @@ export function HomeSolutionsSection() {
       <SectionHeader
         eyebrow="Solutions"
         title="Two industries. One focused team."
-        description="Design, engineering, and AI delivery under one roof. Each solution area is backed by specialists who know the market."
+        description="Design, engineering, and AI delivery under one roof — each solution area backed by specialists who know the market."
       />
 
       <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">

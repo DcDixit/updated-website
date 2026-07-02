@@ -28,13 +28,16 @@ export function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <p className={cn("eyebrow-amber mb-0", eyebrowClassName)}>{eyebrow}</p>
+        <p className={cn("type-badge-label inline-flex items-center gap-2 text-[12px]", eyebrowClassName)}>
+          <span className="inline-block size-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden />
+          {eyebrow}
+        </p>
       ) : null}
-      <h2 className={cn("type-h2 font-heading text-balance text-text-primary-v2", titleClassName)}>{title}</h2>
+      <h2 className={cn("type-h2 text-balance text-foreground", titleClassName)}>{title}</h2>
       {description ? (
         <p
           className={cn(
-            "type-body font-body text-text-secondary-v2",
+            "type-body text-[color:var(--text-secondary)]",
             align === "center" && "mx-auto",
             descriptionClassName
           )}

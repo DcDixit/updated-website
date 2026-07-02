@@ -13,12 +13,11 @@ import {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-surface-card-border bg-surface-base">
+    <footer className="border-t border-[var(--section-divider)]">
       <CtaBand
-        variant="prominent"
         eyebrow="Start a project"
         title="Have a product to build or improve?"
-        description="Share your scope and timeline. We'll reply within one business day with a clear plan, honest pricing, and relevant examples."
+        description="Share your scope and timeline — we'll reply within one business day with a clear plan, honest pricing approach, and relevant examples."
         primaryLabel={primaryCtas.brief.label}
         primaryHref={primaryCtas.brief.href}
         secondaryLabel={primaryCtas.book.label}
@@ -29,8 +28,8 @@ export function SiteFooter() {
       <Container className="py-16">
         <div className="grid-layout-12 gap-y-12">
           <div className="col-span-12 lg:col-span-5">
-            <p className="type-h3 font-heading font-semibold text-text-primary-v2">{brand.shortName}</p>
-            <p className="type-body mt-4 max-w-md font-body text-text-secondary-v2">{brand.positioning}</p>
+            <p className="type-h3 text-foreground">{brand.shortName}</p>
+            <p className="type-body mt-4 max-w-md text-[color:var(--text-secondary)]">{brand.positioning}</p>
             <p className="type-caption mt-4">{siteContact.hqLabel}</p>
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
               {socialLinks.map((s) => (
@@ -39,8 +38,7 @@ export function SiteFooter() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="type-caption font-medium underline-offset-4 transition-opacity hover:opacity-80 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
+                  className="type-caption font-medium underline-offset-4 transition-opacity hover:opacity-80 hover:underline"
                 >
                   {s.label}
                 </Link>
@@ -48,19 +46,10 @@ export function SiteFooter() {
             </div>
             <Link
               href={`mailto:${siteContact.email}`}
-              className="type-caption mt-4 inline-flex font-semibold text-brand-cobalt underline underline-offset-4 hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber dark:text-brand-amber dark:hover:opacity-90"
+              className="type-caption mt-4 inline-flex font-semibold text-[var(--color-accent)] underline-offset-4 hover:underline"
             >
               {siteContact.email}
             </Link>
-            <p className="type-caption mt-6 text-text-muted-v2">
-              Replies within 24 hours on business days ·{" "}
-              <Link
-                href="/contact#book"
-                className="font-semibold text-brand-cobalt underline underline-offset-4 transition-colors hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber dark:text-brand-amber"
-              >
-                Book a call →
-              </Link>
-            </p>
           </div>
 
           <div className="col-span-12 grid gap-10 sm:grid-cols-3 lg:col-span-7">
@@ -72,7 +61,7 @@ export function SiteFooter() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="type-body inline-block font-body text-text-secondary-v2 transition-colors hover:text-text-primary-v2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                        className="type-body inline-block text-[color:var(--text-secondary)] transition-colors hover:text-foreground"
                       >
                         {l.label}
                       </Link>
@@ -89,11 +78,11 @@ export function SiteFooter() {
           <p className="type-caption">
             © {new Date().getFullYear()} {brand.legalName}. All rights reserved.
           </p>
-          <div className="type-caption flex flex-wrap gap-x-4 gap-y-2 text-text-muted-v2">
-            <Link href="/privacy" className="transition-colors hover:text-text-primary-v2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber">
+          <div className="type-caption flex flex-wrap gap-x-4 gap-y-2">
+            <Link href="/privacy" className="hover:text-foreground">
               Privacy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-text-primary-v2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-amber">
+            <Link href="/terms" className="hover:text-foreground">
               Terms
             </Link>
             <span className="inline-flex items-center gap-1.5">

@@ -1,84 +1,200 @@
-import Link from "next/link";
+"use client";
+
+import { IconBuildingSkyscraper, IconQuote, IconStarFilled, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
-import { SectionHeader } from "@/components/marketing/section-header";
 import { Reveal } from "@/components/marketing/reveal";
+import { SectionHeader } from "@/components/marketing/section-header";
+import { Badge } from "@/components/ui/badge";
 import type { HomepageTestimonial } from "@/data/homepage";
+import { cn } from "@/lib/utils";
 
-function StarRow() {
+function StarRow({ count = 5, className }: { count?: number; className?: string }) {
   return (
-    <div className="flex gap-0.5" aria-hidden>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} className="text-[var(--color-accent)]">
-          ★
-        </span>
+    <div className={cn("flex gap-0.5 text-[var(--color-accent)]", className)} aria-hidden>
+      {Array.from({ length: count }).map((_, i) => (
+        <IconStarFilled key={i} size={16} />
       ))}
     </div>
   );
 }
 
-function TestimonialCard({ item }: { item: HomepageTestimonial }) {
+function TestimonialCard({
+  item,
+  isActive,
+  className,
+}: {
+  item: HomepageTestimonial;
+  isActive?: boolean;
+  className?: string;
+}) {
   return (
-    <article className="testimonial-card flex flex-col gap-4">
-      <StarRow />
-      <blockquote className="flex-1 text-[0.9375rem] leading-relaxed text-foreground">
+    <article
+      className={cn(
+        "testimonial-card flex h-full flex-col gap-5 transition-all duration-300",
+        isActive && "border-[var(--color-accent)]/30 shadow-[0_4px_24px_color-mix(in_oklab,var(--color-accent)_6%,transparent)]",
+        className
+      )}
+    >
+      {/* Header row */}
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <div
+            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/12 text-sm font-semibold text-[var(--color-accent)]"
+            aria-label={`${item.name}, ${item.role} at ${item.company}`}
+            role="img"
+          >
+            {item.initials}
+          </div>
+          <div>
+            <p className="type-body text-sm font-semibold text-foreground">{item.name}</p>
+            <p className="type-caption text-[11px]">{item.role}</p>
+          </div>
+        </div>
+        <IconQuote
+          size={22}
+          stroke={1.5}
+          className="mt-0.5 shrink-0 text-[var(--color-accent)]/35"
+          aria-hidden
+        />
+      </div>
+
+      {/* Stars + company */}
+      <div className="flex flex-wrap items-center gap-3">
+        <StarRow count={item.rating} />
+        <Badge
+          variant="outline"
+          className="h-auto gap-1.5 rounded-full border-[var(--surface-border)] px-2 py-0.5 text-[10px] font-normal"
+        >
+          <IconBuildingSkyscraper size={10} stroke={1.5} aria-hidden />
+          {item.company}
+        </Badge>
+      </div>
+
+      {/* Quote */}
+      <blockquote className="type-body flex-1 max-w-none text-[color:var(--text-body)]">
         &ldquo;{item.quote}&rdquo;
       </blockquote>
-      <div className="mt-auto flex items-center gap-3 border-t border-[var(--surface-border)] pt-4">
-        <div
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-sm font-semibold text-[var(--color-primary)]"
-          aria-label={`${item.name}, ${item.role} at ${item.company}`}
-          role="img"
-        >
-          {item.initials}
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="text-sm font-semibold text-foreground">{item.name}</div>
-          <div className="type-caption truncate">
-            {item.role} · {item.company}
-          </div>
-        </div>
-        {item.outcome ? (
-          <div className="shrink-0">
-            <span className="inline-flex items-center rounded-full bg-[var(--color-success)]/10 px-2 py-0.5 text-xs font-semibold text-[var(--color-success)]">
-              {item.outcome}
-            </span>
-          </div>
-        ) : null}
-      </div>
+
+      {/* Project tag */}
+      <p className="type-caption text-[var(--color-accent)] text-[11px] font-medium">
+        {item.project}
+      </p>
     </article>
   );
 }
 
 export function HomeTestimonialsSection({ items }: { items: readonly HomepageTestimonial[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const prev = () => setActiveIndex((i) => (i > 0 ? i - 1 : items.length - 1));
+  const next = () => setActiveIndex((i) => (i < items.length - 1 ? i + 1 : 0));
+
   return (
-    <SectionShell id="testimonials" size="default">
+    <SectionShell id="testimonials" size="default" className="bg-[var(--surface-muted)]">
       <Reveal>
         <Container>
-          <SectionHeader
-            eyebrow="Client feedback"
-            title="What clients actually say."
-            description="From SaaS founders, ops leads, and engineering teams. All named with permission."
-            align="center"
-          />
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
+            {/* Left: header + nav */}
+            <div className="flex flex-col gap-8 lg:w-72 lg:shrink-0">
+              <SectionHeader
+                eyebrow="Testimonials"
+                title="What clients actually say."
+                description="Feedback from SaaS founders, ops leads, and engineering teams after working with us."
+              />
 
-          <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((item) => (
-              <TestimonialCard key={item.name} item={item} />
-            ))}
-          </div>
+              {/* Dot navigation */}
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={prev}
+                  aria-label="Previous testimonial"
+                  className="surface-card flex size-9 items-center justify-center rounded-full transition-colors hover:border-[var(--color-accent)]/40"
+                >
+                  <IconChevronLeft size={16} stroke={2} aria-hidden />
+                </button>
 
-          <div className="mt-10 flex items-center justify-center">
-            <Link
-              href="https://g.page/r/northline-digital/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="type-caption inline-flex items-center gap-2 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
-            >
-              <span className="text-[var(--color-accent)]">★</span>
-              5.0 on Google Reviews · 8 verified reviews →
-            </Link>
+                <div className="flex gap-1.5" role="tablist" aria-label="Testimonial navigation">
+                  {items.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      role="tab"
+                      aria-selected={i === activeIndex}
+                      aria-label={`Testimonial ${i + 1}`}
+                      onClick={() => setActiveIndex(i)}
+                      className={cn(
+                        "h-1.5 rounded-full transition-all duration-300",
+                        i === activeIndex
+                          ? "w-6 bg-[var(--color-accent)]"
+                          : "w-1.5 bg-[var(--surface-border)] hover:bg-[var(--text-secondary)]/40"
+                      )}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={next}
+                  aria-label="Next testimonial"
+                  className="surface-card flex size-9 items-center justify-center rounded-full transition-colors hover:border-[var(--color-accent)]/40"
+                >
+                  <IconChevronRight size={16} stroke={2} aria-hidden />
+                </button>
+              </div>
+
+              <p className="type-caption text-[11px] text-[color:var(--text-secondary)]">
+                Named feedback shared with client permission.
+              </p>
+            </div>
+
+            {/* Right: card + preview */}
+            <div className="flex flex-1 flex-col gap-4 md:flex-row md:gap-5">
+              {/* Active card */}
+            <div aria-live="polite" aria-atomic="true" className="flex-1">
+              <TestimonialCard
+                item={items[activeIndex]!}
+                isActive
+                className="flex-1"
+              />
+            </div>
+              {/* Secondary cards (desktop) */}
+              {items.length > 1 ? (
+                <div className="hidden flex-col gap-4 md:flex md:w-64 lg:w-72">
+                  {items
+                    .map((item, i) => ({ item, i }))
+                    .filter(({ i }) => i !== activeIndex)
+                    .slice(0, 2)
+                    .map(({ item, i }) => (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setActiveIndex(i)}
+                        className="testimonial-card flex flex-col gap-3 p-4 text-left opacity-60 transition-opacity hover:opacity-90"
+                        aria-label={`View testimonial from ${item.name}`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <div
+                            className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[11px] font-semibold text-[var(--color-accent)]"
+                            aria-hidden
+                          >
+                            {item.initials}
+                          </div>
+                          <div>
+                            <p className="text-[12px] font-semibold text-foreground">{item.name}</p>
+                            <p className="type-caption text-[10px]">{item.company}</p>
+                          </div>
+                        </div>
+                        <p className="type-caption line-clamp-2 max-w-none text-[color:var(--text-body)]">
+                          &ldquo;{item.quote}&rdquo;
+                        </p>
+                      </button>
+                    ))}
+                </div>
+              ) : null}
+            </div>
           </div>
         </Container>
       </Reveal>

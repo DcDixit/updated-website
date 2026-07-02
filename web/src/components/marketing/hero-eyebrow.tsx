@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-/** V2 trust pill for hero and page intros. */
+/** Badge / kicker - pill style with subtle border. Sentence case allowed. */
 export const heroEyebrowClassName =
-  "inline-flex items-center rounded-full border border-[var(--hero-badge-border)] bg-[var(--hero-badge-bg)] px-4 py-1.5 font-body text-xs font-medium text-text-secondary-v2";
+  "hero-eyebrow-badge type-badge-label inline-block rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1 text-[11px] text-[color:var(--text-secondary)]";
 
 export function HeroEyebrow({
   children,
@@ -17,9 +17,6 @@ export function HeroEyebrow({
 }) {
   return (
     <p id={id} className={cn(heroEyebrowClassName, className)}>
-      <span className="mr-1.5 text-brand-amber" aria-hidden>
-        ✦
-      </span>
       {children}
     </p>
   );

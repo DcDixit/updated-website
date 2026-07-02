@@ -18,32 +18,32 @@ import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.shortName} · Digital product agency`,
+    default: `${brand.shortName} · AI-powered digital product agency`,
     template: `%s · ${brand.shortName}`,
   },
   description:
-    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators: dispatch CRM, fleet dashboards, and accounting integrations.",
+    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: `${brand.shortName} · Digital product agency`,
+    title: `${brand.shortName} · AI-powered digital product agency`,
     description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators: dispatch CRM, fleet dashboards, and accounting integrations.",
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
     images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.shortName} · Digital product agency`,
+    title: `${brand.shortName} · AI-powered digital product agency`,
     description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators: dispatch CRM, fleet dashboards, and accounting integrations.",
+      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
     images: [`${siteUrl}/brand/og-default.png`],
   },
   robots: {
@@ -116,7 +116,7 @@ gtag('config', '${gaMeasurementId}', { anonymize_ip: true, send_page_view: false
       </head>
       <body
         suppressHydrationWarning
-        className="bg-background text-foreground relative flex min-h-full flex-col font-body antialiased"
+        className="text-foreground bg-background relative flex min-h-full flex-col font-sans antialiased"
       >
         {gtmId ? (
           <noscript>

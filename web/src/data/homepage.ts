@@ -1,39 +1,29 @@
 export type HomepageStat = {
   value: string;
   label: string;
-  sub: string;
+  caption: string;
 };
 
 export const homepageStats: HomepageStat[] = [
   {
-    value: "32%",
-    label: "Average handle time reduction",
-    sub: "in dispatch CRM projects",
-  },
-  {
-    value: "99.3%",
-    label: "Sync reliability achieved",
-    sub: "in QuickBooks/Xero integrations",
-  },
-  {
-    value: "18%",
-    label: "Average activation uplift",
-    sub: "in SaaS onboarding redesigns",
-  },
-  {
     value: "40+",
-    label: "Products shipped",
-    sub: "SaaS, logistics, CRM & AI",
+    label: "Projects delivered",
+    caption: "SaaS, logistics, CRM & automation",
   },
   {
-    value: "6 wks",
-    label: "Average time to first delivery",
-    sub: "from discovery to signed-off design",
+    value: "8+",
+    label: "Years shipping",
+    caption: "Products and digital platforms",
   },
   {
-    value: "5.0 ⭐",
+    value: "15+",
+    label: "In-house team",
+    caption: "Designers, engineers & strategists",
+  },
+  {
+    value: "5.0",
     label: "Google rating",
-    sub: "8 verified client reviews",
+    caption: "8 verified client reviews",
   },
 ];
 
@@ -43,31 +33,60 @@ export type HomepageClient = {
   category?: string;
 };
 
-/** Client product logos shown in trust strips and marquees. */
+/** Tech & platform logos shown in the trusted-by strip. Replace with approved client marks when available. */
 export const homepageClients: HomepageClient[] = [
-  { name: "FleetFlow", logoUrl: "/brand/logos/fleetflow.svg", category: "Logistics CRM" },
-  { name: "PayrollPro", logoUrl: "/brand/logos/payrollpro.svg", category: "SaaS" },
-  { name: "FinanceSync", logoUrl: "/brand/logos/financesync.svg", category: "Integrations" },
-  { name: "SupportAI", logoUrl: "/brand/logos/supportai.svg", category: "AI Automation" },
+  { name: "Next.js", logoUrl: null, category: "Frontend" },
+  { name: "React Native", logoUrl: null, category: "Mobile" },
+  { name: "QuickBooks", logoUrl: null, category: "Integrations" },
+  { name: "Xero", logoUrl: null, category: "Integrations" },
+  { name: "HubSpot", logoUrl: null, category: "CRM" },
+  { name: "Figma", logoUrl: null, category: "Design" },
+  { name: "Webflow", logoUrl: null, category: "No-Code" },
+  { name: "Bubble", logoUrl: null, category: "No-Code" },
+  { name: "Make", logoUrl: null, category: "Automation" },
+  { name: "Stripe", logoUrl: null, category: "Payments" },
+  { name: "Supabase", logoUrl: null, category: "Backend" },
+  { name: "Vercel", logoUrl: null, category: "Deployment" },
 ];
 
 export type HomepageTeamMember = {
   initials: string;
   name: string;
   role: string;
-  note?: string;
-  photo?: string;
+  specialty: string;
 };
 
 export const homepageTeam: HomepageTeamMember[] = [
-  { name: "Team Lead", role: "Head of Product Design", initials: "TL" },
-  { name: "SaaS Designer", role: "Senior UX Designer", initials: "SD" },
-  { name: "Eng Lead", role: "Lead Engineer", initials: "EL" },
-  { name: "QuickBooks Eng", role: "Integration Specialist", initials: "QE" },
-  { name: "Trucking UX", role: "Logistics UX Lead", initials: "TU" },
-  { name: "AI Engineer", role: "AI & Automation Engineer", initials: "AE" },
-  { name: "QA Lead", role: "QA & Delivery Manager", initials: "QL" },
-  { name: "Strategist", role: "Product Strategist", initials: "PS" },
+  {
+    initials: "AR",
+    name: "Alex R.",
+    role: "Lead Product Designer",
+    specialty: "SaaS UI, dashboard systems, design tokens",
+  },
+  {
+    initials: "JM",
+    name: "Jamie M.",
+    role: "Frontend Engineer",
+    specialty: "React, Next.js, Tailwind, animation",
+  },
+  {
+    initials: "SK",
+    name: "Sam K.",
+    role: "Backend Engineer",
+    specialty: "Node, APIs, QuickBooks & Xero integrations",
+  },
+  {
+    initials: "PL",
+    name: "Priya L.",
+    role: "UX Strategist",
+    specialty: "User research, onboarding flows, CRO",
+  },
+  {
+    initials: "TW",
+    name: "Tom W.",
+    role: "Project Lead",
+    specialty: "Delivery, client communication, QA",
+  },
 ];
 
 export type HomepageTestimonial = {
@@ -78,7 +97,6 @@ export type HomepageTestimonial = {
   company: string;
   project: string;
   rating: number;
-  outcome: string;
 };
 
 export const homepageTestimonials: HomepageTestimonial[] = [
@@ -91,18 +109,16 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     company: "FlowLedger (UK B2B SaaS)",
     project: "SaaS onboarding redesign",
     rating: 5,
-    outcome: "+18% activation",
   },
   {
     initials: "MC",
     quote:
-      "They delivered a dispatch console our ops team actually enjoys using. Handle time dropped 32% without adding headcount.",
+      "They delivered a dispatch console our ops team actually enjoys using — handle time down 32% without adding headcount.",
     name: "Marcus Cole",
-    role: "Operations Director",
+    role: "VP Operations",
     company: "FleetRoute Logistics (US)",
     project: "Dispatch console & CRM",
     rating: 5,
-    outcome: "−32% handle time",
   },
   {
     initials: "AD",
@@ -113,74 +129,39 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     company: "Meridian D2C",
     project: "E-commerce rebrand & launch",
     rating: 5,
-    outcome: "ROI in Q1",
-  },
-  {
-    initials: "JK",
-    quote:
-      "We'd worked with two agencies before Northline. Neither understood that clean UI and working integrations aren't separate problems. Northline got it immediately.",
-    name: "James Kwan",
-    role: "CTO",
-    company: "LedgerStack (UK SaaS)",
-    project: "Platform redesign & integrations",
-    rating: 5,
-    outcome: "On-time delivery",
-  },
-  {
-    initials: "SR",
-    quote:
-      "Our old system needed three screens to cover what Northline's console does in one. The team learned it in a day.",
-    name: "Sarah Rodriguez",
-    role: "Head of Dispatch",
-    company: "Midwest Freight Co. (US)",
-    project: "Dispatch console rebuild",
-    rating: 5,
-    outcome: "Zero training curve",
   },
 ];
 
 export type HomepageProcessStep = {
   title: string;
   description: string;
-  timeEstimate: string;
-  deliverable: string;
 };
 
 export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "Discovery",
     description:
-      "We capture goals, users, constraints, and success metrics in a written brief so everyone starts on the same page.",
-    timeEstimate: "Week 1–2",
-    deliverable: "Written brief + success metrics doc",
+      "Goals, users, constraints, and success metrics — captured in a written brief so everyone starts aligned.",
   },
   {
     title: "UX Design",
     description:
-      "Wireframes, interactive prototypes, and high-fidelity UI, all reviewed and signed off before development starts.",
-    timeEstimate: "Week 3–5",
-    deliverable: "Signed-off wireframes + interactive prototype",
+      "Wireframes, interactive prototypes, and UI — reviewed and signed off before a single line of code is written.",
   },
   {
     title: "Development",
     description:
-      "In-house engineers build in stages with weekly demos and open progress tracking.",
-    timeEstimate: "Week 6–12",
-    deliverable: "Weekly demos, staging environment",
+      "In-house engineers build iteratively with weekly demos and transparent progress. No black-box sprints.",
   },
   {
     title: "QA & Launch",
     description:
       "Cross-browser testing, accessibility checks, analytics setup, and phased rollout with handoff docs.",
-    timeEstimate: "Week 13–14",
-    deliverable: "Launch checklist, handoff docs",
   },
   {
     title: "Post-launch",
     description:
-      "Iteration sprints, monitoring, and roadmap support. Most clients stay on a monthly retainer after launch.",
-    timeEstimate: "Ongoing",
-    deliverable: "Monthly retainer or ad-hoc sprints",
+      "Iteration sprints, monitoring, and roadmap support — most clients keep us on retainer after go-live.",
   },
 ];
 
@@ -195,24 +176,3 @@ export const homepageAiTools = [
 ] as const;
 
 export type HomepageCaseStudySlug = "fleetflow-dispatch" | "payroll-pro-saas" | "finance-sync-hub";
-
-export const portfolioFilterCategories = ["All", "SaaS", "Trucking", "Integrations", "AI"] as const;
-
-export type PortfolioFilterCategory = (typeof portfolioFilterCategories)[number];
-
-export const caseStudyFilterMap: Record<string, PortfolioFilterCategory[]> = {
-  "fleetflow-dispatch": ["Trucking"],
-  "payroll-pro-saas": ["SaaS"],
-  "finance-sync-hub": ["Integrations"],
-  "healthtrack-mobile": ["SaaS"],
-  "brandlift-ecommerce": ["SaaS"],
-  "crm-pulse-dashboard": ["SaaS"],
-  "ai-support-automation": ["AI"],
-  "marketplace-mvp": ["SaaS"],
-};
-
-export const caseStudyIndustryLabels: Record<string, string> = {
-  "fleetflow-dispatch": "Logistics · CRM",
-  "payroll-pro-saas": "SaaS · Product",
-  "finance-sync-hub": "Integrations · Finance",
-};
