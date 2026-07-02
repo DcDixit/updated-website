@@ -19,6 +19,7 @@ import {
 type ThemeContextValue = {
   preference: ThemePreference;
   resolved: "light" | "dark";
+  mounted: boolean;
   setPreference: (next: ThemePreference) => void;
   toggleTheme: () => void;
 };
@@ -39,21 +40,30 @@ function applyTheme(preference: ThemePreference) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [preference, setPreferenceState] = useState<ThemePreference>(readStoredPreference);
-  const [resolved, setResolved] = useState<"light" | "dark">(() => resolveTheme(readStoredPreference()));
+  const [preference, setPreferenceState] = useState<ThemePreference>("system");
+  const [resolved, setResolved] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const stored = readStoredPreference();
+    setPreferenceState(stored);
+    setResolved(applyTheme(stored));
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || preference === "system") return;
     setResolved(applyTheme(preference));
-  }, [preference]);
+  }, [mounted, preference]);
 
   useEffect(() => {
-    if (preference !== "system") return;
+    if (!mounted || preference !== "system") return;
 
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => setResolved(applyTheme("system"));
     media.addEventListener("change", onChange);
     return () => media.removeEventListener("change", onChange);
-  }, [preference]);
+  }, [mounted, preference]);
 
   const setPreference = useCallback((next: ThemePreference) => {
     setPreferenceState(next);
@@ -67,8 +77,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [resolved, setPreference]);
 
   const value = useMemo(
-    () => ({ preference, resolved, setPreference, toggleTheme }),
-    [preference, resolved, setPreference, toggleTheme]
+    () => ({ preference, resolved, mounted, setPreference, toggleTheme }),
+    [preference, resolved, mounted, setPreference, toggleTheme]
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

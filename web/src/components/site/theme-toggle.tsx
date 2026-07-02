@@ -7,8 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { resolved, toggleTheme } = useTheme();
-  const isDark = resolved === "dark";
+  const { resolved, mounted, toggleTheme } = useTheme();
+  const isDark = mounted && resolved === "dark";
 
   return (
     <button
@@ -20,9 +20,14 @@ export function ThemeToggle({ className }: { className?: string }) {
         className
       )}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      suppressHydrationWarning
     >
-      {isDark ? (
-        <IconSun size={18} stroke={1.5} aria-hidden />
+      {mounted ? (
+        isDark ? (
+          <IconSun size={18} stroke={1.5} aria-hidden />
+        ) : (
+          <IconMoon size={18} stroke={1.5} aria-hidden />
+        )
       ) : (
         <IconMoon size={18} stroke={1.5} aria-hidden />
       )}

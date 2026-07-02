@@ -54,6 +54,8 @@ export type HomepageTeamMember = {
   name: string;
   role: string;
   specialty: string;
+  note?: string;
+  photo?: string;
 };
 
 export const homepageTeam: HomepageTeamMember[] = [
@@ -97,6 +99,7 @@ export type HomepageTestimonial = {
   company: string;
   project: string;
   rating: number;
+  outcome?: string;
 };
 
 export const homepageTestimonials: HomepageTestimonial[] = [
@@ -109,6 +112,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     company: "FlowLedger (UK B2B SaaS)",
     project: "SaaS onboarding redesign",
     rating: 5,
+    outcome: "+18% activation",
   },
   {
     initials: "MC",
@@ -119,6 +123,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     company: "FleetRoute Logistics (US)",
     project: "Dispatch console & CRM",
     rating: 5,
+    outcome: "−32% handle time",
   },
   {
     initials: "AD",
@@ -129,6 +134,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     company: "Meridian D2C",
     project: "E-commerce rebrand & launch",
     rating: 5,
+    outcome: "ROI in Q1",
   },
 ];
 
@@ -176,3 +182,18 @@ export const homepageAiTools = [
 ] as const;
 
 export type HomepageCaseStudySlug = "fleetflow-dispatch" | "payroll-pro-saas" | "finance-sync-hub";
+
+export const portfolioFilterCategories = ["All", "SaaS", "Trucking", "Integrations", "AI"] as const;
+
+export type PortfolioFilterCategory = (typeof portfolioFilterCategories)[number];
+
+export const caseStudyFilterMap: Record<string, PortfolioFilterCategory[]> = {
+  "fleetflow-dispatch": ["Trucking"],
+  "payroll-pro-saas": ["SaaS"],
+  "finance-sync-hub": ["Integrations"],
+  "healthtrack-mobile": ["SaaS"],
+  "brandlift-ecommerce": ["SaaS"],
+  "crm-pulse-dashboard": ["SaaS"],
+  "ai-support-automation": ["AI"],
+  "marketplace-mvp": ["SaaS"],
+};

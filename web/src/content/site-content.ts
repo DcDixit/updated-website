@@ -76,10 +76,10 @@ export {
 
 /** Homepage hero - dual-industry agency positioning. */
 export const homeHero = {
-  eyebrowBadge: "In-house digital product agency",
+  eyebrowBadge: "AI-powered digital product agency · UK SaaS · US trucking",
   headline: "SaaS products for UK teams. Trucking software for US operators.",
   headlineEmphasis: "SaaS products",
-  lead: "One in-house team covering design, engineering, and AI. We stay involved from the first call through post-launch.",
+  lead: "One in-house team across design, engineering, and AI — from discovery to launch and beyond.",
   leadDetail:
     "15+ designers and developers building SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
 } as const;

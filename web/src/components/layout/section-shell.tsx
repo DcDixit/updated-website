@@ -15,6 +15,7 @@ export function SectionShell({
   id,
   size = "default",
   bordered = true,
+  glow,
   className,
   children,
   ...rest
@@ -22,6 +23,7 @@ export function SectionShell({
   id?: string;
   size?: SectionShellSize;
   bordered?: boolean;
+  glow?: "dual" | "cobalt" | "amber";
   className?: string;
   children: ReactNode;
 } & ComponentPropsWithoutRef<"section">) {
@@ -32,10 +34,12 @@ export function SectionShell({
         "scroll-mt-[var(--header-offset)] bg-background",
         sizeClasses[size],
         bordered && "border-b border-[var(--section-divider)]",
+        glow === "dual" && "relative overflow-hidden",
         className
       )}
       {...rest}
     >
+      {glow === "dual" ? <div className="glow-dual pointer-events-none absolute inset-0" aria-hidden /> : null}
       {children}
     </section>
   );
