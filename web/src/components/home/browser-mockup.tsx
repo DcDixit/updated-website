@@ -1,18 +1,19 @@
 import { cn } from "@/lib/utils";
 
-const navItems = ["Overview", "Dispatch", "Fleet", "Reports", "Settings", "Support"];
+const fleetflowNav = ["Dispatch", "Routes", "Fleet", "Drivers", "Reports", "SLA"];
 
-const kpis = [
+const fleetflowKpis = [
   { label: "Active routes", value: "412" },
   { label: "On-time rate", value: "94%" },
-  { label: "Open tickets", value: "18" },
+  { label: "Avg handle time", value: "−32%" },
 ];
 
+/** FleetFlow dispatch console — aligned with featured trucking case study. */
 export function BrowserMockup({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "mx-auto w-full min-w-[480px] max-w-[580px] overflow-hidden rounded-xl border border-[var(--surface-border)] bg-[#141414] shadow-2xl",
+        "mx-auto w-full max-w-full overflow-hidden rounded-xl border border-[var(--surface-border)] bg-[#141414] shadow-2xl",
         className
       )}
     >
@@ -24,7 +25,7 @@ export function BrowserMockup({ className }: { className?: string }) {
         </div>
         <div className="flex-1 rounded-md bg-[#0d0d0d] px-3 py-1.5">
           <p className="truncate text-center text-[11px] text-[color:var(--text-secondary)]">
-            app.northline.io/dashboard
+            fleetflow.app/dispatch
           </p>
         </div>
       </div>
@@ -32,7 +33,7 @@ export function BrowserMockup({ className }: { className?: string }) {
       <div className="flex min-h-[320px] lg:min-h-[380px]">
         <aside className="hidden w-[140px] shrink-0 border-r border-white/10 bg-[#111] p-3 sm:block">
           <ul className="space-y-2">
-            {navItems.map((item, i) => (
+            {fleetflowNav.map((item, i) => (
               <li
                 key={item}
                 className={cn(
@@ -49,19 +50,17 @@ export function BrowserMockup({ className }: { className?: string }) {
 
         <div className="flex min-w-0 flex-1 flex-col p-4">
           <div className="grid grid-cols-3 gap-2">
-            {kpis.map((kpi) => (
+            {fleetflowKpis.map((kpi) => (
               <div key={kpi.label} className="rounded-lg border border-white/10 bg-[#1a1a1a] p-2.5">
                 <p className="text-[9px] text-[color:var(--text-secondary)]">{kpi.label}</p>
-                <p className="home-kpi-pulse mt-1 text-lg font-semibold tabular-nums text-[var(--color-accent)]">
-                  {kpi.value}
-                </p>
+                <p className="mt-1 text-lg font-semibold tabular-nums text-[var(--color-accent)]">{kpi.value}</p>
               </div>
             ))}
           </div>
 
           <div className="mt-3 flex min-h-0 flex-1 gap-3">
             <div className="flex min-w-0 flex-1 flex-col rounded-lg border border-white/10 bg-[#1a1a1a] p-3">
-              <p className="text-[10px] font-medium text-[color:var(--text-secondary)]">Route performance</p>
+              <p className="text-[10px] font-medium text-[color:var(--text-secondary)]">Daily dispatch volume</p>
               <svg viewBox="0 0 240 80" className="mt-2 h-full min-h-[72px] w-full" aria-hidden>
                 <polyline
                   fill="none"
@@ -73,7 +72,7 @@ export function BrowserMockup({ className }: { className?: string }) {
                 />
                 <polyline
                   fill="none"
-                  stroke="rgba(168,255,62,0.25)"
+                  stroke="color-mix(in oklab, var(--color-accent) 25%, transparent)"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -83,12 +82,12 @@ export function BrowserMockup({ className }: { className?: string }) {
             </div>
 
             <div className="hidden w-[100px] shrink-0 flex-col rounded-lg border border-white/10 bg-[#1a1a1a] p-2.5 sm:flex">
-              <p className="mb-2 text-[9px] font-medium text-[color:var(--text-secondary)]">Recent syncs</p>
+              <p className="mb-2 text-[9px] font-medium text-[color:var(--text-secondary)]">Exceptions</p>
               <ul className="space-y-1.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <li key={i} className="flex items-center gap-1.5">
+                {["Late pickup", "Route delay", "Driver swap", "SLA risk", "Resolved"].map((label) => (
+                  <li key={label} className="flex items-center gap-1.5">
                     <span className="size-1.5 shrink-0 rounded-full bg-[var(--color-accent)]/60" aria-hidden />
-                    <span className="h-1.5 flex-1 rounded bg-white/10" aria-hidden />
+                    <span className="truncate text-[8px] text-[color:var(--text-secondary)]">{label}</span>
                   </li>
                 ))}
               </ul>

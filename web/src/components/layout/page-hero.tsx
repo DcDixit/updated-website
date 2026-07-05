@@ -34,9 +34,9 @@ export function PageHero({
   const content = (
     <div className="flex flex-col gap-6 sm:gap-8">
       {eyebrow ? <HeroEyebrow>{eyebrow}</HeroEyebrow> : null}
-      <h1 className="type-hero font-heading text-balance text-text-primary-v2">{title}</h1>
+      <h1 className="type-hero text-balance text-foreground">{title}</h1>
       {description ? (
-        <p className="type-body max-w-[640px] font-body text-text-secondary-v2">{description}</p>
+        <p className="type-body max-w-[640px] text-[color:var(--text-secondary)]">{description}</p>
       ) : null}
       {actions ? <div className="flex flex-wrap gap-3">{actions}</div> : null}
       {children}

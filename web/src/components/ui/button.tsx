@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "btn-accent-glow border border-transparent bg-[var(--color-accent)] text-black hover:opacity-95",
+          "btn-accent-glow border border-transparent bg-[var(--color-accent)] text-white hover:opacity-95 dark:text-[#0f172a]",
         secondary:
           "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 dark:border-[var(--surface-border)] dark:hover:bg-white/5",
         link: "border-transparent bg-transparent text-[var(--color-accent-strong)] underline-offset-4 hover:underline",

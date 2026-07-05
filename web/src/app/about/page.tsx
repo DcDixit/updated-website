@@ -28,7 +28,7 @@ const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description: `${brand.legalName} - an AI-powered digital product agency founded in ${brand.founded}. 15+ in-house team serving UK SaaS and US trucking clients from Ahmedabad, India.`,
+  description: `${brand.legalName} - an AI-powered digital product agency founded in ${brand.founded}. Premium design and development for UK SaaS and US trucking clients from Ahmedabad, India.`,
   path: "/about",
 });
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="15 designers and engineers. One team."
+        title="Design and engineering. One accountable team."
         description={brand.positioning}
         visual={pageHeroVisuals.about}
         priority

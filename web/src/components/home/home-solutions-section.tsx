@@ -4,9 +4,13 @@ import Link from "next/link";
 import { useCallback, useState } from "react";
 import { IconArrowUpRight } from "@tabler/icons-react";
 
+import { MarketingImage } from "@/components/marketing/marketing-image";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { buttonVariants } from "@/components/ui/button";
+import { clientPersonas } from "@/content/audience";
 import { homepageSolutionSections, primaryCtas } from "@/content/site-content";
+import { marketingSectionImages, solutionVisuals } from "@/content/visuals";
+import type { SolutionSlug } from "@/content/solutions";
 import { cn } from "@/lib/utils";
 
 type SolutionItem = (typeof homepageSolutionSections)[number];
@@ -22,13 +26,29 @@ const solutionGroups = [
   },
 ] as const;
 
+function solutionPreviewVisual(slug: string) {
+  if (slug in solutionVisuals) {
+    return solutionVisuals[slug as SolutionSlug];
+  }
+  if (slug === "crm-automation") {
+    return marketingSectionImages.servicesOverview;
+  }
+  if (slug === "ai-productivity") {
+    return marketingSectionImages.trustPartnership;
+  }
+  return marketingSectionImages.saasSpotlight;
+}
+
 function SolutionPreviewPanel({ solution, index }: { solution: SolutionItem; index: number }) {
   const Icon = solution.icon;
   const visibleServices = solution.services.slice(0, 4);
   const extraServices = solution.services.length - visibleServices.length;
 
+  const visual = solutionPreviewVisual(solution.slug);
+
   return (
-    <div className="solution-preview-enter flex h-full flex-col px-6 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+    <div className="solution-preview-enter grid h-full lg:grid-cols-[minmax(0,1fr)_minmax(0,14rem)] xl:grid-cols-[minmax(0,1fr)_minmax(0,16rem)]">
+      <div className="flex h-full flex-col px-6 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
       <div className="flex items-center justify-between gap-4">
         <div className="flex size-11 items-center justify-center rounded-xl border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/8">
           <Icon size={22} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
@@ -71,6 +91,17 @@ function SolutionPreviewPanel({ solution, index }: { solution: SolutionItem; ind
           <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
         </Link>
       </div>
+      </div>
+      <div className="relative hidden min-h-[12rem] border-t border-[var(--surface-border)] lg:block lg:border-l lg:border-t-0">
+        <MarketingImage
+          src={visual.src}
+          alt={visual.alt}
+          sizes="280px"
+          aspectClassName="aspect-[4/5] h-full min-h-[12rem] w-full rounded-none border-0"
+          overlay="bottom"
+          className="h-full rounded-none border-0"
+        />
+      </div>
     </div>
   );
 }
@@ -105,7 +136,7 @@ function SolutionListItem({
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-accent)]/35",
         isActive
           ? compact
-            ? "bg-[var(--color-accent)] text-black"
+            ? "bg-[var(--color-accent)] text-white dark:text-[#0f172a]"
             : "bg-[var(--card)]"
           : compact
             ? "border border-[var(--surface-border)] bg-[var(--card)] hover:border-[var(--color-accent)]/40"
@@ -128,7 +159,7 @@ function SolutionListItem({
           compact ? "whitespace-nowrap font-medium" : "flex-1",
           isActive
             ? compact
-              ? "text-black"
+              ? "text-white dark:text-[#0f172a]"
               : "font-semibold text-foreground"
             : compact
               ? "text-[color:var(--text-body)]"
@@ -265,6 +296,32 @@ export function HomeSolutionsSection() {
         <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full sm:w-auto")}>
           {primaryCtas.book.label}
         </Link>
+      </div>
+
+      <div className="mt-10 border-t border-[var(--surface-border)] pt-8">
+        <p className="type-badge-label mb-4">Who we work with</p>
+        <ul className="grid gap-4 md:grid-cols-3">
+          {clientPersonas.map((persona) => (
+            <li key={persona.title}>
+              <Link
+                href={persona.href}
+                className="surface-card card-hover-rise group flex h-full flex-col p-5 transition-colors"
+              >
+                <h3 className="type-h3 text-foreground">{persona.title}</h3>
+                <p className="type-body mt-2 flex-1 text-sm text-[color:var(--text-secondary)]">{persona.description}</p>
+                <span className="type-body mt-4 inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)]">
+                  {persona.cta}
+                  <IconArrowUpRight
+                    size={16}
+                    stroke={1.5}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    aria-hidden
+                  />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );

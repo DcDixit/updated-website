@@ -17,14 +17,14 @@ export type SectionTone =
   | "glow";
 
 const toneClasses: Record<SectionTone, string> = {
-  default: "bg-surface-base",
-  muted: "border-y border-surface-card-border bg-surface-alt",
-  contrast: "border-y border-surface-card-border bg-[var(--v2-surface-contrast)]",
-  soft: "border-y border-surface-card-border bg-surface-alt",
-  panel: "border-y border-surface-card-border bg-[var(--v2-surface-contrast)]",
-  band: "border-y border-surface-card-border bg-surface-alt",
-  depth: "border-y border-surface-card-border bg-[var(--v2-surface-contrast)]",
-  glow: "border-y border-surface-card-border bg-surface-alt",
+  default: "bg-background",
+  muted: "border-y border-[var(--surface-border)] bg-[var(--surface-muted)]",
+  contrast: "border-y border-[var(--surface-border)] bg-[var(--v2-surface-contrast)]",
+  soft: "border-y border-[var(--surface-border)] bg-[var(--surface-muted)]",
+  panel: "border-y border-[var(--surface-border)] bg-[var(--v2-surface-contrast)]",
+  band: "border-y border-[var(--surface-border)] bg-[var(--surface-muted)]",
+  depth: "border-y border-[var(--surface-border)] bg-[var(--v2-surface-contrast)]",
+  glow: "border-y border-[var(--surface-border)] bg-[var(--surface-muted)]",
 };
 
 export function Section({
@@ -54,9 +54,9 @@ export function Section({
         "relative overflow-hidden py-[var(--space-section-y)] scroll-mt-[var(--header-offset)]",
         toneClasses[tone],
         dividerTop &&
-          "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-px before:bg-surface-card-border",
+          "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-px before:bg-[var(--surface-border)]",
         dividerBottom &&
-          "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-[1] after:h-px after:bg-surface-card-border",
+          "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-[1] after:h-px after:bg-[var(--surface-border)]",
         className
       )}
     >

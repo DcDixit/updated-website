@@ -45,6 +45,13 @@ export {
 } from "@/content/services";
 
 export {
+  type MegaMenuServiceGroup,
+  megaMenuServiceGroups,
+  solutionMenuTeasers,
+  getMegaMenuServiceTitle,
+} from "@/content/mega-menu";
+
+export {
   type CaseSlug,
   caseStudies,
   caseStudyDetails,
@@ -76,11 +83,11 @@ export {
 
 /** Homepage hero - dual-industry agency positioning. */
 export const homeHero = {
-  eyebrowBadge: "AI-powered digital product agency · UK SaaS · US trucking",
-  headline: "SaaS products for UK teams. Trucking software for US operators.",
-  headlineEmphasis: "SaaS products",
-  lead: "One in-house team across design, engineering, and AI — from discovery to launch and beyond.",
+  eyebrowBadge: "AI-powered digital product agency",
+  headline: "Design and build software your users actually adopt.",
+  headlineEmphasis: "actually adopt",
+  lead: "One in-house team for UK SaaS and US trucking — from discovery to launch. 40+ products delivered.",
   leadDetail:
-    "15+ designers and developers building SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
+    "Senior designers and engineers building SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
 } as const;
 

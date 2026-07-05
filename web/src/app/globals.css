@@ -40,6 +40,12 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-surface-base: var(--background);
+  --color-surface-alt: var(--surface-muted);
+  --color-surface-card-border: var(--surface-border);
+  --color-text-primary-v2: var(--foreground);
+  --color-text-secondary-v2: var(--text-secondary);
+  --color-text-muted-v2: var(--text-secondary);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -50,16 +56,18 @@
 }
 
 :root {
-  --color-accent: #BFFF00;
-  --color-accent-strong: #9ecc00;
+  --color-accent: #4f46e5;
+  --color-accent-strong: #4338ca;
+  --color-accent-muted: #eef2ff;
   --text-secondary: oklch(0.42 0 0);
   --text-body: oklch(0.35 0 0);
   --image-radius: 12px;
-  --card-radius: 8px;
+  --card-radius: 10px;
   --surface-border: oklch(0.922 0 0);
   --surface-muted: oklch(0.975 0 0);
   --card-on-dark-border: oklch(0.922 0 0);
   --section-divider: oklch(0.922 0 0);
+  --v2-surface-contrast: oklch(0.975 0 0);
 
   --header-offset: 5rem;
   --space-section-hero: clamp(5rem, 8vw, 7.5rem);
@@ -106,14 +114,16 @@
 }
 
 .dark {
-  --color-accent: #BFFF00;
-  --color-accent-strong: #9ecc00;
+  --color-accent: #818cf8;
+  --color-accent-strong: #a5b4fc;
+  --color-accent-muted: rgba(99, 102, 241, 0.12);
   --text-secondary: rgba(255, 255, 255, 0.72);
   --text-body: rgba(255, 255, 255, 0.72);
   --surface-border: rgba(255, 255, 255, 0.1);
   --surface-muted: #141414;
   --card-on-dark-border: rgba(255, 255, 255, 0.1);
   --section-divider: rgba(255, 255, 255, 0.1);
+  --v2-surface-contrast: #141414;
 
   --background: #0D0D0D;
   --foreground: #f4f6f8;
@@ -208,7 +218,7 @@
     color: var(--text-body);
   }
   .type-caption {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
     color: var(--text-secondary);
@@ -226,9 +236,9 @@
     color: var(--text-secondary);
   }
   .type-badge-label {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-secondary);
   }
@@ -251,8 +261,8 @@
   }
 
   .content-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border: 1px solid var(--surface-border);
+    border-radius: var(--card-radius);
     background: var(--card);
   }
   :root:not(.dark) .content-card {
@@ -275,7 +285,7 @@
     }
     .card-on-dark.card-hover-rise:hover,
     .surface-card.card-hover-rise:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       border-color: color-mix(in oklab, var(--color-accent) 40%, var(--surface-border));
       box-shadow: 0 8px 24px color-mix(in oklab, var(--color-accent) 8%, transparent),
                   0 2px 8px rgba(0,0,0,0.06);
@@ -317,19 +327,8 @@
     }
   }
 
-  /* Subtle hero eyebrow badge shimmer */
   .hero-eyebrow-badge {
     position: relative;
-    overflow: hidden;
-  }
-  .hero-eyebrow-badge::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 0%, color-mix(in oklab, var(--color-accent) 15%, transparent) 50%, transparent 100%);
-    animation: hero-badge-shimmer 3.5s ease-in-out infinite;
-    border-radius: inherit;
-    pointer-events: none;
   }
 
   /* Accent underline for section links */
@@ -383,10 +382,10 @@
 
 .marketing-reveal {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
+  transform: translate3d(0, 20px, 0);
   transition:
-    opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .marketing-reveal-visible {
   opacity: 1;
@@ -399,19 +398,13 @@
 .marketing-reveal-visible .reveal-child-3 { transition-delay: 180ms; }
 
 .home-client-marquee {
-  animation: marketing-marquee 30s linear infinite;
+  animation: marketing-marquee 40s linear infinite;
 }
 
-.home-kpi-pulse {
-  animation: home-kpi-pulse 2.8s ease-in-out infinite;
-}
-
-.marketing-tech-marquee {
-  animation: marketing-marquee 54s linear infinite;
-}
-
-.marketing-tech-marquee-reverse {
-  animation: marketing-marquee 62s linear infinite reverse;
+@media (hover: hover) and (pointer: fine) {
+  .home-client-marquee:hover {
+    animation-play-state: paused;
+  }
 }
 
 .marketing-scroll-hint {
@@ -420,11 +413,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .home-client-marquee,
-  .home-kpi-pulse,
-  .marketing-tech-marquee,
-  .marketing-tech-marquee-reverse,
-  .marketing-scroll-hint,
-  .hero-eyebrow-badge::after {
+  .marketing-scroll-hint {
     animation: none;
   }
   .marketing-reveal {
@@ -448,16 +437,6 @@
   }
 }
 
-@keyframes home-kpi-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.65;
-  }
-}
-
 @keyframes marketing-scroll-hint {
   0%,
   100% {
@@ -468,11 +447,6 @@
     transform: translate3d(0, 6px, 0);
     opacity: 0.95;
   }
-}
-
-@keyframes hero-badge-shimmer {
-  0%, 70%, 100% { transform: translateX(-100%); opacity: 0; }
-  40%           { transform: translateX(100%);  opacity: 1; }
 }
 
 @keyframes marketing-fade-up {
@@ -583,18 +557,6 @@ figure[class*="aspect-"] {
   .stagger-grid-visible > * {
     animation: none;
   }
-}
-
-/* ─── Accent pulse ring for primary CTAs ───────────────────────── */
-@keyframes accent-ring-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 35%, transparent); }
-  50%       { box-shadow: 0 0 0 6px color-mix(in oklab, var(--color-accent) 0%, transparent); }
-}
-.cta-ring-pulse {
-  animation: accent-ring-pulse 2.8s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .cta-ring-pulse { animation: none; }
 }
 
 /* ─── Smooth underline hover for nav and inline links ──────────── */
@@ -796,23 +758,15 @@ figure[class*="aspect-"] {
   border: 1px solid color-mix(in oklab, var(--color-accent) 15%, var(--surface-border));
 }
 
-/* ─── Accent pulsing dot ────────────────────────────────────────── */
+/* ─── Status indicator dot (static) ─────────────────────────────── */
+.status-dot,
 .accent-live-dot {
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
   background: var(--color-accent);
-  animation: accent-dot-pulse 2.2s ease-in-out infinite;
-}
-
-@keyframes accent-dot-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.85); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .accent-live-dot { animation: none; }
+  flex-shrink: 0;
 }
 
 /* ─── Hover lift for interactive items ──────────────────────────── */

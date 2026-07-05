@@ -63,7 +63,7 @@ export function CtaBand({
           <div className={cn("relative space-y-3", centered && "max-w-2xl")}>
             {eyebrow ? (
               <p className="highlight-badge">
-                <span aria-hidden className="accent-live-dot" />
+                <span aria-hidden className="status-dot" />
                 {eyebrow}
               </p>
             ) : null}

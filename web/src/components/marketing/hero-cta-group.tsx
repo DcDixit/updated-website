@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { primaryCtas } from "@/content/site-content";
@@ -26,12 +27,13 @@ export function HeroCtaGroup({
     <div className={cn("flex max-w-full flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center", className)}>
       <Link
         href={primaryHref}
-        className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}
+        className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}
         data-track="cta_click"
         data-track-location={trackingLocation}
         data-track-label={primaryLabel}
       >
         {primaryLabel}
+        <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
       </Link>
       <Link
         href={secondaryHref}

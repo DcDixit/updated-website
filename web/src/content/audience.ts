@@ -36,8 +36,8 @@ export const aiToolLabels = [
 
 export const homeJumpLinks = [
   { label: "Solutions", href: "#solutions" },
-  { label: "SaaS", href: "#saas" },
-  { label: "Trucking", href: "#trucking" },
   { label: "Work", href: "#work" },
+  { label: "Team", href: "#team" },
+  { label: "Process", href: "#process" },
   { label: "FAQ", href: "#faq" },
 ] as const;

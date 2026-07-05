@@ -9,7 +9,13 @@ export type ServiceSlug =
   | "automation-systems"
   | "crm-development"
   | "saas-platforms"
-  | "api-integrations";
+  | "api-integrations"
+  | "web-application-design"
+  | "dashboard-design"
+  | "ux-research"
+  | "wireframing-prototyping"
+  | "design-systems"
+  | "logo-design";
 
 export type ServiceCategory = "design" | "development" | "ai-automation";
 
@@ -69,6 +75,48 @@ export const services: {
     title: "Mobile App Design",
     summary: "Native-quality mobile UX for iOS and Android, focused on clarity, onboarding, and retention.",
     bullets: ["App UX flows", "iOS & Android UI", "Prototype testing"],
+  },
+  {
+    slug: "ux-research",
+    category: "design",
+    title: "UX Research",
+    summary: "Interviews, usability tests, and journey mapping that turn assumptions into evidence-backed product decisions.",
+    bullets: ["User interviews", "Usability testing", "Journey & persona maps"],
+  },
+  {
+    slug: "wireframing-prototyping",
+    category: "design",
+    title: "Wireframing & Prototyping",
+    summary: "Low- and high-fidelity prototypes that align stakeholders and de-risk development before code starts.",
+    bullets: ["Wireframes", "Interactive prototypes", "Stakeholder walkthroughs"],
+  },
+  {
+    slug: "design-systems",
+    category: "design",
+    title: "Design Systems",
+    summary: "Scalable component libraries, tokens, and documentation that keep product teams shipping consistent UI.",
+    bullets: ["Component libraries", "Design tokens", "Dev-ready specs"],
+  },
+  {
+    slug: "web-application-design",
+    category: "design",
+    title: "Web Application Design",
+    summary: "Complex web app UX for authenticated products, multi-step flows, and data-heavy interfaces.",
+    bullets: ["App UX architecture", "Responsive layouts", "Interaction patterns"],
+  },
+  {
+    slug: "dashboard-design",
+    category: "design",
+    title: "Dashboard Design",
+    summary: "Analytics, admin, and operational dashboards designed for clarity, scanability, and daily use.",
+    bullets: ["KPI layouts", "Data visualization", "Filter & drill-down UX"],
+  },
+  {
+    slug: "logo-design",
+    category: "design",
+    title: "Logo Design",
+    summary: "Distinctive marks and logo systems that work across digital, print, and social touchpoints.",
+    bullets: ["Logo concepts", "Mark refinement", "Usage guidelines"],
   },
   {
     slug: "web-development",
@@ -360,6 +408,132 @@ export const serviceDetails: Record<
     ],
     faq: [
       { q: "Can you automate AI steps too?", a: "Yes. We chain LLM steps into Make workflows for summarization, routing, and draft generation, with approval gates throughout." },
+    ],
+  },
+  "ux-research": {
+    challenges: [
+      "Product decisions rely on opinions instead of evidence",
+      "Usability issues surface only after launch",
+      "Teams lack shared understanding of user goals",
+    ],
+    deliverables: [
+      "Research plan & recruitment guide",
+      "Interview or test recordings & notes",
+      "Insight report with prioritized recommendations",
+      "Journey maps or persona snapshots",
+    ],
+    benefits: [
+      "Clearer roadmap priorities backed by user evidence",
+      "Fewer expensive rework cycles",
+      "Shared language across product, design, and leadership",
+    ],
+    faq: [
+      { q: "How long does a research sprint take?", a: "Most focused studies run 2–4 weeks from kickoff to readout, depending on recruitment and scope." },
+    ],
+  },
+  "wireframing-prototyping": {
+    challenges: [
+      "Stakeholders can't align on scope without something tangible",
+      "Engineering starts before flows are validated",
+      "Iterations are slow when feedback is scattered",
+    ],
+    deliverables: [
+      "Low-fidelity wireframes",
+      "Clickable Figma prototype",
+      "Annotated flows for engineering",
+      "Iteration notes from review sessions",
+    ],
+    benefits: [
+      "Faster alignment before build",
+      "Lower cost to explore alternatives",
+      "Clearer handoff into development",
+    ],
+    faq: [
+      { q: "Do you prototype for mobile and web?", a: "Yes. We prototype for the platform your product targets, including responsive web and native mobile patterns." },
+    ],
+  },
+  "design-systems": {
+    challenges: [
+      "UI inconsistencies multiply as the team grows",
+      "Design and engineering interpret components differently",
+      "Every new feature reinvents basic patterns",
+    ],
+    deliverables: [
+      "Token and typography scale",
+      "Component library in Figma",
+      "Usage documentation",
+      "Optional code component mapping",
+    ],
+    benefits: [
+      "Faster feature delivery with reusable patterns",
+      "More consistent brand and UX quality",
+      "Easier onboarding for new designers and developers",
+    ],
+    faq: [
+      { q: "Can you extend an existing system?", a: "Yes. We audit what you have, consolidate duplicates, and expand components without disrupting live product work." },
+    ],
+  },
+  "web-application-design": {
+    challenges: [
+      "Marketing-site patterns don't fit authenticated product UX",
+      "Complex workflows feel overwhelming to new users",
+      "Responsive behavior breaks down on data-heavy screens",
+    ],
+    deliverables: [
+      "App information architecture",
+      "Core workflow UI screens",
+      "Responsive layout specs",
+      "Interaction and empty-state patterns",
+    ],
+    benefits: [
+      "Product UX that scales beyond landing pages",
+      "Clearer paths through multi-step tasks",
+      "Better handoff for React or Next.js builds",
+    ],
+    faq: [
+      { q: "Is this different from web development?", a: "Yes. This service focuses on UX and UI for web applications. We also offer implementation through our development services." },
+    ],
+  },
+  "dashboard-design": {
+    challenges: [
+      "Metrics are available but hard to scan quickly",
+      "Dashboards become cluttered as requests accumulate",
+      "Teams export to spreadsheets because UI isn't trusted",
+    ],
+    deliverables: [
+      "Dashboard IA and widget hierarchy",
+      "Chart and table UI patterns",
+      "Filter, date-range, and drill-down flows",
+      "Dark/light theme-ready visual system",
+    ],
+    benefits: [
+      "Operational visibility without spreadsheet workarounds",
+      "Dashboards leadership actually opens weekly",
+      "Scalable layout patterns for new metrics",
+    ],
+    faq: [
+      { q: "Do you design admin and analytics views?", a: "Yes. We design internal admin consoles, customer analytics, and executive summary dashboards." },
+    ],
+  },
+  "logo-design": {
+    challenges: [
+      "Current mark doesn't scale across digital sizes",
+      "Brand feels forgettable in a crowded market",
+      "Logo usage is inconsistent across teams",
+    ],
+    deliverables: [
+      "Concept exploration deck",
+      "Primary and secondary logo lockups",
+      "Clear space and minimum size rules",
+      "Export kit for web, print, and social",
+    ],
+    benefits: [
+      "Stronger recognition in sales and marketing",
+      "Consistent logo usage across touchpoints",
+      "Foundation for broader brand identity work",
+    ],
+    faq: [
+      { q: "Is logo design part of a full rebrand?", a: "It can be standalone or the first phase of a broader branding engagement, depending on your needs." },
     ],
   },
 };

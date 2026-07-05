@@ -5,24 +5,28 @@ import {
   IconChevronDown,
   IconShieldCheck,
   IconStar,
-  IconUsers,
+  IconRocket,
   IconBrandGithub,
 } from "@tabler/icons-react";
 
-import { HomeIndustrySpotlights } from "@/components/home/home-industry-spotlights";
 import { HomeClientLogoStrip } from "@/components/home/client-logo-strip";
+import { HomeClientWorkLogos } from "@/components/home/home-client-work-logos";
+import { DeliveryTrustRow } from "@/components/home/delivery-trust-row";
 import { HomeCaseStudyCard } from "@/components/home/home-case-study-card";
+import { HeroProductShowcase } from "@/components/home/hero-product-showcase";
+import { HomeInsightsPreview } from "@/components/home/home-insights-preview";
+import { HomeSubNav } from "@/components/home/home-sub-nav";
 import { HomeTestimonialsSection } from "@/components/home/home-testimonials-section";
 import { ProcessSection } from "@/components/home/process-section";
+import { TeamSection } from "@/components/home/team-section";
 import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
 import { AnimatedStatValue } from "@/components/marketing/animated-stat-value";
-import { MarketingImage } from "@/components/marketing/marketing-image";
 import { Reveal } from "@/components/marketing/reveal";
 import { ReviewProofBar } from "@/components/marketing/review-proof-bar";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { HomeSolutionsSection } from "@/components/home/home-solutions-section";
-import { TechMarquee } from "@/components/marketing/tech-marquee";
+import { TechLogoGrid } from "@/components/marketing/tech-logo-grid";
 import {
   Accordion,
   AccordionContent,
@@ -31,7 +35,6 @@ import {
 } from "@/components/ui/accordion";
 import { buttonVariants } from "@/components/ui/button";
 import { HeroCtaGroup } from "@/components/marketing/hero-cta-group";
-import { clientPersonas } from "@/content/audience";
 import {
   faqHome,
   featuredCaseStudies,
@@ -41,14 +44,13 @@ import {
   brand,
 } from "@/content/site-content";
 import {
-  homepageAiTools,
-  homepageClients,
   homepageProcessSteps,
   homepageStats,
+  homepageTeam,
   homepageTestimonials,
   type HomepageCaseStudySlug,
 } from "@/data/homepage";
-import { pageHeroVisuals } from "@/content/visuals";
+import { reviewProfiles } from "@/content/brand";
 import { faqJsonLd, reviewJsonLd, webPageJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -66,21 +68,21 @@ function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: str
 }
 
 const heroTrustSignals = [
-  { icon: IconStar, label: "5.0★ on Google" },
-  { icon: IconUsers, label: "15+ in-house team" },
-  { icon: IconShieldCheck, label: "NDA-first" },
+  { icon: IconStar, label: "5.0★ on Google", href: reviewProfiles.google.href, external: true as const },
+  { icon: IconRocket, label: "40+ projects delivered", href: "/work", external: false as const },
+  { icon: IconShieldCheck, label: "NDA-first", href: "/faq", external: false as const },
 ];
 
 const differentiators = [
   {
-    icon: IconUsers,
+    icon: IconRocket,
     title: "One team, end to end",
     body: "Design and engineering under one roof — fewer handoffs, faster decisions, and a consistent quality standard from first wireframe to launch.",
   },
   {
     icon: IconBrandGithub,
-    title: "You own everything",
-    body: "All Figma files, repositories, and documentation are transferred to you. No lock-in, no vendor dependency after delivery.",
+    title: "Ship-ready handoffs",
+    body: "Design systems, typed repos, and runbooks your team can extend — not a black box you depend on us to maintain.",
   },
   {
     icon: IconShieldCheck,
@@ -152,7 +154,7 @@ export function HomeMarketing() {
             <div className="grid-layout-12 items-center gap-y-8 lg:gap-y-0">
               <div className="col-span-12 flex flex-col gap-3 lg:col-span-6 lg:pr-4">
                 {/* Eyebrow badge */}
-                <p className="hero-eyebrow-badge type-badge-label inline-block self-start rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1 text-[11px] text-[color:var(--text-secondary)]">
+                <p className="hero-eyebrow-badge type-badge-label inline-block self-start rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1.5 text-[color:var(--text-secondary)]">
                   {homeHero.eyebrowBadge} · UK SaaS · US Trucking
                 </p>
 
@@ -168,11 +170,16 @@ export function HomeMarketing() {
 
                 {/* Trust signal pills */}
                 <div className="flex flex-wrap gap-3 pt-1" aria-label="Trust signals">
-                  {heroTrustSignals.map(({ icon: TrustIcon, label }) => (
-                    <span key={label} className="trust-badge">
-                      <TrustIcon size={13} stroke={1.75} aria-hidden />
+                  {heroTrustSignals.map(({ icon: TrustIcon, label, href, external }) => (
+                    <Link
+                      key={label}
+                      href={href}
+                      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="trust-badge rounded-full border border-transparent px-2 py-1 transition-colors hover:border-[var(--surface-border)] hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
+                    >
+                      <TrustIcon size={14} stroke={1.75} aria-hidden />
                       {label}
-                    </span>
+                    </Link>
                   ))}
                 </div>
 
@@ -182,13 +189,7 @@ export function HomeMarketing() {
               </div>
 
               <div className="col-span-12 lg:col-span-6">
-                <MarketingImage
-                  src={pageHeroVisuals.home.src}
-                  alt={pageHeroVisuals.home.alt}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  aspectClassName="aspect-[16/10] min-h-[200px] w-full max-lg:max-h-[280px]"
-                />
+                <HeroProductShowcase />
               </div>
             </div>
           </Container>
@@ -206,19 +207,17 @@ export function HomeMarketing() {
         </div>
       </SectionShell>
 
-      {/* ── TECH / PLATFORM STRIP ─────────────────────────────────── */}
-      <HomeClientLogoStrip clients={homepageClients} />
+      <HomeSubNav />
 
-      {/* ── REVIEW PROOF ─────────────────────────────────────────── */}
-      <SectionShell id="trust" size="compact">
-        <Reveal>
-          <Container>
-            <ReviewProofBar variant="compact" />
-          </Container>
-        </Reveal>
-      </SectionShell>
+      {/* ── CLIENT WORK + TECH STRIP ──────────────────────────────── */}
+      <section className="border-y border-[var(--surface-border)] bg-background py-8">
+        <Container className="space-y-8">
+          <HomeClientWorkLogos />
+        </Container>
+      </section>
+      <HomeClientLogoStrip />
 
-      {/* ── SOLUTIONS ────────────────────────────────────────────── */}
+      {/* ── SOLUTIONS (+ audience personas) ──────────────────────── */}
       <SectionShell id="solutions" size="default" className="bg-[var(--surface-muted)]">
         <Reveal>
           <Container>
@@ -227,14 +226,13 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
-      {/* ── INDUSTRY SPOTLIGHTS ──────────────────────────────────── */}
-      <HomeIndustrySpotlights saas={homepageSolutionSections[0]} trucking={homepageSolutionSections[1]} />
-
-      {/* ── STATS ────────────────────────────────────────────────── */}
+      {/* ── STATS, REVIEWS & DELIVERY TRUST ──────────────────────── */}
       <SectionShell id="stats" size="default" aria-labelledby="stats-heading">
         <Reveal>
           <Container>
-            <h2 id="stats-heading" className="sr-only">Key metrics</h2>
+            <h2 id="stats-heading" className="sr-only">
+              Key metrics and client trust
+            </h2>
             <div className="surface-card stat-card-accent flex flex-col divide-y divide-[var(--section-divider)] md:flex-row md:divide-x md:divide-y-0">
               {homepageStats.map((s) => (
                 <div
@@ -249,21 +247,14 @@ export function HomeMarketing() {
                 </div>
               ))}
             </div>
+            <ReviewProofBar variant="inline" className="mt-6" />
+            <DeliveryTrustRow />
           </Container>
         </Reveal>
       </SectionShell>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
       <HomeTestimonialsSection items={homepageTestimonials} />
-
-      {/* ── MID-PAGE CTA ─────────────────────────────────────────── */}
-      <SectionShell size="compact">
-        <Reveal>
-          <Container>
-            <HeroCtaGroup className="justify-center" trackingLocation="home-post-testimonials" />
-          </Container>
-        </Reveal>
-      </SectionShell>
 
       {/* ── DIFFERENTIATORS ──────────────────────────────────────── */}
       <SectionShell id="why" size="default" className="bg-[var(--surface-muted)]">
@@ -301,7 +292,7 @@ export function HomeMarketing() {
               description="Design, development, and AI tooling chosen for speed and quality — with experienced review before anything reaches your product."
             />
             <div className="mt-10">
-              <TechMarquee labels={homepageAiTools} />
+              <TechLogoGrid categorized />
             </div>
             <Link
               href="/technologies"
@@ -314,35 +305,7 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
-      {/* ── WHO WE WORK WITH ─────────────────────────────────────── */}
-      <SectionShell id="clients" size="default" className="bg-[var(--surface-muted)]">
-        <Reveal>
-          <Container>
-            <SectionHeader
-              eyebrow="Who we work with"
-              title="Built for SaaS founders and ops teams."
-              description="UK SaaS startups, US trucking operators, and finance teams who need a reliable product partner — not just a vendor."
-            />
-            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-6 md:grid-cols-3">
-              {clientPersonas.map((persona) => (
-                <article key={persona.title} className="surface-card card-hover-rise flex h-full flex-col p-6 sm:p-7">
-                  <h3 className="type-h3">{persona.title}</h3>
-                  <p className="type-body mt-3 max-w-none flex-1 text-sm text-[color:var(--text-secondary)]">
-                    {persona.description}
-                  </p>
-                  <Link
-                    href={persona.href}
-                    className="link-subtle type-body mt-6 inline-flex items-center gap-2 font-semibold text-[var(--color-accent)]"
-                  >
-                    {persona.cta}
-                    <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </Container>
-        </Reveal>
-      </SectionShell>
+      <TeamSection team={homepageTeam} variant="preview" />
 
       {/* ── PORTFOLIO ────────────────────────────────────────────── */}
       <SectionShell id="work" size="default">
@@ -379,8 +342,10 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
+      <HomeInsightsPreview />
+
       {/* ── PROCESS ──────────────────────────────────────────────── */}
-      <SectionShell id="process" size="default" className="bg-[var(--surface-muted)]">
+      <SectionShell id="process" size="default">
         <Reveal>
           <Container>
             <ProcessSection steps={homepageProcessSteps} />
@@ -418,7 +383,7 @@ export function HomeMarketing() {
               <div className="col-span-12 lg:col-span-4">
                 <div className="surface-card cta-band-premium sticky top-24 space-y-5 p-6">
                   <p className="highlight-badge">
-                    <span className="accent-live-dot" aria-hidden />
+                    <span className="status-dot" aria-hidden />
                     Start a conversation
                   </p>
                   <h3 className="type-h3 text-foreground text-balance">

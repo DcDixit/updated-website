@@ -7,7 +7,7 @@ const companyLinkedIn =
   "https://www.linkedin.com/company/northline-digital";
 
 export const teamStats = [
-  { value: "15+", label: "Team members", caption: "Design, engineering, strategy" },
+  { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
   { value: `${new Date().getFullYear() - brand.founded}+`, label: "Years shipping", caption: "Products & platforms" },
   { value: "4", label: "Time zones", caption: "US, UK, India, APAC overlap" },
 ] as const;

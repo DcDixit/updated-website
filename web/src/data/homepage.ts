@@ -27,28 +27,6 @@ export const homepageStats: HomepageStat[] = [
   },
 ];
 
-export type HomepageClient = {
-  name: string;
-  logoUrl: string | null;
-  category?: string;
-};
-
-/** Tech & platform logos shown in the trusted-by strip. Replace with approved client marks when available. */
-export const homepageClients: HomepageClient[] = [
-  { name: "Next.js", logoUrl: null, category: "Frontend" },
-  { name: "React Native", logoUrl: null, category: "Mobile" },
-  { name: "QuickBooks", logoUrl: null, category: "Integrations" },
-  { name: "Xero", logoUrl: null, category: "Integrations" },
-  { name: "HubSpot", logoUrl: null, category: "CRM" },
-  { name: "Figma", logoUrl: null, category: "Design" },
-  { name: "Webflow", logoUrl: null, category: "No-Code" },
-  { name: "Bubble", logoUrl: null, category: "No-Code" },
-  { name: "Make", logoUrl: null, category: "Automation" },
-  { name: "Stripe", logoUrl: null, category: "Payments" },
-  { name: "Supabase", logoUrl: null, category: "Backend" },
-  { name: "Vercel", logoUrl: null, category: "Deployment" },
-];
-
 export type HomepageTeamMember = {
   initials: string;
   name: string;
@@ -100,6 +78,7 @@ export type HomepageTestimonial = {
   project: string;
   rating: number;
   outcome?: string;
+  caseStudySlug?: string;
 };
 
 export const homepageTestimonials: HomepageTestimonial[] = [
@@ -113,6 +92,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     project: "SaaS onboarding redesign",
     rating: 5,
     outcome: "+18% activation",
+    caseStudySlug: "payroll-pro-saas",
   },
   {
     initials: "MC",
@@ -124,6 +104,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     project: "Dispatch console & CRM",
     rating: 5,
     outcome: "−32% handle time",
+    caseStudySlug: "fleetflow-dispatch",
   },
   {
     initials: "AD",
@@ -135,6 +116,7 @@ export const homepageTestimonials: HomepageTestimonial[] = [
     project: "E-commerce rebrand & launch",
     rating: 5,
     outcome: "ROI in Q1",
+    caseStudySlug: "brandlift-ecommerce",
   },
 ];
 
@@ -170,16 +152,6 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
       "Iteration sprints, monitoring, and roadmap support — most clients keep us on retainer after go-live.",
   },
 ];
-
-export const homepageAiTools = [
-  "Claude",
-  "ChatGPT",
-  "GitHub Copilot",
-  "Cursor",
-  "Figma AI",
-  "Make",
-  "QuickBooks API",
-] as const;
 
 export type HomepageCaseStudySlug = "fleetflow-dispatch" | "payroll-pro-saas" | "finance-sync-hub";
 

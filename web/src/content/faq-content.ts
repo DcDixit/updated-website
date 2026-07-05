@@ -62,7 +62,7 @@ export const faqPageExtra = [
 
 export const stats = [
   { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
-  { value: "15+", label: "In-house team", caption: "Designers, engineers & strategists" },
+  { value: "100%", label: "End-to-end ownership", caption: "Design, engineering & delivery" },
   { value: "5.0★", label: "Google rating", caption: "8 verified client reviews" },
   { value: "8+", label: "Years shipping", caption: "Products and digital platforms" },
 ] as const;

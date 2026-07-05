@@ -135,7 +135,7 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[min(360px,92vw)] gap-0 overflow-y-auto border-l border-[var(--surface-border)] p-0"
+                className="w-[min(400px,92vw)] gap-0 overflow-y-auto border-l border-[var(--surface-border)] p-0"
               >
                 <SheetHeader className="border-b border-[var(--surface-border)] p-6 text-left">
                   <SheetTitle className="font-semibold tracking-tight">Northline</SheetTitle>
