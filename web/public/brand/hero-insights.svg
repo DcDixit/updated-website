@@ -12,5 +12,5 @@
   <rect x="220" y="400" width="500" height="10" rx="5" fill="#273039"/>
   <rect x="220" y="430" width="510" height="10" rx="5" fill="#273039"/>
   <rect x="220" y="460" width="420" height="10" rx="5" fill="#273039"/>
-  <circle cx="1360" cy="190" r="18" fill="#A3E635"/>
+  <circle cx="1360" cy="190" r="18" fill="#6366F1"/>
 </svg>
