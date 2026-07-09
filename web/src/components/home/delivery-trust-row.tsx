@@ -1,38 +1,49 @@
-import { IconCode, IconLock, IconShieldCheck, IconUsers } from "@tabler/icons-react";
+import { IconCode, IconLock, IconShieldLock, IconUsers } from "@tabler/icons-react";
 
 import { deliveryTrustPrinciples } from "@/content/delivery-trust";
 import { cn } from "@/lib/utils";
 
-const principleIcons = [IconShieldCheck, IconCode, IconUsers, IconLock] as const;
+const principleIcons = [IconShieldLock, IconCode, IconUsers, IconLock] as const;
 
 type DeliveryTrustRowProps = {
   className?: string;
 };
 
-/** Compact operational trust row — sits under stats, before social proof. */
+/** Operational trust band — sits under stats & reviews, before social proof. */
 export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
   return (
-    <div
-      className={cn(
-        "mt-8 grid gap-4 border-t border-[var(--section-divider)] pt-8 sm:grid-cols-2 lg:grid-cols-4",
-        className
-      )}
-      aria-label="How we protect your project and IP"
-    >
-      {deliveryTrustPrinciples.map((item, index) => {
-        const Icon = principleIcons[index] ?? IconShieldCheck;
-        return (
-          <div key={item.title} className="flex gap-3">
-            <div className="icon-container-sm mt-0.5 shrink-0" aria-hidden>
-              <Icon size={16} stroke={1.75} />
-            </div>
-            <div className="min-w-0">
-              <p className="type-body text-sm font-semibold text-foreground">{item.title}</p>
-              <p className="type-caption mt-1 max-w-none text-[color:var(--text-secondary)]">{item.body}</p>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <section className={cn("mt-10", className)} aria-labelledby="delivery-trust-heading">
+      <header className="mb-5 max-w-xl">
+        <p className="type-badge-label">Delivery assurances</p>
+        <h3
+          id="delivery-trust-heading"
+          className="mt-2 text-lg font-semibold tracking-tight text-foreground sm:text-xl"
+        >
+          How we protect your project and IP
+        </h3>
+      </header>
+
+      <ul
+        className={cn(
+          "grid overflow-hidden rounded-[var(--card-radius)]",
+          "border border-[var(--surface-border)]",
+          "gap-px bg-[var(--section-divider)]",
+          "sm:grid-cols-2 lg:grid-cols-4"
+        )}
+      >
+        {deliveryTrustPrinciples.map((item, index) => {
+          const Icon = principleIcons[index] ?? IconShieldLock;
+          return (
+            <li key={item.title} className="flex flex-col bg-[var(--card)] px-5 py-6 sm:px-6 sm:py-8">
+              <Icon size={24} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
+              <p className="mt-4 text-[0.9375rem] font-semibold leading-snug tracking-tight text-foreground">
+                {item.title}
+              </p>
+              <p className="type-caption mt-2 max-w-[18rem] leading-relaxed">{item.body}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }

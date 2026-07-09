@@ -81,11 +81,11 @@ export function AnimatedStatValue({ value, className }: { value: string; classNa
   }, [parsed, suffix, target]);
 
   if (!parsed) {
-    return <span className={className}>{value}</span>;
+    return <span className={cn("font-sans", className)}>{value}</span>;
   }
 
   return (
-    <span ref={ref} className={cn("tabular-nums", className)}>
+    <span ref={ref} className={cn("font-sans", className)}>
       {display}
     </span>
   );

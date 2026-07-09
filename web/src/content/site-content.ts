@@ -86,7 +86,7 @@ export const homeHero = {
   eyebrowBadge: "AI-powered digital product agency",
   headline: "Design and build software your users actually adopt.",
   headlineEmphasis: "actually adopt",
-  lead: "One in-house team for UK SaaS and US trucking — from discovery to launch. 40+ products delivered.",
+  lead: "One in-house team for UK SaaS and US trucking — from discovery to launch.",
   leadDetail:
     "Senior designers and engineers building SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
 } as const;

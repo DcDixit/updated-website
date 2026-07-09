@@ -92,15 +92,23 @@ function SolutionPreviewPanel({ solution, index }: { solution: SolutionItem; ind
         </Link>
       </div>
       </div>
-      <div className="relative hidden min-h-[12rem] border-t border-[var(--surface-border)] lg:block lg:border-l lg:border-t-0">
-        <MarketingImage
-          src={visual.src}
-          alt={visual.alt}
-          sizes="280px"
-          aspectClassName="aspect-[4/5] h-full min-h-[12rem] w-full rounded-none border-0"
-          overlay="bottom"
-          className="h-full rounded-none border-0"
-        />
+      <div className="relative hidden flex-col min-h-[12rem] border-t border-[var(--surface-border)] lg:flex lg:border-l lg:border-t-0">
+        <a href="#" className="block flex-1">
+          <MarketingImage
+            src={visual.src}
+            alt={visual.alt}
+            sizes="280px"
+            aspectClassName="aspect-[4/5] h-full min-h-[12rem] w-full rounded-none border-0"
+            overlay="bottom"
+            className="h-full rounded-none border-0"
+          />
+        </a>
+        <a
+          href="#"
+          className="px-4 py-3 text-[13px] font-semibold text-[var(--color-accent)]"
+        >
+          View project →
+        </a>
       </div>
     </div>
   );
@@ -215,6 +223,10 @@ export function HomeSolutionsSection() {
         title="Two industries. One focused team."
         description="Design, engineering, and AI delivery under one roof — each solution area backed by specialists who know the market."
       />
+
+      <p className="type-body mt-6 text-[color:var(--text-secondary)]">
+        We focus here because these industries demand the highest UX precision.
+      </p>
 
       <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">
         <div

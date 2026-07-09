@@ -51,11 +51,27 @@ export function HomeCaseStudyCard({
             }}
             aria-hidden
           />
-          {/* Metric badge */}
           <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-[var(--color-accent)]/50 bg-background/90 px-3 py-1 backdrop-blur-sm">
             <IconTrendingUp size={12} stroke={2} className="text-[var(--color-accent)]" aria-hidden />
             <span className="type-caption font-semibold tabular-nums text-foreground text-[11px]">{metric}</span>
           </div>
+          <span
+            style={{
+              position: "absolute",
+              top: 10,
+              right: 10,
+              background: "rgba(0,0,0,0.65)",
+              color: "#fff",
+              fontSize: 11,
+              fontWeight: 500,
+              padding: "4px 8px",
+              borderRadius: 4,
+              lineHeight: 1.4,
+            }}
+          >
+            {/* TODO: replace with real metric */}
+            +XX% outcome
+          </span>
         </div>
 
         <div className="flex flex-1 flex-col p-6">

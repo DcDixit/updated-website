@@ -76,7 +76,7 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
                 key={outcome.label}
                 className="flex flex-1 flex-col items-center px-6 py-8 text-center transition-colors hover:bg-[var(--card)]"
               >
-                <p className="type-stat tabular-nums text-brand-cobalt dark:text-brand-amber">{outcome.value}</p>
+                <p className="type-stat font-sans text-brand-cobalt dark:text-brand-amber">{outcome.value}</p>
                 <p className="type-stat-label mt-3">{outcome.label}</p>
               </div>
             ))}

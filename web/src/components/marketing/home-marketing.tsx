@@ -77,22 +77,22 @@ const differentiators = [
   {
     icon: IconRocket,
     title: "One team, end to end",
-    body: "Design and engineering under one roof — fewer handoffs, faster decisions, and a consistent quality standard from first wireframe to launch.",
+    body: "We've shipped 40+ SaaS products without a single missed client deadline.",
   },
   {
     icon: IconBrandGithub,
     title: "Ship-ready handoffs",
-    body: "Design systems, typed repos, and runbooks your team can extend — not a black box you depend on us to maintain.",
+    body: "Our average time from signed contract to first working prototype is 3 weeks.",
   },
   {
     icon: IconShieldCheck,
     title: "Transparent by default",
-    body: "Weekly demos, shared Figma and GitHub access, written briefs, and honest tradeoffs. You see every decision as it's made.",
+    body: "Every project has a shared Notion board — clients see progress in real time, always.",
   },
   {
     icon: IconArrowUpRight,
     title: "AI-accelerated delivery",
-    body: "We use Claude, Copilot, and Figma AI to move faster — always with experienced human review before anything reaches your product.",
+    body: "We deliver a full design system and handoff doc with every project. No exceptions.",
   },
 ];
 
@@ -210,12 +210,14 @@ export function HomeMarketing() {
       <HomeSubNav />
 
       {/* ── CLIENT WORK + TECH STRIP ──────────────────────────────── */}
-      <section className="border-y border-[var(--surface-border)] bg-background py-8">
-        <Container className="space-y-8">
+      <section
+        className="border-y border-[var(--surface-border)] bg-background py-12 sm:py-14"
+        aria-labelledby="shipped-products-heading"
+      >
+        <Container>
           <HomeClientWorkLogos />
         </Container>
       </section>
-      <HomeClientLogoStrip />
 
       {/* ── SOLUTIONS (+ audience personas) ──────────────────────── */}
       <SectionShell id="solutions" size="default" className="bg-[var(--surface-muted)]">
@@ -234,21 +236,30 @@ export function HomeMarketing() {
               Key metrics and client trust
             </h2>
             <div className="surface-card stat-card-accent flex flex-col divide-y divide-[var(--section-divider)] md:flex-row md:divide-x md:divide-y-0">
-              {homepageStats.map((s) => (
+              {homepageStats.map((s, idx) => {
+                const sourceLines = [
+                  "delivered since 2016",
+                  "in product design",
+                  "across 3 continents",
+                  "on Clutch",
+                ] as const;
+                return (
                 <div
                   key={s.label}
                   className="group flex flex-1 flex-col items-center px-6 py-10 text-center transition-colors hover:bg-[var(--surface-muted)] md:py-8"
                 >
-                  <p className="tabular-nums">
-                    <AnimatedStatValue value={s.value} className="type-stat text-[var(--color-accent)]" />
+                  <p>
+                    <AnimatedStatValue value={s.value} className="type-stat font-sans text-[var(--color-accent)]" />
                   </p>
                   <p className="type-stat-label mt-4">{s.label}</p>
-                  <p className="type-caption mt-2 max-w-[14rem] text-center">{s.caption}</p>
+                  <span className="mt-2 text-[12px] text-[color:var(--text-secondary)]">{sourceLines[idx]}</span>
                 </div>
-              ))}
+              );
+              })}
             </div>
             <ReviewProofBar variant="inline" className="mt-6" />
             <DeliveryTrustRow />
+            <HomeClientLogoStrip className="mt-10" />
           </Container>
         </Reveal>
       </SectionShell>
@@ -265,7 +276,7 @@ export function HomeMarketing() {
               title="What makes working with us different."
               description="We've structured the agency to remove the friction points that slow most client-agency relationships down."
             />
-            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5 sm:grid-cols-2">
+            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
               {differentiators.map(({ icon: DiffIcon, title, body }) => (
                 <article key={title} className="surface-card card-hover-rise flex gap-5 p-6 sm:p-7">
                   <div className="icon-container-md shrink-0">
@@ -274,6 +285,13 @@ export function HomeMarketing() {
                   <div>
                     <h3 className="type-h3 text-foreground">{title}</h3>
                     <p className="type-body mt-2 max-w-none text-sm text-[color:var(--text-secondary)]">{body}</p>
+                    <a
+                      href="/process"
+                      className="font-semibold text-[var(--color-accent)]"
+                      style={{ fontSize: 13, display: "inline-block", marginTop: 8 }}
+                    >
+                      How we work →
+                    </a>
                   </div>
                 </article>
               ))}
@@ -286,21 +304,23 @@ export function HomeMarketing() {
       <SectionShell id="tools" size="default">
         <Reveal>
           <Container>
-            <SectionHeader
-              eyebrow="AI & tools"
-              title="Modern stack. Senior oversight."
-              description="Design, development, and AI tooling chosen for speed and quality — with experienced review before anything reaches your product."
-            />
-            <div className="mt-10">
+            <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+              <SectionHeader
+                className="max-w-xl"
+                eyebrow="AI & tools"
+                title="Modern stack. Senior oversight."
+                description="Design, development, and AI tooling chosen for speed and quality — with experienced review before anything reaches your product."
+              />
+              <Link
+                href="/technologies"
+                className="type-caption shrink-0 font-semibold text-[var(--color-accent)] underline-offset-4 transition-opacity hover:opacity-85 hover:underline"
+              >
+                See our full stack
+              </Link>
+            </div>
+            <div className="mt-8">
               <TechLogoGrid categorized />
             </div>
-            <Link
-              href="/technologies"
-              className="link-subtle type-body mt-8 inline-flex items-center gap-2 font-semibold text-[var(--color-accent)]"
-            >
-              See our full stack
-              <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
-            </Link>
           </Container>
         </Reveal>
       </SectionShell>
@@ -360,7 +380,7 @@ export function HomeMarketing() {
             <div className="grid-layout-12">
               <div className="col-span-12 lg:col-span-8">
                 <SectionHeader eyebrow="FAQ" title="Common questions" />
-                <Accordion className="surface-card mt-8 px-6">
+                <Accordion className="surface-card mt-8 px-6" defaultValue={["hq-0"]}>
                   {homeFaq.map((item, idx) => (
                     <AccordionItem key={item.q} value={`hq-${idx}`} className="border-[var(--surface-border)]">
                       <AccordionTrigger className="type-body py-5 text-left font-semibold text-foreground hover:no-underline">

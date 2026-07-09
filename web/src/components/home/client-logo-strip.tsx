@@ -12,8 +12,15 @@ export function HomeClientLogoStrip({ className }: HomeClientLogoStripProps) {
       className={cn("border-y border-[var(--surface-border)] bg-background py-7", className)}
       aria-label="Technologies and platforms we work with"
     >
-      <p className="type-badge-label mb-5 text-center tracking-widest text-[color:var(--text-secondary)]">
-        Technologies &amp; platforms we work with
+      <p
+        style={{
+          fontSize: 13,
+          color: "var(--text-secondary)",
+          textAlign: "center",
+          marginBottom: 12,
+        }}
+      >
+        Used by teams at
       </p>
       <TechLogoGrid items={homepageTechBrands} marquee />
     </section>
