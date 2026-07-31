@@ -1,8 +1,8 @@
 /** Site navigation, CTAs, and footer structure. */
 
 export const primaryCtas = {
-  book: { label: "Book a call", href: "/contact#book" },
-  brief: { label: "Start a project", href: "/contact#brief" },
+  book: { label: "Book a discovery call", href: "/contact#book" },
+  brief: { label: "Send a project brief", href: "/contact#brief" },
   viewWork: { label: "View our work", href: "/work" },
   services: { label: "Explore services", href: "/services" },
   saasSolutions: { label: "SaaS solutions", href: "/solutions/saas" },

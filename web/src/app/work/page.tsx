@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Work · SaaS, Trucking, CRM & Integrations",
-  description: `Case studies across SaaS, trucking & logistics, CRM, integrations, and AI automation by ${brand.shortName}.`,
+  description: `Selected product work across UK SaaS, US trucking & logistics, CRM, and accounting integrations by ${brand.shortName}. Client details anonymized where needed.`,
   path: "/work",
   image: pageHeroVisuals.work.src,
 });
@@ -29,9 +29,9 @@ export default async function WorkPage({ searchParams }: Props) {
   return (
     <>
       <PageHero
-        eyebrow="Portfolio"
-        title="Products we've designed, built, and shipped."
-        description="Case studies across SaaS, US trucking and logistics, CRM, QuickBooks/Xero integrations, and AI automation, with measurable outcomes."
+        eyebrow="Selected work"
+        title="Illustrative projects from our focus markets."
+        description="Anonymized examples across UK SaaS, US trucking and logistics, CRM, QuickBooks/Xero integrations, and practical automation — with outcome metrics from delivery, not review platforms."
         visual={pageHeroVisuals.work}
         priority
         actions={
@@ -50,20 +50,20 @@ export default async function WorkPage({ searchParams }: Props) {
       <Section tone="muted" dividerTop>
         <Container>
           <p className="type-caption mb-8 max-w-2xl text-[color:var(--text-secondary)]">
-            Client names and some project details are changed to protect confidentiality. Metrics shown are representative of actual delivery outcomes.
+            Client names and identifying details are changed to protect confidentiality. Metrics describe project outcomes; they are not third-party ratings.
           </p>
           <WorkFilterGrid initialTag={tag ?? null} />
         </Container>
       </Section>
 
       <MarketingTrustSection>
-        <MarketingTrustSignals withRatings withStats withLogos withCertifications withTestimonials />
+        <MarketingTrustSignals withStats withLogos withCertifications />
       </MarketingTrustSection>
 
       <LeadCaptureCta
         eyebrow="Start a project"
-        title="Want results like these for your product?"
-        description="Share your goals and timeline and we'll outline a clear path forward."
+        title="Building something in SaaS or trucking?"
+        description="Share your goals and timeline. We'll reply within 24 hours with fit, scope questions, and a clear next step."
       />
     </>
   );

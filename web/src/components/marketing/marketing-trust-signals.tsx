@@ -1,10 +1,7 @@
 import Link from "next/link";
 import {
   IconArrowUpRight,
-  IconExternalLink,
-  IconQuote,
   IconShieldCheck,
-  IconStarFilled,
 } from "@tabler/icons-react";
 
 import { Container } from "@/components/layout/container";
@@ -12,77 +9,34 @@ import {
   certificationBadges,
   clientLogos,
   primaryCtas,
-  reviewSignals,
   stats,
-  testimonials,
 } from "@/content/site-content";
 import { buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-
-function StarFive({ className }: { className?: string }) {
-  return (
-    <div className={cn("flex gap-0.5 text-[var(--color-accent)]", className)} aria-hidden>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <IconStarFilled key={i} size={14} className="sm:size-4" />
-      ))}
-    </div>
-  );
-}
 
 type MarketingTrustSignalsProps = {
   className?: string;
-  withTestimonials?: boolean;
   withStats?: boolean;
   withLogos?: boolean;
-  withRatings?: boolean;
   withCertifications?: boolean;
   withCta?: boolean;
+  /** @deprecated Ratings removed — kept for call-site compatibility */
+  withRatings?: boolean;
+  /** @deprecated Testimonials removed — kept for call-site compatibility */
+  withTestimonials?: boolean;
 };
 
 export function MarketingTrustSignals({
   className,
-  withTestimonials = true,
   withStats = true,
   withLogos = true,
-  withRatings = true,
   withCertifications = true,
   withCta = true,
 }: MarketingTrustSignalsProps) {
   const miniStats = stats.slice(0, 3);
-  const miniQuotes = testimonials.slice(0, 2);
 
   return (
     <div className={cn("space-y-10", className)}>
-      {withRatings ? (
-        <div className="grid gap-4 sm:grid-cols-1">
-          {reviewSignals.map((r) => (
-            <Link
-              key={r.source}
-              href={r.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="surface-card group block p-6 transition-all hover:border-[var(--color-accent)]/40 hover:shadow-[0_4px_16px_color-mix(in_oklab,var(--color-accent)_6%,transparent)] sm:p-7"
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                <div className="space-y-2">
-                  <p className="type-badge-label">{r.source}</p>
-                  <p className="type-h3 text-foreground">{r.headline}</p>
-                  <p className="type-caption">{r.subtitle}</p>
-                </div>
-                <div className="flex shrink-0 flex-col items-start gap-1.5 sm:items-end">
-                  <StarFive />
-                  <span className="type-caption flex items-center gap-1 text-[10px] text-[color:var(--text-secondary)]">
-                    View reviews
-                    <IconExternalLink size={10} className="opacity-70" aria-hidden stroke={1.5} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : null}
-
       {withStats ? (
         <div className="grid gap-4 sm:grid-cols-3">
           {miniStats.map((s) => (
@@ -97,7 +51,7 @@ export function MarketingTrustSignals({
 
       {withLogos ? (
         <div className="surface-card px-5 py-6 sm:px-8">
-          <p className="type-badge-label mb-4 text-center sm:text-left">Products we&apos;ve designed &amp; shipped</p>
+          <p className="type-badge-label mb-4 text-center sm:text-left">Industries we focus on</p>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:justify-start">
             {clientLogos.map((client) => (
               <div key={client.name} className="flex flex-col items-center gap-1.5 text-center">
@@ -131,38 +85,6 @@ export function MarketingTrustSignals({
         </div>
       ) : null}
 
-      {withTestimonials ? (
-        <>
-          <Separator className="bg-[var(--section-divider)]" />
-          <div className="grid gap-5 lg:grid-cols-2">
-            {miniQuotes.map((t, i) => (
-              <div key={`${t.name}-${i}`} className="testimonial-card relative p-6 sm:p-7">
-                <IconQuote
-                  size={32}
-                  stroke={1.5}
-                  className="absolute right-5 top-5 rotate-180 text-[var(--color-accent)]/30"
-                  aria-hidden
-                />
-                <StarFive className="mb-4" />
-                <blockquote className="type-body text-foreground">
-                  <span className="quote-open" />
-                  {t.quote}
-                </blockquote>
-                <footer className="type-caption mt-4">
-                  <cite className="not-italic">
-                    <span className="font-semibold text-foreground">{t.name}</span>
-                    {" · "}
-                    {t.role}
-                    {" · "}
-                    {t.company}
-                  </cite>
-                </footer>
-              </div>
-            ))}
-          </div>
-        </>
-      ) : null}
-
       {withCta ? (
         <div className="flex flex-wrap justify-center gap-3 pt-2 sm:justify-start">
           <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}>
@@ -194,10 +116,10 @@ export function MarketingTrustSection({
     >
       <Container className="relative z-10 max-w-6xl">
         <div className="mb-10 max-w-2xl space-y-3">
-          <p className="eyebrow-amber">Proof</p>
-          <h2 className="type-h2 font-heading text-balance text-text-primary-v2">Verified ratings. Real outcomes.</h2>
+          <p className="eyebrow-amber">How we work</p>
+          <h2 className="type-h2 font-heading text-balance text-text-primary-v2">Clear ownership. Measurable delivery.</h2>
           <p className="type-body font-body text-text-secondary-v2">
-            Google ratings, delivery metrics, and client feedback from recent engagements.
+            In-house design and engineering, NDA-first collaboration, and weekly demos — without fabricated review scores.
           </p>
         </div>
         {children}

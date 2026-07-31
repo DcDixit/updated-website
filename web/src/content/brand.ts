@@ -5,7 +5,7 @@ export const brand = {
   legalName: "Northline Digital Pvt. Ltd.",
   founded: 2018,
   positioning:
-    "Northline is a 15-person in-house digital product agency. We design and build SaaS platforms for UK startups and trucking software for US operators, including dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
+    "Northline is a 15-person in-house digital product agency. We design and build SaaS platforms for UK startups and trucking software for US operators — including dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
   tagline: "SaaS products. Trucking platforms. Accounting integrations.",
   mission:
     "Help product teams and logistics operators ship reliable, well-designed software. One team handles everything from the first discovery call to post-launch support.",
@@ -23,18 +23,6 @@ export const siteContact = {
   mapSearchUrl:
     "https://www.google.com/maps/search/?api=1&query=I+The+Address+Ahmedabad+Gujarat+380060",
   responseTime: "Replies within 24 hours on business days",
-} as const;
-
-export const reviewProfiles = {
-  google: {
-    label: "Google",
-    rating: "5.0",
-    maxRating: "5.0",
-    reviewCount: "8 reviews",
-    href: "https://g.page/r/northline-digital/review",
-    headline: "5.0 · 8 reviews",
-    subtitle: "Rated for communication, quality, and on-time delivery.",
-  },
 } as const;
 
 export const socialLinks = [

@@ -14,7 +14,6 @@ import { Section } from "@/components/layout/section";
 import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { MarketingImage } from "@/components/marketing/marketing-image";
 import { MarketingTrustSection, MarketingTrustSignals } from "@/components/marketing/marketing-trust-signals";
-import { ReviewProofBar } from "@/components/marketing/review-proof-bar";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { TeamSection } from "@/components/marketing/team-section";
 import { buttonVariants } from "@/components/ui/button";
@@ -28,7 +27,7 @@ const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description: `${brand.legalName} - an AI-powered digital product agency founded in ${brand.founded}. Premium design and development for UK SaaS and US trucking clients from Ahmedabad, India.`,
+  description: `${brand.legalName} — in-house design and engineering for UK SaaS and US trucking, founded in ${brand.founded}. Remote-first from Ahmedabad, India.`,
   path: "/about",
 });
 
@@ -37,8 +36,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="Design and engineering. One accountable team."
-        description={brand.positioning}
+        title="Design and engineering under one roof."
+        description="We're a focused product studio for UK SaaS teams and US trucking operators — senior practitioners, clear ownership, and delivery you can inspect week to week."
         visual={pageHeroVisuals.about}
         priority
         actions={
@@ -74,13 +73,13 @@ export default function AboutPage() {
             <SectionHeader eyebrow="Our story" title="Why we exist." />
             <div className="space-y-4">
               <p className="type-body text-[color:var(--text-secondary)]">
-                {brand.shortName} started in {brand.founded} with one observation: most digital agencies sell strategy but struggle to ship. Product teams end up managing multiple vendors, one for design, another for development, a third for integrations, and paying for the gaps between them.
+                {brand.shortName} started in {brand.founded} with a simple frustration: too many agencies sell strategy and then scramble to ship. Clients end up coordinating separate design, engineering, and integration vendors — and paying for the gaps between them.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                We built an in-house team that covers the full stack: UI/UX design, web and mobile development, API integrations, and AI automation. One point of contact, one delivery standard, no handoffs between agencies.
+                We keep the work in-house: UI/UX, web and mobile engineering, API integrations, and practical automation. One conversation, one delivery standard, no agency-to-agency handoffs.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                Today we focus on two areas where we have real experience: UK SaaS startups that need design and development to keep pace with their roadmap, and US trucking operators who need purpose-built software for dispatch, fleet, and operations.
+                We focus where we can be specific: UK SaaS teams that need product design and build to keep pace with the roadmap, and US trucking operators who need software shaped around dispatch, fleet, and back-office reality.
               </p>
             </div>
           </div>
@@ -210,21 +209,14 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section tone="default" dividerTop>
-        <Container className="max-w-4xl">
-          <SectionHeader eyebrow="Reviews" title="Rated by clients on Google." align="center" />
-          <ReviewProofBar className="mt-10" />
-        </Container>
-      </Section>
-
       <MarketingTrustSection>
-        <MarketingTrustSignals withRatings={false} withStats={false} withLogos withTestimonials />
+        <MarketingTrustSignals withStats={false} withLogos withCertifications withCta />
       </MarketingTrustSection>
 
       <LeadCaptureCta
         eyebrow="Work with us"
         title="Tell us what you're building."
-        description="Share your brief and we'll respond within 24 hours with a clear plan and relevant case studies."
+        description="Share a brief or book a discovery call. We'll respond within 24 hours with fit, questions, and a sensible next step."
       />
     </>
   );

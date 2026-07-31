@@ -149,14 +149,11 @@ export default async function CaseDetailPage({ params }: Props) {
             <h2 className="type-h3 text-foreground">Outcome</h2>
             <p className="type-body mt-3 text-[color:var(--text-secondary)]">{d.outcome}</p>
           </div>
-          <blockquote className="surface-card border-l-4 border-l-[var(--color-accent)] p-8">
-            <p className="type-body text-lg leading-snug italic text-foreground">“{d.testimonial}”</p>
-          </blockquote>
         </Container>
       </Section>
 
       <MarketingTrustSection>
-        <MarketingTrustSignals withRatings withStats={false} withTestimonials />
+        <MarketingTrustSignals withStats={false} withLogos withCertifications />
       </MarketingTrustSection>
 
       <Section tone="muted" dividerTop>

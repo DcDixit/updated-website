@@ -1,60 +1,35 @@
-/** Client feedback — named with client permission. */
+/** Client testimonials — add approved written quotes here when available. */
 
-export const testimonials = [
-  {
-    quote:
-      "Northline redesigned our SaaS onboarding in six weeks. Activation jumped 18% and our board finally saw product and engineering aligned.",
-    name: "Ravi Mehta",
-    role: "Head of Product",
-    company: "FlowLedger (UK B2B SaaS)",
-    rating: 5,
-    project: "SaaS onboarding redesign",
-  },
-  {
-    quote:
-      "They delivered a dispatch console our ops team actually enjoys using. Handle time dropped 32% without adding headcount.",
-    name: "Marcus Cole",
-    role: "VP Operations",
-    company: "FleetRoute Logistics (US)",
-    rating: 5,
-    project: "Dispatch console & CRM",
-  },
-  {
-    quote:
-      "From brand identity to Shopify launch, the conversion uplift paid for the project in the first quarter.",
-    name: "Anita Desai",
-    role: "Founder",
-    company: "Meridian D2C",
-    rating: 5,
-    project: "E-commerce rebrand & launch",
-  },
-  {
-    quote:
-      "UI/UX and development in one team meant fewer handoffs, faster decisions, and a product that feels premium end to end.",
-    name: "Tom Ashworth",
-    role: "CTO",
-    company: "CarePath Health",
-    rating: 5,
-    project: "Patient mobile app",
-  },
-] as const;
+export type ClientTestimonial = {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  project?: string;
+  industry?: string;
+  /** Optional link to related anonymized case study */
+  caseStudySlug?: string;
+};
 
-export const reviewSignals = [
-  {
-    source: "Google",
-    headline: "5.0 · 8 reviews",
-    subtitle: "Consistently rated for communication, quality, and on-time delivery.",
-    href: "https://g.page/r/northline-digital/review",
-  },
-] as const;
+/**
+ * Populate with approved client quotes only.
+ * Until then the UI shows a premium placeholder — do not invent names or quotes.
+ */
+export const clientTestimonials: ClientTestimonial[] = [];
 
+/** @deprecated Use clientTestimonials */
+export type ClientVoice = ClientTestimonial;
+/** @deprecated Use clientTestimonials */
+export const clientVoices = clientTestimonials;
+
+/** Industry focus badges - not third-party client logos. */
 export type IndustryFocus = {
   name: string;
   industry: string;
   logoSrc: string;
 };
 
-/** Industry focus badges - not third-party client logos. Replace with approved client marks when licensed. */
 export const industryFocus: IndustryFocus[] = [
   { name: "UK SaaS", industry: "B2B products", logoSrc: "/brand/industries/saas.svg" },
   { name: "US Trucking", industry: "Dispatch & fleet", logoSrc: "/brand/industries/trucking.svg" },
@@ -66,7 +41,7 @@ export const industryFocus: IndustryFocus[] = [
   { name: "Marketplaces", industry: "Two-sided platforms", logoSrc: "/brand/industries/marketplace.svg" },
 ];
 
-/** @deprecated Use industryFocus - kept for backward-compatible imports during content migration. */
+/** @deprecated Use industryFocus */
 export const clientLogos = industryFocus;
 
 export type ClientLogo = IndustryFocus & { website?: string };

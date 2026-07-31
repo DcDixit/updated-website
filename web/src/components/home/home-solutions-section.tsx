@@ -220,13 +220,9 @@ export function HomeSolutionsSection() {
     <>
       <SectionHeader
         eyebrow="Solutions"
-        title="Two industries. One focused team."
-        description="Design, engineering, and AI delivery under one roof — each solution area backed by specialists who know the market."
+        title="UK SaaS and US trucking — built by one team."
+        description="Design and engineering under one roof — each solution area shaped around how SaaS product teams and trucking operators actually work."
       />
-
-      <p className="type-body mt-6 text-[color:var(--text-secondary)]">
-        We focus here because these industries demand the highest UX precision.
-      </p>
 
       <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">
         <div
@@ -312,27 +308,42 @@ export function HomeSolutionsSection() {
 
       <div className="mt-10 border-t border-[var(--surface-border)] pt-8">
         <p className="type-badge-label mb-4">Who we work with</p>
-        <ul className="grid gap-4 md:grid-cols-3">
-          {clientPersonas.map((persona) => (
-            <li key={persona.title}>
-              <Link
-                href={persona.href}
-                className="surface-card card-hover-rise group flex h-full flex-col p-5 transition-colors"
-              >
-                <h3 className="type-h3 text-foreground">{persona.title}</h3>
-                <p className="type-body mt-2 flex-1 text-sm text-[color:var(--text-secondary)]">{persona.description}</p>
-                <span className="type-body mt-4 inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)]">
-                  {persona.cta}
-                  <IconArrowUpRight
-                    size={16}
-                    stroke={1.5}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        <ul className="grid gap-5 md:grid-cols-3">
+          {clientPersonas.map((persona) => {
+            const PersonaIcon = persona.icon;
+
+            return (
+              <li key={persona.title}>
+                <Link
+                  href={persona.href}
+                  className="surface-card card-hover-rise group relative flex h-full flex-col overflow-hidden p-5 transition-colors hover:border-[var(--color-accent)]/40 sm:p-6"
+                >
+                  <span
                     aria-hidden
+                    className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-[var(--color-accent)] transition-transform duration-300 ease-out group-hover:scale-x-100"
                   />
-                </span>
-              </Link>
-            </li>
-          ))}
+                  <div className="icon-container-md mb-4">
+                    <PersonaIcon size={20} stroke={1.5} aria-hidden />
+                  </div>
+                  <h3 className="type-h3 text-foreground transition-colors group-hover:text-[var(--color-accent)]">
+                    {persona.title}
+                  </h3>
+                  <p className="type-body mt-2 flex-1 text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                    {persona.description}
+                  </p>
+                  <span className="type-body mt-5 inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)]">
+                    {persona.cta}
+                    <IconArrowUpRight
+                      size={16}
+                      stroke={1.5}
+                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      aria-hidden
+                    />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

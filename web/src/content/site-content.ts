@@ -4,7 +4,6 @@ export {
   brand,
   siteContact,
   socialLinks,
-  reviewProfiles,
 } from "@/content/brand";
 export {
   footerColumns,
@@ -68,8 +67,10 @@ export {
 } from "@/content/solutions";
 
 export {
-  testimonials,
-  reviewSignals,
+  type ClientTestimonial,
+  type ClientVoice,
+  clientTestimonials,
+  clientVoices,
   clientLogos,
   industryFocus,
 } from "@/content/testimonials";
@@ -83,11 +84,11 @@ export {
 
 /** Homepage hero - dual-industry agency positioning. */
 export const homeHero = {
-  eyebrowBadge: "AI-powered digital product agency",
-  headline: "Design and build software your users actually adopt.",
-  headlineEmphasis: "actually adopt",
-  lead: "One in-house team for UK SaaS and US trucking — from discovery to launch.",
+  eyebrowBadge: "Digital product agency",
+  headline: "Software that fits how your team actually works.",
+  headlineEmphasis: "actually works",
+  lead: "Design and engineering for UK SaaS products and US trucking operations — one in-house team from discovery to launch.",
   leadDetail:
-    "Senior designers and engineers building SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
+    "We build SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations with clear ownership and weekly delivery.",
 } as const;
 

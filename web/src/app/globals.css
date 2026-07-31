@@ -227,9 +227,9 @@
   }
   .type-stat {
     font-family: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
     font-weight: 600;
-    line-height: 1.08;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     font-variant-numeric: normal;
     font-feature-settings: normal;
@@ -451,6 +451,27 @@
   50% {
     transform: translate3d(0, 6px, 0);
     opacity: 0.95;
+  }
+}
+
+.clients-grid-enter {
+  animation: clients-grid-enter 280ms ease-out both;
+}
+
+@keyframes clients-grid-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-grid-enter {
+    animation: none;
   }
 }
 

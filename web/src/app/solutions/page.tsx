@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Solutions · SaaS, Trucking, Integrations & Automation",
   description:
-    "Digital product solutions for UK SaaS startups and US trucking companies - dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and AI automation.",
+    "Product solutions for UK SaaS and US trucking — SaaS onboarding & MVPs, custom dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and car transport software.",
   path: "/solutions",
   image: pageHeroVisuals.solutions.src,
 });
@@ -40,8 +40,8 @@ export default function SolutionsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(solutionsSchema) }} />
       <PageHero
         eyebrow="Solutions"
-        title="Focused product solutions for SaaS and trucking teams."
-        description="Four dedicated solution areas, each with its own capabilities, delivery process, and case studies. One in-house team handles everything."
+        title="Clear paths for SaaS products and trucking operations."
+        description="Four solution areas with dedicated capabilities, process, and illustrative work. Same in-house team from discovery through launch."
         visual={pageHeroVisuals.solutions}
         priority
         actions={
@@ -60,9 +60,9 @@ export default function SolutionsPage() {
       <Section tone="muted" dividerTop>
         <Container>
           <SectionHeader
-            eyebrow="By industry"
-            title="Four solutions. Each built for a specific market."
-            description="Click any solution to see capabilities, delivery approach, related case studies, and FAQs before you commit to anything."
+            eyebrow="By market"
+            title="Pick the path that matches how you operate."
+            description="Each page covers capabilities, delivery approach, related work, and FAQs — so you can evaluate fit before a call."
           />
           <div className="mt-12 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:gap-6">
             {solutionPillars.map((solution, idx) => (
@@ -85,7 +85,7 @@ export default function SolutionsPage() {
       <LeadCaptureCta
         eyebrow="Not sure which solution fits?"
         title="Tell us about your product and market."
-        description="We'll point you to the right starting point, whether that's a SaaS MVP, dispatch CRM, integration project, or automation workflow."
+        description="We'll suggest a starting point — SaaS MVP, dispatch CRM, accounting integration, or car transport software — and what a sensible first engagement looks like."
       />
     </>
   );

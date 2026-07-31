@@ -63,7 +63,7 @@ export const faqPageExtra = [
 export const stats = [
   { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
   { value: "100%", label: "End-to-end ownership", caption: "Design, engineering & delivery" },
-  { value: "5.0★", label: "Google rating", caption: "8 verified client reviews" },
+  { value: "4", label: "Time zones covered", caption: "US, UK, India & APAC overlap" },
   { value: "8+", label: "Years shipping", caption: "Products and digital platforms" },
 ] as const;
 
@@ -146,8 +146,8 @@ export const pillars = [
 ] as const;
 
 export const industries = [
-  { label: "SaaS & Startups", href: "/solutions/saas", caption: "UK-focused SaaS UI/UX, MVP development, dashboards, and AI-powered workflows that drive activation." },
-  { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking websites, dispatch CRM, fleet dashboards, driver apps, and transportation SaaS platforms." },
+  { label: "SaaS & Startups", href: "/solutions/saas", caption: "UK-focused SaaS UI/UX, MVP development, onboarding, and dashboards that support activation and demos." },
+  { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking software — custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps." },
   { label: "Accounting Integrations", href: "/solutions/accounting-integrations", caption: "QuickBooks and Xero API sync, reconciliation dashboards, and reliable operator tooling." },
   { label: "Car Transportation", href: "/solutions/car-transportation", caption: "Booking portals, carrier dispatch, customer tracking, and ops automation for vehicle logistics." },
   { label: "CRM & Automation", href: "/services/crm-development", caption: "Custom CRM UX, workflow automation, and integration-heavy consoles for ops teams." },

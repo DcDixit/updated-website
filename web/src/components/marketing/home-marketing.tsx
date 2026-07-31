@@ -1,16 +1,14 @@
 import Link from "next/link";
-
 import {
   IconArrowUpRight,
   IconChevronDown,
   IconShieldCheck,
-  IconStar,
   IconRocket,
   IconBrandGithub,
+  IconClockHour4,
 } from "@tabler/icons-react";
 
-import { HomeClientLogoStrip } from "@/components/home/client-logo-strip";
-import { HomeClientWorkLogos } from "@/components/home/home-client-work-logos";
+import { HomeClientsSection } from "@/components/home/home-clients-section";
 import { DeliveryTrustRow } from "@/components/home/delivery-trust-row";
 import { HomeCaseStudyCard } from "@/components/home/home-case-study-card";
 import { HeroProductShowcase } from "@/components/home/hero-product-showcase";
@@ -18,15 +16,12 @@ import { HomeInsightsPreview } from "@/components/home/home-insights-preview";
 import { HomeSubNav } from "@/components/home/home-sub-nav";
 import { HomeTestimonialsSection } from "@/components/home/home-testimonials-section";
 import { ProcessSection } from "@/components/home/process-section";
-import { TeamSection } from "@/components/home/team-section";
 import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
 import { AnimatedStatValue } from "@/components/marketing/animated-stat-value";
 import { Reveal } from "@/components/marketing/reveal";
-import { ReviewProofBar } from "@/components/marketing/review-proof-bar";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { HomeSolutionsSection } from "@/components/home/home-solutions-section";
-import { TechLogoGrid } from "@/components/marketing/tech-logo-grid";
 import {
   Accordion,
   AccordionContent,
@@ -46,12 +41,9 @@ import {
 import {
   homepageProcessSteps,
   homepageStats,
-  homepageTeam,
-  homepageTestimonials,
   type HomepageCaseStudySlug,
 } from "@/data/homepage";
-import { reviewProfiles } from "@/content/brand";
-import { faqJsonLd, reviewJsonLd, webPageJsonLd } from "@/lib/seo";
+import { faqJsonLd, webPageJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: string }) {
@@ -68,31 +60,31 @@ function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: str
 }
 
 const heroTrustSignals = [
-  { icon: IconStar, label: "5.0★ on Google", href: reviewProfiles.google.href, external: true as const },
-  { icon: IconRocket, label: "40+ projects delivered", href: "/work", external: false as const },
-  { icon: IconShieldCheck, label: "NDA-first", href: "/faq", external: false as const },
+  { icon: IconRocket, label: "40+ projects delivered", href: "/work" },
+  { icon: IconShieldCheck, label: "NDA-first collaboration", href: "/faq" },
+  { icon: IconClockHour4, label: "US & UK time-zone overlap", href: "/process" },
 ];
 
 const differentiators = [
   {
     icon: IconRocket,
     title: "One team, end to end",
-    body: "We've shipped 40+ SaaS products without a single missed client deadline.",
+    body: "Design and engineering stay on the same engagement — fewer handoffs, clearer decisions, and a product that feels consistent.",
   },
   {
     icon: IconBrandGithub,
     title: "Ship-ready handoffs",
-    body: "Our average time from signed contract to first working prototype is 3 weeks.",
+    body: "Typed codebases, documented Figma libraries, and written decisions your team can maintain without calling us for basics.",
   },
   {
     icon: IconShieldCheck,
     title: "Transparent by default",
-    body: "Every project has a shared Notion board — clients see progress in real time, always.",
+    body: "Shared project board, weekly demos, and progress you can see — not status theatre after a sprint closes.",
   },
   {
     icon: IconArrowUpRight,
-    title: "AI-accelerated delivery",
-    body: "We deliver a full design system and handoff doc with every project. No exceptions.",
+    title: "Built for your market",
+    body: "Deep focus on UK SaaS product work and US trucking operations — dispatch, fleet, CRM, and accounting integrations.",
   },
 ];
 
@@ -104,14 +96,6 @@ export function HomeMarketing() {
     description: brand.positioning,
     path: "/",
   });
-  const reviewSchema = reviewJsonLd(
-    homepageTestimonials.map((item) => ({
-      author: item.name,
-      reviewBody: item.quote,
-      ratingValue: item.rating,
-      itemReviewed: `${item.company} - ${item.project}`,
-    }))
-  );
   const solutionListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -128,22 +112,13 @@ export function HomeMarketing() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
-      {reviewSchema.map((node, index) => (
-        <script
-          key={`review-${index}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }}
-        />
-      ))}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(solutionListSchema) }} />
 
-      {/* ── HERO ─────────────────────────────────────────────────── */}
       <SectionShell
         id="hero"
         size="hero"
         className="hero-dot-grid hero-mesh-bg relative overflow-hidden !py-[clamp(3rem,5.5vw,4.75rem)]"
       >
-        {/* Subtle radial gradient accent */}
         <div
           aria-hidden
           className="pointer-events-none absolute -top-32 right-0 h-[600px] w-[600px] rounded-full opacity-[0.05] blur-3xl dark:opacity-[0.07]"
@@ -153,7 +128,6 @@ export function HomeMarketing() {
           <Container className="relative z-[1]">
             <div className="grid-layout-12 items-center gap-y-8 lg:gap-y-0">
               <div className="col-span-12 flex flex-col gap-3 lg:col-span-6 lg:pr-4">
-                {/* Eyebrow badge */}
                 <p className="hero-eyebrow-badge type-badge-label inline-block self-start rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1.5 text-[color:var(--text-secondary)]">
                   {homeHero.eyebrowBadge} · UK SaaS · US Trucking
                 </p>
@@ -168,13 +142,11 @@ export function HomeMarketing() {
                   <HeroCtaGroup trackingLocation="home-hero" />
                 </div>
 
-                {/* Trust signal pills */}
-                <div className="flex flex-wrap gap-3 pt-1" aria-label="Trust signals">
-                  {heroTrustSignals.map(({ icon: TrustIcon, label, href, external }) => (
+                <div className="flex flex-wrap gap-3 pt-1" aria-label="How we work">
+                  {heroTrustSignals.map(({ icon: TrustIcon, label, href }) => (
                     <Link
                       key={label}
                       href={href}
-                      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="trust-badge rounded-full border border-transparent px-2 py-1 transition-colors hover:border-[var(--surface-border)] hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
                     >
                       <TrustIcon size={14} stroke={1.75} aria-hidden />
@@ -209,17 +181,8 @@ export function HomeMarketing() {
 
       <HomeSubNav />
 
-      {/* ── CLIENT WORK + TECH STRIP ──────────────────────────────── */}
-      <section
-        className="border-y border-[var(--surface-border)] bg-background py-12 sm:py-14"
-        aria-labelledby="shipped-products-heading"
-      >
-        <Container>
-          <HomeClientWorkLogos />
-        </Container>
-      </section>
+      <HomeClientsSection />
 
-      {/* ── SOLUTIONS (+ audience personas) ──────────────────────── */}
       <SectionShell id="solutions" size="default" className="bg-[var(--surface-muted)]">
         <Reveal>
           <Container>
@@ -228,55 +191,42 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
-      {/* ── STATS, REVIEWS & DELIVERY TRUST ──────────────────────── */}
       <SectionShell id="stats" size="default" aria-labelledby="stats-heading">
         <Reveal>
           <Container>
             <h2 id="stats-heading" className="sr-only">
-              Key metrics and client trust
+              Delivery metrics and how we work
             </h2>
             <div className="surface-card stat-card-accent flex flex-col divide-y divide-[var(--section-divider)] md:flex-row md:divide-x md:divide-y-0">
-              {homepageStats.map((s, idx) => {
-                const sourceLines = [
-                  "delivered since 2016",
-                  "in product design",
-                  "across 3 continents",
-                  "on Clutch",
-                ] as const;
-                return (
+              {homepageStats.map((s) => (
                 <div
                   key={s.label}
-                  className="group flex flex-1 flex-col items-center px-6 py-10 text-center transition-colors hover:bg-[var(--surface-muted)] md:py-8"
+                  className="group flex flex-1 flex-col items-center px-6 py-8 text-center transition-colors hover:bg-[var(--surface-muted)] md:py-7"
                 >
                   <p>
                     <AnimatedStatValue value={s.value} className="type-stat font-sans text-[var(--color-accent)]" />
                   </p>
-                  <p className="type-stat-label mt-4">{s.label}</p>
-                  <span className="mt-2 text-[12px] text-[color:var(--text-secondary)]">{sourceLines[idx]}</span>
+                  <p className="type-stat-label mt-3">{s.label}</p>
+                  <span className="mt-1.5 text-[12px] text-[color:var(--text-secondary)]">{s.caption}</span>
                 </div>
-              );
-              })}
+              ))}
             </div>
-            <ReviewProofBar variant="inline" className="mt-6" />
             <DeliveryTrustRow />
-            <HomeClientLogoStrip className="mt-10" />
           </Container>
         </Reveal>
       </SectionShell>
 
-      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
-      <HomeTestimonialsSection items={homepageTestimonials} />
+      <HomeTestimonialsSection />
 
-      {/* ── DIFFERENTIATORS ──────────────────────────────────────── */}
       <SectionShell id="why" size="default" className="bg-[var(--surface-muted)]">
         <Reveal>
           <Container>
             <SectionHeader
               eyebrow="Why Northline"
-              title="What makes working with us different."
-              description="We've structured the agency to remove the friction points that slow most client-agency relationships down."
+              title="Fewer vendors. Clearer ownership."
+              description="We structured the agency around the friction that usually slows client–agency work: handoffs, opaque progress, and tools that don't match the market."
             />
-            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5 sm:grid-cols-2">
               {differentiators.map(({ icon: DiffIcon, title, body }) => (
                 <article key={title} className="surface-card card-hover-rise flex gap-5 p-6 sm:p-7">
                   <div className="icon-container-md shrink-0">
@@ -285,13 +235,12 @@ export function HomeMarketing() {
                   <div>
                     <h3 className="type-h3 text-foreground">{title}</h3>
                     <p className="type-body mt-2 max-w-none text-sm text-[color:var(--text-secondary)]">{body}</p>
-                    <a
+                    <Link
                       href="/process"
-                      className="font-semibold text-[var(--color-accent)]"
-                      style={{ fontSize: 13, display: "inline-block", marginTop: 8 }}
+                      className="mt-2 inline-block text-[13px] font-semibold text-[var(--color-accent)] transition-opacity hover:opacity-85"
                     >
                       How we work →
-                    </a>
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -300,43 +249,15 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
-      {/* ── AI & TOOLS ───────────────────────────────────────────── */}
-      <SectionShell id="tools" size="default">
-        <Reveal>
-          <Container>
-            <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                className="max-w-xl"
-                eyebrow="AI & tools"
-                title="Modern stack. Senior oversight."
-                description="Design, development, and AI tooling chosen for speed and quality — with experienced review before anything reaches your product."
-              />
-              <Link
-                href="/technologies"
-                className="type-caption shrink-0 font-semibold text-[var(--color-accent)] underline-offset-4 transition-opacity hover:opacity-85 hover:underline"
-              >
-                See our full stack
-              </Link>
-            </div>
-            <div className="mt-8">
-              <TechLogoGrid categorized />
-            </div>
-          </Container>
-        </Reveal>
-      </SectionShell>
-
-      <TeamSection team={homepageTeam} variant="preview" />
-
-      {/* ── PORTFOLIO ────────────────────────────────────────────── */}
       <SectionShell id="work" size="default">
         <Reveal>
           <Container>
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <SectionHeader
                 className="sm:max-w-lg"
-                eyebrow="Portfolio"
-                title="Selected work"
-                description="Recent projects across SaaS, trucking & logistics, CRM, integrations, and AI automation."
+                eyebrow="Selected work"
+                title="Illustrative projects across our focus markets."
+                description="Anonymized examples of SaaS, trucking & logistics, CRM, and integration work. Metrics reflect project outcomes — not third-party review scores."
               />
               <Link
                 href={primaryCtas.viewWork.href}
@@ -364,7 +285,6 @@ export function HomeMarketing() {
 
       <HomeInsightsPreview />
 
-      {/* ── PROCESS ──────────────────────────────────────────────── */}
       <SectionShell id="process" size="default">
         <Reveal>
           <Container>
@@ -373,13 +293,12 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
-      {/* ── FAQ + INLINE CTA ─────────────────────────────────────── */}
       <SectionShell id="faq" size="default">
         <Reveal>
           <Container>
             <div className="grid-layout-12">
               <div className="col-span-12 lg:col-span-8">
-                <SectionHeader eyebrow="FAQ" title="Common questions" />
+                <SectionHeader eyebrow="FAQ" title="Questions we hear before a kickoff." />
                 <Accordion className="surface-card mt-8 px-6" defaultValue={["hq-0"]}>
                   {homeFaq.map((item, idx) => (
                     <AccordionItem key={item.q} value={`hq-${idx}`} className="border-[var(--surface-border)]">
@@ -404,13 +323,11 @@ export function HomeMarketing() {
                 <div className="surface-card cta-band-premium sticky top-24 space-y-5 p-6">
                   <p className="highlight-badge">
                     <span className="status-dot" aria-hidden />
-                    Start a conversation
+                    Next step
                   </p>
-                  <h3 className="type-h3 text-foreground text-balance">
-                    Ready to discuss your project?
-                  </h3>
+                  <h3 className="type-h3 text-foreground text-balance">Book a 30-minute discovery call.</h3>
                   <p className="type-body text-sm text-[color:var(--text-secondary)]">
-                    Send a brief or book a free 30-minute discovery call. We&apos;ll respond within 24 hours with a clear plan.
+                    Share what you&apos;re building. We&apos;ll reply within 24 hours with honest fit, scope questions, and suggested next steps.
                   </p>
                   <div className="flex flex-col gap-3">
                     <Link

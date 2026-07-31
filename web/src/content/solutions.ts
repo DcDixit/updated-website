@@ -48,9 +48,9 @@ export const solutionPillars: SolutionPillar[] = [
   {
     slug: "saas",
     title: "SaaS Product Solutions",
-    headline: "SaaS that closes. Onboarding that sticks.",
+    headline: "SaaS products that earn demos — and keep users after signup.",
     summary:
-      "UK SaaS founders come to us when their product is technically sound but the UX is losing demos. We've redesigned onboarding flows that lifted activation by 18%, built dashboards that impress at board level, and shipped MVPs from zero in under 10 weeks. Pre-Series A and need investor-ready UI? Post-Series A and fixing churn? This is what we do.",
+      "UK SaaS teams come to us when the product works technically but onboarding, permissions, or dashboards are costing activation. We design and build the product surfaces that close deals and reduce drop-off — from MVP through post-launch iteration.",
     market: "Primary · UK · Secondary · US",
     href: "/solutions/saas",
     icon: IconLayoutDashboard,
@@ -58,29 +58,34 @@ export const solutionPillars: SolutionPillar[] = [
       "SaaS UI/UX & onboarding",
       "Dashboard design",
       "MVP build (10-week sprints)",
-      "AI-powered workflows",
+      "AI-assisted workflows",
       "Design system setup",
       "Post-launch retainer",
     ],
     cta: "Explore SaaS solutions",
     seo: {
-      title: "SaaS Product Design Agency UK",
+      title: "SaaS Product Design & Development Agency UK",
       description:
-        "SaaS UI/UX agency for UK startups - MVP development, dashboard design, AI-powered workflows, and scalable product systems.",
-      keywords: ["SaaS product design agency UK", "SaaS UI/UX agency", "Product design consultancy UK", "AI SaaS development company"],
+        "Product design and development for UK B2B SaaS — onboarding UX, dashboards, MVP builds, and design systems that scale with your roadmap.",
+      keywords: [
+        "SaaS product design agency UK",
+        "SaaS UI/UX agency",
+        "B2B SaaS onboarding design",
+        "SaaS MVP development UK",
+      ],
     },
   },
   {
     slug: "trucking-logistics",
     title: "Trucking & Logistics Solutions",
-    headline: "Dispatch tools built for real operations, not demos.",
+    headline: "Dispatch and fleet software shaped around the desk — not a demo deck.",
     summary:
-      "US trucking operators don't need another dashboard that looks great in a sales deck. They need a console that handles 400 routes a day, surfaces exceptions without hunting, and doesn't require three screens. We've built that. Ops teams report 30%+ handle time reductions. No new headcount required.",
+      "US carriers, brokers, and fleet teams need consoles that handle volume, surface exceptions fast, and integrate with the stack they already run. We design and build custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps without forcing a painful rip-and-replace.",
     market: "Primary · United States",
     href: "/solutions/trucking-logistics",
     icon: IconTruck,
     services: [
-      "Dispatch CRM",
+      "Custom TMS & dispatch CRM",
       "Fleet dashboards",
       "Driver mobile apps",
       "Trucking websites",
@@ -89,14 +94,14 @@ export const solutionPillars: SolutionPillar[] = [
     ],
     cta: "Explore trucking solutions",
     seo: {
-      title: "Trucking Website Design & Logistics Software Development USA",
+      title: "Custom Trucking Software & Dispatch CRM Development USA",
       description:
-        "Trucking website design company USA - dispatch CRM solutions, fleet management dashboards, driver apps, and logistics software development.",
+        "Custom trucking software for US operators — dispatch CRM, fleet dashboards, driver apps, TMS-style platforms, and logistics integrations.",
       keywords: [
-        "Trucking website design company USA",
-        "Logistics software development",
-        "Dispatch CRM solutions",
-        "Fleet management dashboard",
+        "custom trucking software development",
+        "dispatch CRM solutions",
+        "fleet management dashboard",
+        "TMS software development USA",
       ],
     },
   },
@@ -209,11 +214,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   saas: {
     ...solutionPillars[0],
     heroLead:
-      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards. An in-house team that ships, not just presents.",
+      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards — with an in-house team that ships weekly, not just presents.",
     outcomes: [
       { label: "Typical MVP timeline", value: "8–12 weeks" },
-      { label: "Activation uplift", value: "+15–25%" },
-      { label: "Team size", value: "15+ in-house" },
+      { label: "Engagement model", value: "Design + build" },
+      { label: "Team", value: "15+ in-house" },
     ],
     capabilities: [
       {
@@ -260,6 +265,14 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
         q: "Design-only or design + development?",
         a: "Both. Many clients start with product design and extend into Next.js development with the same in-house team.",
       },
+      {
+        q: "Do you work with US SaaS teams as well as UK?",
+        a: "Yes. The UK is our primary SaaS market, but we regularly support US product teams with overlapping hours and the same delivery model.",
+      },
+      {
+        q: "What's a typical first engagement?",
+        a: "A scoped discovery + design sprint, or a fixed MVP build with weekly demos. We recommend the lightest path that answers your biggest risk — activation, demo readiness, or technical feasibility.",
+      },
     ],
     relatedServiceSlugs: ["saas-platforms", "product-design", "ui-ux-design", "ai-assisted-development"],
     relatedCaseSlugs: ["payroll-pro-saas", "crm-pulse-dashboard", "marketplace-mvp"],
@@ -267,11 +280,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   "trucking-logistics": {
     ...solutionPillars[1],
     heroLead:
-      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators: freight brokers, dispatch companies, logistics startups, and fleet businesses.",
+      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators — freight brokers, carriers, logistics startups, and fleet businesses that have outgrown spreadsheets or rigid off-the-shelf TMS.",
     outcomes: [
-      { label: "Dispatch handle time", value: "−20–35%" },
-      { label: "Routes managed daily", value: "400+" },
-      { label: "US market focus", value: "Primary" },
+      { label: "Focus market", value: "US trucking" },
+      { label: "Integrations", value: "ELD · accounting · CRM" },
+      { label: "Delivery", value: "Phased rollout" },
     ],
     capabilities: [
       {
@@ -308,7 +321,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     faq: [
       {
         q: "Do you work with US trucking companies and freight brokers?",
-        a: "Yes, this is a primary focus. We align stand-ups and delivery to US time zones and ops realities.",
+        a: "Yes — this is a primary focus. We align stand-ups and delivery to US time zones and how dispatch desks actually run.",
+      },
+      {
+        q: "Custom TMS vs off-the-shelf — how do you decide?",
+        a: "If a commercial TMS fits your workflows and integrations, we often recommend staying put and building around it. Custom makes sense when your processes, settlements, or integrations are the product — and off-the-shelf would force expensive workarounds.",
       },
       {
         q: "Can you redesign our dispatch CRM without stopping operations?",
@@ -316,7 +333,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         q: "Do you build driver mobile apps too?",
-        a: "Yes - React Native and Flutter paths for iOS and Android, designed alongside dispatch and fleet tools.",
+        a: "Yes — React Native and Flutter paths for iOS and Android, designed alongside dispatch and fleet tools.",
+      },
+      {
+        q: "Who owns the software after launch?",
+        a: "You do. Source code, design files, and documentation transfer to your accounts. We can stay on retainer for iteration, but you're never locked in.",
       },
     ],
     relatedServiceSlugs: ["crm-development", "web-development", "mobile-applications", "saas-platforms"],

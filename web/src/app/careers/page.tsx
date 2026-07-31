@@ -19,7 +19,7 @@ const applyMailto = (subject: string) =>
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Careers",
-  description: `Join ${brand.shortName} - open roles for designers, developers, and AI automation specialists. Remote-friendly.`,
+  description: `Join ${brand.shortName} — open roles for designers, engineers, and automation specialists. Remote-first with UK and US client overlap.`,
   path: "/careers",
   image: pageHeroVisuals.careers.src,
 });
@@ -29,8 +29,8 @@ export default function CareersPage() {
     <>
       <PageHero
         eyebrow="Careers"
-        title="Join a focused product team."
-        description="We're looking for designers, engineers, and automation specialists who care about the craft, communicate honestly, and ship work that actually makes a difference for clients."
+        title="Join a focused product studio."
+        description="We're hiring designers, engineers, and automation specialists who communicate clearly, care about craft, and want ownership on real SaaS and logistics products."
         visual={pageHeroVisuals.careers}
         priority
       />

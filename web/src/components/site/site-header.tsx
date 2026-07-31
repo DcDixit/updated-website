@@ -69,17 +69,17 @@ export function SiteHeader() {
             : "none",
       }}
     >
-      <Container className="flex h-16 min-w-0 items-center justify-between gap-3 lg:h-[4.25rem]">
+      <Container className="flex h-16 min-w-0 max-w-[1280px] items-center justify-between gap-4 lg:h-[4.25rem] lg:gap-8">
         <SiteLogo />
 
         <nav
-          className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:flex lg:items-center lg:gap-0.5"
+          className="hidden min-w-0 items-center gap-0.5 lg:flex"
           aria-label="Primary"
         >
           <SolutionsMegaMenu active={solutionsActive} />
           <ul className="flex items-center gap-0.5">
             {nav
-              .filter((item) => item.href !== "/solutions")
+              .filter((item) => item.href !== "/solutions" && item.href !== "/contact")
               .map((item) => {
                 const active = pathname ? isNavActive(pathname, item.href) : false;
                 return (
@@ -100,29 +100,34 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="z-[1] flex shrink-0 items-center gap-2">
-          <ThemeToggle className="hidden sm:inline-flex" />
-          <Link
-            href={primaryCtas.brief.href}
-            className={cn(
-              buttonVariants({ variant: "primary", size: "cta" }),
-              "hidden link-subtle lg:inline-flex"
-            )}
-            data-track="header_cta_click"
-            data-track-location="header"
-            data-track-label={primaryCtas.brief.label}
-          >
-            {primaryCtas.brief.label}
-          </Link>
-          <Link
-            href={primaryCtas.book.href}
-            className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "hidden lg:inline-flex")}
-            data-track="header_cta_click_secondary"
-            data-track-location="header"
-            data-track-label={primaryCtas.book.label}
-          >
-            {primaryCtas.book.label}
-          </Link>
+        <div className="flex shrink-0 items-center gap-3">
+          <ThemeToggle className="relative z-[1] hidden lg:inline-flex" />
+          <div className="hidden items-center gap-2 lg:flex">
+            <Link
+              href={primaryCtas.brief.href}
+              className={cn(
+                buttonVariants({ variant: "primary", size: "lg" }),
+                "link-subtle whitespace-nowrap"
+              )}
+              data-track="header_cta_click"
+              data-track-location="header"
+              data-track-label={primaryCtas.brief.label}
+            >
+              {primaryCtas.brief.label}
+            </Link>
+            <Link
+              href={primaryCtas.book.href}
+              className={cn(
+                buttonVariants({ variant: "secondary", size: "lg" }),
+                "whitespace-nowrap"
+              )}
+              data-track="header_cta_click_secondary"
+              data-track-location="header"
+              data-track-label={primaryCtas.book.label}
+            >
+              {primaryCtas.book.label}
+            </Link>
+          </div>
 
           <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />

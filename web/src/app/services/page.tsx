@@ -21,9 +21,9 @@ import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Services",
+  title: "Services · Design, Development & Automation",
   description:
-    "UI/UX design, SaaS product development, mobile apps, branding, AI-assisted delivery, and workflow automation, all delivered by one in-house team.",
+    "UI/UX design, SaaS product development, CRM & dashboards, API integrations, and practical automation — delivered by one in-house Northline team.",
   path: "/services",
   image: pageHeroVisuals.services.src,
 });
@@ -33,8 +33,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Design, build, and automate. One in-house team."
-        description="UI/UX and product design, web and mobile development, SaaS platforms, API integrations, and workflow automation. We cover the full product lifecycle."
+        title="Design and engineering without the handoff tax."
+        description="UI/UX and product design, web and mobile development, SaaS platforms, API integrations, and workflow automation — one accountable team across the lifecycle."
         visual={pageHeroVisuals.services}
         priority
         actions={

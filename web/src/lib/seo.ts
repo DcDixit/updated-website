@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { brand, reviewProfiles, siteContact } from "@/content/brand";
+import { brand, siteContact, socialLinks } from "@/content/brand";
 
 /** Public site URL - set NEXT_PUBLIC_SITE_URL in production. */
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://northlinedigital.com").replace(/\/$/, "");
@@ -79,16 +79,7 @@ export function organizationJsonLd() {
       "QuickBooks integration",
       "Xero integration",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: reviewProfiles.google.rating,
-      bestRating: reviewProfiles.google.maxRating,
-      reviewCount: String(parseInt(reviewProfiles.google.reviewCount, 10) || 0),
-    },
-    sameAs: [
-      "https://www.linkedin.com/company/northline-digital",
-      reviewProfiles.google.href,
-    ],
+    sameAs: socialLinks.map((link) => link.href),
   };
 }
 
@@ -153,32 +144,6 @@ export function webPageJsonLd(input: { title: string; description: string; path:
     },
     inLanguage: "en",
   };
-}
-
-export function reviewJsonLd(
-  reviews: ReadonlyArray<{
-    author: string;
-    reviewBody: string;
-    ratingValue: number;
-    itemReviewed?: string;
-  }>
-) {
-  return reviews.map((review) => ({
-    "@context": "https://schema.org",
-    "@type": "Review",
-    author: { "@type": "Person", name: review.author },
-    reviewBody: review.reviewBody,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.ratingValue,
-      bestRating: 5,
-    },
-    itemReviewed: {
-      "@type": "ProfessionalService",
-      name: review.itemReviewed ?? brand.legalName,
-      url: siteUrl,
-    },
-  }));
 }
 
 export function faqJsonLd(items: ReadonlyArray<{ q: string; a: string }>) {

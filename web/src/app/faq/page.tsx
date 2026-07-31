@@ -21,8 +21,8 @@ import { buildPageMetadata, faqJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ",
-  description: `Common questions about working with ${brand.shortName} - services, timelines, pricing, and process.`,
+  title: "FAQ · Working with Northline",
+  description: `Common questions about working with ${brand.shortName} — services for UK SaaS and US trucking, timelines, pricing, ownership, and process.`,
   path: "/faq",
   image: pageHeroVisuals.faq.src,
 });
@@ -36,8 +36,8 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <PageHero
         eyebrow="FAQ"
-        title="Common questions, straight answers."
-        description="What you need to know about our services, process, pricing, and how we work with your team."
+        title="Straight answers before you book a call."
+        description="Services, timelines, pricing, ownership, and how we collaborate with your team — without the usual agency vagueness."
         visual={pageHeroVisuals.faq}
         priority
         actions={

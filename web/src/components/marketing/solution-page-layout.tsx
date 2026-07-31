@@ -89,7 +89,7 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
           <SectionHeader
             eyebrow="Capabilities"
             title={`What we deliver for ${solution.title.toLowerCase()}`}
-            description="End-to-end design and development from an in-house team - no handoffs to freelancers."
+            description="End-to-end design and development from an in-house team — no freelance marketplace handoffs."
           />
           <div className="stagger-grid stagger-grid-visible mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {solution.capabilities.map((cap) => (
@@ -197,7 +197,7 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
       <LeadCaptureCta
         eyebrow={solution.title}
         title={`Ready to discuss your ${solution.title.toLowerCase()} project?`}
-        description="Share your goals and timeline - we'll respond with a clear plan, relevant case studies, and honest next steps."
+        description="Share your goals and timeline — we'll reply within 24 hours with fit, scope questions, and a sensible next step."
       />
     </>
   );
