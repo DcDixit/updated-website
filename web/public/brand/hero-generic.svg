@@ -5,7 +5,7 @@
   <rect x="740" y="180" width="680" height="240" rx="20" fill="#151A1E" stroke="#2A3138"/>
   <rect x="740" y="460" width="320" height="240" rx="20" fill="#151A1E" stroke="#2A3138"/>
   <rect x="1100" y="460" width="320" height="240" rx="20" fill="#151A1E" stroke="#2A3138"/>
-  <path d="M220 560L340 500L460 530L580 470L700 510" stroke="#A3E635" stroke-width="8" stroke-linecap="round"/>
+  <path d="M220 560L340 500L460 530L580 470L700 510" stroke="#6366F1" stroke-width="8" stroke-linecap="round"/>
   <rect x="780" y="220" width="240" height="14" rx="7" fill="#2F3841"/>
   <rect x="780" y="252" width="360" height="10" rx="5" fill="#273039"/>
 </svg>

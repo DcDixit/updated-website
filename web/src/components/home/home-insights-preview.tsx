@@ -22,8 +22,8 @@ export function HomeInsightsPreview() {
             <SectionHeader
               className="sm:max-w-lg"
               eyebrow="Insights"
-              title="Product thinking from our team"
-              description="Practical guides on SaaS onboarding, AI workflows, and trucking software — no fluff."
+              title="Notes from recent delivery work."
+              description="Onboarding, dispatch CRM, MVP trade-offs, and how we ship — written for founders and operators."
             />
             <Link href="/insights" className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full sm:w-auto")}>
               View all insights

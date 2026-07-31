@@ -5,18 +5,16 @@ import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeader } from "@/components/marketing/section-header";
-import type { HomepageTeamMember } from "@/data/homepage";
+import { leadershipTeam } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
 type TeamSectionProps = {
-  team: readonly HomepageTeamMember[];
   className?: string;
-  /** Homepage uses a compact preview; about page can use full layout later. */
   variant?: "preview" | "full";
 };
 
-export function TeamSection({ team, className, variant = "preview" }: TeamSectionProps) {
-  const displayTeam = variant === "preview" ? team.slice(0, 4) : team;
+export function TeamSection({ className, variant = "preview" }: TeamSectionProps) {
+  const practices = variant === "preview" ? leadershipTeam.slice(0, 4) : leadershipTeam;
 
   return (
     <SectionShell id="team" size="default" className={cn("bg-[var(--surface-muted)]", className)}>
@@ -24,30 +22,20 @@ export function TeamSection({ team, className, variant = "preview" }: TeamSectio
         <Container>
           <SectionHeader
             eyebrow="The team"
-            title="Senior practitioners on every engagement."
-            description="15+ designers and engineers in-house — the team you meet in the first call is the team that builds your product."
+            title="Practices that stay on the engagement."
+            description="Design, engineering, delivery, and automation — the people in the first call stay accountable through launch."
             align="center"
             className="mx-auto max-w-2xl"
           />
 
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {displayTeam.map((member) => (
-              <article
-                key={member.initials}
-                className="surface-card flex flex-col items-center gap-3 p-4 text-center sm:p-5"
-              >
-                <div className="flex size-16 items-center justify-center overflow-hidden rounded-full border-2 border-[var(--surface-border)] bg-[color-mix(in_oklab,var(--color-accent)_8%,transparent)]">
-                  {member.photo ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={member.photo} alt={member.name} className="size-full object-cover" />
-                  ) : (
-                    <span className="text-lg font-semibold text-[var(--color-accent)]">{member.initials}</span>
-                  )}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{member.name}</p>
-                  <p className="type-caption mt-0.5">{member.role}</p>
-                </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {practices.map((practice) => (
+              <article key={practice.name} className="surface-card flex flex-col gap-3 p-5 sm:p-6">
+                <p className="text-sm font-semibold text-foreground">{practice.name}</p>
+                <p className="type-caption font-medium text-[var(--color-accent)]">{practice.role}</p>
+                <p className="type-body max-w-none text-sm text-[color:var(--text-secondary)]">
+                  {practice.bio}
+                </p>
               </article>
             ))}
           </div>
@@ -58,7 +46,7 @@ export function TeamSection({ team, className, variant = "preview" }: TeamSectio
               href="/about"
               className="inline-flex items-center gap-1 font-semibold text-[var(--color-accent)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
             >
-              Meet the full team
+              About Northline
               <IconArrowUpRight size={14} stroke={1.5} aria-hidden />
             </Link>
           </p>

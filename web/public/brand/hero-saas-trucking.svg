@@ -8,13 +8,13 @@
   <rect x="210" y="252" width="320" height="12" rx="6" fill="#273039"/>
   <rect x="210" y="285" width="480" height="12" rx="6" fill="#273039"/>
   <rect x="210" y="335" width="700" height="260" rx="16" fill="#11161A" stroke="#2A3138"/>
-  <path d="M260 520L380 460L520 500L640 430L780 470" stroke="#A3E635" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="380" cy="460" r="9" fill="#A3E635"/>
-  <circle cx="640" cy="430" r="9" fill="#A3E635"/>
+  <path d="M260 520L380 460L520 500L640 430L780 470" stroke="#6366F1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="380" cy="460" r="9" fill="#6366F1"/>
+  <circle cx="640" cy="430" r="9" fill="#6366F1"/>
   <rect x="1040" y="222" width="220" height="14" rx="7" fill="#2F3841"/>
   <rect x="1040" y="254" width="310" height="10" rx="5" fill="#273039"/>
   <rect x="1040" y="290" width="340" height="120" rx="12" fill="#11161A" stroke="#2A3138"/>
-  <path d="M1064 374L1102 338L1155 355L1210 310L1268 338L1322 300" stroke="#A3E635" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1064 374L1102 338L1155 355L1210 310L1268 338L1322 300" stroke="#6366F1" stroke-width="6" stroke-linecap="round"/>
   <rect x="1040" y="532" width="340" height="14" rx="7" fill="#2F3841"/>
   <rect x="1040" y="560" width="260" height="10" rx="5" fill="#273039"/>
   <rect x="1040" y="585" width="310" height="10" rx="5" fill="#273039"/>

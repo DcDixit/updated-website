@@ -1,28 +1,20 @@
-const outcomes = [
-  "FleetFlow dispatch handle time → down 32%",
-  "PayrollPro activation rate → up 18%",
-  "FinanceSync nightly sync → 99.3% reliability",
-  "Meridian Shopify launch → paid for itself in Q1",
-  "FlowLedger onboarding redesign → done in 6 weeks",
-  "US trucking CRM → 400+ daily routes, zero downtime",
-  "QuickBooks integration → zero manual reconciliation",
+"use client";
+
+const OUTCOMES = [
+  "SaaS onboarding redesign → shipped in weeks, not quarters",
+  "Dispatch console → fewer screens, faster exception handling",
+  "QuickBooks / Xero sync → nightly reconciliation operators trust",
+  "Design system + handoff → maintainable after launch",
 ] as const;
 
 export function OutcomeTicker() {
-  const items = [...outcomes, ...outcomes];
+  const doubled = [...OUTCOMES, ...OUTCOMES];
 
   return (
-    <div
-      className="w-full overflow-hidden border-y border-primary-light bg-primary py-3"
-      aria-label="Client outcomes"
-    >
-      <div className="animate-ticker flex w-max whitespace-nowrap">
-        {items.map((item, i) => (
-          <span
-            key={`${item}-${i}`}
-            className="inline-flex items-center gap-3 px-8 text-sm font-medium text-white/80"
-          >
-            <span className="font-semibold text-accent">↑</span>
+    <div className="overflow-hidden border-y border-[var(--surface-border)] bg-[var(--surface-muted)] py-3" aria-hidden>
+      <div className="flex w-max animate-[marquee_40s_linear_infinite] gap-10 whitespace-nowrap px-4">
+        {doubled.map((item, i) => (
+          <span key={`${item}-${i}`} className="type-caption text-[color:var(--text-secondary)]">
             {item}
           </span>
         ))}

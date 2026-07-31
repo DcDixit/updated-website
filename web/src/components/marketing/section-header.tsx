@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { cn } from "@/lib/utils";
 
 export function SectionHeader({
@@ -9,15 +11,17 @@ export function SectionHeader({
   descriptionClassName,
   titleClassName,
   eyebrowClassName,
+  titleId,
 }: {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   align?: "left" | "center";
   className?: string;
   descriptionClassName?: string;
   titleClassName?: string;
   eyebrowClassName?: string;
+  titleId?: string;
 }) {
   return (
     <div
@@ -33,7 +37,7 @@ export function SectionHeader({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={cn("type-h2 text-balance text-foreground", titleClassName)}>{title}</h2>
+      <h2 id={titleId} className={cn("type-h2 text-balance text-foreground", titleClassName)}>{title}</h2>
       {description ? (
         <p
           className={cn(

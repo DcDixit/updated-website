@@ -19,13 +19,14 @@ import "./globals.css";
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.shortName} · AI-powered digital product agency`,
+    default: `${brand.shortName} · SaaS & Trucking Digital Product Agency`,
     template: `%s · ${brand.shortName}`,
   },
   description:
@@ -34,14 +35,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: `${brand.shortName} · AI-powered digital product agency`,
+    title: `${brand.shortName} · SaaS & Trucking Digital Product Agency`,
     description:
       "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
     images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.shortName} · AI-powered digital product agency`,
+    title: `${brand.shortName} · SaaS & Trucking Digital Product Agency`,
     description:
       "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
     images: [`${siteUrl}/brand/og-default.png`],

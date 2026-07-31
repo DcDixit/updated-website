@@ -25,8 +25,9 @@ import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Process",
-  description: "Our five-phase delivery process - discover, design, build, launch, and support - with AI-accelerated workflows.",
+  title: "Process · How we deliver",
+  description:
+    "Northline's five-phase delivery process for UK SaaS and US trucking software — discovery, design, build, launch, and support with weekly demos.",
   path: "/process",
   image: pageHeroVisuals.process.src,
 });
@@ -36,8 +37,8 @@ export default function ProcessPage() {
     <>
       <PageHero
         eyebrow="Process"
-        title="Five phases. Nothing hidden."
-        description="Discovery, design, build, launch, and support. Each phase has clear milestones, weekly demos, and deliverables you review before we move forward. We use AI tools where they help, but people own every decision."
+        title="Five phases. Visible progress."
+        description="Discovery, design, build, launch, and support. Each phase has milestones, weekly demos, and deliverables you sign off before we move on. Tools help us move faster — people own every decision."
         visual={pageHeroVisuals.process}
         priority
         actions={
@@ -138,9 +139,9 @@ export default function ProcessPage() {
       </Section>
 
       <LeadCaptureCta
-        eyebrow="Get started"
-        title="Want to see how this works for your project?"
-        description="Send a brief or book a discovery call. We'll walk through a realistic timeline and specific deliverables for your scope."
+        eyebrow="Next step"
+        title="Want to see how this process fits your project?"
+        description="Send a brief or book a discovery call. We'll walk through a realistic timeline and deliverables for your scope."
       />
     </>
   );

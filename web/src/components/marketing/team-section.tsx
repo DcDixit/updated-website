@@ -24,9 +24,9 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
       {showHeader ? (
         <div className="mb-10 max-w-2xl space-y-3">
           <p className="type-badge-label">Team</p>
-          <h2 className="type-h2 text-foreground">Meet the people behind the work.</h2>
+          <h2 className="type-h2 text-foreground">Practices behind every engagement.</h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            A cross-functional leadership team - design, engineering, and delivery - working together on every engagement.
+            Design, engineering, delivery, and automation — senior ownership that stays on the project from discovery through launch.
           </p>
         </div>
       ) : null}

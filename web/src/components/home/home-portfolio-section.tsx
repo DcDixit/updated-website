@@ -40,7 +40,7 @@ export function HomePortfolioSection() {
             />
             <Link
               href="/work"
-              className="hidden shrink-0 text-sm font-semibold text-[var(--color-primary)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 sm:block"
+              className="hidden shrink-0 text-sm font-semibold text-[var(--color-accent)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 sm:block"
             >
               View all work →
             </Link>
@@ -55,8 +55,8 @@ export function HomePortfolioSection() {
                 className={cn(
                   "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2",
                   activeFilter === tab
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-white"
-                    : "border-[var(--surface-border)] text-[color:var(--text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                    ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white dark:text-[#0f172a]"
+                    : "border-[var(--surface-border)] text-[color:var(--text-secondary)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
                 )}
               >
                 {tab}
@@ -80,7 +80,7 @@ export function HomePortfolioSection() {
 
           <Link
             href="/work"
-            className="mt-8 inline-flex text-sm font-semibold text-[var(--color-primary)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 sm:hidden"
+            className="mt-8 inline-flex text-sm font-semibold text-[var(--color-accent)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 sm:hidden"
           >
             View all work →
           </Link>

@@ -14,9 +14,9 @@ const BRAND = path.join(PUBLIC, "brand");
 const BRAND_COBALT = "#1B2A6B";
 const BRAND_NAVY = "#0B1B4D";
 const BRAND_AMBER = "#F59E0B";
-const ACCENT_LIME = "#BFFF00";
+const ACCENT_INDIGO = "#4F46E5";
 
-const LOGO_MARK = `<path d="M4 24V8h3.6l5.4 8.3V8h3.8v16h-3.5l-5.6-8.8V24H4z" fill="${ACCENT_LIME}"/>`;
+const LOGO_MARK = `<path d="M4 24V8h3.6l5.4 8.3V8h3.8v16h-3.5l-5.6-8.8V24H4z" fill="${ACCENT_INDIGO}"/>`;
 const LOGO_WORD = `<text x="32" y="22" fill="#F0F4FF" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="600" letter-spacing="-0.02em">Northline</text>`;
 
 function ogSvg() {
@@ -32,8 +32,8 @@ function ogSvg() {
       <stop offset="100%" stop-color="${BRAND_AMBER}" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="15%" cy="80%" r="45%">
-      <stop offset="0%" stop-color="${ACCENT_LIME}" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="${ACCENT_LIME}" stop-opacity="0"/>
+      <stop offset="0%" stop-color="${ACCENT_INDIGO}" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="${ACCENT_INDIGO}" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>

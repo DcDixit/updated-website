@@ -29,7 +29,9 @@
   --color-border: var(--border);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
+  --color-brand: var(--color-accent);
+  --color-brand-strong: var(--color-accent-strong);
+  --color-brand-muted: var(--color-accent-muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -224,10 +226,13 @@
     color: var(--text-secondary);
   }
   .type-stat {
-    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+    font-family: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
     font-weight: 600;
-    line-height: 1.08;
+    line-height: 1.15;
     letter-spacing: -0.02em;
+    font-variant-numeric: normal;
+    font-feature-settings: normal;
   }
   .type-stat-label {
     font-size: 0.875rem;
@@ -446,6 +451,27 @@
   50% {
     transform: translate3d(0, 6px, 0);
     opacity: 0.95;
+  }
+}
+
+.clients-grid-enter {
+  animation: clients-grid-enter 280ms ease-out both;
+}
+
+@keyframes clients-grid-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-grid-enter {
+    animation: none;
   }
 }
 
@@ -831,6 +857,21 @@ figure[class*="aspect-"] {
   margin-top: 0.55em;
   border-radius: 50%;
   background: var(--color-accent);
+}
+
+/* ─── Site footer ───────────────────────────────────────────────── */
+.footer-watermark {
+  position: absolute;
+  right: -0.05em;
+  bottom: -0.12em;
+  font-size: clamp(6rem, 18vw, 14rem);
+  font-weight: 600;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: color-mix(in oklab, var(--foreground) 4%, transparent);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 @media (prefers-reduced-motion: reduce) {

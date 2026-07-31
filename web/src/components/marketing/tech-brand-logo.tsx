@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 type TechBrandLogoProps = {
   brand: TechBrandSlug;
   className?: string;
+  /** Render mark for dark tile backgrounds (inverts monochrome logos). */
+  onDark?: boolean;
 };
 
 const BRAND_ASSETS: Record<TechBrandSlug, string> = {
@@ -32,10 +34,11 @@ const BRAND_ASSETS: Record<TechBrandSlug, string> = {
 };
 
 /** Official brand marks (Simple Icons / brand assets) with optical normalization. */
-export function TechBrandLogo({ brand, className }: TechBrandLogoProps) {
+export function TechBrandLogo({ brand, className, onDark = false }: TechBrandLogoProps) {
   const label = TECH_BRAND_LABELS[brand];
   const src = BRAND_ASSETS[brand];
   const { height, maxWidth, themeAdaptive } = TECH_BRAND_VISUAL[brand];
+  const invertOnDark = onDark && themeAdaptive;
 
   return (
     <Image
@@ -45,11 +48,12 @@ export function TechBrandLogo({ brand, className }: TechBrandLogoProps) {
       height={height}
       unoptimized
       className={cn(
-        "w-auto object-contain object-center",
-        themeAdaptive && "dark:brightness-0 dark:invert",
+        "h-auto w-auto max-w-full object-contain object-center",
+        !onDark && themeAdaptive && "dark:brightness-0 dark:invert",
+        invertOnDark && "brightness-0 invert",
         className
       )}
-      style={{ height, maxWidth: maxWidth ?? undefined }}
+      style={{ height: onDark ? height + 4 : height, maxWidth: maxWidth ?? undefined, width: "auto" }}
     />
   );
 }

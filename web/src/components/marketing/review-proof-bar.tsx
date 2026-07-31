@@ -39,10 +39,15 @@ export function ReviewProofBar({ className, variant = "default" }: ReviewProofBa
             </p>
             {variant !== "inline" ? <p className="type-caption">{profile.subtitle}</p> : null}
           </div>
-          <div className={cn("flex shrink-0 items-center gap-3", variant === "inline" ? "" : "flex-col items-start sm:items-end")}>
+          <div
+            className={cn(
+              "flex shrink-0 items-center gap-3",
+              variant === "inline" ? "" : "flex-col items-start sm:items-end"
+            )}
+          >
             <div className="flex gap-0.5 text-[var(--color-accent)]" aria-hidden>
               {Array.from({ length: 5 }).map((_, i) => (
-                <IconStarFilled key={i} size={variant === "inline" ? 14 : variant === "compact" ? 14 : 16} />
+                <IconStarFilled key={i} size={variant === "inline" || variant === "compact" ? 14 : 16} />
               ))}
             </div>
             <span className="type-caption flex items-center gap-1 group-hover:text-foreground">

@@ -15,8 +15,8 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Insights",
-  description: `Articles on product design, AI workflows, SaaS onboarding, and digital strategy from ${brand.shortName}.`,
+  title: "Insights · SaaS, Trucking & Product Delivery",
+  description: `Practical articles from ${brand.shortName} on SaaS onboarding, trucking dispatch CRM, MVP choices, and digital product delivery for UK and US teams.`,
   path: "/insights",
   image: pageHeroVisuals.insights.src,
 });
@@ -38,8 +38,8 @@ export default function InsightsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(insightsListSchema) }} />
       <PageHero
         eyebrow="Insights"
-        title="Ideas for builders and product teams."
-        description="Practical articles on UI/UX, AI-assisted delivery, SaaS growth, and choosing the right approach for your product."
+        title="Notes for SaaS and operations teams."
+        description="Practical writing on onboarding, dispatch CRM, MVP trade-offs, and how we deliver — aimed at founders and operators, not keyword filler."
         visual={pageHeroVisuals.insights}
         priority
       />

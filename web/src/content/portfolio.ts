@@ -89,7 +89,8 @@ export const caseStudyDetails: Record<
     challenges: string;
     outcome: string;
     metrics: { label: string; value: string }[];
-    testimonial: string;
+    /** Optional — only use with approved client language; omit invented quotes */
+    testimonial?: string;
   }
 > = {
   "fleetflow-dispatch": {
@@ -106,8 +107,6 @@ export const caseStudyDetails: Record<
       { label: "Avg. exception response", value: "11 min" },
       { label: "Console uptime", value: "99.4%" },
     ],
-    testimonial:
-      "“Northline understood our ops floor as well as our roadmap - the console finally matches how dispatch actually works.” - VP Operations, FleetFlow",
   },
   "payroll-pro-saas": {
     client: "PayrollPro · B2B SaaS · UK & EU",
@@ -123,8 +122,6 @@ export const caseStudyDetails: Record<
       { label: "Time to first payroll run", value: "−41%" },
       { label: "Permissions tickets", value: "−36%" },
     ],
-    testimonial:
-      "“Design and engineering finally told one story - our investors noticed the difference in the demo.” - Head of Product, PayrollPro",
   },
   "finance-sync-hub": {
     client: "FinanceSync · FinOps platform · UK & US",
@@ -140,8 +137,6 @@ export const caseStudyDetails: Record<
       { label: "Mean detect time", value: "6 min" },
       { label: "Manual rework", value: "−54%" },
     ],
-    testimonial:
-      "“They shipped integration work finance could actually audit - month-end is calm again.” - Corporate Controller",
   },
   "healthtrack-mobile": {
     client: "HealthTrack · Digital health · US",
@@ -157,8 +152,6 @@ export const caseStudyDetails: Record<
       { label: "Booking support tickets", value: "−28%" },
       { label: "Weekly active patients", value: "+22%" },
     ],
-    testimonial:
-      "“Patients finally describe the app as ‘easy’ - that was our north star.” - Product Director, HealthTrack",
   },
   "brandlift-ecommerce": {
     client: "BrandLift · D2C electronics",
@@ -174,8 +167,6 @@ export const caseStudyDetails: Record<
       { label: "Average order value", value: "+12%" },
       { label: "Mobile checkout completion", value: "+19%" },
     ],
-    testimonial:
-      "“Our site finally looks and performs like the products we sell.” - Founder, BrandLift",
   },
   "crm-pulse-dashboard": {
     client: "CRMPulse · B2B sales org · 80 reps",
@@ -191,8 +182,6 @@ export const caseStudyDetails: Record<
       { label: "Forecast variance", value: "−18%" },
       { label: "CRM daily active reps", value: "+33%" },
     ],
-    testimonial:
-      "“For the first time, pipeline reviews use HubSpot - not spreadsheets.” - VP Sales",
   },
   "ai-support-automation": {
     client: "SupportAI · SaaS · 12k MAU",
@@ -208,8 +197,6 @@ export const caseStudyDetails: Record<
       { label: "First response time", value: "−38%" },
       { label: "CSAT score", value: "4.6 / 5" },
     ],
-    testimonial:
-      "“AI handles the repetitive stuff - our team focuses on customers who need real help.” - Head of Support",
   },
   "marketplace-mvp": {
     client: "LocalServe · Services marketplace · Pre-seed",
@@ -225,8 +212,6 @@ export const caseStudyDetails: Record<
       { label: "Vendors onboarded", value: "120" },
       { label: "Bookings in 90 days", value: "840" },
     ],
-    testimonial:
-      "“We proved the model without burning our runway on a full custom build.” - Co-founder, LocalServe",
   },
 };
 

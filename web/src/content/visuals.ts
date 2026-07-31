@@ -12,7 +12,7 @@ export type VisualAsset = {
 
 const img = {
   heroes: {
-    home: "/images/heroes/hero-home.jpg",
+    home: "/images/sections/section-team.jpg",
     about: "/images/heroes/hero-about.jpg",
     services: "/images/heroes/hero-services.jpg",
     contact: "/images/heroes/hero-contact.jpg",
@@ -54,6 +54,7 @@ const img = {
     fleetflow: "/brand/case-fleetflow.svg",
     payrollpro: "/brand/case-payrollpro.svg",
     financesync: "/brand/case-financesync.svg",
+    supportai: "/brand/case-supportai.svg",
   },
   insights: {
     aiDesign: "/images/insights/insight-ai-design.jpg",
@@ -99,7 +100,7 @@ export function isLocalBrandAsset(src: string) {
 }
 
 export const pageHeroVisuals = {
-  home: { src: img.heroes.home, alt: "SaaS analytics dashboard on laptop — product design and development" },
+  home: { src: img.heroes.home, alt: "Product designers and engineers collaborating in a modern workspace" },
   about: { src: img.heroes.about, alt: "Cross-functional product team collaborating in a modern workspace" },
   services: { src: img.heroes.services, alt: "UI/UX design workspace with interface wireframes and screens" },
   contact: { src: img.heroes.contact, alt: "Client and agency team in a project discovery meeting" },
@@ -189,7 +190,7 @@ export const caseStudyGallery: Record<CaseSlug, VisualAsset[]> = {
     { src: img.insights.crmUx, alt: "Pipeline forecast and deal risk view" }
   ),
   "ai-support-automation": gallery(
-    caseStudyVisuals["ai-support-automation"],
+    { src: img.caseMockups.supportai, alt: "SupportAI ticket automation product screenshot" },
     { src: img.tech.ai, alt: "Automated ticket routing workflow" },
     { src: img.cases.aisupport, alt: "Agent review queue for AI drafts" }
   ),
@@ -256,10 +257,54 @@ export const marketingSectionImages = {
   ctaPipeline: { src: img.heroes.process, alt: "Product team coordinating a release pipeline" },
 } as const satisfies Record<string, VisualAsset>;
 
-/** Client product logos from brand assets */
+/** Selected shipped products — case imagery linked to case studies */
 export const clientProductLogos = [
-  { name: "FleetFlow", src: "/brand/logos/fleetflow.svg", alt: "FleetFlow dispatch CRM" },
-  { name: "PayrollPro", src: "/brand/logos/payrollpro.svg", alt: "PayrollPro SaaS platform" },
-  { name: "FinanceSync", src: "/brand/logos/financesync.svg", alt: "FinanceSync accounting integration hub" },
-  { name: "SupportAI", src: "/brand/logos/supportai.svg", alt: "SupportAI automation platform" },
+  {
+    name: "FleetFlow",
+    src: "/brand/logos/fleetflow.svg",
+    image: img.cases.fleetflow,
+    alt: "FleetFlow dispatch CRM console",
+    href: "/work/fleetflow-dispatch",
+    category: "Logistics CRM",
+    metricValue: "−32%",
+    metricLabel: "handle time",
+    summary: "Dispatch console for 400+ daily routes with SLA intelligence.",
+    featured: true,
+  },
+  {
+    name: "PayrollPro",
+    src: "/brand/logos/payrollpro.svg",
+    image: img.cases.payrollpro,
+    alt: "PayrollPro SaaS onboarding dashboard",
+    href: "/work/payroll-pro-saas",
+    category: "B2B SaaS",
+    metricValue: "+18%",
+    metricLabel: "activation",
+    summary: "Progressive onboarding after SSO rollout.",
+    featured: false,
+  },
+  {
+    name: "FinanceSync",
+    src: "/brand/logos/financesync.svg",
+    image: img.cases.financesync,
+    alt: "FinanceSync reconciliation hub",
+    href: "/work/finance-sync-hub",
+    category: "FinOps",
+    metricValue: "99.3%",
+    metricLabel: "nightly sync",
+    summary: "QuickBooks & Xero reconciliation operators trust.",
+    featured: false,
+  },
+  {
+    name: "SupportAI",
+    src: "/brand/logos/supportai.svg",
+    image: img.cases.aisupport,
+    alt: "SupportAI ticket automation workspace",
+    href: "/work/ai-support-automation",
+    category: "AI Support",
+    metricValue: "−55%",
+    metricLabel: "tier-1 volume",
+    summary: "Ticket triage with human-approved AI drafts.",
+    featured: false,
+  },
 ] as const;
