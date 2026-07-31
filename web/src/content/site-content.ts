@@ -2,6 +2,7 @@
 
 export {
   brand,
+  reviewProfiles,
   siteContact,
   socialLinks,
 } from "@/content/brand";

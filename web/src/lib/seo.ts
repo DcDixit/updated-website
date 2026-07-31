@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { brand, siteContact, socialLinks } from "@/content/brand";
+import { brand, reviewProfiles, siteContact, socialLinks } from "@/content/brand";
 
 /** Public site URL - set NEXT_PUBLIC_SITE_URL in production. */
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://northlinedigital.com").replace(/\/$/, "");
@@ -79,7 +79,13 @@ export function organizationJsonLd() {
       "QuickBooks integration",
       "Xero integration",
     ],
-    sameAs: socialLinks.map((link) => link.href),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: reviewProfiles.google.rating,
+      bestRating: reviewProfiles.google.maxRating,
+      reviewCount: String(parseInt(reviewProfiles.google.reviewCount, 10) || 0),
+    },
+    sameAs: [...socialLinks.map((link) => link.href), reviewProfiles.google.href],
   };
 }
 

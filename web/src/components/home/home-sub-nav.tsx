@@ -54,7 +54,7 @@ export function HomeSubNav() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "type-caption inline-flex rounded-full px-3.5 py-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35",
+                    "inline-flex rounded-full px-3.5 py-2 text-sm font-medium font-sans transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35",
                     active
                       ? "bg-[var(--color-accent)] text-white dark:text-[#0f172a]"
                       : "text-[color:var(--text-secondary)] hover:bg-[var(--color-accent)] hover:text-white dark:hover:text-[#0f172a]"

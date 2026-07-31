@@ -50,6 +50,8 @@ export const homeJumpLinks = [
   { label: "Clients", href: "#clients" },
   { label: "Solutions", href: "#solutions" },
   { label: "Testimonials", href: "#testimonials" },
+  { label: "Tools", href: "#tools" },
+  { label: "Team", href: "#team" },
   { label: "Work", href: "#work" },
   { label: "Process", href: "#process" },
   { label: "FAQ", href: "#faq" },

@@ -8,7 +8,9 @@ import {
   IconClockHour4,
 } from "@tabler/icons-react";
 
+import { HomeClientLogoStrip } from "@/components/home/client-logo-strip";
 import { HomeClientsSection } from "@/components/home/home-clients-section";
+import { HomeClientWorkLogos } from "@/components/home/home-client-work-logos";
 import { DeliveryTrustRow } from "@/components/home/delivery-trust-row";
 import { HomeCaseStudyCard } from "@/components/home/home-case-study-card";
 import { HeroProductShowcase } from "@/components/home/hero-product-showcase";
@@ -16,11 +18,14 @@ import { HomeInsightsPreview } from "@/components/home/home-insights-preview";
 import { HomeSubNav } from "@/components/home/home-sub-nav";
 import { HomeTestimonialsSection } from "@/components/home/home-testimonials-section";
 import { ProcessSection } from "@/components/home/process-section";
+import { TeamSection } from "@/components/home/team-section";
 import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
 import { AnimatedStatValue } from "@/components/marketing/animated-stat-value";
 import { Reveal } from "@/components/marketing/reveal";
+import { ReviewProofBar } from "@/components/marketing/review-proof-bar";
 import { SectionHeader } from "@/components/marketing/section-header";
+import { TechLogoGrid } from "@/components/marketing/tech-logo-grid";
 import { HomeSolutionsSection } from "@/components/home/home-solutions-section";
 import {
   Accordion,
@@ -181,6 +186,14 @@ export function HomeMarketing() {
 
       <HomeSubNav />
 
+      <section className="border-y border-[var(--surface-border)] bg-background py-8">
+        <Container>
+          <HomeClientWorkLogos />
+        </Container>
+      </section>
+
+      <HomeClientLogoStrip />
+
       <HomeClientsSection />
 
       <SectionShell id="solutions" size="default" className="bg-[var(--surface-muted)]">
@@ -211,6 +224,7 @@ export function HomeMarketing() {
                 </div>
               ))}
             </div>
+            <ReviewProofBar variant="inline" className="mt-6" />
             <DeliveryTrustRow />
           </Container>
         </Reveal>
@@ -248,6 +262,30 @@ export function HomeMarketing() {
           </Container>
         </Reveal>
       </SectionShell>
+
+      <SectionShell id="tools" size="default">
+        <Reveal>
+          <Container>
+            <SectionHeader
+              eyebrow="AI & tools"
+              title="Modern stack. Senior oversight."
+              description="Design, development, and AI tooling chosen for speed and quality — with experienced review before anything reaches your product."
+            />
+            <div className="mt-10">
+              <TechLogoGrid categorized />
+            </div>
+            <Link
+              href="/technologies"
+              className="link-subtle type-body mt-8 inline-flex items-center gap-2 font-semibold text-[var(--color-accent)]"
+            >
+              See our full stack
+              <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
+            </Link>
+          </Container>
+        </Reveal>
+      </SectionShell>
+
+      <TeamSection variant="preview" />
 
       <SectionShell id="work" size="default">
         <Reveal>

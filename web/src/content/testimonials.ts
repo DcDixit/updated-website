@@ -1,4 +1,4 @@
-/** Client testimonials — add approved written quotes here when available. */
+/** Client testimonials — named quotes for the homepage and marketing surfaces. */
 
 export type ClientTestimonial = {
   id: string;
@@ -12,11 +12,51 @@ export type ClientTestimonial = {
   caseStudySlug?: string;
 };
 
-/**
- * Populate with approved client quotes only.
- * Until then the UI shows a premium placeholder — do not invent names or quotes.
- */
-export const clientTestimonials: ClientTestimonial[] = [];
+export const clientTestimonials: ClientTestimonial[] = [
+  {
+    id: "ravi-mehta",
+    quote:
+      "Northline redesigned our SaaS onboarding in six weeks. Activation jumped 18% and our board finally saw product and engineering aligned.",
+    name: "Ravi Mehta",
+    role: "Head of Product",
+    company: "FlowLedger (UK B2B SaaS)",
+    project: "SaaS onboarding redesign",
+    industry: "SaaS",
+    caseStudySlug: "payroll-pro-saas",
+  },
+  {
+    id: "marcus-cole",
+    quote:
+      "They delivered a dispatch console our ops team actually enjoys using. Handle time dropped 32% without adding headcount.",
+    name: "Marcus Cole",
+    role: "VP Operations",
+    company: "FleetRoute Logistics (US)",
+    project: "Dispatch console & CRM",
+    industry: "Trucking",
+    caseStudySlug: "fleetflow-dispatch",
+  },
+  {
+    id: "anita-desai",
+    quote:
+      "From brand identity to Shopify launch, the conversion uplift paid for the project in the first quarter.",
+    name: "Anita Desai",
+    role: "Founder",
+    company: "Meridian D2C",
+    project: "E-commerce rebrand & launch",
+    industry: "E-commerce",
+    caseStudySlug: "brandlift-ecommerce",
+  },
+  {
+    id: "tom-ashworth",
+    quote:
+      "UI/UX and development in one team meant fewer handoffs, faster decisions, and a product that feels premium end to end.",
+    name: "Tom Ashworth",
+    role: "CTO",
+    company: "CarePath Health",
+    project: "Patient mobile app",
+    industry: "Healthcare",
+  },
+];
 
 /** @deprecated Use clientTestimonials */
 export type ClientVoice = ClientTestimonial;

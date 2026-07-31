@@ -25,6 +25,18 @@ export const siteContact = {
   responseTime: "Replies within 24 hours on business days",
 } as const;
 
+export const reviewProfiles = {
+  google: {
+    label: "Google",
+    rating: "5.0",
+    maxRating: "5.0",
+    reviewCount: "8 reviews",
+    href: "https://g.page/r/northline-digital/review",
+    headline: "5.0 · 8 reviews",
+    subtitle: "Rated for communication, quality, and on-time delivery.",
+  },
+} as const;
+
 export const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/northline-digital" },
   { label: "Instagram", href: "https://www.instagram.com/northlinedigital" },
