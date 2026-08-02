@@ -85,11 +85,11 @@ export {
 
 /** Homepage hero - dual-industry agency positioning. */
 export const homeHero = {
-  eyebrowBadge: "Digital product agency",
-  headline: "Software that fits how your team actually works.",
-  headlineEmphasis: "actually works",
-  lead: "Design and engineering for UK SaaS products and US trucking operations — one in-house team from discovery to launch.",
+  eyebrowBadge: "Product design & engineering",
+  headline: "We design the software your ops team won't want to work around.",
+  headlineEmphasis: "won't want to work around",
+  lead: "Dispatch consoles, SaaS dashboards, fleet tools, and QuickBooks/Xero integrations — designed and built by a team that's shipped 40+ of them.",
   leadDetail:
-    "We build SaaS platforms, dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations with clear ownership and weekly delivery.",
+    "Every solution we offer comes from work we've actually done — not service categories we invented to fill a menu.",
 } as const;
 

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { brand, reviewProfiles, siteContact, socialLinks } from "@/content/brand";
 
 /** Public site URL - set NEXT_PUBLIC_SITE_URL in production. */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://northlinedigital.com").replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://krivatechnologies.com").replace(/\/$/, "");
 
 const defaultOgImage = `${siteUrl}/brand/og-default.png`;
 

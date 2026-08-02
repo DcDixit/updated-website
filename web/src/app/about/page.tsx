@@ -27,7 +27,7 @@ const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description: `${brand.legalName} — in-house design and engineering for UK SaaS and US trucking, founded in ${brand.founded}. Remote-first from Ahmedabad, India.`,
+  description: `${brand.legalName} — product design and engineering studio founded by a designer with 9+ years of experience. Remote-first from Ahmedabad, India.`,
   path: "/about",
 });
 
@@ -36,8 +36,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="Design and engineering under one roof."
-        description="We're a focused product studio for UK SaaS teams and US trucking operators — senior practitioners, clear ownership, and delivery you can inspect week to week."
+        title="Founded by a designer who's shipped 40+ products."
+        description="KRIVA is a product design and engineering studio. We build SaaS platforms, trucking software, and accounting integrations — the same work our founder has done for 9+ years, now under one roof with a dedicated team."
         visual={pageHeroVisuals.about}
         priority
         actions={
@@ -73,10 +73,10 @@ export default function AboutPage() {
             <SectionHeader eyebrow="Our story" title="Why we exist." />
             <div className="space-y-4">
               <p className="type-body text-[color:var(--text-secondary)]">
-                {brand.shortName} started in {brand.founded} with a simple frustration: too many agencies sell strategy and then scramble to ship. Clients end up coordinating separate design, engineering, and integration vendors — and paying for the gaps between them.
+                I've spent the last nine years designing and building software — SaaS dashboards, trucking dispatch tools, QuickBooks integrations, mobile apps. Most of that work was done inside agencies and product companies where I watched the same problems repeat: design teams handing off specs that engineering couldn't build, clients managing three vendors for one project, and products that looked polished in Figma but fell apart in production.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                We keep the work in-house: UI/UX, web and mobile engineering, API integrations, and practical automation. One conversation, one delivery standard, no agency-to-agency handoffs.
+                KRIVA started because I wanted to build a studio where design and engineering work together from day one — where the person who designs the interface understands the API it connects to, and where clients talk to the people doing the work, not a project manager relaying messages.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
                 We focus where we can be specific: UK SaaS teams that need product design and build to keep pace with the roadmap, and US trucking operators who need software shaped around dispatch, fleet, and back-office reality.
@@ -95,7 +95,7 @@ export default function AboutPage() {
       <Section tone="default" dividerTop>
         <Container className="grid max-w-5xl gap-10 lg:grid-cols-2 lg:items-start">
           <div className="space-y-6">
-            <SectionHeader eyebrow="Company" title="Northline at a glance." />
+            <SectionHeader eyebrow="Company" title="KRIVA at a glance." />
             <dl className="grid gap-4 sm:grid-cols-2">
               <div className="surface-card p-5">
                 <dt className="type-caption uppercase tracking-wide">Legal entity</dt>
@@ -135,7 +135,7 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="font-medium text-[var(--color-accent)] hover:opacity-90"
                 >
-                  Northline Digital on LinkedIn
+                  KRIVA Technologies on LinkedIn
                 </Link>
               </li>
             </ul>

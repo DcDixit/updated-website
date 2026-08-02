@@ -103,7 +103,7 @@ export const insightArticles: Record<
   { author: string; blocks: readonly InsightBlock[] }
 > = {
   "ai-in-product-design-2026": {
-    author: "Northline Product Team",
+    author: "KRIVA Product Team",
     blocks: [
       {
         type: "paragraph",
@@ -150,7 +150,7 @@ export const insightArticles: Record<
     ],
   },
   "saas-onboarding-patterns": {
-    author: "Northline Product Team",
+    author: "KRIVA Product Team",
     blocks: [
       {
         type: "paragraph",
@@ -199,7 +199,7 @@ export const insightArticles: Record<
     ],
   },
   "saas-mvp-uk-guide": {
-    author: "Northline Product Team",
+    author: "KRIVA Product Team",
     blocks: [
       {
         type: "paragraph",
@@ -258,7 +258,7 @@ export const insightArticles: Record<
     ],
   },
   "no-code-vs-custom-mvp": {
-    author: "Northline Strategy Team",
+    author: "KRIVA Strategy Team",
     blocks: [
       {
         type: "paragraph",
@@ -309,7 +309,7 @@ export const insightArticles: Record<
     ],
   },
   "trucking-dispatch-crm-guide": {
-    author: "Northline Logistics Product Team",
+    author: "KRIVA Logistics Product Team",
     blocks: [
       {
         type: "paragraph",
@@ -373,7 +373,7 @@ export const insightArticles: Record<
     ],
   },
   "crm-dashboard-ux-patterns": {
-    author: "Northline Product Team",
+    author: "KRIVA Product Team",
     blocks: [
       {
         type: "paragraph",

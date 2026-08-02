@@ -16,8 +16,8 @@ import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Contact · Book a discovery call",
-  description: `Contact ${brand.shortName} to book a discovery call or send a project brief for UK SaaS or US trucking software. We reply within 24 hours on business days.`,
+  title: "Contact · Send a Brief or Book a Call",
+  description: `Contact ${brand.shortName} to start a project. Send a brief or book a 30-minute discovery call. We respond within one business day with fit assessment and clear next steps.`,
   path: "/contact",
   image: pageHeroVisuals.contact.src,
 });
@@ -27,8 +27,8 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Tell us what you're building."
-        description="Book a 30-minute discovery call or send a brief. We reply within 24 hours on business days with fit, questions, and honest next steps — no fabricated pressure tactics."
+        title="Start a conversation."
+        description="Send a brief or book a call. We'll get back to you within one business day with a clear plan and honest next steps — no sales pitch, just clarity on fit."
         visual={pageHeroVisuals.contact}
         priority
         actions={

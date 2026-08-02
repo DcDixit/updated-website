@@ -9,7 +9,7 @@
     "lint": "eslint",
     "lighthouse": "node scripts/lighthouse.mjs http://localhost:3000 homepage",
     "lighthouse:contact": "node scripts/lighthouse.mjs http://localhost:3000/contact contact",
-    "lighthouse:prod": "node scripts/lighthouse.mjs https://northlinedigital.com homepage-prod",
+    "lighthouse:prod": "node scripts/lighthouse.mjs https://krivatechnologies.com homepage-prod",
     "images:fetch": "node scripts/fetch-marketing-images.mjs",
     "brand:images": "node scripts/generate-brand-images.mjs",
     "a11y": "node scripts/axe-audit.mjs"

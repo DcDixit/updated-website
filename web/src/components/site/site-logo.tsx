@@ -15,7 +15,7 @@ export function SiteLogo({ className, href = "/" }: SiteLogoProps) {
         "focus-visible:ring-ring z-[1] flex min-w-0 shrink-0 items-center rounded-md text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
-      aria-label="Northline — home"
+      aria-label="KRIVA — home"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export function SiteLogo({ className, href = "/" }: SiteLogoProps) {
           fontWeight="600"
           letterSpacing="-0.02em"
         >
-          Northline
+          KRIVA
         </text>
       </svg>
     </Link>

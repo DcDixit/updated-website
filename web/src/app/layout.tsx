@@ -26,25 +26,25 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.shortName} · SaaS & Trucking Digital Product Agency`,
+    default: `${brand.shortName} · Product Design & Engineering`,
     template: `%s · ${brand.shortName}`,
   },
   description:
-    "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+    "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations — dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: `${brand.shortName} · SaaS & Trucking Digital Product Agency`,
+    title: `${brand.shortName} · Product Design & Engineering Agency`,
     description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+      "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations — dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
     images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.shortName} · SaaS & Trucking Digital Product Agency`,
+    title: `${brand.shortName} · Product Design & Engineering Agency`,
     description:
-      "Northline designs and builds SaaS platforms for UK startups and trucking software for US operators — dispatch CRM, fleet dashboards, and accounting integrations.",
+      "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations — dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
     images: [`${siteUrl}/brand/og-default.png`],
   },
   robots: {

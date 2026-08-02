@@ -9,7 +9,7 @@ export const faqHome = [
   },
   {
     q: "Do you subcontract any work?",
-    a: "No. Every designer and engineer on your project is a permanent Northline team member. We don't use freelance marketplaces or offshore subcontractors. The team you meet in the first call is the team that builds your product.",
+    a: "No. Every designer and engineer on your project is a permanent KRIVA team member. We don't use freelance marketplaces or offshore subcontractors. The team you meet in the first call is the team that builds your product.",
   },
   {
     q: "Do you work with startups and enterprises?",
@@ -61,10 +61,10 @@ export const faqPageExtra = [
 ] as const;
 
 export const stats = [
-  { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
-  { value: "100%", label: "End-to-end ownership", caption: "Design, engineering & delivery" },
+  { value: "40+", label: "Products shipped", caption: "SaaS, logistics, CRM & automation" },
+  { value: "9+", label: "Years of experience", caption: "Shipping products across markets" },
   { value: "4", label: "Time zones covered", caption: "US, UK, India & APAC overlap" },
-  { value: "8+", label: "Years shipping", caption: "Products and digital platforms" },
+  { value: "1", label: "Team, no subcontracting", caption: "Everyone on your project is ours" },
 ] as const;
 
 export const processSteps = [

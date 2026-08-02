@@ -67,7 +67,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
               )}
             >
               <IconBrandLinkedin size={16} stroke={1.5} aria-hidden />
-              LinkedIn - Northline Digital
+              LinkedIn - KRIVA Technologies
             </Link>
           </article>
         ))}

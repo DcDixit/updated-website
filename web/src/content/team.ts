@@ -1,10 +1,10 @@
-/** Leadership and team - aligned with Northline Digital company profile. */
+/** Leadership and team - aligned with KRIVA Technologies company profile. */
 
 import { brand, siteContact, socialLinks } from "@/content/brand";
 
 const companyLinkedIn =
   socialLinks.find((link) => link.label === "LinkedIn")?.href ??
-  "https://www.linkedin.com/company/northline-digital";
+  "https://www.linkedin.com/company/kriva-technologies";
 
 export const teamStats = [
   { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },

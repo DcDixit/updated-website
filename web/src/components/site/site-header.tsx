@@ -143,8 +143,8 @@ export function SiteHeader() {
                 className="w-[min(400px,92vw)] gap-0 overflow-y-auto border-l border-[var(--surface-border)] p-0"
               >
                 <SheetHeader className="border-b border-[var(--surface-border)] p-6 text-left">
-                  <SheetTitle className="font-semibold tracking-tight">Northline</SheetTitle>
-                  <p className="type-caption mt-1">SaaS products. Trucking platforms. Accounting integrations.</p>
+                  <SheetTitle className="font-semibold tracking-tight">KRIVA</SheetTitle>
+                  <p className="type-caption mt-1">Product design & engineering. SaaS. Trucking. Integrations.</p>
                 </SheetHeader>
                 <nav className="flex flex-col p-4" aria-label="Mobile">
                   <p className="type-badge-label mb-2 px-3">Solutions & services</p>

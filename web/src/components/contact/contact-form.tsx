@@ -164,36 +164,21 @@ export function ContactForm() {
       ) : null}
 
       <div className={cn("space-y-6", isLoading && "sr-only")}>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div className="space-y-2">
-            <Label htmlFor="name" className="type-body font-semibold text-foreground">
-              Name *
-            </Label>
-            <Input
-              id="name"
-              name="name"
-              required
-              placeholder="Your name"
-              autoComplete="name"
-              disabled={status === "sent"}
-              aria-invalid={status === "error" ? true : undefined}
-              aria-describedby={status === "error" ? errorId : undefined}
-              className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="company" className="type-body font-semibold text-foreground">
-              Company
-            </Label>
-            <Input
-              id="company"
-              name="company"
-              placeholder="Company name (optional)"
-              autoComplete="organization"
-              disabled={status === "sent"}
-              className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
-            />
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="name" className="type-body font-semibold text-foreground">
+            Name *
+          </Label>
+          <Input
+            id="name"
+            name="name"
+            required
+            placeholder="Your name"
+            autoComplete="name"
+            disabled={status === "sent"}
+            aria-invalid={status === "error" ? true : undefined}
+            aria-describedby={status === "error" ? errorId : undefined}
+            className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
+          />
         </div>
 
         <div className="space-y-2">
@@ -212,6 +197,36 @@ export function ContactForm() {
             aria-describedby={status === "error" ? errorId : undefined}
             className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
           />
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="company" className="type-body font-semibold text-foreground">
+              Company
+            </Label>
+            <Input
+              id="company"
+              name="company"
+              placeholder="Company name (optional)"
+              autoComplete="organization"
+              disabled={status === "sent"}
+              className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="website-visible" className="type-body font-semibold text-foreground">
+              Website
+            </Label>
+            <Input
+              id="website-visible"
+              name="website_url"
+              type="url"
+              placeholder="https://yourcompany.com (optional)"
+              autoComplete="url"
+              disabled={status === "sent"}
+              className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
+            />
+          </div>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
@@ -326,8 +341,8 @@ export function ContactForm() {
 
       {status === "sent" ? (
         <div className="surface-card border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-4" role="status">
-          <p className="type-body font-semibold text-foreground">Message sent. Thank you!</p>
-          <p className="type-caption mt-2">We typically reply within 24 hours on business days.</p>
+          <p className="type-body font-semibold text-foreground">Thank you for your message.</p>
+          <p className="type-caption mt-2">We'll get back to you within one business day with fit assessment and clear next steps.</p>
         </div>
       ) : null}
 
@@ -339,9 +354,9 @@ export function ContactForm() {
           disabled={isLoading || status === "sent"}
           aria-busy={isLoading}
         >
-          {isLoading ? "Sending…" : status === "sent" ? "Sent" : "Send message"}
+          {isLoading ? "Sending…" : status === "sent" ? "Sent" : "Send brief"}
         </Button>
-        <p className="type-caption max-w-sm">We respond within 24 hours. Your details are kept confidential.</p>
+        <p className="type-caption max-w-sm">We respond within 24 hours on business days. Your details stay confidential.</p>
       </div>
     </form>
   );

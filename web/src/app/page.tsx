@@ -5,13 +5,13 @@ import { brand } from "@/content/site-content";
 import { pageHeroVisuals } from "@/content/visuals";
 import { buildPageMetadata } from "@/lib/seo";
 
-const homeTitle = `${brand.shortName} · SaaS & Trucking Digital Product Agency`;
+const homeTitle = `${brand.shortName} · Product Design & Engineering Agency`;
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: homeTitle,
     description:
-      "In-house digital product agency for UK SaaS and US trucking — custom dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and SaaS product design & development.",
+      "Product design and engineering for SaaS platforms, trucking dispatch software, and QuickBooks/Xero integrations. 40+ products shipped by a team with 9+ years experience.",
     path: "/",
     image: pageHeroVisuals.home.src,
   }),

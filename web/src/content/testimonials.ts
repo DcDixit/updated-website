@@ -16,7 +16,7 @@ export const clientTestimonials: ClientTestimonial[] = [
   {
     id: "ravi-mehta",
     quote:
-      "Northline redesigned our SaaS onboarding in six weeks. Activation jumped 18% and our board finally saw product and engineering aligned.",
+      "They redesigned our SaaS onboarding in six weeks. Activation jumped 18% and our board finally saw product and engineering aligned.",
     name: "Ravi Mehta",
     role: "Head of Product",
     company: "FlowLedger (UK B2B SaaS)",
