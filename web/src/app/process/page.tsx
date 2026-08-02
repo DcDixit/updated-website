@@ -27,7 +27,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Process · How we deliver",
   description:
-    "Northline's five-phase delivery process for UK SaaS and US trucking software — discovery, design, build, launch, and support with weekly demos.",
+    "Northline's five-phase delivery process for UK SaaS and US trucking software - discovery, design, build, launch, and support with weekly demos.",
   path: "/process",
   image: pageHeroVisuals.process.src,
 });
@@ -38,7 +38,7 @@ export default function ProcessPage() {
       <PageHero
         eyebrow="Process"
         title="Five phases. Visible progress."
-        description="Discovery, design, build, launch, and support. Each phase has milestones, weekly demos, and deliverables you sign off before we move on. Tools help us move faster — people own every decision."
+        description="Discovery, design, build, launch, and support. Each phase has milestones, weekly demos, and deliverables you sign off before we move on. Tools help us move faster - people own every decision."
         visual={pageHeroVisuals.process}
         priority
         actions={
@@ -146,3 +146,4 @@ export default function ProcessPage() {
     </>
   );
 }
+

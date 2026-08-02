@@ -31,7 +31,7 @@ export default async function WorkPage({ searchParams }: Props) {
       <PageHero
         eyebrow="Selected work"
         title="Illustrative projects from our focus markets."
-        description="Anonymized examples across UK SaaS, US trucking and logistics, CRM, QuickBooks/Xero integrations, and practical automation — with outcome metrics from delivery, not review platforms."
+        description="Anonymized examples across UK SaaS, US trucking and logistics, CRM, QuickBooks/Xero integrations, and practical automation - with outcome metrics from delivery, not review platforms."
         visual={pageHeroVisuals.work}
         priority
         actions={
@@ -68,3 +68,4 @@ export default async function WorkPage({ searchParams }: Props) {
     </>
   );
 }
+

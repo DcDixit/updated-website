@@ -74,7 +74,7 @@ const differentiators = [
   {
     icon: IconRocket,
     title: "One team, end to end",
-    body: "Design and engineering stay on the same engagement — fewer handoffs, clearer decisions, and a product that feels consistent.",
+    body: "Design and engineering stay on the same engagement - fewer handoffs, clearer decisions, and a product that feels consistent.",
   },
   {
     icon: IconBrandGithub,
@@ -84,12 +84,12 @@ const differentiators = [
   {
     icon: IconShieldCheck,
     title: "Transparent by default",
-    body: "Shared project board, weekly demos, and progress you can see — not status theatre after a sprint closes.",
+    body: "Shared project board, weekly demos, and progress you can see - not status theatre after a sprint closes.",
   },
   {
     icon: IconArrowUpRight,
     title: "Built for your market",
-    body: "Deep focus on UK SaaS product work and US trucking operations — dispatch, fleet, CRM, and accounting integrations.",
+    body: "Deep focus on UK SaaS product work and US trucking operations - dispatch, fleet, CRM, and accounting integrations.",
   },
 ];
 
@@ -269,7 +269,7 @@ export function HomeMarketing() {
             <SectionHeader
               eyebrow="AI & tools"
               title="Modern stack. Senior oversight."
-              description="Design, development, and AI tooling chosen for speed and quality — with experienced review before anything reaches your product."
+              description="Design, development, and AI tooling chosen for speed and quality - with experienced review before anything reaches your product."
             />
             <div className="mt-10">
               <TechLogoGrid categorized />
@@ -295,7 +295,7 @@ export function HomeMarketing() {
                 className="sm:max-w-lg"
                 eyebrow="Selected work"
                 title="Illustrative projects across our focus markets."
-                description="Anonymized examples of SaaS, trucking & logistics, CRM, and integration work. Metrics reflect project outcomes — not third-party review scores."
+                description="Anonymized examples of SaaS, trucking & logistics, CRM, and integration work. Metrics reflect project outcomes - not third-party review scores."
               />
               <Link
                 href={primaryCtas.viewWork.href}
@@ -398,3 +398,4 @@ export function HomeMarketing() {
     </>
   );
 }
+

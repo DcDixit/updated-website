@@ -268,7 +268,7 @@ export function SolutionsMegaMenu({ active }: SolutionsMegaMenuProps) {
 
           <div className="flex flex-col gap-3 border-t border-[var(--section-divider)] bg-[color-mix(in_oklab,var(--surface-muted)_25%,var(--popover))] px-6 py-3.5 sm:flex-row sm:items-center sm:justify-between">
             <p className="type-caption max-w-xl leading-relaxed">
-              Not sure where to start? Book a discovery call — we&apos;ll recommend the right path.
+              Not sure where to start? Book a discovery call - we&apos;ll recommend the right path.
             </p>
             <div className="flex shrink-0 items-center gap-5">
               <Link
@@ -377,3 +377,4 @@ export function MobileSolutionsNav() {
 }
 
 export const MobileServicesNav = MobileSolutionsNav;
+

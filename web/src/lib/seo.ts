@@ -214,3 +214,4 @@ export function caseStudyJsonLd(input: {
     keywords: input.metrics.map((metric) => `${metric.label} ${metric.value}`).join(", "),
   };
 }
+

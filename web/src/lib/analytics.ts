@@ -56,3 +56,4 @@ export function trackPageView(input: { path: string; title: string }) {
     page_location: typeof window !== "undefined" ? window.location.href : input.path,
   });
 }
+

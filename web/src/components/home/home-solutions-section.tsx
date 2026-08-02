@@ -220,8 +220,8 @@ export function HomeSolutionsSection() {
     <>
       <SectionHeader
         eyebrow="Solutions"
-        title="UK SaaS and US trucking — built by one team."
-        description="Design and engineering under one roof — each solution area shaped around how SaaS product teams and trucking operators actually work."
+        title="UK SaaS and US trucking - built by one team."
+        description="Design and engineering under one roof - each solution area shaped around how SaaS product teams and trucking operators actually work."
       />
 
       <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">
@@ -349,3 +349,4 @@ export function HomeSolutionsSection() {
     </>
   );
 }
+

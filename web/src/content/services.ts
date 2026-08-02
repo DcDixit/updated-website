@@ -541,3 +541,4 @@ export const serviceDetails: Record<
 export function servicesByCategory(category: ServiceCategory) {
   return services.filter((s) => s.category === category);
 }
+

@@ -149,7 +149,7 @@ export function HomeTestimonialsSection({
                 description={
                   hasTestimonials
                     ? "Straight feedback from founders, ops leads, and finance teams we've shipped with."
-                    : "Measured results from SaaS, trucking, and finance platforms — not invented quotes."
+                    : "Measured results from SaaS, trucking, and finance platforms - not invented quotes."
                 }
               />
               <Link
@@ -179,3 +179,4 @@ export function HomeTestimonialsSection({
     </SectionShell>
   );
 }
+

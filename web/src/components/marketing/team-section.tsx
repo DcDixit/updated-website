@@ -26,7 +26,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
           <p className="type-badge-label">Team</p>
           <h2 className="type-h2 text-foreground">Practices behind every engagement.</h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            Design, engineering, delivery, and automation — senior ownership that stays on the project from discovery through launch.
+            Design, engineering, delivery, and automation - senior ownership that stays on the project from discovery through launch.
           </p>
         </div>
       ) : null}
@@ -75,3 +75,4 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
     </div>
   );
 }
+

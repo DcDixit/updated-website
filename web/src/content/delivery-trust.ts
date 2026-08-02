@@ -1,4 +1,4 @@
-/** Operational trust principles — honest claims for agency buyers (not fake compliance badges). */
+/** Operational trust principles - honest claims for agency buyers (not fake compliance badges). */
 
 export const deliveryTrustPrinciples = [
   {
@@ -18,3 +18,4 @@ export const deliveryTrustPrinciples = [
     body: "Encrypted channels, scoped tool access, and documented delivery handoffs.",
   },
 ] as const;
+

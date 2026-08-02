@@ -90,3 +90,4 @@ export function AnimatedStatValue({ value, className }: { value: string; classNa
     </span>
   );
 }
+

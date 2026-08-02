@@ -482,3 +482,4 @@ export function getRelatedInsights(slug: InsightSlug, limit = 2) {
   const rest = insightPosts.filter((p) => p.slug !== slug && p.category !== current.category);
   return [...sameCategory, ...rest].slice(0, limit);
 }
+

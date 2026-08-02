@@ -11,7 +11,7 @@ export type MegaMenuServiceGroup = {
   }[];
 };
 
-/** One-line teasers for the solutions panel — not full page summaries. */
+/** One-line teasers for the solutions panel - not full page summaries. */
 export const solutionMenuTeasers: Record<SolutionSlug, string> = {
   saas: "Onboarding, dashboards, and MVPs for SaaS teams.",
   "trucking-logistics": "Dispatch CRM, fleet dashboards, and driver apps.",
@@ -70,3 +70,4 @@ export function getMegaMenuServiceTitle(
 ) {
   return item.title ?? fallbackTitle;
 }
+

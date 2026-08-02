@@ -69,3 +69,4 @@ export const culturePoints = [
     body: "Clean Figma libraries, typed codebases, and handoff documentation your team can actually use. Long after the project closes, you shouldn't need to call us for basics.",
   },
 ] as const;
+

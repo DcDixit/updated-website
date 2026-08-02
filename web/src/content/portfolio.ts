@@ -89,7 +89,7 @@ export const caseStudyDetails: Record<
     challenges: string;
     outcome: string;
     metrics: { label: string; value: string }[];
-    /** Optional — only use with approved client language; omit invented quotes */
+    /** Optional - only use with approved client language; omit invented quotes */
     testimonial?: string;
   }
 > = {
@@ -216,3 +216,4 @@ export const caseStudyDetails: Record<
 };
 
 export const featuredCaseStudies = caseStudies.filter((c) => c.featured);
+

@@ -88,8 +88,9 @@ export const homeHero = {
   eyebrowBadge: "Product design & engineering",
   headline: "We design the software your ops team won't want to work around.",
   headlineEmphasis: "won't want to work around",
-  lead: "Dispatch consoles, SaaS dashboards, fleet tools, and QuickBooks/Xero integrations — designed and built by a team that's shipped 40+ of them.",
+  lead: "Dispatch consoles, SaaS dashboards, fleet tools, and QuickBooks/Xero integrations - designed and built by a team that's shipped 40+ of them.",
   leadDetail:
-    "Every solution we offer comes from work we've actually done — not service categories we invented to fill a menu.",
+    "Every solution we offer comes from work we've actually done - not service categories we invented to fill a menu.",
 } as const;
+
 

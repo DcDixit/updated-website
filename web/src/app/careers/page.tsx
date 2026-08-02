@@ -19,7 +19,7 @@ const applyMailto = (subject: string) =>
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Careers",
-  description: `Join ${brand.shortName} — open roles for designers, engineers, and automation specialists. Remote-first with UK and US client overlap.`,
+  description: `Join ${brand.shortName} - open roles for designers, engineers, and automation specialists. Remote-first with UK and US client overlap.`,
   path: "/careers",
   image: pageHeroVisuals.careers.src,
 });
@@ -80,3 +80,4 @@ export default function CareersPage() {
     </>
   );
 }
+

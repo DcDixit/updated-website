@@ -67,3 +67,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...pages, ...solutionPages, ...servicePages, ...workPages, ...insightPages];
 }
+

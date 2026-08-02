@@ -14,7 +14,7 @@ type HeroCtaGroupProps = {
   secondaryHref?: string;
 };
 
-/** Primary + secondary CTA pair — matches hero styling. */
+/** Primary + secondary CTA pair - matches hero styling. */
 export function HeroCtaGroup({
   className,
   trackingLocation = "home-cta",
@@ -47,3 +47,4 @@ export function HeroCtaGroup({
     </div>
   );
 }
+

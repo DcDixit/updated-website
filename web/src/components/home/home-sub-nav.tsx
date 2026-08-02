@@ -7,7 +7,7 @@ import { Container } from "@/components/layout/container";
 import { homeJumpLinks } from "@/content/audience";
 import { cn } from "@/lib/utils";
 
-/** Sticky in-page navigation — homepage only. */
+/** Sticky in-page navigation - homepage only. */
 export function HomeSubNav() {
   const [visible, setVisible] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
@@ -71,3 +71,4 @@ export function HomeSubNav() {
     </nav>
   );
 }
+

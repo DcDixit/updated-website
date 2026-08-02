@@ -9,7 +9,7 @@ type DeliveryTrustRowProps = {
   className?: string;
 };
 
-/** Operational trust band — sits under stats & reviews, before social proof. */
+/** Operational trust band - sits under stats & reviews, before social proof. */
 export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
   return (
     <section className={cn("mt-10", className)} aria-labelledby="delivery-trust-heading">
@@ -47,3 +47,4 @@ export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
     </section>
   );
 }
+

@@ -60,3 +60,4 @@ export const footerColumns = [
     ],
   },
 ] as const;
+

@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Industries · SaaS, Trucking, Integrations & CRM",
   description:
-    "How Northline delivers for UK SaaS, US trucking, QuickBooks/Xero integrations, car transportation, and CRM — with tailored approaches and illustrative work.",
+    "How Northline delivers for UK SaaS, US trucking, QuickBooks/Xero integrations, car transportation, and CRM - with tailored approaches and illustrative work.",
   path: "/industries",
   image: pageHeroVisuals.industries.src,
 });
@@ -31,7 +31,7 @@ export default function IndustriesPage() {
       <PageHero
         eyebrow="Industries"
         title="Markets we know well enough to be specific."
-        description="Each industry links to a dedicated solution path and illustrative work — so you can see how we approach your market before a discovery call."
+        description="Each industry links to a dedicated solution path and illustrative work - so you can see how we approach your market before a discovery call."
         visual={pageHeroVisuals.industries}
         priority
         actions={
@@ -96,3 +96,4 @@ export default function IndustriesPage() {
     </>
   );
 }
+

@@ -35,7 +35,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Tools & Stack",
   description:
-    "Design and engineering stack Northline uses for SaaS and trucking products — Figma, Next.js, React, APIs, and carefully reviewed AI tooling.",
+    "Design and engineering stack Northline uses for SaaS and trucking products - Figma, Next.js, React, APIs, and carefully reviewed AI tooling.",
   path: "/technologies",
   image: pageHeroVisuals.technologies.src,
 });
@@ -46,7 +46,7 @@ export default function TechnologiesPage() {
       <PageHero
         eyebrow="Tools & stack"
         title="A practical stack with senior oversight."
-        description="Figma, Next.js, React Native, APIs, and carefully reviewed AI tooling. We choose for maintainability — and people approve what ships."
+        description="Figma, Next.js, React Native, APIs, and carefully reviewed AI tooling. We choose for maintainability - and people approve what ships."
         visual={pageHeroVisuals.technologies}
         priority
         actions={
@@ -118,3 +118,4 @@ export default function TechnologiesPage() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-/** Client testimonials — named quotes for the homepage and marketing surfaces. */
+/** Client testimonials - named quotes for the homepage and marketing surfaces. */
 
 export type ClientTestimonial = {
   id: string;
@@ -85,3 +85,4 @@ export const industryFocus: IndustryFocus[] = [
 export const clientLogos = industryFocus;
 
 export type ClientLogo = IndustryFocus & { website?: string };
+

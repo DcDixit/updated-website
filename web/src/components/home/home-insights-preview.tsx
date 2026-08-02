@@ -23,7 +23,7 @@ export function HomeInsightsPreview() {
               className="sm:max-w-lg"
               eyebrow="Insights"
               title="Notes from recent delivery work."
-              description="Onboarding, dispatch CRM, MVP trade-offs, and how we ship — written for founders and operators."
+              description="Onboarding, dispatch CRM, MVP trade-offs, and how we ship - written for founders and operators."
             />
             <Link href="/insights" className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full sm:w-auto")}>
               View all insights
@@ -59,3 +59,4 @@ export function HomeInsightsPreview() {
     </SectionShell>
   );
 }
+

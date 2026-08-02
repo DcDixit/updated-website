@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FAQ · Working with Northline",
-  description: `Common questions about working with ${brand.shortName} — services for UK SaaS and US trucking, timelines, pricing, ownership, and process.`,
+  description: `Common questions about working with ${brand.shortName} - services for UK SaaS and US trucking, timelines, pricing, ownership, and process.`,
   path: "/faq",
   image: pageHeroVisuals.faq.src,
 });
@@ -37,7 +37,7 @@ export default function FAQPage() {
       <PageHero
         eyebrow="FAQ"
         title="Straight answers before you book a call."
-        description="Services, timelines, pricing, ownership, and how we collaborate with your team — without the usual agency vagueness."
+        description="Services, timelines, pricing, ownership, and how we collaborate with your team - without the usual agency vagueness."
         visual={pageHeroVisuals.faq}
         priority
         actions={
@@ -82,3 +82,4 @@ export default function FAQPage() {
     </>
   );
 }
+

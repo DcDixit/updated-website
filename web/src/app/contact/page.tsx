@@ -28,7 +28,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Start a conversation."
-        description="Send a brief or book a call. We'll get back to you within one business day with a clear plan and honest next steps — no sales pitch, just clarity on fit."
+        description="Send a brief or book a call. We'll get back to you within one business day with a clear plan and honest next steps - no sales pitch, just clarity on fit."
         visual={pageHeroVisuals.contact}
         priority
         actions={
@@ -63,3 +63,4 @@ export default function ContactPage() {
     </>
   );
 }
+

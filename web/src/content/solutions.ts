@@ -48,9 +48,9 @@ export const solutionPillars: SolutionPillar[] = [
   {
     slug: "saas",
     title: "SaaS Product Solutions",
-    headline: "SaaS products that earn demos — and keep users after signup.",
+    headline: "SaaS products that earn demos - and keep users after signup.",
     summary:
-      "UK SaaS teams come to us when the product works technically but onboarding, permissions, or dashboards are costing activation. We design and build the product surfaces that close deals and reduce drop-off — from MVP through post-launch iteration.",
+      "UK SaaS teams come to us when the product works technically but onboarding, permissions, or dashboards are costing activation. We design and build the product surfaces that close deals and reduce drop-off - from MVP through post-launch iteration.",
     market: "Primary · UK · Secondary · US",
     href: "/solutions/saas",
     icon: IconLayoutDashboard,
@@ -66,7 +66,7 @@ export const solutionPillars: SolutionPillar[] = [
     seo: {
       title: "SaaS Product Design & Development Agency UK",
       description:
-        "Product design and development for UK B2B SaaS — onboarding UX, dashboards, MVP builds, and design systems that scale with your roadmap.",
+        "Product design and development for UK B2B SaaS - onboarding UX, dashboards, MVP builds, and design systems that scale with your roadmap.",
       keywords: [
         "SaaS product design agency UK",
         "SaaS UI/UX agency",
@@ -78,7 +78,7 @@ export const solutionPillars: SolutionPillar[] = [
   {
     slug: "trucking-logistics",
     title: "Trucking & Logistics Solutions",
-    headline: "Dispatch and fleet software shaped around the desk — not a demo deck.",
+    headline: "Dispatch and fleet software shaped around the desk - not a demo deck.",
     summary:
       "US carriers, brokers, and fleet teams need consoles that handle volume, surface exceptions fast, and integrate with the stack they already run. We design and build custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps without forcing a painful rip-and-replace.",
     market: "Primary · United States",
@@ -96,7 +96,7 @@ export const solutionPillars: SolutionPillar[] = [
     seo: {
       title: "Custom Trucking Software & Dispatch CRM Development USA",
       description:
-        "Custom trucking software for US operators — dispatch CRM, fleet dashboards, driver apps, TMS-style platforms, and logistics integrations.",
+        "Custom trucking software for US operators - dispatch CRM, fleet dashboards, driver apps, TMS-style platforms, and logistics integrations.",
       keywords: [
         "custom trucking software development",
         "dispatch CRM solutions",
@@ -214,7 +214,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   saas: {
     ...solutionPillars[0],
     heroLead:
-      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards — with an in-house team that ships weekly, not just presents.",
+      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards - with an in-house team that ships weekly, not just presents.",
     outcomes: [
       { label: "Typical MVP timeline", value: "8–12 weeks" },
       { label: "Engagement model", value: "Design + build" },
@@ -271,7 +271,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         q: "What's a typical first engagement?",
-        a: "A scoped discovery + design sprint, or a fixed MVP build with weekly demos. We recommend the lightest path that answers your biggest risk — activation, demo readiness, or technical feasibility.",
+        a: "A scoped discovery + design sprint, or a fixed MVP build with weekly demos. We recommend the lightest path that answers your biggest risk - activation, demo readiness, or technical feasibility.",
       },
     ],
     relatedServiceSlugs: ["saas-platforms", "product-design", "ui-ux-design", "ai-assisted-development"],
@@ -280,7 +280,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   "trucking-logistics": {
     ...solutionPillars[1],
     heroLead:
-      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators — freight brokers, carriers, logistics startups, and fleet businesses that have outgrown spreadsheets or rigid off-the-shelf TMS.",
+      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators - freight brokers, carriers, logistics startups, and fleet businesses that have outgrown spreadsheets or rigid off-the-shelf TMS.",
     outcomes: [
       { label: "Focus market", value: "US trucking" },
       { label: "Integrations", value: "ELD · accounting · CRM" },
@@ -321,11 +321,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     faq: [
       {
         q: "Do you work with US trucking companies and freight brokers?",
-        a: "Yes — this is a primary focus. We align stand-ups and delivery to US time zones and how dispatch desks actually run.",
+        a: "Yes - this is a primary focus. We align stand-ups and delivery to US time zones and how dispatch desks actually run.",
       },
       {
-        q: "Custom TMS vs off-the-shelf — how do you decide?",
-        a: "If a commercial TMS fits your workflows and integrations, we often recommend staying put and building around it. Custom makes sense when your processes, settlements, or integrations are the product — and off-the-shelf would force expensive workarounds.",
+        q: "Custom TMS vs off-the-shelf - how do you decide?",
+        a: "If a commercial TMS fits your workflows and integrations, we often recommend staying put and building around it. Custom makes sense when your processes, settlements, or integrations are the product - and off-the-shelf would force expensive workarounds.",
       },
       {
         q: "Can you redesign our dispatch CRM without stopping operations?",
@@ -333,7 +333,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         q: "Do you build driver mobile apps too?",
-        a: "Yes — React Native and Flutter paths for iOS and Android, designed alongside dispatch and fleet tools.",
+        a: "Yes - React Native and Flutter paths for iOS and Android, designed alongside dispatch and fleet tools.",
       },
       {
         q: "Who owns the software after launch?",
@@ -466,3 +466,4 @@ export function getSolutionBySlug(slug: string): SolutionDetail | undefined {
 }
 
 export const solutionSlugs = Object.keys(solutionDetails) as SolutionSlug[];
+

@@ -153,7 +153,7 @@ function RailProduct({ product }: { product: ProductItem }) {
   );
 }
 
-/** Featured product + supporting work — case imagery linked to case studies. */
+/** Featured product + supporting work - case imagery linked to case studies. */
 export function HomeClientWorkLogos({ className }: HomeClientWorkLogosProps) {
   const featured = clientProductLogos.find((item) => item.featured) ?? clientProductLogos[0];
   const rail = clientProductLogos.filter((item) => item.name !== featured.name);
@@ -170,7 +170,7 @@ export function HomeClientWorkLogos({ className }: HomeClientWorkLogosProps) {
             Real product surfaces. Measurable outcomes.
           </h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            A look at platforms we designed and engineered — each one linked to the case study behind the
+            A look at platforms we designed and engineered - each one linked to the case study behind the
             metric.
           </p>
         </div>
@@ -197,3 +197,4 @@ export function HomeClientWorkLogos({ className }: HomeClientWorkLogosProps) {
     </div>
   );
 }
+

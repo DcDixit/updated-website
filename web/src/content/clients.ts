@@ -155,3 +155,4 @@ export const clientTrustStats = {
   sectorCount: clientIndustryHighlights.length,
   caseStudyCount: clientLogosWorkedWith.filter((client) => client.caseStudySlug).length,
 } as const;
+

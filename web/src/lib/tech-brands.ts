@@ -21,7 +21,7 @@ export type TechBrandSlug =
   | "typescript"
   | "tailwind";
 
-/** Per-brand optical sizing — height is the normalized visual anchor; maxWidth caps wide wordmarks. */
+/** Per-brand optical sizing - height is the normalized visual anchor; maxWidth caps wide wordmarks. */
 export type TechBrandVisual = {
   height: number;
   maxWidth?: number;
@@ -110,3 +110,4 @@ export const techBrandCategories = [
   { id: "infra", label: "Infrastructure", brands: ["vercel", "supabase", "stripe"] as TechBrandSlug[] },
   { id: "integrations", label: "Integrations", brands: ["quickbooks", "xero", "hubspot", "make"] as TechBrandSlug[] },
 ] as const;
+

@@ -1,8 +1,8 @@
 /**
  * Downloads verified Unsplash photos into public/images/.
- * Uses full CDN URLs — Pexels numeric IDs are unreliable (IDs remap to unrelated photos).
+ * Uses full CDN URLs - Pexels numeric IDs are unreliable (IDs remap to unrelated photos).
  *
- * License: Unsplash (free) — https://unsplash.com/license
+ * License: Unsplash (free) - https://unsplash.com/license
  * Refresh: npm run images:fetch
  */
 import { mkdir, writeFile } from "node:fs/promises";
@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, "..", "public", "images");
 
-/** Verified assets — each URL was checked against its intended theme. */
+/** Verified assets - each URL was checked against its intended theme. */
 const U = {
   semiTruck:
     "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&h=1080&q=80",

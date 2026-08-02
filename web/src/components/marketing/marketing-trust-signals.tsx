@@ -20,9 +20,9 @@ type MarketingTrustSignalsProps = {
   withLogos?: boolean;
   withCertifications?: boolean;
   withCta?: boolean;
-  /** @deprecated Ratings removed — kept for call-site compatibility */
+  /** @deprecated Ratings removed - kept for call-site compatibility */
   withRatings?: boolean;
-  /** @deprecated Testimonials removed — kept for call-site compatibility */
+  /** @deprecated Testimonials removed - kept for call-site compatibility */
   withTestimonials?: boolean;
 };
 
@@ -119,7 +119,7 @@ export function MarketingTrustSection({
           <p className="eyebrow-amber">How we work</p>
           <h2 className="type-h2 font-heading text-balance text-text-primary-v2">Clear ownership. Measurable delivery.</h2>
           <p className="type-body font-body text-text-secondary-v2">
-            In-house design and engineering, NDA-first collaboration, and weekly demos — without fabricated review scores.
+            In-house design and engineering, NDA-first collaboration, and weekly demos - without fabricated review scores.
           </p>
         </div>
         {children}
@@ -127,3 +127,4 @@ export function MarketingTrustSection({
     </section>
   );
 }
+

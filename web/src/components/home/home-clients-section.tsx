@@ -71,7 +71,7 @@ function ClientLogoCard({ client }: { client: ClientLogo }) {
           cardClasses,
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         )}
-        aria-label={`${client.name} — view related case study`}
+        aria-label={`${client.name} - view related case study`}
       >
         {cardContent}
       </Link>
@@ -98,7 +98,7 @@ function ClientsLogoGrid() {
   );
 }
 
-/** Client trust section — header, stats, and uniform logo grid. */
+/** Client trust section - header, stats, and uniform logo grid. */
 export function HomeClientsSection({ className }: HomeClientsSectionProps) {
   return (
     <SectionShell
@@ -117,7 +117,7 @@ export function HomeClientsSection({ className }: HomeClientsSectionProps) {
                   Teams we&apos;ve designed and built with.
                 </>
               }
-              description="Real client marks from logistics, commerce, fintech, and services — the primary proof we share while written testimonials are collected."
+              description="Real client marks from logistics, commerce, fintech, and services - the primary proof we share while written testimonials are collected."
               align="center"
               titleId="clients-heading"
               className="[&_h2]:mx-auto [&_p]:mx-auto"
@@ -146,3 +146,4 @@ export function HomeClientsSection({ className }: HomeClientsSectionProps) {
     </SectionShell>
   );
 }
+

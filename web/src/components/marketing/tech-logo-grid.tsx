@@ -144,3 +144,4 @@ export function TechLogoGrid({ items, categorized = false, className, marquee = 
     </ul>
   );
 }
+

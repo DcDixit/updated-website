@@ -147,7 +147,7 @@ export const pillars = [
 
 export const industries = [
   { label: "SaaS & Startups", href: "/solutions/saas", caption: "UK-focused SaaS UI/UX, MVP development, onboarding, and dashboards that support activation and demos." },
-  { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking software — custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps." },
+  { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking software - custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps." },
   { label: "Accounting Integrations", href: "/solutions/accounting-integrations", caption: "QuickBooks and Xero API sync, reconciliation dashboards, and reliable operator tooling." },
   { label: "Car Transportation", href: "/solutions/car-transportation", caption: "Booking portals, carrier dispatch, customer tracking, and ops automation for vehicle logistics." },
   { label: "CRM & Automation", href: "/services/crm-development", caption: "Custom CRM UX, workflow automation, and integration-heavy consoles for ops teams." },
@@ -180,3 +180,4 @@ export const certificationBadges = [
   "AI in the workflow",
   "Post-launch support available",
 ] as const;
+

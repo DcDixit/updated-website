@@ -36,3 +36,4 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
 
   return ref;
 }
+

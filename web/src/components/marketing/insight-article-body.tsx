@@ -29,3 +29,4 @@ export function InsightArticleBody({ blocks }: { blocks: readonly InsightBlock[]
     </div>
   );
 }
+

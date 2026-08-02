@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Solutions · SaaS, Trucking, Integrations & Automation",
   description:
-    "Product solutions for UK SaaS and US trucking — SaaS onboarding & MVPs, custom dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and car transport software.",
+    "Product solutions for UK SaaS and US trucking - SaaS onboarding & MVPs, custom dispatch CRM, fleet dashboards, QuickBooks/Xero integrations, and car transport software.",
   path: "/solutions",
   image: pageHeroVisuals.solutions.src,
 });
@@ -62,7 +62,7 @@ export default function SolutionsPage() {
           <SectionHeader
             eyebrow="By market"
             title="Pick the path that matches how you operate."
-            description="Each page covers capabilities, delivery approach, related work, and FAQs — so you can evaluate fit before a call."
+            description="Each page covers capabilities, delivery approach, related work, and FAQs - so you can evaluate fit before a call."
           />
           <div className="mt-12 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:gap-6">
             {solutionPillars.map((solution, idx) => (
@@ -85,8 +85,9 @@ export default function SolutionsPage() {
       <LeadCaptureCta
         eyebrow="Not sure which solution fits?"
         title="Tell us about your product and market."
-        description="We'll suggest a starting point — SaaS MVP, dispatch CRM, accounting integration, or car transport software — and what a sensible first engagement looks like."
+        description="We'll suggest a starting point - SaaS MVP, dispatch CRM, accounting integration, or car transport software - and what a sensible first engagement looks like."
       />
     </>
   );
 }
+

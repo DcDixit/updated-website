@@ -57,3 +57,4 @@ export function TechBrandLogo({ brand, className, onDark = false }: TechBrandLog
     />
   );
 }
+

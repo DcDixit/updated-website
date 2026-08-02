@@ -60,3 +60,4 @@ export function ReviewProofBar({ className, variant = "default" }: ReviewProofBa
     </div>
   );
 }
+

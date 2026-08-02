@@ -23,7 +23,7 @@ export function TeamSection({ className, variant = "preview" }: TeamSectionProps
           <SectionHeader
             eyebrow="The team"
             title="Practices that stay on the engagement."
-            description="Design, engineering, delivery, and automation — the people in the first call stay accountable through launch."
+            description="Design, engineering, delivery, and automation - the people in the first call stay accountable through launch."
             align="center"
             className="mx-auto max-w-2xl"
           />
@@ -55,3 +55,4 @@ export function TeamSection({ className, variant = "preview" }: TeamSectionProps
     </SectionShell>
   );
 }
+

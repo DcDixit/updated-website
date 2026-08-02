@@ -27,7 +27,7 @@ const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
-  description: `${brand.legalName} — product design and engineering studio founded by a designer with 9+ years of experience. Remote-first from Ahmedabad, India.`,
+  description: `${brand.legalName} - product design and engineering studio founded by a designer with 9+ years of experience. Remote-first from Ahmedabad, India.`,
   path: "/about",
 });
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Founded by a designer who's shipped 40+ products."
-        description="KRIVA is a product design and engineering studio. We build SaaS platforms, trucking software, and accounting integrations — the same work our founder has done for 9+ years, now under one roof with a dedicated team."
+        description="KRIVA is a product design and engineering studio. We build SaaS platforms, trucking software, and accounting integrations - the same work our founder has done for 9+ years, now under one roof with a dedicated team."
         visual={pageHeroVisuals.about}
         priority
         actions={
@@ -73,10 +73,10 @@ export default function AboutPage() {
             <SectionHeader eyebrow="Our story" title="Why we exist." />
             <div className="space-y-4">
               <p className="type-body text-[color:var(--text-secondary)]">
-                I've spent the last nine years designing and building software — SaaS dashboards, trucking dispatch tools, QuickBooks integrations, mobile apps. Most of that work was done inside agencies and product companies where I watched the same problems repeat: design teams handing off specs that engineering couldn't build, clients managing three vendors for one project, and products that looked polished in Figma but fell apart in production.
+                I've spent the last nine years designing and building software - SaaS dashboards, trucking dispatch tools, QuickBooks integrations, mobile apps. Most of that work was done inside agencies and product companies where I watched the same problems repeat: design teams handing off specs that engineering couldn't build, clients managing three vendors for one project, and products that looked polished in Figma but fell apart in production.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                KRIVA started because I wanted to build a studio where design and engineering work together from day one — where the person who designs the interface understands the API it connects to, and where clients talk to the people doing the work, not a project manager relaying messages.
+                KRIVA started because I wanted to build a studio where design and engineering work together from day one - where the person who designs the interface understands the API it connects to, and where clients talk to the people doing the work, not a project manager relaying messages.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
                 We focus where we can be specific: UK SaaS teams that need product design and build to keep pace with the roadmap, and US trucking operators who need software shaped around dispatch, fleet, and back-office reality.
@@ -221,3 +221,4 @@ export default function AboutPage() {
     </>
   );
 }
+

@@ -39,7 +39,7 @@ export default function InsightsPage() {
       <PageHero
         eyebrow="Insights"
         title="Notes for SaaS and operations teams."
-        description="Practical writing on onboarding, dispatch CRM, MVP trade-offs, and how we deliver — aimed at founders and operators, not keyword filler."
+        description="Practical writing on onboarding, dispatch CRM, MVP trade-offs, and how we deliver - aimed at founders and operators, not keyword filler."
         visual={pageHeroVisuals.insights}
         priority
       />
@@ -87,3 +87,4 @@ export default function InsightsPage() {
     </>
   );
 }
+

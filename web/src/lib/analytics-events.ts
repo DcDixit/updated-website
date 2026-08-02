@@ -36,3 +36,4 @@ export type Ga4Params = {
   form_name?: string;
   error_type?: string;
 };
+

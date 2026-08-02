@@ -26,3 +26,4 @@ export function HomeClientLogoStrip({ className }: HomeClientLogoStripProps) {
     </section>
   );
 }
+

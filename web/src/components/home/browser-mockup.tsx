@@ -8,7 +8,7 @@ const fleetflowKpis = [
   { label: "Avg handle time", value: "−32%" },
 ];
 
-/** FleetFlow dispatch console — aligned with featured trucking case study. */
+/** FleetFlow dispatch console - aligned with featured trucking case study. */
 export function BrowserMockup({ className }: { className?: string }) {
   return (
     <div
@@ -98,3 +98,4 @@ export function BrowserMockup({ className }: { className?: string }) {
     </div>
   );
 }
+

@@ -8,7 +8,7 @@ type HeroProductShowcaseProps = {
   className?: string;
 };
 
-/** Hero visual — featured product screenshot with outcome metric. */
+/** Hero visual - featured product screenshot with outcome metric. */
 export function HeroProductShowcase({ className }: HeroProductShowcaseProps) {
   const visual = pageHeroVisuals.home;
 
@@ -36,7 +36,7 @@ export function HeroProductShowcase({ className }: HeroProductShowcaseProps) {
           />
         </div>
         <figcaption className="type-caption px-4 py-3 text-center text-[color:var(--text-secondary)]">
-          Live product view — your product here
+          Live product view - your product here
         </figcaption>
       </figure>
       <div
@@ -49,3 +49,4 @@ export function HeroProductShowcase({ className }: HeroProductShowcaseProps) {
     </div>
   );
 }
+

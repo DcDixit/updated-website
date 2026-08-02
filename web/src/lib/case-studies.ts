@@ -64,3 +64,4 @@ export function getIndustrySolutionLink(industryId: string): string {
   };
   return linkMap[industryId] ?? "/solutions";
 }
+

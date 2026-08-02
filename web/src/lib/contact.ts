@@ -72,3 +72,4 @@ export function formatContactEmail(data: ContactFormPayload): { subject: string;
 
   return { subject, text };
 }
+

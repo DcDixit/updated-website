@@ -11,3 +11,4 @@ export function resolveTheme(preference: ThemePreference): "light" | "dark" {
 
 /** Inline script to prevent theme flash - injected in root layout. */
 export const themeInitScript = `(function(){try{var k="${THEME_STORAGE_KEY}";var s=localStorage.getItem(k);var d=s==="dark"||(s!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light";}catch(e){}})();`;
+

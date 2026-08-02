@@ -13,7 +13,7 @@ export const clientPersonas = [
   },
   {
     title: "US trucking operators",
-    description: "Carriers, brokers, and fleet teams who need dispatch CRM, driver apps, or fleet dashboards that match real desk workflows — without a painful rip-and-replace.",
+    description: "Carriers, brokers, and fleet teams who need dispatch CRM, driver apps, or fleet dashboards that match real desk workflows - without a painful rip-and-replace.",
     href: "/solutions/trucking-logistics",
     cta: "Trucking solutions",
     icon: IconTruck,
@@ -56,3 +56,4 @@ export const homeJumpLinks = [
   { label: "Process", href: "#process" },
   { label: "FAQ", href: "#faq" },
 ] as const;
+

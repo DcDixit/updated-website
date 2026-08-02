@@ -1,5 +1,5 @@
 /**
- * Production imagery — licensed Unsplash photos in /public/images/.
+ * Production imagery - licensed Unsplash photos in /public/images/.
  * Case study product mockups use /brand/ SVGs where a UI screenshot is shown.
  */
 import type { CaseSlug, ServiceSlug } from "@/content/site-content";
@@ -257,7 +257,7 @@ export const marketingSectionImages = {
   ctaPipeline: { src: img.heroes.process, alt: "Product team coordinating a release pipeline" },
 } as const satisfies Record<string, VisualAsset>;
 
-/** Selected shipped products — case imagery linked to case studies */
+/** Selected shipped products - case imagery linked to case studies */
 export const clientProductLogos = [
   {
     name: "FleetFlow",
@@ -308,3 +308,4 @@ export const clientProductLogos = [
     featured: false,
   },
 ] as const;
+

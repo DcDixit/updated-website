@@ -36,12 +36,12 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "Discovery",
     description:
-      "Goals, users, constraints, and success metrics — captured in a written brief so everyone starts aligned.",
+      "Goals, users, constraints, and success metrics - captured in a written brief so everyone starts aligned.",
   },
   {
     title: "UX Design",
     description:
-      "Wireframes, interactive prototypes, and UI — reviewed and signed off before a single line of code is written.",
+      "Wireframes, interactive prototypes, and UI - reviewed and signed off before a single line of code is written.",
   },
   {
     title: "Development",
@@ -56,7 +56,7 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "Post-launch",
     description:
-      "Iteration sprints, monitoring, and roadmap support — most clients keep us on retainer after go-live.",
+      "Iteration sprints, monitoring, and roadmap support - most clients keep us on retainer after go-live.",
   },
 ];
 
@@ -76,3 +76,4 @@ export const caseStudyFilterMap: Record<string, PortfolioFilterCategory[]> = {
   "ai-support-automation": ["AI"],
   "marketplace-mvp": ["SaaS"],
 };
+
