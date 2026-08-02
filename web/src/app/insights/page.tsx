@@ -25,7 +25,7 @@ export default function InsightsPage() {
   const insightsListSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Northline insights",
+    name: "KRIVA insights",
     hasPart: insightPosts.map((post) => ({
       "@type": "Article",
       headline: post.title,

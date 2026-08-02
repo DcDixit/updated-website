@@ -58,7 +58,9 @@ function SolutionPreviewPanel({ solution, index }: { solution: SolutionItem; ind
         </p>
       </div>
 
-      <p className="type-badge-label mt-6 text-[11px]">{solution.market}</p>
+      {solution.market ? (
+        <p className="type-badge-label mt-6 text-[11px]">{solution.market}</p>
+      ) : null}
       <h3 className="type-h3 mt-2 max-w-lg text-balance">{solution.title}</h3>
       <p className="type-body mt-4 max-w-xl text-[color:var(--text-body)]">{solution.summary}</p>
 
@@ -220,8 +222,8 @@ export function HomeSolutionsSection() {
     <>
       <SectionHeader
         eyebrow="Solutions"
-        title="UK SaaS and US trucking - built by one team."
-        description="Design and engineering under one roof - each solution area shaped around how SaaS product teams and trucking operators actually work."
+        title="SaaS products. Trucking platforms. Accounting integrations."
+        description="Every solution we offer comes from work we've actually done - not service categories we invented to fill a menu."
       />
 
       <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">

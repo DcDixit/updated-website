@@ -19,7 +19,7 @@ export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
           id="delivery-trust-heading"
           className="mt-2 text-lg font-semibold tracking-tight text-foreground sm:text-xl"
         >
-          How we protect your project and IP
+          How we work with you.
         </h3>
       </header>
 

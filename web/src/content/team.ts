@@ -7,8 +7,8 @@ const companyLinkedIn =
   "https://www.linkedin.com/company/kriva-technologies";
 
 export const teamStats = [
-  { value: "40+", label: "Projects delivered", caption: "SaaS, logistics, CRM & automation" },
-  { value: `${new Date().getFullYear() - brand.founded}+`, label: "Years shipping", caption: "Products & platforms" },
+  { value: "40+", label: "Products shipped", caption: "SaaS, logistics, CRM & automation" },
+  { value: "9+", label: "Years of experience", caption: "In product design & engineering" },
   { value: "4", label: "Time zones", caption: "US, UK, India, APAC overlap" },
 ] as const;
 
@@ -21,35 +21,36 @@ export const companyProfile = {
   phone: siteContact.displayPhone,
   schedulingUrl: siteContact.schedulingUrl,
   linkedIn: companyLinkedIn,
-  deliveryModel: "Remote-first with dedicated product squads for UK SaaS and US logistics clients.",
+  founderExperience: "9+ years in product design & engineering",
+  deliveryModel: "Remote-first with dedicated squads for each project.",
 } as const;
 
 export const leadershipTeam = [
   {
     name: "Product & Delivery Leadership",
-    role: "Founder-led squads",
-    bio: `${brand.shortName} runs founder-led discovery with dedicated design, engineering, and delivery leads on every project, from SaaS MVPs to dispatch CRM platforms.`,
+    role: "Founder-led delivery",
+    bio: "Every project starts with a founder-led discovery session. Your brief, goals, and constraints get documented before any design or code begins.",
     focus: ["Discovery", "Roadmapping", "Delivery quality"],
     linkedIn: companyLinkedIn,
   },
   {
     name: "Design Practice",
-    role: "UI/UX & product design",
-    bio: "In-house designers specialising in SaaS onboarding, ops dashboards, design systems, and conversion-focused marketing sites for UK and US markets.",
+    role: "Product & UI/UX design",
+    bio: "SaaS dashboards, trucking ops consoles, onboarding flows, and design systems - designed by people who've built these specific interfaces before.",
     focus: ["UI/UX", "Product design", "Design systems"],
     linkedIn: companyLinkedIn,
   },
   {
     name: "Engineering Practice",
     role: "Web, mobile & integrations",
-    bio: "Full-stack engineers focused on Next.js, React Native, API integrations, and maintainable codebases. Includes QuickBooks, Xero, and logistics data pipelines.",
+    bio: "Next.js, React Native, QuickBooks/Xero APIs, and whatever your product needs. Typed, tested, documented code that your team can maintain.",
     focus: ["Web & mobile", "APIs", "Integrations"],
     linkedIn: companyLinkedIn,
   },
   {
     name: "AI & Automation",
-    role: "Workflow automation",
-    bio: "Specialists in AI-assisted development, internal tooling, and ops automation. Every output is reviewed before going into production.",
+    role: "Practical automation",
+    bio: "AI-assisted workflows for support triage, document processing, and internal tooling. Human review on every output before it ships.",
     focus: ["AI workflows", "Automation", "Support tooling"],
     linkedIn: companyLinkedIn,
   },
@@ -57,16 +58,16 @@ export const leadershipTeam = [
 
 export const culturePoints = [
   {
-    title: "One team, one outcome",
-    body: "Design and engineering work together from day one. No pointing fingers between disciplines, no gaps in communication. One conversation, one delivery standard.",
+    title: "One conversation, one standard",
+    body: "Design and engineering work together from the start. No handoff blame, no 'that's not my department.'",
   },
   {
-    title: "We show the work",
-    body: "We share work-in-progress every week, measure what matters, and document every decision. Clients stay in control, not just in the loop.",
+    title: "Show the work",
+    body: "We share progress weekly, document every decision, and give you access to the same tools we use.",
   },
   {
-    title: "Built to hand over",
-    body: "Clean Figma libraries, typed codebases, and handoff documentation your team can actually use. Long after the project closes, you shouldn't need to call us for basics.",
+    title: "Build it to last",
+    body: "Clean Figma files, typed code, and documentation your team can use after we're done - not artifacts that only make sense to us.",
   },
 ] as const;
 

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Page not found",
-  description: "The page you requested could not be found. Browse solutions, services, or contact Northline Digital.",
+  description: "The page you requested could not be found. Browse solutions, services, or contact KRIVA Technologies.",
   path: "/404",
 });
 

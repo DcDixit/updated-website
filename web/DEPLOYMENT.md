@@ -1,10 +1,10 @@
 # Deployment Guide
 
-Pre-launch checklist and production setup for the Northline marketing site.
+Pre-launch checklist and production setup for the KRIVA marketing site.
 
 ## Important: DNS cutover
 
-The live domain `northlinedigital.com` may still serve a **legacy website** until DNS points to this Next.js deployment. Run Lighthouse against the local production build until after cutover:
+The live domain `krivatechnologies.com` may still serve a **legacy website** until DNS points to this Next.js deployment. Run Lighthouse against the local production build until after cutover:
 
 ```bash
 npm run build && npm run start
@@ -26,10 +26,10 @@ Alternative: any Node.js host that supports Next.js 16 (`npm run build` + `npm r
 Set in your hosting provider (Vercel → Project → Settings → Environment Variables):
 
 ```
-NEXT_PUBLIC_SITE_URL=https://northlinedigital.com
+NEXT_PUBLIC_SITE_URL=https://krivatechnologies.com
 RESEND_API_KEY=re_xxxxxxxx
-CONTACT_TO_EMAIL=hello@northlinedigital.com
-CONTACT_FROM_EMAIL=Northline Digital <hello@northlinedigital.com>
+CONTACT_TO_EMAIL=hello@krivatechnologies.com
+CONTACT_FROM_EMAIL=KRIVA Technologies <hello@krivatechnologies.com>
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
@@ -66,8 +66,8 @@ Edit `src/content/visuals.ts`:
 
 After deploy, confirm:
 
-- [ ] `https://northlinedigital.com/sitemap.xml` loads
-- [ ] `https://northlinedigital.com/robots.txt` loads
+- [ ] `https://krivatechnologies.com/sitemap.xml` loads
+- [ ] `https://krivatechnologies.com/robots.txt` loads
 - [ ] Homepage Open Graph preview (LinkedIn Post Inspector)
 - [ ] Submit sitemap in Google Search Console
 - [ ] Validate structured data in [Rich Results Test](https://search.google.com/test/rich-results)
@@ -136,7 +136,7 @@ Or connect the Git repository in the Vercel dashboard:
 
 - All marketing pages are statically generated at build time.
 - Images use local `/brand/*` SVG assets (no remote image dependencies).
-- Theme preference persists via `localStorage` (`northline-theme` key).
+- Theme preference persists via `localStorage` (`kriva-theme` key).
 
 ## Support
 

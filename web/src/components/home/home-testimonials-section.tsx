@@ -141,14 +141,10 @@ export function HomeTestimonialsSection({
               <SectionHeader
                 className="max-w-xl"
                 eyebrow={hasTestimonials ? "Testimonials" : "Client results"}
-                title={
-                  hasTestimonials
-                    ? "What clients say about working with us."
-                    : "Outcomes from recent engagements."
-                }
+                title={hasTestimonials ? "What our clients say." : "Outcomes from recent engagements."}
                 description={
                   hasTestimonials
-                    ? "Straight feedback from founders, ops leads, and finance teams we've shipped with."
+                    ? undefined
                     : "Measured results from SaaS, trucking, and finance platforms - not invented quotes."
                 }
               />
@@ -173,6 +169,12 @@ export function HomeTestimonialsSection({
                     />
                   ))}
             </div>
+
+            {hasTestimonials ? (
+              <p className="type-caption mt-6 text-[color:var(--text-secondary)]">
+                Some feedback was originally shared under our previous name, Northline Digital.
+              </p>
+            ) : null}
           </div>
         </Container>
       </Reveal>

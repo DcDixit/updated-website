@@ -49,8 +49,8 @@ export function ProcessSection({ steps, className }: ProcessSectionProps) {
     <div className={className}>
       <SectionHeader
         eyebrow="How we work"
-        title="From first brief to live product - a clear process."
-        description="No black-box sprints. You see the work at every stage, own all deliverables, and stay in control throughout."
+        title="How a project works, start to finish."
+        description="Every project follows this structure. You'll know what's happening, what's next, and what you're approving at each stage."
         className="mb-10 max-w-2xl"
       />
 
@@ -96,9 +96,8 @@ export function ProcessSection({ steps, className }: ProcessSectionProps) {
 
       <div className="mt-14 border-t border-[var(--surface-border)] pt-10">
         <SectionHeader
-          eyebrow="How we engage"
-          title="Start small or go full build."
-          description="Pick the engagement model that fits your stage - every path starts with a clear brief and honest timeline."
+          eyebrow="Engagement models"
+          title="Pick the path that fits your stage."
           className="mb-8 max-w-xl"
         />
 

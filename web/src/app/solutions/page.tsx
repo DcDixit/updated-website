@@ -26,7 +26,7 @@ export default function SolutionsPage() {
   const solutionsSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Northline solution pages",
+    name: "KRIVA solution pages",
     itemListElement: solutionPillars.map((solution, index) => ({
       "@type": "ListItem",
       position: index + 1,

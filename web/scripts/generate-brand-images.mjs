@@ -1,5 +1,5 @@
 /**
- * Generates og-default.png and apple-touch-icon.png from Northline brand assets.
+ * Generates og-default.png, apple-touch-icon.png, and kriva-icon.png from brand assets.
  * Run: npm run brand:images
  */
 import { writeFile } from "node:fs/promises";
@@ -16,10 +16,24 @@ const BRAND_NAVY = "#0B1B4D";
 const BRAND_AMBER = "#F59E0B";
 const ACCENT_INDIGO = "#4F46E5";
 
-const LOGO_MARK = `<path d="M4 24V8h3.6l5.4 8.3V8h3.8v16h-3.5l-5.6-8.8V24H4z" fill="${ACCENT_INDIGO}"/>`;
-const LOGO_WORD = `<text x="32" y="22" fill="#F0F4FF" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="600" letter-spacing="-0.02em">Northline</text>`;
+const LOGO_PATH = path.join(BRAND, "kriva-logo.png");
 
-function ogSvg() {
+async function loadLogo(maxWidth) {
+  return sharp(LOGO_PATH).resize({ width: maxWidth, withoutEnlargement: true }).png().toBuffer();
+}
+
+async function loadLogoMark(size) {
+  const meta = await sharp(LOGO_PATH).metadata();
+  const cropWidth = Math.round(meta.width * 0.28);
+
+  return sharp(LOGO_PATH)
+    .extract({ left: 0, top: 0, width: cropWidth, height: meta.height })
+    .resize(size, size, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png()
+    .toBuffer();
+}
+
+function ogBackgroundSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -43,44 +57,61 @@ function ogSvg() {
     ${Array.from({ length: 26 }, (_, i) => `<line x1="${i * 48}" y1="0" x2="${i * 48}" y2="630"/>`).join("")}
     ${Array.from({ length: 14 }, (_, i) => `<line x1="0" y1="${i * 48}" x2="1200" y2="${i * 48}"/>`).join("")}
   </g>
-  <g transform="translate(80, 200) scale(3.2)">
-    ${LOGO_MARK}
-    ${LOGO_WORD}
-  </g>
-  <text x="80" y="340" fill="#F0F4FF" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="600" letter-spacing="-0.02em">
-    Digital product agency
+  <text x="80" y="400" fill="#F0F4FF" font-family="Google Sans, ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="600" letter-spacing="-0.02em">
+    Product design &amp; engineering
   </text>
-  <text x="80" y="395" fill="#A0A8C0" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400">
+  <text x="80" y="455" fill="#A0A8C0" font-family="Google Sans, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400">
     SaaS platforms · Trucking software · Accounting integrations
   </text>
-  <rect x="80" y="430" width="48" height="4" rx="2" fill="${BRAND_AMBER}"/>
-</svg>`;
-}
-
-function appleTouchSvg() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${BRAND_COBALT}"/>
-      <stop offset="100%" stop-color="${BRAND_NAVY}"/>
-    </linearGradient>
-  </defs>
-  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
-  <g transform="translate(16, 74) scale(1.5)">
-    ${LOGO_MARK}
-    ${LOGO_WORD}
-  </g>
+  <rect x="80" y="490" width="48" height="4" rx="2" fill="${BRAND_AMBER}"/>
 </svg>`;
 }
 
 async function main() {
-  const ogBuffer = await sharp(Buffer.from(ogSvg())).png().toBuffer();
-  await writeFile(path.join(BRAND, "og-default.png"), ogBuffer);
-  console.log(`✓ brand/og-default.png (${ogBuffer.length} bytes)`);
+  const logo = await loadLogo(420);
+  const logoMeta = await sharp(logo).metadata();
+  const logoMark = await loadLogoMark(128);
+  const iconMark = await loadLogoMark(180);
 
-  const iconBuffer = await sharp(Buffer.from(appleTouchSvg())).png().toBuffer();
+  const ogBuffer = await sharp(Buffer.from(ogBackgroundSvg()))
+    .composite([{ input: logo, top: 180, left: 80 }])
+    .png()
+    .toBuffer();
+  await writeFile(path.join(BRAND, "og-default.png"), ogBuffer);
+  console.log(`✓ brand/og-default.png (${ogBuffer.length} bytes, logo ${logoMeta.width}x${logoMeta.height})`);
+
+  const iconBuffer = await sharp({
+    create: {
+      width: 180,
+      height: 180,
+      channels: 4,
+      background: { r: 5, g: 10, b: 26, alpha: 1 },
+    },
+  })
+    .composite([{ input: iconMark, gravity: "centre" }])
+    .png()
+    .toBuffer();
   await writeFile(path.join(PUBLIC, "apple-touch-icon.png"), iconBuffer);
   console.log(`✓ apple-touch-icon.png (${iconBuffer.length} bytes)`);
+
+  await writeFile(path.join(BRAND, "kriva-icon.png"), logoMark);
+  console.log(`✓ brand/kriva-icon.png (${logoMark.length} bytes)`);
+
+  const iconBase64 = logoMark.toString("base64");
+  const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+  <rect width="32" height="32" rx="8" fill="#050A1A"/>
+  <image href="data:image/png;base64,${iconBase64}" x="4" y="4" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
+</svg>`;
+  await writeFile(path.join(PUBLIC, "icon.svg"), iconSvg);
+  console.log("✓ icon.svg");
+
+  const logoBase64 = (await sharp(LOGO_PATH).png().toBuffer()).toString("base64");
+  const logoMetaFull = await sharp(LOGO_PATH).metadata();
+  const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${logoMetaFull.width} ${logoMetaFull.height}" fill="none" aria-hidden="true">
+  <image href="data:image/png;base64,${logoBase64}" width="${logoMetaFull.width}" height="${logoMetaFull.height}" preserveAspectRatio="xMidYMid meet"/>
+</svg>`;
+  await writeFile(path.join(BRAND, "logo.svg"), logoSvg);
+  console.log("✓ brand/logo.svg");
 }
 
 main().catch((err) => {

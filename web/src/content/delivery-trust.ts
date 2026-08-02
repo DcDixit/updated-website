@@ -2,20 +2,19 @@
 
 export const deliveryTrustPrinciples = [
   {
-    title: "NDA-first delivery",
-    body: "Available on request from the first call. Your roadmap and IP stay confidential.",
+    title: "NDA from day one",
+    body: "Your roadmap, data, and IP stay confidential. Available before the first call.",
   },
   {
     title: "You own everything",
-    body: "Figma files, repositories, and documentation transfer to you at handoff.",
+    body: "Design files, code, and documentation - all of it transfers to you at handoff.",
   },
   {
-    title: "In-house team only",
-    body: "No freelance marketplaces or offshore subcontractors on your project.",
+    title: "One team, no subcontracting",
+    body: "The people on your kickoff call are the people building your product.",
   },
   {
-    title: "Secure collaboration",
-    body: "Encrypted channels, scoped tool access, and documented delivery handoffs.",
+    title: "Transparent delivery",
+    body: "Shared project board, weekly demos, and written decisions you can reference anytime.",
   },
 ] as const;
-

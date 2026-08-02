@@ -5,7 +5,6 @@ import {
   IconShieldCheck,
   IconRocket,
   IconBrandGithub,
-  IconClockHour4,
 } from "@tabler/icons-react";
 
 import { HomeClientLogoStrip } from "@/components/home/client-logo-strip";
@@ -67,29 +66,28 @@ function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: str
 const heroTrustSignals = [
   { icon: IconRocket, label: "40+ projects delivered", href: "/work" },
   { icon: IconShieldCheck, label: "NDA-first collaboration", href: "/faq" },
-  { icon: IconClockHour4, label: "US & UK time-zone overlap", href: "/process" },
 ];
 
 const differentiators = [
   {
     icon: IconRocket,
-    title: "One team, end to end",
-    body: "Design and engineering stay on the same engagement - fewer handoffs, clearer decisions, and a product that feels consistent.",
+    title: "Design and engineering together",
+    body: "Your designer and your engineer sit in the same standup. That means fewer misinterpretations, faster decisions, and a product that looks the way it was designed.",
   },
   {
     icon: IconBrandGithub,
-    title: "Ship-ready handoffs",
-    body: "Typed codebases, documented Figma libraries, and written decisions your team can maintain without calling us for basics.",
+    title: "Handoffs your team can actually use",
+    body: "Documented Figma libraries, typed codebases, and written decisions - so your team can maintain and extend without calling us for every change.",
   },
   {
     icon: IconShieldCheck,
-    title: "Transparent by default",
-    body: "Shared project board, weekly demos, and progress you can see - not status theatre after a sprint closes.",
+    title: "You see the work every week",
+    body: "Shared project board, weekly demos, and honest tradeoff conversations. No surprises at the end of a sprint.",
   },
   {
     icon: IconArrowUpRight,
-    title: "Built for your market",
-    body: "Deep focus on UK SaaS product work and US trucking operations - dispatch, fleet, CRM, and accounting integrations.",
+    title: "Deep in SaaS and trucking",
+    body: "We don't design for every industry. We know dispatch workflows, SaaS onboarding patterns, and accounting integrations because that's where we've spent years working.",
   },
 ];
 
@@ -104,7 +102,7 @@ export function HomeMarketing() {
   const solutionListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Northline core solution areas",
+    name: "KRIVA core solution areas",
     itemListElement: homepageSolutionSections.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -134,7 +132,7 @@ export function HomeMarketing() {
             <div className="grid-layout-12 items-center gap-y-8 lg:gap-y-0">
               <div className="col-span-12 flex flex-col gap-3 lg:col-span-6 lg:pr-4">
                 <p className="hero-eyebrow-badge type-badge-label inline-block self-start rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1.5 text-[color:var(--text-secondary)]">
-                  {homeHero.eyebrowBadge} · UK SaaS · US Trucking
+                  {homeHero.eyebrowBadge}
                 </p>
 
                 <h1 className="type-hero text-foreground text-balance">
@@ -159,10 +157,6 @@ export function HomeMarketing() {
                     </Link>
                   ))}
                 </div>
-
-                <p className="type-caption max-w-xl text-[color:var(--text-body)] opacity-60">
-                  {homeHero.leadDetail}
-                </p>
               </div>
 
               <div className="col-span-12 lg:col-span-6">
@@ -236,9 +230,8 @@ export function HomeMarketing() {
         <Reveal>
           <Container>
             <SectionHeader
-              eyebrow="Why Northline"
-              title="Fewer vendors. Clearer ownership."
-              description="We structured the agency around the friction that usually slows client-agency work: handoffs, opaque progress, and tools that don't match the market."
+              eyebrow="Why KRIVA"
+              title="One team. No handoff drama."
             />
             <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5 sm:grid-cols-2">
               {differentiators.map(({ icon: DiffIcon, title, body }) => (
@@ -267,9 +260,9 @@ export function HomeMarketing() {
         <Reveal>
           <Container>
             <SectionHeader
-              eyebrow="AI & tools"
-              title="Modern stack. Senior oversight."
-              description="Design, development, and AI tooling chosen for speed and quality - with experienced review before anything reaches your product."
+              eyebrow="Tools we use"
+              title="Our stack."
+              description="Every tool is chosen because it makes the work better or faster. Nothing on this list is here for show."
             />
             <div className="mt-10">
               <TechLogoGrid categorized />
@@ -293,9 +286,9 @@ export function HomeMarketing() {
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <SectionHeader
                 className="sm:max-w-lg"
-                eyebrow="Selected work"
-                title="Illustrative projects across our focus markets."
-                description="Anonymized examples of SaaS, trucking & logistics, CRM, and integration work. Metrics reflect project outcomes - not third-party review scores."
+                eyebrow="Recent work"
+                title="Projects we've shipped recently."
+                description="Some client details are anonymized under NDA. The metrics are real."
               />
               <Link
                 href={primaryCtas.viewWork.href}
@@ -336,7 +329,7 @@ export function HomeMarketing() {
           <Container>
             <div className="grid-layout-12">
               <div className="col-span-12 lg:col-span-8">
-                <SectionHeader eyebrow="FAQ" title="Questions we hear before a kickoff." />
+                <SectionHeader eyebrow="FAQ" title="Questions we get asked before starting." />
                 <Accordion className="surface-card mt-8 px-6" defaultValue={["hq-0"]}>
                   {homeFaq.map((item, idx) => (
                     <AccordionItem key={item.q} value={`hq-${idx}`} className="border-[var(--surface-border)]">
@@ -363,9 +356,9 @@ export function HomeMarketing() {
                     <span className="status-dot" aria-hidden />
                     Next step
                   </p>
-                  <h3 className="type-h3 text-foreground text-balance">Book a 30-minute discovery call.</h3>
+                  <h3 className="type-h3 text-foreground text-balance">Tell us what you&apos;re building.</h3>
                   <p className="type-body text-sm text-[color:var(--text-secondary)]">
-                    Share what you&apos;re building. We&apos;ll reply within 24 hours with honest fit, scope questions, and suggested next steps.
+                    Share your brief or book a call. We&apos;ll reply within one business day with a clear plan and honest next steps.
                   </p>
                   <div className="flex flex-col gap-3">
                     <Link

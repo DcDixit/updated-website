@@ -85,6 +85,24 @@
 
 ---
 
+## 🔁 SECOND PASS (Aug 2, 2026)
+
+Commit `7e66b16` rebuilt the homepage layout after the rebrand and reintroduced pre-rebrand copy in the new components. This pass reapplied it and closed the remaining gaps:
+
+- Homepage copy reapplied in `home-marketing.tsx` and the new `components/home/*` sections (hero eyebrow/badges, Why KRIVA, Tools, Recent work, FAQ, Next step CTA, clients, solutions, testimonials, team, insights, process, engagement).
+- Removed the `+XX% outcome` placeholder from `home-case-study-card.tsx` and the `−32% handle time` hero overlay.
+- Content files updated: `audience.ts`, `delivery-trust.ts`, `solutions.ts`, `team.ts`, `faq-content.ts`, `data/homepage.ts`, `site-content.ts`, `brand.ts`.
+- `og:locale` is now unconditionally `en_US` (removed the `isUkFocused` → `en_GB` branch in `seo.ts`); `websiteJsonLd.inLanguage` is `en-US`.
+- Meta titles/descriptions aligned to spec for `/`, `/about`, `/work`, `/contact`.
+- Duplicate bottom CTA resolved: the footer band is now suppressed on `/` via `components/site/footer-cta-band.tsx`.
+- Contact form has a full thank-you state (work link, booking link, direct email fallback).
+- Last `Northline` references cleared from page metadata, `insights.ts`, `theme.ts` (storage key is now `kriva-theme`), `axe-audit.mjs`, and the README/DEPLOYMENT docs.
+- Testimonial footnote added: "Some feedback was originally shared under our previous name, Northline Digital." This is the only intentional remaining mention.
+
+Verified: `tsc --noEmit` clean, `next build` succeeds (56 static pages), no `en_GB` / `+XX` / `Northline` outside the footnote.
+
+---
+
 ## ⏳ PENDING TASKS
 
 ### Email Integration Verification (ID: 8-email-setup)

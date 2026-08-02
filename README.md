@@ -1,6 +1,6 @@
-# Northline Digital — Website Project
+# KRIVA Technologies — Website Project
 
-Client-ready project bundle for the Northline Digital marketing website.
+Client-ready project bundle for the KRIVA Technologies marketing website.
 
 ## Contents
 

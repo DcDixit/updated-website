@@ -1,7 +1,7 @@
 export const faqHome = [
   {
     q: "What services do you offer?",
-    a: "We focus on two areas: SaaS product design and development for UK startups, and trucking/logistics software for US operators. Within that, we handle UI/UX design, dashboard design, MVP development, QuickBooks/Xero integration engineering, dispatch CRM, fleet tools, driver mobile apps, and workflow automation. Staying focused on these two areas means we actually know them well.",
+    a: "We design and build two types of software: SaaS products (onboarding, dashboards, MVPs, design systems) and trucking/logistics tools (dispatch CRM, fleet dashboards, driver apps). We also build QuickBooks and Xero integrations and set up workflow automation. We don't do everything - we do these things well because we've spent years on them.",
   },
   {
     q: "How long does a typical project take?",
@@ -111,37 +111,37 @@ export const techCategories = [
 export const engagementModels = [
   {
     title: "Discovery sprint",
-    body: "1 to 2 weeks to align on scope, timeline, and deliverables before you commit to a full build.",
+    body: "Align on scope, timeline, and what you actually need before committing to a full engagement.",
     href: "/contact#book",
   },
   {
     title: "Project engagement",
-    body: "Fixed-scope design or development with milestones, demos, and a clear handoff.",
+    body: "Fixed scope with milestones, weekly demos, and a clear handoff at the end.",
     href: "/contact#brief",
   },
   {
     title: "Ongoing partnership",
-    body: "Monthly retainer for product iteration, automation maintenance, and design support.",
+    body: "Continuous product iteration, design support, and automation maintenance on a rolling basis.",
     href: "/contact#brief",
   },
 ] as const;
 
 export const pillars = [
   {
-    title: "One team, start to finish",
-    body: "Design and engineering under one roof. Fewer handoffs, faster decisions, and one consistent standard from the first wireframe to deployment.",
+    title: "Design and code under one roof",
+    body: "Fewer handoffs, faster decisions, consistent quality from wireframe to deployment.",
   },
   {
-    title: "AI in the workflow",
-    body: "We use Claude, Copilot, and Figma AI to move faster where it makes sense. Every output is reviewed by a human before it ships.",
+    title: "Faster delivery with AI tools",
+    body: "We use Claude, Cursor, and Figma AI to move faster on the work that benefits from it - with human review before anything ships.",
   },
   {
-    title: "Transparent process",
-    body: "Weekly demos, shared Figma and GitHub access, written briefs, and honest tradeoffs. You always know where things stand.",
+    title: "Honest communication",
+    body: "Weekly demos, shared access, written tradeoffs. We'll tell you when something isn't working, not just when it is.",
   },
   {
-    title: "Ready to hand over",
-    body: "Design systems, typed codebases, and documentation your team can actually use. You won't need us in the room after handoff.",
+    title: "Products that scale without us",
+    body: "Design systems, typed codebases, and documentation - so your team isn't dependent on us for every future change.",
   },
 ] as const;
 

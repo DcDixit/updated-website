@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Services · Design, Development & Automation",
   description:
-    "UI/UX design, SaaS product development, CRM & dashboards, API integrations, and practical automation - delivered by one in-house Northline team.",
+    "UI/UX design, SaaS product development, CRM & dashboards, API integrations, and practical automation - delivered by one in-house KRIVA team.",
   path: "/services",
   image: pageHeroVisuals.services.src,
 });

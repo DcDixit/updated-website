@@ -21,7 +21,7 @@ import { buildPageMetadata, faqJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ · Working with Northline",
+  title: "FAQ · Working with KRIVA",
   description: `Common questions about working with ${brand.shortName} - services for UK SaaS and US trucking, timelines, pricing, ownership, and process.`,
   path: "/faq",
   image: pageHeroVisuals.faq.src,

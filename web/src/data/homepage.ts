@@ -11,14 +11,14 @@ export const homepageStats: HomepageStat[] = [
     caption: "SaaS, logistics, CRM & automation",
   },
   {
-    value: "8+",
-    label: "Years shipping",
-    caption: "Products and digital platforms",
+    value: "9+",
+    label: "Years of experience",
+    caption: "In product design & engineering",
   },
   {
     value: "15+",
-    label: "In-house team",
-    caption: "Designers, engineers & strategists",
+    label: "Senior team",
+    caption: "Designers, engineers & specialists",
   },
   {
     value: "4",
@@ -36,27 +36,27 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "Discovery",
     description:
-      "Goals, users, constraints, and success metrics - captured in a written brief so everyone starts aligned.",
+      "We document your goals, users, constraints, and what success looks like. You review and sign off before we design anything.",
   },
   {
     title: "UX Design",
     description:
-      "Wireframes, interactive prototypes, and UI - reviewed and signed off before a single line of code is written.",
+      "Wireframes, prototypes, and final UI - reviewed with you before any code is written. No design surprises later.",
   },
   {
     title: "Development",
     description:
-      "In-house engineers build iteratively with weekly demos and transparent progress. No black-box sprints.",
+      "Your product gets built in weekly increments. You see working demos every week, not a big reveal at the end.",
   },
   {
     title: "QA & Launch",
     description:
-      "Cross-browser testing, accessibility checks, analytics setup, and phased rollout with handoff docs.",
+      "Cross-browser testing, accessibility checks, analytics setup, and a phased rollout. We hand off clean documentation.",
   },
   {
     title: "Post-launch",
     description:
-      "Iteration sprints, monitoring, and roadmap support - most clients keep us on retainer after go-live.",
+      "Bug fixes, iteration, and roadmap support. Most clients keep working with us after launch.",
   },
 ];
 

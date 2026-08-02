@@ -111,13 +111,13 @@ export function HomeClientsSection({ className }: HomeClientsSectionProps) {
         <Container>
           <div className="mx-auto max-w-3xl">
             <SectionHeader
-              eyebrow="Clients"
+              eyebrow="Trusted by"
               title={
                 <>
-                  Teams we&apos;ve designed and built with.
+                  Clients we&apos;ve worked with.
                 </>
               }
-              description="Real client marks from logistics, commerce, fintech, and services - the primary proof we share while written testimonials are collected."
+              description="Logos from companies we've designed and built products for - across logistics, transportation, commerce, and professional services."
               align="center"
               titleId="clients-heading"
               className="[&_h2]:mx-auto [&_p]:mx-auto"
@@ -131,7 +131,7 @@ export function HomeClientsSection({ className }: HomeClientsSectionProps) {
 
           <div className="mt-8 flex flex-col items-center gap-3 border-t border-[var(--section-divider)] pt-6 text-center sm:mt-10 sm:flex-row sm:justify-between sm:pt-8 sm:text-left">
             <p className="type-caption max-w-xl text-[color:var(--text-secondary)]">
-              Logos shown with permission. Additional engagements remain under NDA.
+              Some engagements remain under NDA.
             </p>
             <Link
               href="/work"

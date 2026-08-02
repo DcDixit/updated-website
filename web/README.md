@@ -1,6 +1,6 @@
-# Northline Marketing Website
+# KRIVA Marketing Website
 
-Production Next.js marketing site for **Northline Digital** - UI/UX design, product development, and AI-powered workflows.
+Production Next.js marketing site for **KRIVA Technologies** - UI/UX design, product development, and AI-powered workflows.
 
 ## Stack
 

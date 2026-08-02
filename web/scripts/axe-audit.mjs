@@ -22,7 +22,7 @@ async function auditTheme(url, theme) {
   const page = await context.newPage();
 
   await page.addInitScript((t) => {
-    localStorage.setItem("northline-theme", t);
+    localStorage.setItem("kriva-theme", t);
     document.documentElement.classList.toggle("dark", t === "dark");
     document.documentElement.style.colorScheme = t;
   }, theme);

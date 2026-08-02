@@ -39,13 +39,6 @@ export function HeroProductShowcase({ className }: HeroProductShowcaseProps) {
           Live product view - your product here
         </figcaption>
       </figure>
-      <div
-        className="metric-callout absolute -bottom-3 left-4 z-[2] sm:-left-3 sm:bottom-6"
-        aria-label="Client outcome: 32 percent reduction in handle time"
-      >
-        <span className="type-caption font-semibold tabular-nums text-[var(--color-accent)]">−32%</span>
-        <span className="type-caption text-[color:var(--text-secondary)]">handle time</span>
-      </div>
     </div>
   );
 }

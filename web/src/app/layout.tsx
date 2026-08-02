@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 
 import { AnalyticsProvider } from "@/components/site/analytics-provider";
@@ -16,10 +16,20 @@ import { themeInitScript } from "@/lib/theme";
 
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+const googleSans = localFont({
+  src: [
+    {
+      path: "../fonts/GoogleSans-latin-ext.woff2",
+      weight: "400 700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/GoogleSans-latin.woff2",
+      weight: "400 700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-google-sans",
   display: "swap",
 });
 
@@ -72,7 +82,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${instrumentSans.variable} ${instrumentSans.className} h-full font-sans`}
+      className={`${googleSans.variable} ${googleSans.className} h-full font-sans`}
     >
       <head>
         <link rel="preload" href="/brand/og-default.png" as="image" type="image/png" />

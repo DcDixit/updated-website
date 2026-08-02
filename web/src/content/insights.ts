@@ -414,7 +414,7 @@ export const insightArticles: Record<
     ],
   },
   "choosing-a-digital-agency": {
-    author: "Northline Strategy Team",
+    author: "KRIVA Strategy Team",
     blocks: [
       {
         type: "paragraph",

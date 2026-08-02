@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useRef, useState } from "react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { services, solutionPillars } from "@/content/site-content";
+import { primaryCtas, services, siteContact, solutionPillars } from "@/content/site-content";
 import { GA4 } from "@/lib/analytics-events";
 import { trackEvent, trackGenerateLead } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -122,6 +124,54 @@ export function ContactForm() {
 
   const isLoading = status === "loading";
 
+  if (status === "sent") {
+    return (
+      <div
+        id="brief"
+        role="status"
+        className="surface-card space-y-6 border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-[var(--space-card)] sm:p-8"
+      >
+        <div className="space-y-3">
+          <h2 className="type-h2 text-foreground">Thank you!</h2>
+          <p className="type-body text-[color:var(--text-secondary)]">
+            We&apos;ve received your project brief. Our team will review it and get back to you within one business day.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          <p className="type-badge-label">While you wait:</p>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/work"
+                className="type-body inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)] transition-opacity hover:opacity-85"
+              >
+                Browse our recent work
+                <IconArrowUpRight size={16} stroke={1.5} aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={primaryCtas.book.href}
+                className="type-body inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)] transition-opacity hover:opacity-85"
+              >
+                Book a discovery call
+                <IconArrowUpRight size={16} stroke={1.5} aria-hidden />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <p className="type-caption border-t border-[var(--section-divider)] pt-5">
+          If your project is urgent, reach us directly at{" "}
+          <Link href={`mailto:${siteContact.email}`} className="font-semibold text-foreground hover:text-[var(--color-accent)]">
+            {siteContact.email}
+          </Link>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <form
       id="brief"
@@ -143,7 +193,6 @@ export function ContactForm() {
 
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {status === "loading" ? "Sending your message." : null}
-        {status === "sent" ? "Your message was sent successfully." : null}
         {status === "error" && errorMessage ? errorMessage : null}
       </div>
 
@@ -174,7 +223,6 @@ export function ContactForm() {
             required
             placeholder="Your name"
             autoComplete="name"
-            disabled={status === "sent"}
             aria-invalid={status === "error" ? true : undefined}
             aria-describedby={status === "error" ? errorId : undefined}
             className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
@@ -192,7 +240,6 @@ export function ContactForm() {
             required
             placeholder="you@company.com"
             autoComplete="email"
-            disabled={status === "sent"}
             aria-invalid={status === "error" ? true : undefined}
             aria-describedby={status === "error" ? errorId : undefined}
             className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
@@ -209,7 +256,6 @@ export function ContactForm() {
               name="company"
               placeholder="Company name (optional)"
               autoComplete="organization"
-              disabled={status === "sent"}
               className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
             />
           </div>
@@ -223,7 +269,6 @@ export function ContactForm() {
               type="url"
               placeholder="https://yourcompany.com (optional)"
               autoComplete="url"
-              disabled={status === "sent"}
               className="h-12 rounded-lg border-[var(--surface-border)] bg-background dark:bg-card"
             />
           </div>
@@ -234,7 +279,7 @@ export function ContactForm() {
             <Label htmlFor="projectType" className="type-body font-semibold text-foreground">
               Project type *
             </Label>
-            <select id="projectType" name="projectType" required disabled={status === "sent"} className={cn(selectClass)}>
+            <select id="projectType" name="projectType" required className={cn(selectClass)}>
               <option value="" disabled>
                 Select project type
               </option>
@@ -250,7 +295,7 @@ export function ContactForm() {
             <Label htmlFor="market" className="type-body font-semibold text-foreground">
               Primary market *
             </Label>
-            <select id="market" name="market" required disabled={status === "sent"} className={cn(selectClass)}>
+            <select id="market" name="market" required className={cn(selectClass)}>
               <option value="" disabled>
                 Select market
               </option>
@@ -268,7 +313,7 @@ export function ContactForm() {
             <Label htmlFor="category" className="type-body font-semibold text-foreground">
               Service interest
             </Label>
-            <select id="category" name="category" disabled={status === "sent"} className={cn(selectClass)}>
+            <select id="category" name="category" className={cn(selectClass)}>
               <option value="">Select a service (optional)</option>
               {services.map((s) => (
                 <option key={s.slug} value={s.title}>
@@ -287,7 +332,7 @@ export function ContactForm() {
             <Label htmlFor="budget" className="type-body font-semibold text-foreground">
               Budget range
             </Label>
-            <select id="budget" name="budget" disabled={status === "sent"} className={cn(selectClass)}>
+            <select id="budget" name="budget" className={cn(selectClass)}>
               <option value="">Select budget (optional)</option>
               {budgets.map((b) => (
                 <option key={b} value={b}>
@@ -302,7 +347,7 @@ export function ContactForm() {
           <Label htmlFor="timeline" className="type-body font-semibold text-foreground">
             Timeline *
           </Label>
-          <select id="timeline" name="timeline" required disabled={status === "sent"} className={cn(selectClass)}>
+          <select id="timeline" name="timeline" required className={cn(selectClass)}>
             <option value="" disabled>
               When do you need this?
             </option>
@@ -324,7 +369,6 @@ export function ContactForm() {
             required
             minLength={20}
             rows={5}
-            disabled={status === "sent"}
             aria-invalid={status === "error" ? true : undefined}
             aria-describedby={status === "error" ? errorId : undefined}
             placeholder="Tell us about your SaaS product, trucking platform, integration needs, or timeline."
@@ -339,24 +383,11 @@ export function ContactForm() {
         </p>
       ) : null}
 
-      {status === "sent" ? (
-        <div className="surface-card border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-4" role="status">
-          <p className="type-body font-semibold text-foreground">Thank you for your message.</p>
-          <p className="type-caption mt-2">We'll get back to you within one business day with fit assessment and clear next steps.</p>
-        </div>
-      ) : null}
-
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button
-          type="submit"
-          variant="primary"
-          size="cta"
-          disabled={isLoading || status === "sent"}
-          aria-busy={isLoading}
-        >
-          {isLoading ? "Sending…" : status === "sent" ? "Sent" : "Send brief"}
+        <Button type="submit" variant="primary" size="cta" disabled={isLoading} aria-busy={isLoading}>
+          {isLoading ? "Sending…" : "Send brief"}
         </Button>
-        <p className="type-caption max-w-sm">We respond within 24 hours on business days. Your details stay confidential.</p>
+        <p className="type-caption max-w-sm">We respond within 24 hours. Your details stay confidential.</p>
       </div>
     </form>
   );

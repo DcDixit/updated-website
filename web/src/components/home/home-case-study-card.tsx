@@ -55,23 +55,6 @@ export function HomeCaseStudyCard({
             <IconTrendingUp size={12} stroke={2} className="text-[var(--color-accent)]" aria-hidden />
             <span className="type-caption font-semibold tabular-nums text-foreground text-[11px]">{metric}</span>
           </div>
-          <span
-            style={{
-              position: "absolute",
-              top: 10,
-              right: 10,
-              background: "rgba(0,0,0,0.65)",
-              color: "#fff",
-              fontSize: 11,
-              fontWeight: 500,
-              padding: "4px 8px",
-              borderRadius: 4,
-              lineHeight: 1.4,
-            }}
-          >
-            {/* TODO: replace with real metric */}
-            +XX% outcome
-          </span>
         </div>
 
         <div className="flex flex-1 flex-col p-6">

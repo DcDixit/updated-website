@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 type SolutionPillarCardProps = {
   title: string;
   summary: string;
-  market: string;
+  market?: string;
   href: string;
   services: readonly string[];
   cta: string;
@@ -53,7 +53,9 @@ export function SolutionPillarCard({
             <Icon size={20} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="type-caption line-clamp-1 text-[11px] text-[color:var(--text-secondary)]">{market}</p>
+            {market ? (
+              <p className="type-caption line-clamp-1 text-[11px] text-[color:var(--text-secondary)]">{market}</p>
+            ) : null}
             <h3 className="type-h3 mt-1 transition-colors group-hover:text-[var(--color-accent)]">{title}</h3>
           </div>
         </div>

@@ -24,9 +24,9 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
       {showHeader ? (
         <div className="mb-10 max-w-2xl space-y-3">
           <p className="type-badge-label">Team</p>
-          <h2 className="type-h2 text-foreground">Practices behind every engagement.</h2>
+          <h2 className="type-h2 text-foreground">Small team. Senior people.</h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            Design, engineering, delivery, and automation - senior ownership that stays on the project from discovery through launch.
+            KRIVA is founder-led with a core team of designers and engineers who&apos;ve shipped SaaS products, trucking platforms, and accounting integrations for 9+ years. The people on your first call are the people building your product.
           </p>
         </div>
       ) : null}

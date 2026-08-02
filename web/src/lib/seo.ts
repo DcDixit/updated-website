@@ -19,7 +19,7 @@ type PageMetadataInput = {
   image?: string;
   type?: "website" | "article";
   publishedTime?: string;
-  locale?: "en_US" | "en_GB";
+  locale?: "en_US";
 };
 
 export function buildPageMetadata({
@@ -33,21 +33,19 @@ export function buildPageMetadata({
 }: PageMetadataInput): Metadata {
   const url = absoluteUrl(path);
   const ogImage = image ?? defaultOgImage;
-  const isUkFocused = path.includes("/solutions/saas") || description.toLowerCase().includes("uk");
 
   return {
     title,
     description,
     alternates: {
       canonical: url,
-      ...(isUkFocused ? { languages: { "en-GB": url, "en-US": url } } : {}),
     },
     openGraph: {
       title,
       description,
       url,
       siteName: brand.shortName,
-      locale: isUkFocused ? "en_GB" : locale,
+      locale,
       type,
       ...(publishedTime ? { publishedTime } : {}),
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
@@ -96,7 +94,7 @@ export function websiteJsonLd() {
     name: brand.shortName,
     url: siteUrl,
     description: brand.positioning,
-    inLanguage: ["en-GB", "en-US"],
+    inLanguage: ["en-US"],
   };
 }
 

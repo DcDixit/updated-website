@@ -143,7 +143,7 @@ export function SiteHeader() {
                 className="w-[min(400px,92vw)] gap-0 overflow-y-auto border-l border-[var(--surface-border)] p-0"
               >
                 <SheetHeader className="border-b border-[var(--surface-border)] p-6 text-left">
-                  <SheetTitle className="font-semibold tracking-tight">KRIVA</SheetTitle>
+                  <SheetTitle className="font-semibold tracking-tight">KRIVA Technologies</SheetTitle>
                   <p className="type-caption mt-1">Product design & engineering. SaaS. Trucking. Integrations.</p>
                 </SheetHeader>
                 <nav className="flex flex-col p-4" aria-label="Mobile">

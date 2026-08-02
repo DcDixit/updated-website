@@ -5,13 +5,13 @@ import { brand } from "@/content/site-content";
 import { pageHeroVisuals } from "@/content/visuals";
 import { buildPageMetadata } from "@/lib/seo";
 
-const homeTitle = `${brand.shortName} · Product Design & Engineering Agency`;
+const homeTitle = `${brand.legalName} · SaaS & Trucking Product Design Agency`;
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: homeTitle,
     description:
-      "Product design and engineering for SaaS platforms, trucking dispatch software, and QuickBooks/Xero integrations. 40+ products shipped by a team with 9+ years experience.",
+      "Product design and engineering for SaaS platforms, trucking dispatch software, and QuickBooks/Xero integrations. 40+ products shipped. Book a discovery call.",
     path: "/",
     image: pageHeroVisuals.home.src,
   }),

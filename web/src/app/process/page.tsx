@@ -27,7 +27,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Process · How we deliver",
   description:
-    "Northline's five-phase delivery process for UK SaaS and US trucking software - discovery, design, build, launch, and support with weekly demos.",
+    "KRIVA's five-phase delivery process for SaaS and trucking software - discovery, design, build, launch, and support with weekly demos.",
   path: "/process",
   image: pageHeroVisuals.process.src,
 });

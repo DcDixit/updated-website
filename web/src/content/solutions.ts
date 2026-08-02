@@ -22,7 +22,7 @@ export type SolutionPillar = {
   title: string;
   headline: string;
   summary: string;
-  market: string;
+  market?: string;
   href: string;
   icon: Icon;
   services: readonly string[];
@@ -50,8 +50,7 @@ export const solutionPillars: SolutionPillar[] = [
     title: "SaaS Product Solutions",
     headline: "SaaS products that earn demos - and keep users after signup.",
     summary:
-      "UK SaaS teams come to us when the product works technically but onboarding, permissions, or dashboards are costing activation. We design and build the product surfaces that close deals and reduce drop-off - from MVP through post-launch iteration.",
-    market: "Primary · UK · Secondary · US",
+      "SaaS teams hire us when the product works but users aren't sticking. We fix the parts that cause drop-off - onboarding flows, permission screens, dashboards, and the UX patterns that turn trials into paying accounts.",
     href: "/solutions/saas",
     icon: IconLayoutDashboard,
     services: [
@@ -80,8 +79,8 @@ export const solutionPillars: SolutionPillar[] = [
     title: "Trucking & Logistics Solutions",
     headline: "Dispatch and fleet software shaped around the desk - not a demo deck.",
     summary:
-      "US carriers, brokers, and fleet teams need consoles that handle volume, surface exceptions fast, and integrate with the stack they already run. We design and build custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps without forcing a painful rip-and-replace.",
-    market: "Primary · United States",
+      "Dispatch boards, fleet dashboards, driver apps, and load management tools - built for how trucking ops teams actually work, not how software companies think they should.",
+    market: "Trucking & logistics",
     href: "/solutions/trucking-logistics",
     icon: IconTruck,
     services: [
@@ -110,8 +109,8 @@ export const solutionPillars: SolutionPillar[] = [
     title: "QuickBooks & Xero Integrations",
     headline: "Your sync drifts every month-end. Ours doesn't.",
     summary:
-      "Finance teams shouldn't be reconciling data manually two days before close. We build QuickBooks and Xero integrations that run at 99.3% nightly reliability and surface exceptions before month-end becomes a crisis.",
-    market: "UK · US · Global",
+      "Reliable sync between your platform and QuickBooks or Xero. Reconciliation dashboards, exception handling, and the kind of month-end close experience that doesn't require a fire drill.",
+    market: "Finance & operations",
     href: "/solutions/accounting-integrations",
     icon: IconReceipt2,
     services: [
@@ -135,8 +134,8 @@ export const solutionPillars: SolutionPillar[] = [
     title: "Car Transportation",
     headline: "Vehicle logistics software that matches how carriers actually operate.",
     summary:
-      "Auto transport companies lose deals when quote flows are slow and customers can't track shipments. We build booking portals, carrier dispatch, and tracking UX that reduce quote-to-book time and support volume growth, without adding ops headcount.",
-    market: "United States · Canada",
+      "Quote calculators, shipment tracking, and operations tools for auto transport companies - designed around the workflow your dispatch and sales teams already follow.",
+    market: "Auto transport",
     href: "/solutions/car-transportation",
     icon: IconRoute,
     services: [
@@ -165,7 +164,7 @@ export const homepageSolutionSections = [
     title: "CRM & Workflow Automation",
     headline: "CRM your ops team opens every morning, not just at month-end.",
     summary:
-      "Sales and dispatch teams abandon CRMs that don't match their workflow. We design dispatch consoles, pipeline views, and Make/Zapier automations around how your team actually works, with dashboards that surface exceptions rather than generating more spreadsheets.",
+      "Custom CRM layouts, pipeline views, and internal tools that match how your sales or ops team actually tracks work - not how a default CRM thinks they should.",
     market: "SaaS · Trucking · Professional services",
     href: "/services/crm-development",
     icon: IconChartBar,
@@ -189,8 +188,8 @@ export const homepageSolutionSections = [
     title: "AI Productivity & Automation",
     headline: "AI that saves hours. A human signs off before anything ships.",
     summary:
-      "We embed AI into design, development, and ops workflows to move faster without sacrificing quality. Every AI-assisted output is reviewed by a senior team member. Faster iteration, same accountability.",
-    market: "UK · US · Global",
+      "Practical AI workflows: ticket triage, document processing, internal tooling. Every automation reviewed by a person before it touches production.",
+    market: "Global",
     href: "/services/ai-assisted-development",
     icon: IconBrain,
     services: [

@@ -15,8 +15,9 @@ import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Work · SaaS, Trucking, CRM & Integrations",
-  description: `Selected product work across UK SaaS, US trucking & logistics, CRM, and accounting integrations by ${brand.shortName}. Client details anonymized where needed.`,
+  title: `Our Work · SaaS, Trucking & Integration Projects · ${brand.shortName}`,
+  description:
+    "Case studies from SaaS onboarding redesigns, trucking dispatch CRM builds, and QuickBooks/Xero integration projects. Real metrics, real outcomes.",
   path: "/work",
   image: pageHeroVisuals.work.src,
 });
@@ -30,8 +31,8 @@ export default async function WorkPage({ searchParams }: Props) {
     <>
       <PageHero
         eyebrow="Selected work"
-        title="Illustrative projects from our focus markets."
-        description="Anonymized examples across UK SaaS, US trucking and logistics, CRM, QuickBooks/Xero integrations, and practical automation - with outcome metrics from delivery, not review platforms."
+        title="Products we've designed and built."
+        description="Real projects across SaaS, trucking, CRM, and accounting integrations. Some client details are changed for confidentiality. Metrics are from actual delivery outcomes."
         visual={pageHeroVisuals.work}
         priority
         actions={

@@ -1,4 +1,4 @@
-export const THEME_STORAGE_KEY = "northline-theme";
+export const THEME_STORAGE_KEY = "kriva-theme";
 
 export type ThemePreference = "light" | "dark" | "system";
 

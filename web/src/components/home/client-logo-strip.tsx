@@ -20,7 +20,7 @@ export function HomeClientLogoStrip({ className }: HomeClientLogoStripProps) {
           marginBottom: 12,
         }}
       >
-        Used by teams at
+        Built with
       </p>
       <TechLogoGrid items={homepageTechBrands} marquee />
     </section>

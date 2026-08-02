@@ -26,8 +26,8 @@ const pillarIcons = [IconUsers, IconCode, IconShieldCheck, IconRocket] as const;
 const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About",
-  description: `${brand.legalName} - product design and engineering studio founded by a designer with 9+ years of experience. Remote-first from Ahmedabad, India.`,
+  title: `About ${brand.legalName} · Team, Story & Experience`,
+  description: `${brand.legalName} - a product design studio founded by a designer with 9+ years of experience shipping SaaS, trucking, and accounting software.`,
   path: "/about",
 });
 
@@ -73,14 +73,15 @@ export default function AboutPage() {
             <SectionHeader eyebrow="Our story" title="Why we exist." />
             <div className="space-y-4">
               <p className="type-body text-[color:var(--text-secondary)]">
-                I've spent the last nine years designing and building software - SaaS dashboards, trucking dispatch tools, QuickBooks integrations, mobile apps. Most of that work was done inside agencies and product companies where I watched the same problems repeat: design teams handing off specs that engineering couldn't build, clients managing three vendors for one project, and products that looked polished in Figma but fell apart in production.
+                I&apos;ve spent the last nine years designing and building software - SaaS dashboards, trucking dispatch tools, QuickBooks integrations, mobile apps. Most of that work was done inside agencies and product companies where I watched the same problems repeat: design teams handing off specs that engineering couldn&apos;t build, clients managing three vendors for one project, and products that looked polished in Figma but fell apart in production.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
                 KRIVA started because I wanted to build a studio where design and engineering work together from day one - where the person who designs the interface understands the API it connects to, and where clients talk to the people doing the work, not a project manager relaying messages.
               </p>
               <p className="type-body text-[color:var(--text-secondary)]">
-                We focus where we can be specific: UK SaaS teams that need product design and build to keep pace with the roadmap, and US trucking operators who need software shaped around dispatch, fleet, and back-office reality.
+                We&apos;re based in Ahmedabad, India. Our clients are in the US, UK, and across the world. What they have in common: they need software built by people who&apos;ve already solved problems like theirs.
               </p>
+              <p className="type-body font-medium text-foreground">- Dixit Panchal, Founder &amp; Design Lead</p>
             </div>
           </div>
           <MarketingImage
@@ -104,6 +105,10 @@ export default function AboutPage() {
               <div className="surface-card p-5">
                 <dt className="type-caption uppercase tracking-wide">Founded</dt>
                 <dd className="type-body mt-2 font-semibold text-foreground">{companyProfile.founded}</dd>
+              </div>
+              <div className="surface-card p-5 sm:col-span-2">
+                <dt className="type-caption uppercase tracking-wide">Founder experience</dt>
+                <dd className="type-body mt-2 text-[color:var(--text-secondary)]">{companyProfile.founderExperience}</dd>
               </div>
               <div className="surface-card p-5 sm:col-span-2">
                 <dt className="type-caption uppercase tracking-wide">Headquarters</dt>
@@ -146,6 +151,9 @@ export default function AboutPage() {
       <Section tone="muted" dividerTop>
         <Container>
           <TeamSection />
+          <p className="type-body mt-8 text-[color:var(--text-secondary)]">
+            Want to meet the team working on your project? We&apos;ll introduce everyone on the first call.
+          </p>
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
             {teamStats.map((s) => (
               <div key={s.label} className="surface-card p-5 text-center">
@@ -161,7 +169,7 @@ export default function AboutPage() {
       <Section tone="default" dividerTop>
         <Container className="grid max-w-5xl gap-10 lg:grid-cols-[1fr_360px] lg:items-start">
           <div>
-            <SectionHeader eyebrow="Culture" title="How we work together." />
+            <SectionHeader eyebrow="Culture" title="How we operate." />
             <div className="mt-10 grid gap-5 sm:grid-cols-3">
               {culturePoints.map((p, i) => {
                 const CultureIcon = cultureIcons[i % cultureIcons.length]!;
@@ -189,7 +197,7 @@ export default function AboutPage() {
 
       <Section tone="muted" dividerTop>
         <Container>
-          <SectionHeader eyebrow="Values" title="What clients can expect." />
+          <SectionHeader eyebrow="Values" title="What you get when you work with us." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {pillars.map((p, i) => {
               const PillarIcon = pillarIcons[i % pillarIcons.length]!;

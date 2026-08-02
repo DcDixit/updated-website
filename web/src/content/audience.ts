@@ -5,22 +5,22 @@ import { IconChartBar, IconRocket, IconTruck } from "@tabler/icons-react";
 
 export const clientPersonas = [
   {
-    title: "UK SaaS founders",
-    description: "Pre-seed to Series A teams shipping MVPs, tightening onboarding, clarifying dashboards, and getting product UI ready for investor or enterprise demos.",
+    title: "SaaS founders & product teams",
+    description: "Pre-seed to Series B teams shipping MVPs, tightening onboarding, and getting product UI ready for demos, investors, or enterprise buyers. We've done this 20+ times.",
     href: "/solutions/saas",
     cta: "SaaS solutions",
     icon: IconRocket,
   },
   {
-    title: "US trucking operators",
-    description: "Carriers, brokers, and fleet teams who need dispatch CRM, driver apps, or fleet dashboards that match real desk workflows - without a painful rip-and-replace.",
+    title: "Trucking & logistics operators",
+    description: "Carriers, brokers, and fleet managers who need dispatch software, driver apps, or fleet dashboards that match real desk workflows - without a six-month implementation.",
     href: "/solutions/trucking-logistics",
     cta: "Trucking solutions",
     icon: IconTruck,
   },
   {
-    title: "Finance and ops teams",
-    description: "Teams that need QuickBooks or Xero sync they can trust, plus exception views that surface issues before month-end close becomes a fire drill.",
+    title: "Finance & operations teams",
+    description: "Teams that need QuickBooks or Xero sync they can actually trust, plus exception dashboards that catch problems before month-end close turns into overtime.",
     href: "/solutions/accounting-integrations",
     cta: "Integration solutions",
     icon: IconChartBar,

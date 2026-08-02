@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildPageMetadata({
   title: "Industries · SaaS, Trucking, Integrations & CRM",
   description:
-    "How Northline delivers for UK SaaS, US trucking, QuickBooks/Xero integrations, car transportation, and CRM - with tailored approaches and illustrative work.",
+    "How KRIVA delivers for SaaS, trucking, QuickBooks/Xero integrations, car transportation, and CRM - with tailored approaches and illustrative work.",
   path: "/industries",
   image: pageHeroVisuals.industries.src,
 });

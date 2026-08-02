@@ -22,8 +22,8 @@ export function TeamSection({ className, variant = "preview" }: TeamSectionProps
         <Container>
           <SectionHeader
             eyebrow="The team"
-            title="Practices that stay on the engagement."
-            description="Design, engineering, delivery, and automation - the people in the first call stay accountable through launch."
+            title="Small team. Senior people."
+            description="KRIVA is founder-led with a core team of designers and engineers who've shipped SaaS products, trucking platforms, and accounting integrations for 9+ years. The people on your first call are the people building your product."
             align="center"
             className="mx-auto max-w-2xl"
           />
@@ -41,12 +41,12 @@ export function TeamSection({ className, variant = "preview" }: TeamSectionProps
           </div>
 
           <p className="mt-8 text-center text-sm text-[color:var(--text-secondary)]">
-            Remote-first · UK &amp; US time-zone coverage ·{" "}
+            Based in Ahmedabad, India · Serving clients in the US, UK, and globally ·{" "}
             <Link
               href="/about"
               className="inline-flex items-center gap-1 font-semibold text-[var(--color-accent)] transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
             >
-              About Northline
+              About KRIVA
               <IconArrowUpRight size={14} stroke={1.5} aria-hidden />
             </Link>
           </p>

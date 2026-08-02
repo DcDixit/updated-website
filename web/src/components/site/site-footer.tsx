@@ -7,8 +7,8 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 
-import { CtaBand } from "@/components/marketing/cta-band";
 import { Container } from "@/components/layout/container";
+import { FooterCtaBand } from "@/components/site/footer-cta-band";
 import { SiteLogo } from "@/components/site/site-logo";
 import {
   brand,
@@ -42,16 +42,7 @@ function FooterNavLink({ href, label }: { href: string; label: string }) {
 export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--section-divider)]">
-      <CtaBand
-        eyebrow="Start a project"
-        title="Have a product to build or improve?"
-        description="Share your scope and timeline - we'll reply within one business day with a clear plan, honest pricing approach, and relevant examples."
-        primaryLabel={primaryCtas.brief.label}
-        primaryHref={primaryCtas.brief.href}
-        secondaryLabel={primaryCtas.book.label}
-        secondaryHref={primaryCtas.book.href}
-        bordered={false}
-      />
+      <FooterCtaBand />
 
       <div className="relative overflow-hidden bg-[var(--surface-muted)]">
         <p className="footer-watermark" aria-hidden>
@@ -138,7 +129,7 @@ export function SiteFooter() {
 
           <div className="mt-12 flex flex-col gap-8 lg:mt-14 lg:flex-row lg:items-center lg:justify-between">
             <p className="type-caption order-3 lg:order-1">
-              © {new Date().getFullYear()} {brand.legalName}
+              © {new Date().getFullYear()} {brand.legalName}. All rights reserved.
             </p>
 
             <div className="type-caption order-1 flex flex-wrap items-center gap-x-4 gap-y-2 lg:order-2">
