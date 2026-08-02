@@ -238,7 +238,7 @@ export function HomeMarketing() {
             <SectionHeader
               eyebrow="Why Northline"
               title="Fewer vendors. Clearer ownership."
-              description="We structured the agency around the friction that usually slows client–agency work: handoffs, opaque progress, and tools that don't match the market."
+              description="We structured the agency around the friction that usually slows client-agency work: handoffs, opaque progress, and tools that don't match the market."
             />
             <div className="stagger-grid stagger-grid-visible mt-10 grid gap-5 sm:grid-cols-2">
               {differentiators.map(({ icon: DiffIcon, title, body }) => (

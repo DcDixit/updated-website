@@ -32,11 +32,11 @@ export function EngagementModel() {
               <div className="mb-6 space-y-2 text-sm text-[color:var(--text-secondary)]">
                 <div className="flex justify-between border-b border-[var(--surface-border)] pb-2">
                   <span>Typical range</span>
-                  <span className="font-semibold text-foreground">£15,000 – £80,000</span>
+                  <span className="font-semibold text-foreground">£15,000 - £80,000</span>
                 </div>
                 <div className="flex justify-between pt-0.5">
                   <span>Timeline</span>
-                  <span className="font-semibold text-foreground">6 – 16 weeks</span>
+                  <span className="font-semibold text-foreground">6 - 16 weeks</span>
                 </div>
               </div>
               <Link
@@ -63,7 +63,7 @@ export function EngagementModel() {
               <div className="mb-6 space-y-2 text-sm text-white/70">
                 <div className="flex justify-between border-b border-white/15 pb-2">
                   <span>Typical range</span>
-                  <span className="font-semibold text-white">£4,000 – £12,000 / month</span>
+                  <span className="font-semibold text-white">£4,000 - £12,000 / month</span>
                 </div>
                 <div className="flex justify-between pt-0.5">
                   <span>Commitment</span>
@@ -90,11 +90,11 @@ export function EngagementModel() {
               <div className="mb-6 space-y-2 text-sm text-[color:var(--text-secondary)]">
                 <div className="flex justify-between border-b border-[var(--surface-border)] pb-2">
                   <span>Typical range</span>
-                  <span className="font-semibold text-foreground">£2,500 – £5,000</span>
+                  <span className="font-semibold text-foreground">£2,500 - £5,000</span>
                 </div>
                 <div className="flex justify-between pt-0.5">
                   <span>Timeline</span>
-                  <span className="font-semibold text-foreground">1 – 2 weeks</span>
+                  <span className="font-semibold text-foreground">1 - 2 weeks</span>
                 </div>
               </div>
               <Link

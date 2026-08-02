@@ -15,19 +15,19 @@ import { cn } from "@/lib/utils";
 
 const stepIcons = [IconSearch, IconPencil, IconCode, IconRocket, IconHeartHandshake];
 
-const stepDurations = ["Week 1–2", "Week 2–4", "Week 4–8", "Week 8–10", "Week 10+"] as const;
+const stepDurations = ["Week 1-2", "Week 2-4", "Week 4-8", "Week 8-10", "Week 10+"] as const;
 const checkpointSteps = new Set([0, 2, 4]);
 
 const engagementDetails = [
   {
     icon: IconSearch,
-    timeline: "1–2 weeks",
+    timeline: "1-2 weeks",
     cta: "Book a discovery call",
     featured: false,
   },
   {
     icon: IconRocket,
-    timeline: "6–16 weeks",
+    timeline: "6-16 weeks",
     cta: "Start a project brief",
     featured: true,
   },

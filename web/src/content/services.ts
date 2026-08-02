@@ -360,7 +360,7 @@ export const serviceDetails: Record<
       "Documentation of AI-assisted processes",
     ],
     benefits: [
-      "30–50% faster iteration on suitable workstreams",
+      "30-50% faster iteration on suitable workstreams",
       "Consistent output with human review gates",
       "Modern positioning for investors and clients",
     ],
@@ -428,7 +428,7 @@ export const serviceDetails: Record<
       "Shared language across product, design, and leadership",
     ],
     faq: [
-      { q: "How long does a research sprint take?", a: "Most focused studies run 2–4 weeks from kickoff to readout, depending on recruitment and scope." },
+      { q: "How long does a research sprint take?", a: "Most focused studies run 2-4 weeks from kickoff to readout, depending on recruitment and scope." },
     ],
   },
   "wireframing-prototyping": {

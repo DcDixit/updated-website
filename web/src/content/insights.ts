@@ -145,7 +145,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Track cycle time from brief to approved prototype, revision rounds per milestone, and defect rate post-handoff. Teams doing this well typically cut discovery-to-design time by 20–35% without increasing rework - because AI handles volume, and humans handle taste.",
+        text: "Track cycle time from brief to approved prototype, revision rounds per milestone, and defect rate post-handoff. Teams doing this well typically cut discovery-to-design time by 20-35% without increasing rework - because AI handles volume, and humans handle taste.",
       },
     ],
   },
@@ -249,10 +249,10 @@ export const insightArticles: Record<
       {
         type: "list",
         items: [
-          "Weeks 1–2: discovery, ICP alignment, and UX flows.",
-          "Weeks 3–5: high-fidelity UI and clickable prototype validation.",
-          "Weeks 6–10: build core flows, QA, and event instrumentation.",
-          "Weeks 11–12: launch, support, and first iteration sprint.",
+          "Weeks 1-2: discovery, ICP alignment, and UX flows.",
+          "Weeks 3-5: high-fidelity UI and clickable prototype validation.",
+          "Weeks 6-10: build core flows, QA, and event instrumentation.",
+          "Weeks 11-12: launch, support, and first iteration sprint.",
         ],
       },
     ],

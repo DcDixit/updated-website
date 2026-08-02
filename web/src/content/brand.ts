@@ -19,7 +19,7 @@ export const siteContact = {
   /** Set your Cal.com or Calendly URL - leave empty to fall back to email booking. */
   schedulingUrl: "https://cal.com/kriva/discovery" as string,
   hqLabel: "Ahmedabad, Gujarat · Remote-first · Global clients",
-  addressLine: "511 – I The Address, Ahmedabad, Gujarat 380060, India",
+  addressLine: "511 - I The Address, Ahmedabad, Gujarat 380060, India",
   mapSearchUrl:
     "https://www.google.com/maps/search/?api=1&query=I+The+Address+Ahmedabad+Gujarat+380060",
   responseTime: "Replies within 24 hours on business days",

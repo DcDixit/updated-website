@@ -24,17 +24,17 @@ const markets = ["United Kingdom", "United States", "Other / Global"] as const;
 
 const budgets = [
   "Under $5k",
-  "$5k – $15k",
-  "$15k – $40k",
-  "$40k – $100k",
+  "$5k - $15k",
+  "$15k - $40k",
+  "$40k - $100k",
   "$100k+",
   "Not sure yet",
 ] as const;
 
 const timelines = [
   "ASAP (within 4 weeks)",
-  "1–2 months",
-  "3–6 months",
+  "1-2 months",
+  "3-6 months",
   "6+ months",
   "Flexible / exploring",
 ] as const;

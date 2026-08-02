@@ -216,7 +216,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     heroLead:
       "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards - with an in-house team that ships weekly, not just presents.",
     outcomes: [
-      { label: "Typical MVP timeline", value: "8–12 weeks" },
+      { label: "Typical MVP timeline", value: "8-12 weeks" },
       { label: "Engagement model", value: "Design + build" },
       { label: "Team", value: "15+ in-house" },
     ],
@@ -349,7 +349,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       "Connect your product or ops platform to QuickBooks Online and Xero, with sync jobs finance teams trust, operator dashboards, and alerts when something breaks.",
     outcomes: [
       { label: "Nightly sync reliability", value: "99%+" },
-      { label: "Manual reconciliation", value: "−60–80%" },
+      { label: "Manual reconciliation", value: "−60-80%" },
       { label: "Platforms supported", value: "QBO · Xero" },
     ],
     capabilities: [
@@ -408,7 +408,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     outcomes: [
       { label: "Quote-to-book time", value: "−40%" },
       { label: "Customer self-serve", value: "+30%" },
-      { label: "Platform delivery", value: "6–14 weeks" },
+      { label: "Platform delivery", value: "6-14 weeks" },
     ],
     capabilities: [
       {
