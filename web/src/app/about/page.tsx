@@ -25,19 +25,24 @@ import { cn } from "@/lib/utils";
 const pillarIcons = [IconUsers, IconCode, IconShieldCheck, IconRocket] as const;
 const cultureIcons = [IconUsers, IconShieldCheck, IconRocket] as const;
 
-export const metadata: Metadata = buildPageMetadata({
-  title: `About ${brand.legalName} · Team, Story & Experience`,
-  description: `${brand.legalName} - a product design studio founded by a designer with 9+ years of experience shipping SaaS, trucking, and accounting software.`,
-  path: "/about",
-});
+const aboutTitle = `About ${brand.legalName} · Team, Story & Experience`;
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: aboutTitle,
+    description: `${brand.legalName} — a product design studio founded by a designer with 9+ years of experience shipping SaaS, trucking, and accounting software.`,
+    path: "/about",
+  }),
+  title: { absolute: aboutTitle },
+};
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
         eyebrow="About"
-        title="Founded by a designer who's shipped 40+ products."
-        description="KRIVA is a product design and engineering studio. We build SaaS platforms, trucking software, and accounting integrations - the same work our founder has done for 9+ years, now under one roof with a dedicated team."
+        title="Founded by a designer who's shipped 40+ products — and decided to build a studio around that experience."
+        description="KRIVA Technologies is a product design and engineering studio. We build SaaS platforms, trucking software, and accounting integrations — the same work our founder has done for 9+ years, now under one roof with a dedicated team."
         visual={pageHeroVisuals.about}
         priority
         actions={
@@ -81,7 +86,7 @@ export default function AboutPage() {
               <p className="type-body text-[color:var(--text-secondary)]">
                 We&apos;re based in Ahmedabad, India. Our clients are in the US, UK, and across the world. What they have in common: they need software built by people who&apos;ve already solved problems like theirs.
               </p>
-              <p className="type-body font-medium text-foreground">- Dixit Panchal, Founder &amp; Design Lead</p>
+              <p className="type-body font-medium text-foreground">— Dixit Panchal, Founder &amp; Design Lead</p>
             </div>
           </div>
           <MarketingImage

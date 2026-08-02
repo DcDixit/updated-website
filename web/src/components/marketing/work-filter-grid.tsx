@@ -94,7 +94,6 @@ export function WorkFilterGrid({ initialTag = null }: WorkFilterGridProps) {
                 key={c.slug}
                 title={c.title}
                 summary={c.summary}
-                metric={c.metric}
                 href={`/work/${c.slug}`}
                 imageSrc={cover.src}
                 imageAlt={cover.alt}

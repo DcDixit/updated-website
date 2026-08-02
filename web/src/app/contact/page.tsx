@@ -15,12 +15,17 @@ import { pageHeroVisuals } from "@/content/visuals";
 import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: `Contact ${brand.legalName} · Send a Brief or Book a Call`,
-  description: `Start a project with ${brand.shortName}. Send a brief or book a 30-minute discovery call. We respond within one business day.`,
-  path: "/contact",
-  image: pageHeroVisuals.contact.src,
-});
+const contactTitle = `Contact ${brand.legalName} · Send a Brief or Book a Call`;
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: contactTitle,
+    description: `Start a project with ${brand.shortName}. Send a brief or book a 30-minute discovery call. We respond within one business day.`,
+    path: "/contact",
+    image: pageHeroVisuals.contact.src,
+  }),
+  title: { absolute: contactTitle },
+};
 
 export default function ContactPage() {
   return (

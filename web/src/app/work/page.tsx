@@ -14,13 +14,18 @@ import { pageHeroVisuals } from "@/content/visuals";
 import { buildPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: `Our Work · SaaS, Trucking & Integration Projects · ${brand.shortName}`,
-  description:
-    "Case studies from SaaS onboarding redesigns, trucking dispatch CRM builds, and QuickBooks/Xero integration projects. Real metrics, real outcomes.",
-  path: "/work",
-  image: pageHeroVisuals.work.src,
-});
+const workTitle = `Our Work · SaaS, Trucking & Integration Projects · ${brand.shortName}`;
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: workTitle,
+    description:
+      "Case studies from SaaS onboarding redesigns, trucking dispatch CRM builds, and QuickBooks/Xero integration projects. Real metrics, real outcomes.",
+    path: "/work",
+    image: pageHeroVisuals.work.src,
+  }),
+  title: { absolute: workTitle },
+};
 
 type Props = { searchParams: Promise<{ tag?: string }> };
 

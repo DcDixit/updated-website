@@ -48,7 +48,14 @@ export const metadata: Metadata = {
     title: `${brand.shortName} · Product Design & Engineering Agency`,
     description:
       "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations - dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
-    images: [{ url: `${siteUrl}/brand/og-default.png`, width: 1200, height: 630, alt: brand.shortName }],
+    images: [
+      {
+        url: `${siteUrl}/brand/og-default.png`,
+        width: 1200,
+        height: 630,
+        alt: `${brand.legalName} · SaaS & Trucking Product Design Agency`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

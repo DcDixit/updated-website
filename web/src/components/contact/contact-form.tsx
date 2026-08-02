@@ -163,7 +163,7 @@ export function ContactForm() {
         </div>
 
         <p className="type-caption border-t border-[var(--section-divider)] pt-5">
-          If your project is urgent, reach us directly at{" "}
+          If your project is urgent, reach us at{" "}
           <Link href={`mailto:${siteContact.email}`} className="font-semibold text-foreground hover:text-[var(--color-accent)]">
             {siteContact.email}
           </Link>

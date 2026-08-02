@@ -304,7 +304,6 @@ export function HomeMarketing() {
                   slug={c.slug as HomepageCaseStudySlug}
                   title={c.title}
                   summary={c.summary}
-                  metric={c.metric}
                   href={`/work/${c.slug}`}
                   tags={c.tags}
                 />

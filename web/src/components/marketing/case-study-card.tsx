@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IconArrowUpRight, IconTrendingUp } from "@tabler/icons-react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,6 @@ import { IMAGE_BLUR_DATA_URL } from "@/lib/image-placeholder";
 type CaseStudyCardProps = {
   title: string;
   summary: string;
-  metric: string;
   href: string;
   imageSrc: string;
   imageAlt: string;
@@ -20,7 +19,6 @@ type CaseStudyCardProps = {
 export function CaseStudyCard({
   title,
   summary,
-  metric,
   href,
   imageSrc,
   imageAlt,
@@ -46,11 +44,6 @@ export function CaseStudyCard({
             style={{ background: "linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 55%)" }}
             aria-hidden
           />
-          {/* Metric badge */}
-          <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-[var(--color-accent)]/50 bg-background/90 px-3 py-1 backdrop-blur-sm">
-            <IconTrendingUp size={12} stroke={2} className="text-[var(--color-accent)]" aria-hidden />
-            <span className="type-caption font-semibold tabular-nums text-foreground text-[11px]">{metric}</span>
-          </div>
         </div>
         <div className="flex flex-1 flex-col p-6">
           <h3 className="type-h3 transition-colors group-hover:text-[var(--color-accent)]">{title}</h3>
@@ -78,4 +71,3 @@ export function CaseStudyCard({
     </Link>
   );
 }
-

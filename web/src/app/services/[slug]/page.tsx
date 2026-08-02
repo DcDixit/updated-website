@@ -163,7 +163,6 @@ export default async function ServiceDetailPage({ params }: Props) {
                   key={c.slug}
                   title={c.title}
                   summary={c.summary}
-                  metric={c.metric}
                   href={`/work/${c.slug}`}
                   imageSrc={cover.src}
                   imageAlt={cover.alt}

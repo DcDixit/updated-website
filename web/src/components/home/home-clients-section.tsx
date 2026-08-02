@@ -24,63 +24,40 @@ const logoFitClasses: Record<ClientLogoFit, string> = {
 };
 
 function ClientLogoCard({ client }: { client: ClientLogo }) {
-  const caseStudyHref = client.caseStudySlug ? `/work/${client.caseStudySlug}` : undefined;
   const fit = client.logoFit ?? "default";
   const scale = client.logoScale ?? 1;
-  const isLinked = Boolean(caseStudyHref);
-
-  const cardContent = (
-    <div
-      className={cn(
-        "flex aspect-[5/3] items-center justify-center px-3 py-2.5 sm:px-4 sm:py-3",
-        "transition-[filter,transform] duration-300",
-        !isLinked && "grayscale-[0.25] group-hover/card:grayscale-0",
-        isLinked && "group-hover/card:scale-[1.03] motion-reduce:transform-none"
-      )}
-    >
-      <Image
-        src={client.logoSrc}
-        alt=""
-        width={160}
-        height={52}
-        className={cn(
-          "h-auto w-auto object-contain",
-          logoFitClasses[fit],
-          scale === 0.95 && "scale-[0.95]",
-          scale === 1.05 && "scale-[1.05]",
-          scale === 1.15 && "scale-[1.15]"
-        )}
-      />
-    </div>
-  );
-
-  const cardClasses = cn(
-    "group/card relative overflow-hidden rounded-[var(--card-radius)]",
-    "border border-[var(--surface-border)] bg-[var(--card)]",
-    "transition-[border-color,box-shadow,transform] duration-300",
-    "hover:border-[color-mix(in_oklab,var(--color-accent)_30%,var(--surface-border))]",
-    "hover:shadow-[0_12px_32px_color-mix(in_oklab,var(--foreground)_5%,transparent)]",
-    isLinked && "motion-reduce:transition-none lg:hover:-translate-y-0.5"
-  );
-
-  if (caseStudyHref) {
-    return (
-      <Link
-        href={caseStudyHref}
-        className={cn(
-          cardClasses,
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        )}
-        aria-label={`${client.name} - view related case study`}
-      >
-        {cardContent}
-      </Link>
-    );
-  }
 
   return (
-    <div className={cardClasses} aria-label={`${client.name}${client.industry ? `, ${client.industry}` : ""}`}>
-      {cardContent}
+    <div
+      className={cn(
+        "group/card relative overflow-hidden rounded-[var(--card-radius)]",
+        "border border-[var(--surface-border)] bg-[var(--card)]",
+        "transition-[border-color,box-shadow] duration-300",
+        "hover:border-[color-mix(in_oklab,var(--color-accent)_30%,var(--surface-border))]",
+        "hover:shadow-[0_12px_32px_color-mix(in_oklab,var(--foreground)_5%,transparent)]"
+      )}
+      aria-label={`${client.name}${client.industry ? `, ${client.industry}` : ""}`}
+    >
+      <div
+        className={cn(
+          "flex aspect-[5/3] items-center justify-center px-3 py-2.5 sm:px-4 sm:py-3",
+          "grayscale-[0.25] transition-[filter] duration-300 group-hover/card:grayscale-0"
+        )}
+      >
+        <Image
+          src={client.logoSrc}
+          alt=""
+          width={160}
+          height={52}
+          className={cn(
+            "h-auto w-auto object-contain",
+            logoFitClasses[fit],
+            scale === 0.95 && "scale-[0.95]",
+            scale === 1.05 && "scale-[1.05]",
+            scale === 1.15 && "scale-[1.15]"
+          )}
+        />
+      </div>
     </div>
   );
 }

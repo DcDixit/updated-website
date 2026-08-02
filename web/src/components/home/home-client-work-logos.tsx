@@ -164,14 +164,14 @@ export function HomeClientWorkLogos({ className }: HomeClientWorkLogosProps) {
         <div className="max-w-xl space-y-4">
           <p className="type-badge-label inline-flex items-center gap-2 text-[12px]">
             <span className="inline-block size-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden />
-            Products we&apos;ve shipped
+            Selected work
           </p>
           <h2 id="shipped-products-heading" className="type-h2 text-balance text-foreground">
-            Real product surfaces. Measurable outcomes.
+            Products we&apos;ve designed and shipped.
           </h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            A look at platforms we designed and engineered - each one linked to the case study behind the
-            metric.
+            A few of the platforms, dashboards, and tools we&apos;ve taken from brief to production - each
+            linked to the full project story.
           </p>
         </div>
         <Link
