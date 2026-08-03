@@ -23,23 +23,21 @@ export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
         </h3>
       </header>
 
-      <ul
-        className={cn(
-          "grid overflow-hidden rounded-[var(--card-radius)]",
-          "border border-[var(--surface-border)]",
-          "gap-px bg-[var(--section-divider)]",
-          "sm:grid-cols-2 lg:grid-cols-4"
-        )}
-      >
+      <ul className="bento-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {deliveryTrustPrinciples.map((item, index) => {
           const Icon = principleIcons[index] ?? IconShieldLock;
           return (
-            <li key={item.title} className="flex flex-col bg-[var(--card)] px-5 py-6 sm:px-6 sm:py-8">
-              <Icon size={24} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
-              <p className="mt-4 text-[0.9375rem] font-semibold leading-snug tracking-tight text-foreground">
-                {item.title}
-              </p>
-              <p className="type-caption mt-2 max-w-[18rem] leading-relaxed">{item.body}</p>
+            <li key={item.title}>
+              <article className="bento-card relative flex h-full flex-col overflow-hidden p-6 sm:p-7">
+                <div className="bento-card-glow" aria-hidden />
+                <div className="relative z-[1]">
+                  <Icon size={24} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
+                  <p className="mt-4 text-[0.9375rem] font-semibold leading-snug tracking-tight text-foreground">
+                    {item.title}
+                  </p>
+                  <p className="type-caption mt-2 leading-relaxed">{item.body}</p>
+                </div>
+              </article>
             </li>
           );
         })}
@@ -47,4 +45,3 @@ export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
     </section>
   );
 }
-

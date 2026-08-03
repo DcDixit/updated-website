@@ -1,10 +1,7 @@
-"use client";
-
 import Link from "next/link";
-import { useCallback, useState } from "react";
 import { IconArrowUpRight } from "@tabler/icons-react";
 
-import { MarketingImage } from "@/components/marketing/marketing-image";
+import { BentoCard } from "@/components/ui/bento-card";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { buttonVariants } from "@/components/ui/button";
 import { clientPersonas } from "@/content/audience";
@@ -15,18 +12,40 @@ import { cn } from "@/lib/utils";
 
 type SolutionItem = (typeof homepageSolutionSections)[number];
 
-const solutionGroups = [
-  {
-    label: "Core markets",
-    items: homepageSolutionSections.slice(0, 2),
+/** Grid spans per solution slug — asymmetric bento layout. */
+const solutionLayout: Record<
+  string,
+  { gridClass: string; featured?: boolean; visualAside?: boolean; maxTags?: number }
+> = {
+  saas: {
+    gridClass: "col-span-12",
+    featured: true,
+    visualAside: true,
+    maxTags: 4,
   },
-  {
-    label: "Platform & operations",
-    items: homepageSolutionSections.slice(2),
+  "trucking-logistics": {
+    gridClass: "col-span-12 lg:col-span-8",
+    maxTags: 3,
   },
-] as const;
+  "accounting-integrations": {
+    gridClass: "col-span-12 lg:col-span-4",
+    maxTags: 3,
+  },
+  "car-transportation": {
+    gridClass: "col-span-12 sm:col-span-6 lg:col-span-4",
+    maxTags: 3,
+  },
+  "crm-automation": {
+    gridClass: "col-span-12 sm:col-span-6 lg:col-span-4",
+    maxTags: 3,
+  },
+  "ai-productivity": {
+    gridClass: "col-span-12 lg:col-span-4",
+    maxTags: 3,
+  },
+};
 
-function solutionPreviewVisual(slug: string) {
+function solutionVisual(slug: string) {
   if (slug in solutionVisuals) {
     return solutionVisuals[slug as SolutionSlug];
   }
@@ -39,185 +58,31 @@ function solutionPreviewVisual(slug: string) {
   return marketingSectionImages.saasSpotlight;
 }
 
-function SolutionPreviewPanel({ solution, index }: { solution: SolutionItem; index: number }) {
-  const Icon = solution.icon;
-  const visibleServices = solution.services.slice(0, 4);
-  const extraServices = solution.services.length - visibleServices.length;
-
-  const visual = solutionPreviewVisual(solution.slug);
+function SolutionBentoTile({ solution }: { solution: SolutionItem }) {
+  const layout = solutionLayout[solution.slug] ?? { gridClass: "col-span-12" };
+  const visual = solutionVisual(solution.slug);
+  const showVisual = solution.slug !== "crm-automation" && solution.slug !== "ai-productivity";
 
   return (
-    <div className="solution-preview-enter grid h-full lg:grid-cols-[minmax(0,1fr)_minmax(0,14rem)] xl:grid-cols-[minmax(0,1fr)_minmax(0,16rem)]">
-      <div className="flex h-full flex-col px-6 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex size-11 items-center justify-center rounded-xl border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/8">
-          <Icon size={22} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
-        </div>
-        <p className="type-caption tabular-nums text-[color:var(--text-secondary)]">
-          {String(index + 1).padStart(2, "0")} / {String(homepageSolutionSections.length).padStart(2, "0")}
-        </p>
-      </div>
-
-      {solution.market ? (
-        <p className="type-badge-label mt-6 text-[11px]">{solution.market}</p>
-      ) : null}
-      <h3 className="type-h3 mt-2 max-w-lg text-balance">{solution.title}</h3>
-      <p className="type-body mt-4 max-w-xl text-[color:var(--text-body)]">{solution.summary}</p>
-
-      <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${solution.title} capabilities`}>
-        {visibleServices.map((service) => (
-          <li key={service}>
-            <span className="type-caption inline-flex rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1 text-[11px]">
-              {service}
-            </span>
-          </li>
-        ))}
-        {extraServices > 0 ? (
-          <li>
-            <span className="type-caption inline-flex rounded-full border border-dashed border-[var(--surface-border)] px-3 py-1 text-[11px] text-[color:var(--text-secondary)]">
-              +{extraServices} more
-            </span>
-          </li>
-        ) : null}
-      </ul>
-
-      <div className="mt-auto pt-8">
-        <Link
-          href={solution.href}
-          className={cn(buttonVariants({ variant: "primary", size: "cta" }), "inline-flex w-full gap-2 sm:w-auto")}
-          data-track="solution_card_click"
-          data-track-location="solution-section"
-          data-track-label={solution.title}
-        >
-          {solution.cta}
-          <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
-        </Link>
-      </div>
-      </div>
-      <div className="relative hidden flex-col min-h-[12rem] border-t border-[var(--surface-border)] lg:flex lg:border-l lg:border-t-0">
-        <a href="#" className="block flex-1">
-          <MarketingImage
-            src={visual.src}
-            alt={visual.alt}
-            sizes="280px"
-            aspectClassName="aspect-[4/5] h-full min-h-[12rem] w-full rounded-none border-0"
-            overlay="bottom"
-            className="h-full rounded-none border-0"
-          />
-        </a>
-        <a
-          href="#"
-          className="px-4 py-3 text-[13px] font-semibold text-[var(--color-accent)]"
-        >
-          View project →
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function SolutionListItem({
-  solution,
-  index,
-  isActive,
-  onSelect,
-  compact = false,
-}: {
-  solution: SolutionItem;
-  index: number;
-  isActive: boolean;
-  onSelect: () => void;
-  compact?: boolean;
-}) {
-  const indexLabel = String(index + 1).padStart(2, "0");
-
-  return (
-    <button
-      type="button"
-      role="tab"
-      tabIndex={isActive ? 0 : -1}
-      id={`solution-tab-${solution.slug}${compact ? "-mobile" : ""}`}
-      aria-selected={isActive}
-      aria-controls={`solution-panel-${solution.slug}${compact ? "-mobile" : ""}`}
-      onClick={onSelect}
-      className={cn(
-        "group relative flex shrink-0 items-center gap-3 text-left transition-colors",
-        compact ? "rounded-full px-4 py-2.5" : "w-full px-5 py-3.5",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-accent)]/35",
-        isActive
-          ? compact
-            ? "bg-[var(--color-accent)] text-white dark:text-[#0f172a]"
-            : "bg-[var(--card)]"
-          : compact
-            ? "border border-[var(--surface-border)] bg-[var(--card)] hover:border-[var(--color-accent)]/40"
-            : "hover:bg-[var(--card)]/60"
-      )}
-    >
-      {!compact ? (
-        <span
-          className={cn(
-            "type-caption w-6 shrink-0 tabular-nums transition-colors",
-            isActive ? "font-medium text-[var(--color-accent)]" : "text-[color:var(--text-secondary)]"
-          )}
-        >
-          {indexLabel}
-        </span>
-      ) : null}
-      <span
-        className={cn(
-          "type-body min-w-0 flex-1 text-sm transition-colors",
-          compact ? "whitespace-nowrap font-medium" : "flex-1",
-          isActive
-            ? compact
-              ? "text-white dark:text-[#0f172a]"
-              : "font-semibold text-foreground"
-            : compact
-              ? "text-[color:var(--text-body)]"
-              : "text-[color:var(--text-secondary)] group-hover:text-foreground"
-        )}
-      >
-        {solution.title}
-      </span>
-      {!compact ? (
-        <IconArrowUpRight
-          size={15}
-          stroke={1.5}
-          className={cn(
-            "shrink-0 transition-all",
-            isActive ? "text-[var(--color-accent)] opacity-100" : "opacity-0 group-hover:opacity-50"
-          )}
-          aria-hidden
-        />
-      ) : null}
-    </button>
+    <li className={cn("min-h-[16rem]", layout.gridClass)}>
+      <BentoCard
+        title={solution.title}
+        description={solution.summary}
+        href={solution.href}
+        cta={solution.cta}
+        icon={solution.icon}
+        eyebrow={solution.market}
+        tags={solution.services.slice(0, layout.maxTags ?? 3)}
+        visual={showVisual ? visual : undefined}
+        featured={layout.featured}
+        visualAside={layout.visualAside}
+        trackingLabel={solution.title}
+      />
+    </li>
   );
 }
 
 export function HomeSolutionsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeSolution = homepageSolutionSections[activeIndex];
-
-  const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
-    const lastIndex = homepageSolutionSections.length - 1;
-
-    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      event.preventDefault();
-      setActiveIndex((current) => (current >= lastIndex ? 0 : current + 1));
-    }
-    if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      event.preventDefault();
-      setActiveIndex((current) => (current <= 0 ? lastIndex : current - 1));
-    }
-    if (event.key === "Home") {
-      event.preventDefault();
-      setActiveIndex(0);
-    }
-    if (event.key === "End") {
-      event.preventDefault();
-      setActiveIndex(lastIndex);
-    }
-  }, []);
-
   return (
     <>
       <SectionHeader
@@ -226,129 +91,48 @@ export function HomeSolutionsSection() {
         description="Every solution we offer comes from work we've actually done - not service categories we invented to fill a menu."
       />
 
-      <div className="mt-10 hidden overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)] md:grid md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">
-        <div
-          role="tablist"
-          aria-label="Solution areas"
-          aria-orientation="vertical"
-          className="flex flex-col border-r border-[var(--surface-border)] bg-[var(--surface-muted)]/50"
-          onKeyDown={handleKeyDown}
-        >
-          {solutionGroups.map((group, groupIndex) => (
-            <div key={group.label} className={cn(groupIndex > 0 && "border-t border-[var(--surface-border)]")}>
-              <p className="type-badge-label px-5 pb-2 pt-4 text-[10px]">{group.label}</p>
-              <div className="space-y-0.5 px-2 pb-3">
-                {group.items.map((solution) => {
-                  const index = homepageSolutionSections.findIndex((item) => item.slug === solution.slug);
-                  return (
-                    <SolutionListItem
-                      key={solution.slug}
-                      solution={solution}
-                      index={index}
-                      isActive={activeIndex === index}
-                      onSelect={() => setActiveIndex(index)}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div
-          role="tabpanel"
-          id={`solution-panel-${activeSolution.slug}`}
-          aria-labelledby={`solution-tab-${activeSolution.slug}`}
-          className="min-h-[24rem]"
-        >
-          <SolutionPreviewPanel key={activeSolution.slug} solution={activeSolution} index={activeIndex} />
-        </div>
-      </div>
-
-      <div className="mt-8 md:hidden">
-        <div
-          role="tablist"
-          aria-label="Solution areas"
-          aria-orientation="horizontal"
-          className="scrollbar-hide -mx-4 flex gap-2 overflow-x-auto px-4 pb-4"
-          onKeyDown={handleKeyDown}
-        >
-          {homepageSolutionSections.map((solution, index) => (
-            <SolutionListItem
-              key={solution.slug}
-              solution={solution}
-              index={index}
-              isActive={activeIndex === index}
-              onSelect={() => setActiveIndex(index)}
-              compact
-            />
-          ))}
-        </div>
-
-        <div
-          role="tabpanel"
-          id={`solution-panel-${activeSolution.slug}-mobile`}
-          aria-labelledby={`solution-tab-${activeSolution.slug}-mobile`}
-          className="overflow-hidden rounded-[var(--card-radius)] border border-[var(--surface-border)] bg-[var(--card)]"
-        >
-          <SolutionPreviewPanel key={activeSolution.slug} solution={activeSolution} index={activeIndex} />
-        </div>
-      </div>
+      <ul className="bento-grid stagger-grid stagger-grid-visible mt-10 grid grid-cols-12">
+        {homepageSolutionSections.map((solution) => (
+          <SolutionBentoTile key={solution.slug} solution={solution} />
+        ))}
+      </ul>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Link
           href="/solutions"
-          className={cn(buttonVariants({ variant: "link", size: "default" }), "inline-flex items-center gap-2 text-base font-semibold")}
+          className={cn(
+            buttonVariants({ variant: "link", size: "default" }),
+            "inline-flex items-center gap-2 text-base font-semibold"
+          )}
         >
           View all solutions
           <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
         </Link>
-        <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full sm:w-auto")}>
+        <Link
+          href={primaryCtas.book.href}
+          className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full sm:w-auto")}
+        >
           {primaryCtas.book.label}
         </Link>
       </div>
 
-      <div className="mt-10 border-t border-[var(--surface-border)] pt-8">
-        <p className="type-badge-label mb-4">Who we work with</p>
-        <ul className="grid gap-5 md:grid-cols-3">
-          {clientPersonas.map((persona) => {
-            const PersonaIcon = persona.icon;
-
-            return (
-              <li key={persona.title}>
-                <Link
-                  href={persona.href}
-                  className="surface-card card-hover-rise group relative flex h-full flex-col overflow-hidden p-5 transition-colors hover:border-[var(--color-accent)]/40 sm:p-6"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-[var(--color-accent)] transition-transform duration-300 ease-out group-hover:scale-x-100"
-                  />
-                  <div className="icon-container-md mb-4">
-                    <PersonaIcon size={20} stroke={1.5} aria-hidden />
-                  </div>
-                  <h3 className="type-h3 text-foreground transition-colors group-hover:text-[var(--color-accent)]">
-                    {persona.title}
-                  </h3>
-                  <p className="type-body mt-2 flex-1 text-sm leading-relaxed text-[color:var(--text-secondary)]">
-                    {persona.description}
-                  </p>
-                  <span className="type-body mt-5 inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)]">
-                    {persona.cta}
-                    <IconArrowUpRight
-                      size={16}
-                      stroke={1.5}
-                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      aria-hidden
-                    />
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
+      <div className="mt-12 border-t border-[var(--surface-border)] pt-10">
+        <p className="type-badge-label mb-5">Who we work with</p>
+        <ul className="bento-grid grid gap-5 md:grid-cols-3">
+          {clientPersonas.map((persona) => (
+            <li key={persona.title}>
+              <BentoCard
+                title={persona.title}
+                description={persona.description}
+                href={persona.href}
+                cta={persona.cta}
+                icon={persona.icon}
+                trackingLabel={persona.title}
+              />
+            </li>
+          ))}
         </ul>
       </div>
     </>
   );
 }
-
