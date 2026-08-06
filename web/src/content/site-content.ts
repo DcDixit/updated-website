@@ -85,7 +85,7 @@ export {
 
 /** Homepage hero - dual-industry agency positioning. */
 export const homeHero = {
-  eyebrowBadge: "Product design & engineering · SaaS · Trucking · Integrations",
+  eyebrowBadge: "Design engineering for SaaS & trucking",
   headline: "We design the software your ops team won't want to work around.",
   headlineEmphasis: "won't want to work around",
   lead: "Dispatch consoles, SaaS dashboards, fleet tools, and QuickBooks/Xero integrations - designed and built by a team that's shipped 40+ of them.",

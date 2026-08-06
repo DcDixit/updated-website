@@ -18,30 +18,26 @@ type HomeClientsSectionProps = {
 };
 
 const logoFitClasses: Record<ClientLogoFit, string> = {
-  wide: "max-h-9 max-w-[88%] sm:max-h-10",
-  default: "max-h-9 max-w-[82%] sm:max-h-10",
-  tall: "max-h-10 max-w-[70%] sm:max-h-[2.6rem]",
+  wide: "max-h-[2.125rem] max-w-[86%] sm:max-h-9",
+  default: "max-h-[2rem] max-w-[80%] sm:max-h-[2.125rem]",
+  tall: "max-h-[2.375rem] max-w-[68%] sm:max-h-10",
 };
 
-function ClientLogoCard({ client }: { client: ClientLogo }) {
+function ClientLogoCell({ client, index }: { client: ClientLogo; index: number }) {
   const fit = client.logoFit ?? "default";
   const scale = client.logoScale ?? 1;
 
   return (
-    <div
-      className={cn(
-        "group/card relative overflow-hidden rounded-[var(--card-radius)]",
-        "border border-[var(--surface-border)] bg-[var(--card)]",
-        "transition-[border-color,box-shadow] duration-300",
-        "hover:border-[color-mix(in_oklab,var(--color-accent)_30%,var(--surface-border))]",
-        "hover:shadow-[0_12px_32px_color-mix(in_oklab,var(--foreground)_5%,transparent)]"
-      )}
+    <li
+      className="client-logo-cell clients-grid-item bg-[var(--card)]"
+      style={{ animationDelay: `${Math.min(index, 12) * 35}ms` }}
       aria-label={`${client.name}${client.industry ? `, ${client.industry}` : ""}`}
     >
       <div
         className={cn(
-          "flex aspect-[5/3] items-center justify-center px-3 py-2.5 sm:px-4 sm:py-3",
-          "grayscale-[0.25] transition-[filter] duration-300 group-hover/card:grayscale-0"
+          "group/cell relative flex h-full min-h-[4.5rem] items-center justify-center px-4 py-3 sm:min-h-[5rem] sm:px-5",
+          "transition-[background-color] duration-300",
+          "hover:bg-[color-mix(in_oklab,var(--color-accent)_4%,var(--card))]"
         )}
       >
         <Image
@@ -50,27 +46,32 @@ function ClientLogoCard({ client }: { client: ClientLogo }) {
           width={160}
           height={52}
           className={cn(
-            "h-auto w-auto object-contain",
+            "h-auto w-auto object-contain opacity-[0.82]",
+            "grayscale-[0.35] transition-[filter,opacity,transform] duration-300",
+            "group-hover/cell:scale-[1.03] group-hover/cell:opacity-100 group-hover/cell:grayscale-0",
+            "motion-reduce:transform-none motion-reduce:transition-none",
             logoFitClasses[fit],
-            scale === 0.95 && "scale-[0.95]",
-            scale === 1.05 && "scale-[1.05]",
-            scale === 1.15 && "scale-[1.15]"
+            scale === 0.95 && "scale-[0.95] group-hover/cell:scale-[0.98]",
+            scale === 1.05 && "scale-[1.05] group-hover/cell:scale-[1.08]",
+            scale === 1.15 && "scale-[1.15] group-hover/cell:scale-[1.18]"
           )}
         />
       </div>
-    </div>
+    </li>
   );
 }
 
 function ClientsLogoGrid() {
   return (
-    <div
-      className="clients-grid-enter grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5"
-      aria-label="Client logos"
-    >
-      {clientLogosWorkedWith.map((client) => (
-        <ClientLogoCard key={client.name} client={client} />
-      ))}
+    <div className="clients-logo-wall clients-grid-enter overflow-hidden rounded-[var(--bento-radius)] border border-[var(--surface-border)] bg-[var(--section-divider)] shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_28px_rgba(0,0,0,0.04)]">
+      <ul
+        className="clients-logo-grid list-none gap-px"
+        aria-label="Client logos"
+      >
+        {clientLogosWorkedWith.map((client, index) => (
+          <ClientLogoCell key={client.name} client={client} index={index} />
+        ))}
+      </ul>
     </div>
   );
 }

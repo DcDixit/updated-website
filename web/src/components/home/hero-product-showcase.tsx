@@ -16,13 +16,13 @@ export function HeroProductShowcase({ className }: HeroProductShowcaseProps) {
     <div className={cn("relative mx-auto w-full max-w-[580px]", className)}>
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-4 rounded-3xl opacity-40 blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[2rem] opacity-50 blur-3xl"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 50% 50%, color-mix(in oklab, var(--color-accent) 25%, transparent) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 50%, color-mix(in oklab, var(--color-accent) 22%, transparent) 0%, transparent 70%)",
         }}
       />
-      <figure className="overflow-hidden rounded-xl border border-[var(--surface-border)] shadow-2xl">
+      <figure className="overflow-hidden rounded-2xl border border-[var(--surface-border)] bg-[var(--card)] shadow-[0_24px_64px_-24px_rgba(0,0,0,0.28)]">
         <div className="relative aspect-[4/3] w-full">
           <Image
             src={visual.src}
@@ -32,11 +32,11 @@ export function HeroProductShowcase({ className }: HeroProductShowcaseProps) {
             sizes="(max-width: 1024px) 100vw, 580px"
             placeholder="blur"
             blurDataURL={IMAGE_BLUR_DATA_URL}
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 ease-out motion-safe:hover:scale-[1.02]"
           />
         </div>
-        <figcaption className="type-caption px-4 py-3 text-center text-[color:var(--text-secondary)]">
-          Live product view - your product here
+        <figcaption className="type-caption border-t border-[var(--surface-border)] px-4 py-3.5 text-center text-[color:var(--text-secondary)]">
+          Live product view — your product here
         </figcaption>
       </figure>
     </div>

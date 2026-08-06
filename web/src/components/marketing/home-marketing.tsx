@@ -7,15 +7,12 @@ import {
   IconBrandGithub,
 } from "@tabler/icons-react";
 
-import { HomeClientLogoStrip } from "@/components/home/client-logo-strip";
 import { HomeClientsSection } from "@/components/home/home-clients-section";
-import { HomeClientWorkLogos } from "@/components/home/home-client-work-logos";
 import { DeliveryTrustRow } from "@/components/home/delivery-trust-row";
 import { HomeCaseStudyCard } from "@/components/home/home-case-study-card";
 import { HomeStatsBento } from "@/components/home/home-stats-bento";
 import { HeroProductShowcase } from "@/components/home/hero-product-showcase";
 import { HomeInsightsPreview } from "@/components/home/home-insights-preview";
-import { HomeSubNav } from "@/components/home/home-sub-nav";
 import { HomeTestimonialsSection } from "@/components/home/home-testimonials-section";
 import { ProcessSection } from "@/components/home/process-section";
 import { TeamSection } from "@/components/home/team-section";
@@ -64,8 +61,8 @@ function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: str
 }
 
 const heroTrustSignals = [
-  { icon: IconRocket, label: "40+ projects delivered", href: "/work" },
-  { icon: IconShieldCheck, label: "NDA-first collaboration", href: "/faq" },
+  { label: "40+ projects delivered", href: "/work" },
+  { label: "NDA-first collaboration", href: "/faq" },
 ];
 
 const differentiators = [
@@ -128,73 +125,74 @@ export function HomeMarketing() {
       <SectionShell
         id="hero"
         size="hero"
-        className="hero-dot-grid hero-mesh-bg relative overflow-hidden !py-[clamp(3rem,5.5vw,4.75rem)]"
+        className="hero-dot-grid hero-mesh-bg relative overflow-hidden !py-[clamp(4rem,7vw,6.5rem)]"
       >
         <div
           aria-hidden
           className="pointer-events-none absolute -top-32 right-0 h-[600px] w-[600px] rounded-full opacity-[0.05] blur-3xl dark:opacity-[0.07]"
           style={{ background: "radial-gradient(circle, var(--color-accent) 0%, transparent 70%)" }}
         />
-        <Reveal>
+        <Reveal stagger>
           <Container className="relative z-[1]">
-            <div className="grid-layout-12 items-center gap-y-8 lg:gap-y-0">
-              <div className="col-span-12 flex flex-col gap-3 lg:col-span-6 lg:pr-4">
-                <p className="hero-eyebrow-badge type-badge-label inline-block self-start rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1.5 text-[color:var(--text-secondary)]">
+            <div className="grid-layout-12 items-center gap-y-10 lg:gap-y-0">
+              <div className="col-span-12 flex flex-col gap-5 lg:col-span-6 lg:pr-6">
+                <p className="reveal-child reveal-child-1 type-badge-label inline-flex items-center gap-2 self-start text-[color:var(--text-secondary)]">
+                  <span className="inline-block size-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden />
                   {homeHero.eyebrowBadge}
                 </p>
 
-                <h1 className="type-hero text-foreground text-balance">
+                <h1 className="reveal-child reveal-child-2 type-hero text-foreground text-balance">
                   <HeroHeadline headline={homeHero.headline} emphasis={homeHero.headlineEmphasis} />
                 </h1>
 
-                <p className="type-lead max-w-xl text-[color:var(--text-body)]">{homeHero.lead}</p>
+                <p className="reveal-child reveal-child-3 type-lead max-w-xl text-[color:var(--text-body)]">
+                  {homeHero.lead}
+                </p>
 
-                <div className="mt-2">
+                <div className="reveal-child reveal-child-4 mt-1">
                   <HeroCtaGroup trackingLocation="home-hero" />
                 </div>
 
-                <div className="flex flex-wrap gap-3 pt-1" aria-label="How we work">
-                  {heroTrustSignals.map(({ icon: TrustIcon, label, href }) => (
-                    <Link
-                      key={label}
-                      href={href}
-                      className="trust-badge rounded-full border border-transparent px-2 py-1 transition-colors hover:border-[var(--surface-border)] hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
-                    >
-                      <TrustIcon size={14} stroke={1.75} aria-hidden />
-                      {label}
-                    </Link>
+                <p
+                  className="reveal-child reveal-child-5 type-caption flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-[color:var(--text-secondary)]"
+                  aria-label="How we work"
+                >
+                  {heroTrustSignals.map(({ label, href }, index) => (
+                    <span key={label} className="inline-flex items-center gap-3">
+                      {index > 0 ? (
+                        <span className="text-[var(--surface-border)]" aria-hidden>
+                          ·
+                        </span>
+                      ) : null}
+                      <Link
+                        href={href}
+                        className="link-hover-underline transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35"
+                      >
+                        {label}
+                      </Link>
+                    </span>
                   ))}
-                </div>
+                </p>
               </div>
 
-              <div className="col-span-12 lg:col-span-6">
+              <div className="reveal-child reveal-child-6 col-span-12 lg:col-span-6">
                 <HeroProductShowcase />
               </div>
             </div>
           </Container>
         </Reveal>
 
-        <div className="mt-8 flex justify-center lg:mt-10">
+        <div className="mt-10 flex justify-center lg:mt-14">
           <a
-            href="#solutions"
-            className="link-subtle type-caption flex flex-col items-center gap-1 text-[color:var(--text-secondary)]"
+            href="#clients"
+            className="link-subtle type-caption flex flex-col items-center gap-1.5 text-[color:var(--text-secondary)]"
           >
-            <span className="sr-only">Scroll to solutions</span>
-            <span aria-hidden>Explore solutions</span>
+            <span className="sr-only">Scroll to clients</span>
+            <span aria-hidden>Scroll</span>
             <IconChevronDown size={18} stroke={1.5} className="marketing-scroll-hint opacity-70" />
           </a>
         </div>
       </SectionShell>
-
-      <HomeSubNav />
-
-      <section className="border-y border-[var(--surface-border)] bg-background py-8">
-        <Container>
-          <HomeClientWorkLogos />
-        </Container>
-      </section>
-
-      <HomeClientLogoStrip />
 
       <HomeClientsSection />
 
@@ -226,8 +224,9 @@ export function HomeMarketing() {
             <SectionHeader
               eyebrow="Why KRIVA"
               title="One team. No handoff drama."
+              description="The same people who design your product build it — so nothing gets lost between Figma and production."
             />
-            <ul className="bento-grid stagger-grid stagger-grid-visible mt-10 grid grid-cols-12">
+            <ul className="bento-grid stagger-grid mt-10 grid grid-cols-12">
               {differentiators.map(({ icon: DiffIcon, title, body, featured, gridClass }) => (
                 <li key={title} className={gridClass}>
                   <BentoCard
@@ -287,7 +286,7 @@ export function HomeMarketing() {
                 View all work
               </Link>
             </div>
-            <div className="stagger-grid stagger-grid-visible mt-10 grid gap-6 lg:grid-cols-3">
+            <div className="stagger-grid mt-10 grid gap-6 lg:grid-cols-3">
               {featuredCaseStudies.map((c) => (
                 <HomeCaseStudyCard
                   key={c.slug}

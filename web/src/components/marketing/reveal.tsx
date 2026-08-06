@@ -10,10 +10,13 @@ export function Reveal({
   children,
   className,
   delayMs = 0,
+  stagger = false,
 }: {
   children: ReactNode;
   className?: string;
   delayMs?: number;
+  /** When true, the wrapper stays still and `.reveal-child` elements animate in. */
+  stagger?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -34,7 +37,7 @@ export function Reveal({
         obs.unobserve(el);
         timeoutId = setTimeout(() => setVisible(true), delayMs);
       },
-      { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
     );
 
     obs.observe(el);
@@ -47,7 +50,12 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={cn("marketing-reveal", isVisible && "marketing-reveal-visible", className)}
+      className={cn(
+        "marketing-reveal",
+        stagger && "marketing-reveal-stagger",
+        isVisible && "marketing-reveal-visible",
+        className
+      )}
     >
       {children}
     </div>
