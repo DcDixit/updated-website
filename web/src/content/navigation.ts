@@ -29,11 +29,6 @@ export const mainNav: readonly NavItem[] = [
     label: "Trucking",
     children: [
       {
-        label: "All trucking solutions",
-        href: "/solutions/trucking-logistics",
-        description: "Dispatch, fleet, drivers, and logistics software overview.",
-      },
-      {
         label: "Dispatch CRM & TMS",
         href: "/services/crm-development",
         description: "Dispatch consoles, bulk actions, supervisor oversight.",
@@ -57,6 +52,11 @@ export const mainNav: readonly NavItem[] = [
         label: "Trucking & moving websites",
         href: "/services/web-development",
         description: "Conversion-focused sites for carriers and movers.",
+      },
+      {
+        label: "All trucking solutions",
+        href: "/solutions/trucking-logistics",
+        description: "Dispatch, fleet, drivers, and logistics software overview.",
       },
     ],
   },
@@ -96,15 +96,6 @@ export const mainNav: readonly NavItem[] = [
 
 /** Mobile + footer only — not in the desktop bar. */
 export const processNavItem = { label: "Process", href: "/process" } as const;
-
-/** @deprecated Prefer mainNav — kept for any residual Solutions-era imports. */
-export const nav = [
-  { label: "Solutions", href: "/solutions" },
-  { label: "Work", href: "/work" },
-  { label: "Process", href: "/process" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-] as const;
 
 /** Secondary links — footer Company column and mobile overflow. */
 export const navSecondary = [

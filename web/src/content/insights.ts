@@ -107,7 +107,7 @@ export const insightArticles: Record<
     blocks: [
       {
         type: "paragraph",
-        text: "AI tools are no longer experimental side projects in design teams. In 2026, the agencies shipping fastest treat Claude, ChatGPT, Figma AI, and Cursor as part of the delivery stack - with clear guardrails so quality stays human-led.",
+        text: "AI tools are no longer experimental side projects in design teams. In 2026, the agencies shipping fastest treat Claude, ChatGPT, Figma AI, and Cursor as part of the delivery stack — with clear guardrails so quality stays human-led.",
       },
       {
         type: "heading",
@@ -116,11 +116,11 @@ export const insightArticles: Record<
       {
         type: "list",
         items: [
-          "Research synthesis - turning interview notes, support tickets, and analytics into structured problem statements.",
-          "First-draft flows - generating wireframe variants to react to, not to ship blindly.",
-          "Copy exploration - headline and microcopy options grounded in brand voice guidelines.",
-          "Design QA - spotting spacing inconsistencies, contrast issues, and component drift across screens.",
-          "Handoff prep - annotating flows and edge cases before dev kickoff.",
+          "Research synthesis — turning interview notes, support tickets, and analytics into structured problem statements.",
+          "First-draft flows — generating wireframe variants to react to, not to ship blindly.",
+          "Copy exploration — headline and microcopy options grounded in brand voice guidelines.",
+          "Design QA — spotting spacing inconsistencies, contrast issues, and component drift across screens.",
+          "Handoff prep — annotating flows and edge cases before dev kickoff.",
         ],
       },
       {
@@ -137,7 +137,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Discovery stays human-first: workshops, user interviews, and written briefs. During design, we generate alternatives with AI, critique them as a team, and merge the best ideas into Figma. Every screen passes a human review checklist before development. During build, engineers use Copilot and Cursor for boilerplate - never for unchecked business logic.",
+        text: "Discovery stays human-first: workshops, user interviews, and written briefs. During design, we generate alternatives with AI, critique them as a team, and merge the best ideas into Figma. Every screen passes a human review checklist before development. During build, engineers use Copilot and Cursor for boilerplate — never for unchecked business logic.",
       },
       {
         type: "heading",
@@ -145,7 +145,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Track cycle time from brief to approved prototype, revision rounds per milestone, and defect rate post-handoff. Teams doing this well typically cut discovery-to-design time by 20-35% without increasing rework - because AI handles volume, and humans handle taste.",
+        text: "Track cycle time from brief to approved prototype, revision rounds per milestone, and defect rate post-handoff. Teams doing this well typically cut discovery-to-design time by 20-35% without increasing rework — because AI handles volume, and humans handle taste.",
       },
     ],
   },
@@ -162,7 +162,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Long product tours feel comprehensive and perform terribly. Show users one job-to-be-done path first - import data, invite a teammate, or complete one core action - then unlock advanced features after success.",
+        text: "Long product tours feel comprehensive and perform terribly. Show users one job-to-be-done path first — import data, invite a teammate, or complete one core action — then unlock advanced features after success.",
       },
       {
         type: "heading",
@@ -178,7 +178,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Checklists work when each item delivers immediate payoff - not when they exist to gamify setup. Tie every step to an outcome the user can see: a report populated, a notification sent, a workflow running.",
+        text: "Checklists work when each item delivers immediate payoff — not when they exist to gamify setup. Tie every step to an outcome the user can see: a report populated, a notification sent, a workflow running.",
       },
       {
         type: "heading",
@@ -186,7 +186,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "After SSO rollouts, activation often drops because users land in the wrong workspace or lack permissions. Surface workspace context, explain missing access, and route to an admin - don't dead-end with generic errors.",
+        text: "After SSO rollouts, activation often drops because users land in the wrong workspace or lack permissions. Surface workspace context, explain missing access, and route to an admin — don't dead-end with generic errors.",
       },
       {
         type: "heading",
@@ -262,7 +262,7 @@ export const insightArticles: Record<
     blocks: [
       {
         type: "paragraph",
-        text: "Founders often ask whether to launch on Bubble, Webflow, or Framer - or invest in custom Next.js from day one. The honest answer depends on validation stage, team capacity, and what you need to learn in the next 90 days.",
+        text: "Founders often ask whether to launch on Bubble, Webflow, or Framer — or invest in custom Next.js from day one. The honest answer depends on validation stage, team capacity, and what you need to learn in the next 90 days.",
       },
       {
         type: "heading",
@@ -304,7 +304,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Ask: What must be true in 90 days? If the answer is 'learn whether anyone pays,' bias no-code. If the answer is 'prove we can operate at scale,' bias custom. Either way, design the UX properly first - switching platforms is expensive, but switching bad UX is worse.",
+        text: "Ask: What must be true in 90 days? If the answer is 'learn whether anyone pays,' bias no-code. If the answer is 'prove we can operate at scale,' bias custom. Either way, design the UX properly first — switching platforms is expensive, but switching bad UX is worse.",
       },
     ],
   },
@@ -385,7 +385,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Reps need calls to make, deals at risk, and tasks overdue - not company-wide pipeline charts on login. Reserve executive roll-ups for manager roles.",
+        text: "Reps need calls to make, deals at risk, and tasks overdue — not company-wide pipeline charts on login. Reserve executive roll-ups for manager roles.",
       },
       {
         type: "heading",
@@ -393,7 +393,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Use consistent visual language for stale deals, missing next steps, and SLA breaches. Color alone is not enough - pair icons and labels for accessibility.",
+        text: "Use consistent visual language for stale deals, missing next steps, and SLA breaches. Color alone is not enough — pair icons and labels for accessibility.",
       },
       {
         type: "heading",
@@ -409,7 +409,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "Let teams pin widgets and save views, but provide sensible defaults. Empty-state CRMs are a adoption killer - seed each role with a working layout on day one.",
+        text: "Let teams pin widgets and save views, but provide sensible defaults. Empty-state CRMs are a adoption killer — seed each role with a working layout on day one.",
       },
     ],
   },
@@ -418,7 +418,7 @@ export const insightArticles: Record<
     blocks: [
       {
         type: "paragraph",
-        text: "Choosing an agency is less about portfolio gloss and more about whether they can deliver in your context - timeline, budget, internal team, and risk tolerance.",
+        text: "Choosing an agency is less about portfolio gloss and more about whether they can deliver in your context — timeline, budget, internal team, and risk tolerance.",
       },
       {
         type: "heading",
@@ -428,9 +428,9 @@ export const insightArticles: Record<
         type: "list",
         items: [
           "They ask about success metrics before discussing visuals.",
-          "Design and engineering are in-house or clearly integrated - not opaque subcontracting.",
+          "Design and engineering are in-house or clearly integrated — not opaque subcontracting.",
           "They share process artifacts: briefs, timelines, demo cadence, handoff docs.",
-          "Case studies include constraints, tradeoffs, and outcomes - not only hero shots.",
+          "Case studies include constraints, tradeoffs, and outcomes — not only hero shots.",
           "They push back thoughtfully when scope doesn't match budget or timeline.",
         ],
       },
@@ -457,7 +457,7 @@ export const insightArticles: Record<
         items: [
           "Who exactly works on my project week to week?",
           "How do you handle scope changes mid-sprint?",
-          "What does handoff look like - Figma, GitHub, documentation?",
+          "What does handoff look like — Figma, GitHub, documentation?",
           "How do you use AI in delivery, and what is always human-reviewed?",
           "What happens after launch if we need iteration?",
         ],
@@ -468,7 +468,7 @@ export const insightArticles: Record<
       },
       {
         type: "paragraph",
-        text: "A paid discovery sprint or design-only phase de-risks the relationship before a full build. Good agencies welcome this - it aligns expectations and produces useful artifacts even if you don't continue.",
+        text: "A paid discovery sprint or design-only phase de-risks the relationship before a full build. Good agencies welcome this — it aligns expectations and produces useful artifacts even if you don't continue.",
       },
     ],
   },

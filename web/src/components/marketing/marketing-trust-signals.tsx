@@ -32,17 +32,18 @@ export function MarketingTrustSignals({
   withStats = true,
   withLogos = true,
   withCertifications = true,
-  withCta = true,
+  withCta = false,
 }: MarketingTrustSignalsProps) {
   const miniStats = stats.slice(0, 3);
+  const showStats = withStats && miniStats.length > 0;
 
   return (
     <div className={cn("space-y-10", className)}>
-      {withStats ? (
+      {showStats ? (
         <div className="grid gap-4 sm:grid-cols-3">
           {miniStats.map((s) => (
             <div key={s.label} className="surface-card stat-card-accent p-6 text-center sm:text-left">
-              <p className="type-stat text-brand-cobalt dark:text-brand-amber">{s.value}</p>
+              <p className="type-stat text-foreground">{s.value}</p>
               <p className="type-stat-label mt-2">{s.label}</p>
               <p className="type-caption mt-1">{s.caption}</p>
             </div>
@@ -79,7 +80,7 @@ export function MarketingTrustSignals({
               key={c}
               className="surface-card inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-medium text-[color:var(--text-secondary)]"
             >
-              <IconShieldCheck size={14} className="shrink-0 text-[var(--color-accent)]" aria-hidden stroke={1.5} />
+              <IconShieldCheck size={14} className="shrink-0 text-[rgb(var(--ink-600))]" aria-hidden stroke={1.5} />
               {c}
             </span>
           ))}
@@ -120,7 +121,7 @@ export function MarketingTrustSection({
           <p className="eyebrow-amber">How we work</p>
           <h2 className="type-h2 font-heading text-balance text-text-primary-v2">Clear ownership. Measurable delivery.</h2>
           <p className="type-body font-body text-text-secondary-v2">
-            In-house design and engineering, NDA-first collaboration, and weekly demos - without fabricated review scores.
+            In-house design and engineering, NDA-first collaboration, and weekly demos — without fabricated review scores.
           </p>
         </div>
         {children}

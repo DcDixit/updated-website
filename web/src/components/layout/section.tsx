@@ -51,7 +51,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden py-[var(--space-section-y)] scroll-mt-[var(--header-offset)]",
+        "relative overflow-hidden section",
         toneClasses[tone],
         dividerTop &&
           "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-px before:bg-[var(--surface-border)]",

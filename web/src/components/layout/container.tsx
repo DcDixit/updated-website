@@ -10,7 +10,7 @@ export function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full max-w-[1120px] px-4 lg:px-6",
+        "mx-auto w-full max-w-[75rem] px-[var(--space-gutter)]",
         className
       )}
     >
@@ -18,4 +18,3 @@ export function Container({
     </div>
   );
 }
-

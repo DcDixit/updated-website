@@ -18,7 +18,7 @@ export const caseStudies: {
 }[] = [
   {
     slug: "fleetflow-dispatch",
-    title: "FleetFlow - US trucking dispatch CRM",
+    title: "FleetFlow — US trucking dispatch CRM",
     metric: "−32% handle time",
     summary: "Modernized a US trucking dispatch CRM with bulk actions, SLA intelligence, and supervisor controls for 400+ daily routes.",
     tags: ["Logistics", "CRM", "SaaS"],
@@ -26,7 +26,7 @@ export const caseStudies: {
   },
   {
     slug: "payroll-pro-saas",
-    title: "PayrollPro - B2B SaaS onboarding",
+    title: "PayrollPro — B2B SaaS onboarding",
     metric: "+18% activation",
     summary: "Progressive onboarding and permission clarity for a payroll platform after SSO rollout.",
     tags: ["SaaS", "Product", "UX"],
@@ -34,7 +34,7 @@ export const caseStudies: {
   },
   {
     slug: "finance-sync-hub",
-    title: "FinanceSync - QuickBooks & Xero reconciliation hub",
+    title: "FinanceSync — QuickBooks & Xero reconciliation hub",
     metric: "99.3% nightly sync",
     summary: "Built reliable QuickBooks/Xero reconciliation workflows with operator dashboards finance teams trust at month-end close.",
     tags: ["Integrations", "Dashboard", "Automation"],
@@ -42,37 +42,37 @@ export const caseStudies: {
   },
   {
     slug: "healthtrack-mobile",
-    title: "HealthTrack - patient mobile app",
+    title: "HealthTrack — patient mobile app",
     metric: "4.8★ app rating",
     summary: "Patient-facing iOS and Android UX for appointment booking, records, and care plan adherence.",
     tags: ["Mobile", "Healthcare", "UI/UX"],
   },
   {
     slug: "brandlift-ecommerce",
-    title: "BrandLift - D2C rebrand & storefront",
+    title: "BrandLift — D2C rebrand & storefront",
     metric: "+24% conversion",
     summary: "Full brand refresh and Shopify storefront redesign for a growing consumer electronics label.",
     tags: ["Branding", "E-commerce", "Web"],
   },
   {
     slug: "crm-pulse-dashboard",
-    title: "CRMPulse - sales dashboard",
+    title: "CRMPulse — sales dashboard",
     metric: "−41% reporting time",
     summary: "Custom HubSpot dashboards and pipeline UX aligned to how the sales team actually works.",
     tags: ["CRM", "Dashboard", "SaaS"],
   },
   {
     slug: "ai-support-automation",
-    title: "SupportAI - ticket automation",
+    title: "SupportAI — ticket automation",
     metric: "−55% tier-1 volume",
     summary: "Make + Claude workflow that triages support tickets and drafts replies for human approval.",
     tags: ["AI", "Automation", "SaaS"],
   },
   {
     slug: "marketplace-mvp",
-    title: "LocalServe - marketplace MVP",
+    title: "LocalServe — marketplace MVP",
     metric: "Live in 6 weeks",
-    summary: "No-code marketplace MVP with vendor onboarding, bookings, and admin ops - validated before custom build.",
+    summary: "No-code marketplace MVP with vendor onboarding, bookings, and admin ops — validated before custom build.",
     tags: ["No-Code", "Marketplace", "MVP"],
   },
 ];
@@ -95,7 +95,7 @@ export const caseStudyDetails: Record<
 > = {
   "fleetflow-dispatch": {
     client: "FleetFlow · Logistics SaaS · Series A",
-    problem: "Dispatch operators relied on spreadsheets alongside a legacy TMS - handle times rose 40% as fleet volume doubled.",
+    problem: "Dispatch operators relied on spreadsheets alongside a legacy TMS — handle times rose 40% as fleet volume doubled.",
     research: "Shadow sessions with ops teams in three hubs, exception log analysis, and SLA mapping across 400+ daily routes.",
     solution: "Unified dispatch console with bulk approvals, audited overrides, and real-time SLA burndown for supervisors.",
     ui: "Role-based density modes, high-contrast SLA indicators, and thumb-friendly actions for field supervisors on tablets.",
@@ -110,7 +110,7 @@ export const caseStudyDetails: Record<
   },
   "payroll-pro-saas": {
     client: "PayrollPro · B2B SaaS · UK & EU",
-    problem: "Activation stalled after SSO - admins saw empty states while end users bounced between docs and support.",
+    problem: "Activation stalled after SSO — admins saw empty states while end users bounced between docs and support.",
     research: "Funnel analysis, session replays, and eight stakeholder interviews across finance and IT buyers.",
     solution: "Role-based onboarding paths, seeded templates per vertical, and integration health surfaced in-product.",
     ui: "Parallel admin vs champion flows, clear permission copy, and progress indicators tied to real setup tasks.",
@@ -125,10 +125,10 @@ export const caseStudyDetails: Record<
   },
   "finance-sync-hub": {
     client: "FinanceSync · FinOps platform · UK & US",
-    problem: "QuickBooks and Xero sync drifted silently across entities - finance stopped trusting automated accruals before month-end.",
+    problem: "QuickBooks and Xero sync drifted silently across entities — finance stopped trusting automated accruals before month-end.",
     research: "Three cycle reconciliations, connector log forensics, and controller interviews in US and UK entities.",
     solution: "Idempotent QuickBooks/Xero sync workers, anomaly surfacing before close, and triage UI with human-readable deltas.",
-    ui: "Discrepancy cards with remediation steps - no raw JSON - optimized for outsourced finance teams.",
+    ui: "Discrepancy cards with remediation steps — no raw JSON — optimized for outsourced finance teams.",
     dev: "Queue-based workers, canary deployments, PagerDuty alerting with executive rollup views.",
     challenges: "Partial accounting schemas, rate limits, and multi-entity mapping across UK/US books.",
     outcome: "99.3% nightly reconcile success, mean detect time under 6 minutes, manual rework hours cut in half.",
@@ -140,7 +140,7 @@ export const caseStudyDetails: Record<
   },
   "healthtrack-mobile": {
     client: "HealthTrack · Digital health · US",
-    problem: "Legacy patient portal had 2.1★ ratings - booking and records access frustrated users and support volume was high.",
+    problem: "Legacy patient portal had 2.1★ ratings — booking and records access frustrated users and support volume was high.",
     research: "Patient interviews, support ticket taxonomy, and competitive audit of top-rated health apps.",
     solution: "Mobile-first IA with clear appointment flows, record access, and proactive care reminders.",
     ui: "Accessible typography, calm visual language, and step-by-step flows tested with older patient cohorts.",
@@ -170,7 +170,7 @@ export const caseStudyDetails: Record<
   },
   "crm-pulse-dashboard": {
     client: "CRMPulse · B2B sales org · 80 reps",
-    problem: "HubSpot dashboards showed conflicting numbers - reps exported to Excel for every forecast call.",
+    problem: "HubSpot dashboards showed conflicting numbers — reps exported to Excel for every forecast call.",
     research: "Sales stage workshops, CRM hygiene audit, and shadowing of weekly forecast meetings.",
     solution: "Custom pipeline views, stage definitions aligned to reality, and leadership dashboards with single source of truth.",
     ui: "Role-specific home screens, deal health indicators, and mobile-friendly views for field reps.",
@@ -185,7 +185,7 @@ export const caseStudyDetails: Record<
   },
   "ai-support-automation": {
     client: "SupportAI · SaaS · 12k MAU",
-    problem: "Tier-1 tickets consumed 60% of support capacity - response times slipped during product launches.",
+    problem: "Tier-1 tickets consumed 60% of support capacity — response times slipped during product launches.",
     research: "Ticket categorization study, macro analysis, and review of 500 closed conversations.",
     solution: "Make workflow with Claude triage, draft replies, and human approval before send.",
     ui: "Internal review console for support leads with confidence scores and one-click edit/send.",

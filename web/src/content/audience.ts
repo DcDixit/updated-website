@@ -5,18 +5,18 @@ import { IconChartBar, IconRocket, IconTruck } from "@tabler/icons-react";
 
 export const clientPersonas = [
   {
+    title: "Trucking & logistics operators",
+    description: "Carriers, brokers, and fleet managers who need dispatch software, driver apps, or fleet dashboards that match real desk workflows — without a six-month implementation.",
+    href: "/solutions/trucking-logistics",
+    cta: "Trucking solutions",
+    icon: IconTruck,
+  },
+  {
     title: "SaaS founders & product teams",
     description: "Pre-seed to Series B teams shipping MVPs, tightening onboarding, and getting product UI ready for demos, investors, or enterprise buyers.",
     href: "/solutions/saas",
     cta: "SaaS solutions",
     icon: IconRocket,
-  },
-  {
-    title: "Trucking & logistics operators",
-    description: "Carriers, brokers, and fleet managers who need dispatch software, driver apps, or fleet dashboards that match real desk workflows - without a six-month implementation.",
-    href: "/solutions/trucking-logistics",
-    cta: "Trucking solutions",
-    icon: IconTruck,
   },
   {
     title: "Finance & operations teams",

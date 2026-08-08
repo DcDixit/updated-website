@@ -36,7 +36,7 @@ export function FooterCtaBand() {
     <CtaBand
       eyebrow="Start a project"
       title="Have a product to build or improve?"
-      description="Share your scope and timeline - we'll reply within one business day with a clear plan, honest pricing approach, and relevant examples."
+      description="Share your scope and timeline — we'll reply within one business day with a clear plan, honest pricing approach, and relevant examples."
       primaryLabel={primaryCtas.book.label}
       primaryHref={primaryCtas.book.href}
       secondaryLabel={primaryCtas.brief.label}

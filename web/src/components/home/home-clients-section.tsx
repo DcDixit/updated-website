@@ -36,7 +36,7 @@ function ClientLogoTile({ client }: { client: ClientLogo }) {
           "group/logo client-logo-tile flex h-[4.5rem] items-center justify-center px-4",
           "rounded-[0.75rem] border border-black/[0.08] bg-white",
           "transition-[border-color,opacity,filter] duration-160",
-          "opacity-60 grayscale hover:opacity-100 hover:grayscale-0 hover:border-[color-mix(in_oklab,var(--color-accent)_28%,transparent)]"
+          "opacity-60 grayscale hover:opacity-100 hover:grayscale-0 hover:border-black/20"
         )}
       >
         <Image
@@ -75,15 +75,14 @@ export function HomeClientsSection({
           <div className="mx-auto max-w-2xl text-center">
             <SectionHeader
               eyebrow="Trusted by"
-              title={<>Logistics operators and product teams we&apos;ve shipped with.</>}
-              description="Trucking, moving, and auto-transport first — plus product and brand teams across fintech, retail, and services."
+              title={<>Trucking, moving, and auto-transport operators we&apos;ve built for.</>}
               align="center"
               titleId="clients-heading"
             />
           </div>
 
           <ul
-            className="mt-10 grid list-none grid-cols-3 gap-4 md:grid-cols-4 md:gap-6 lg:mt-12 lg:grid-cols-5 lg:gap-6"
+            className="mt-10 grid list-none grid-cols-3 gap-4 md:grid-cols-4 md:gap-6 lg:mt-12 lg:grid-cols-5 lg:gap-8"
             aria-label="Client logos"
           >
             {logos.map((client) => (

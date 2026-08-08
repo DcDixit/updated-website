@@ -25,7 +25,7 @@ import {
   type NavChild,
   type NavItem,
 } from "@/content/navigation";
-import { mailtoHref, siteContact, whatsappHref } from "@/content/brand";
+import { brand, mailtoHref, siteContact, whatsappHref } from "@/content/brand";
 import { cn } from "@/lib/utils";
 
 const HOVER_OPEN_DELAY_MS = 120;
@@ -307,7 +307,7 @@ function MobileNavPanel({
         <div className="flex items-center justify-between border-b border-[var(--surface-border)] p-4">
           <div>
             <p id={titleId} className="font-semibold tracking-tight">
-              KRIVA Technologies
+              {brand.legalName}
             </p>
             <p className="type-caption mt-1 text-[color:var(--text-secondary)]">
               Trucking · SaaS · Integrations
@@ -483,7 +483,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-[100] h-[4.5rem] border-b transition-[border-color,background-color] duration-240",
+        "sticky top-0 z-[100] h-[var(--header-height)] border-b transition-[border-color,background-color] duration-240",
         "bg-[color-mix(in_oklab,var(--background)_92%,transparent)] backdrop-blur-[12px]"
       )}
       style={{

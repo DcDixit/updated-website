@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 
-import { leadershipTeam } from "@/content/site-content";
+import { brand, leadershipTeam } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
 function initials(name: string) {
@@ -68,7 +68,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
               )}
             >
               <IconBrandLinkedin size={16} stroke={1.5} aria-hidden />
-              LinkedIn - KRIVA Technologies
+              LinkedIn — {brand.legalName}
             </Link>
             ) : null}
           </article>

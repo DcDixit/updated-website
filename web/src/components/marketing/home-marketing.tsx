@@ -13,7 +13,6 @@ import { HomeCaseStudyCard } from "@/components/home/home-case-study-card";
 import { HomeStatsBento } from "@/components/home/home-stats-bento";
 import { HeroProductShowcase } from "@/components/home/hero-product-showcase";
 import { HomeInsightsPreview } from "@/components/home/home-insights-preview";
-import { HomeTestimonialsSection } from "@/components/home/home-testimonials-section";
 import { ProcessSection } from "@/components/home/process-section";
 import { TeamSection } from "@/components/home/team-section";
 import { Container } from "@/components/layout/container";
@@ -236,8 +235,6 @@ export function HomeMarketing() {
           </Container>
         </Reveal>
       </SectionShell>
-
-      <HomeTestimonialsSection />
 
       <SectionShell id="faq" size="default" className="bg-[var(--surface-muted)]">
         <Reveal>

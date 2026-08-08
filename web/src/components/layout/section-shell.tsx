@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 export type SectionShellSize = "hero" | "default" | "compact";
 
 const sizeClasses: Record<SectionShellSize, string> = {
-  hero: "py-[var(--space-section-hero)]",
-  default: "py-[var(--space-section-y)]",
-  compact: "py-[var(--space-section-compact)]",
+  hero: "section",
+  default: "section",
+  compact: "py-[var(--space-section-compact)] scroll-mt-[var(--header-offset)]",
 };
 
 /** Unified marketing section wrapper - use on homepage and inner pages. */

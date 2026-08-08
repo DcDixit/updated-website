@@ -32,6 +32,19 @@
   --color-brand: var(--color-accent);
   --color-brand-strong: var(--color-accent-strong);
   --color-brand-muted: var(--color-accent-muted);
+  --color-brand-cobalt: var(--color-accent);
+  --color-brand-amber: var(--color-accent-strong);
+  --color-ink-900: rgb(var(--ink-900));
+  --color-ink-600: rgb(var(--ink-600));
+  --color-ink-400: rgb(var(--ink-400));
+  --color-ink-300: rgb(var(--ink-300));
+  --color-surface-0: rgb(var(--surface-0));
+  --color-surface-50: rgb(var(--surface-50));
+  --color-surface-900: rgb(var(--surface-900));
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-micro: 160ms;
+  --duration-transition: 240ms;
+  --duration-entrance: 400ms;
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -58,68 +71,113 @@
 }
 
 :root {
-  --color-accent: #4f46e5;
-  --color-accent-strong: #4338ca;
-  --color-accent-muted: #eef2ff;
-  --text-secondary: oklch(0.42 0 0);
-  --text-body: oklch(0.35 0 0);
-  --image-radius: 12px;
-  --card-radius: 10px;
-  --bento-radius: 1.5rem;
-  --surface-border: oklch(0.922 0 0);
-  --surface-muted: oklch(0.975 0 0);
-  --card-on-dark-border: oklch(0.922 0 0);
-  --section-divider: oklch(0.922 0 0);
-  --v2-surface-contrast: oklch(0.975 0 0);
+  /* Stage 2 primitives — RGB channels for opacity modifiers.
+     Brand accent channels use --brand-* because shadcn reserves --accent for surfaces. */
+  --ink-900: 14 18 24;
+  --ink-600: 82 92 106;
+  --ink-400: 138 148 161;
+  --ink-300: 223 227 232;
+  --surface-0: 255 255 255;
+  --surface-50: 247 248 250;
+  --surface-900: 14 18 24;
+  --brand-accent: 21 74 189;
+  --brand-accent-hover: 16 58 150;
+  --brand-accent-subtle: 235 240 251;
+  --success: 22 122 74;
+  --warn: 176 60 20;
 
-  --header-offset: 5rem;
-  --space-section-hero: clamp(5rem, 8vw, 7.5rem);
-  --space-section-y: clamp(4.5rem, 7vw, 7.5rem);
-  --space-section-compact: clamp(3rem, 5vw, 5rem);
+  /* Brand accent — interactive + validation only */
+  --color-accent: rgb(var(--brand-accent));
+  --color-accent-strong: rgb(var(--brand-accent-hover));
+  --color-accent-muted: rgb(var(--brand-accent-subtle));
+  --color-success: rgb(var(--success));
+  --color-warn: rgb(var(--warn));
+
+  --text-secondary: rgb(var(--ink-600));
+  --text-body: rgb(var(--ink-900) / 0.82);
+  /* Radii: buttons/inputs 0.5 · cards 0.75 · large media 1 — no others */
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-media: 1rem;
+  --image-radius: var(--radius-media);
+  --card-radius: var(--radius-card);
+  --bento-radius: var(--radius-card);
+  --surface-border: rgb(var(--ink-300));
+  --surface-muted: rgb(var(--surface-50));
+  --card-on-dark-border: rgb(var(--ink-300));
+  --section-divider: rgb(var(--ink-300));
+  --v2-surface-contrast: rgb(var(--surface-50));
+
+  /* Header 4.5rem + 1.5rem clearance for in-page anchors */
+  --header-height: 4.5rem;
+  --header-offset: calc(var(--header-height) + 1.5rem);
+  /* One section rhythm everywhere: 6rem mobile / 8rem md+ */
+  --space-section-y: 6rem;
+  --space-section-hero: var(--space-section-y);
+  --space-section-compact: 4rem;
+  --space-gutter: 1.5rem;
   --space-block: 1.5rem;
   --space-card: 1.5rem;
   --space-stack-sm: 0.75rem;
-  --space-stack-md: 1.25rem;
+  --space-stack-md: 1rem;
   --space-stack-lg: 2rem;
+  --prose-max: 42.5rem;
+  --container-max: 75rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-micro: 160ms;
+  --duration-transition: 240ms;
+  --duration-entrance: 400ms;
 
-  --background: oklch(0.995 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.875rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: rgb(var(--surface-0));
+  --foreground: rgb(var(--ink-900));
+  --card: rgb(var(--surface-0));
+  --card-foreground: rgb(var(--ink-900));
+  --popover: rgb(var(--surface-0));
+  --popover-foreground: rgb(var(--ink-900));
+  --primary: rgb(var(--ink-900));
+  --primary-foreground: rgb(var(--surface-0));
+  --secondary: rgb(var(--surface-50));
+  --secondary-foreground: rgb(var(--ink-900));
+  --muted: rgb(var(--surface-50));
+  --muted-foreground: rgb(var(--ink-600));
+  /* shadcn surface accent — not the brand accent */
+  --accent: rgb(var(--surface-50));
+  --accent-foreground: rgb(var(--ink-900));
+  --destructive: rgb(var(--warn));
+  --border: rgb(var(--ink-300));
+  --input: rgb(var(--ink-300));
+  --ring: rgb(var(--brand-accent));
+  --chart-1: rgb(var(--ink-300));
+  --chart-2: rgb(var(--ink-400));
+  --chart-3: rgb(var(--ink-600));
+  --chart-4: rgb(var(--ink-900));
+  --chart-5: rgb(var(--surface-900));
+  --radius: var(--radius-card);
+  --sidebar: rgb(var(--surface-0));
+  --sidebar-foreground: rgb(var(--ink-900));
+  --sidebar-primary: rgb(var(--ink-900));
+  --sidebar-primary-foreground: rgb(var(--surface-0));
+  --sidebar-accent: rgb(var(--surface-50));
+  --sidebar-accent-foreground: rgb(var(--ink-900));
+  --sidebar-border: rgb(var(--ink-300));
+  --sidebar-ring: rgb(var(--ink-400));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-section-y: 8rem;
+    --space-section-hero: var(--space-section-y);
+    --space-gutter: 2rem;
+  }
 }
 
 .dark {
-  --color-accent: #818cf8;
-  --color-accent-strong: #a5b4fc;
-  --color-accent-muted: rgba(99, 102, 241, 0.12);
+  --brand-accent: 129 140 248;
+  --brand-accent-hover: 165 180 252;
+  --brand-accent-subtle: 99 102 241;
+  --color-accent: rgb(var(--brand-accent));
+  --color-accent-strong: rgb(var(--brand-accent-hover));
+  --color-accent-muted: rgb(var(--brand-accent-subtle) / 0.12);
   --text-secondary: rgba(255, 255, 255, 0.72);
   --text-body: rgba(255, 255, 255, 0.72);
   --surface-border: rgba(255, 255, 255, 0.1);
@@ -128,7 +186,7 @@
   --section-divider: rgba(255, 255, 255, 0.1);
   --v2-surface-contrast: #141414;
 
-  --background: #0D0D0D;
+  --background: #0d0d0d;
   --foreground: #f4f6f8;
   --card: #121518;
   --card-foreground: #f4f6f8;
@@ -168,10 +226,17 @@
   html {
     @apply font-sans scroll-smooth;
     overflow-x: clip;
+    scroll-padding-top: var(--header-offset);
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
     overflow-x: clip;
+    font-size: 1rem;
+    line-height: 1.625;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
   ::selection {
     @apply bg-primary/25 text-foreground;
@@ -179,51 +244,65 @@
 }
 
 @layer utilities {
+  /* Stage 2 type scale (1.25 ratio) */
+  .type-display,
   .type-hero {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
     font-weight: 600;
     line-height: 1.06;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
   .type-lead {
-    font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.6;
-    max-width: 42rem;
+    line-height: 1.67;
+    max-width: var(--prose-max);
   }
   .type-h2 {
-    font-size: clamp(1.875rem, 3.4vw, 2.625rem);
+    font-size: clamp(1.875rem, 1.4rem + 1.9vw, 2.75rem);
     font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.028em;
+    line-height: 1.16;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
   .type-h3 {
-    font-size: clamp(1.125rem, 2vw, 1.4375rem);
+    font-size: 1.5rem;
     font-weight: 600;
-    line-height: 1.28;
+    line-height: 1.33;
     letter-spacing: -0.012em;
     text-wrap: balance;
   }
-  .type-body {
-    font-size: max(0.9375rem, clamp(0.9375rem, 1.5vw, 1.0625rem));
+  .type-h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.44;
+  }
+  .type-body-lg {
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.65;
-    max-width: 640px;
+    line-height: 1.67;
+    max-width: var(--prose-max);
+    color: var(--text-body);
+  }
+  .type-body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625;
+    max-width: var(--prose-max);
     color: var(--text-body);
   }
   .type-body-wide {
-    font-size: max(0.9375rem, clamp(0.9375rem, 1.5vw, 1.0625rem));
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.625;
     max-width: none;
     color: var(--text-body);
   }
   .type-caption {
     font-size: 0.875rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.43;
     color: var(--text-secondary);
   }
   .type-stat {
@@ -241,12 +320,19 @@
     line-height: 1.5;
     color: var(--text-secondary);
   }
+  .type-eyebrow,
   .type-badge-label {
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.8125rem;
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: rgb(var(--ink-600));
+  }
+
+  /* Unified section rhythm */
+  .section {
+    padding-block: var(--space-section-y);
+    scroll-margin-top: var(--header-offset);
   }
 
   .grid-layout-12 {
@@ -266,27 +352,20 @@
     background: var(--card);
   }
 
-  /* Bento-style information cards */
+  /* Bento-style information cards — border + surface only (no drop shadows) */
   .bento-card {
     border-radius: var(--bento-radius);
     border: 1px solid var(--surface-border);
     background: var(--card);
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.03),
-      0 4px 20px rgba(0, 0, 0, 0.04);
   }
 
   .bento-card-featured {
-    background: linear-gradient(
-      135deg,
-      var(--card) 0%,
-      color-mix(in oklab, var(--color-accent) 3%, var(--card)) 100%
-    );
+    background: color-mix(in oklab, var(--surface-muted) 70%, var(--card));
   }
 
   .bento-grid {
     display: grid;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   @media (min-width: 1024px) {
@@ -298,16 +377,14 @@
   @media (hover: hover) and (pointer: fine) {
     .bento-card-interactive {
       transition:
-        transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 180ms ease,
-        box-shadow 220ms ease;
+        transform var(--duration-transition) var(--ease-out-soft),
+        border-color var(--duration-micro) var(--ease-out-soft),
+        background-color var(--duration-micro) var(--ease-out-soft);
     }
     .bento-card-interactive:hover {
-      transform: translateY(-3px);
-      border-color: color-mix(in oklab, var(--color-accent) 35%, var(--surface-border));
-      box-shadow:
-        0 4px 12px color-mix(in oklab, var(--color-accent) 6%, transparent),
-        0 12px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+      border-color: color-mix(in oklab, rgb(var(--ink-900)) 18%, var(--surface-border));
+      background-color: color-mix(in oklab, var(--surface-muted) 55%, var(--card));
     }
   }
 
@@ -330,21 +407,20 @@
     .card-on-dark.card-hover-rise,
     .surface-card.card-hover-rise {
       transition:
-        transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 180ms ease,
-        box-shadow 220ms ease;
+        transform var(--duration-transition) var(--ease-out-soft),
+        border-color var(--duration-micro) var(--ease-out-soft),
+        background-color var(--duration-micro) var(--ease-out-soft);
     }
     .card-on-dark.card-hover-rise:hover,
     .surface-card.card-hover-rise:hover {
       transform: translateY(-2px);
-      border-color: color-mix(in oklab, var(--color-accent) 40%, var(--surface-border));
-      box-shadow: 0 8px 24px color-mix(in oklab, var(--color-accent) 8%, transparent),
-                  0 2px 8px rgba(0,0,0,0.06);
+      border-color: color-mix(in oklab, rgb(var(--ink-900)) 18%, var(--surface-border));
+      background-color: color-mix(in oklab, var(--surface-muted) 55%, var(--card));
     }
   }
 
   .link-subtle {
-    transition: opacity 150ms ease;
+    transition: opacity var(--duration-micro) var(--ease-out-soft);
   }
   @media (hover: hover) and (pointer: fine) {
     .link-subtle:hover {
@@ -354,21 +430,20 @@
 
   .marketing-interactive {
     transition:
-      transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 150ms ease,
-      box-shadow 200ms ease;
+      transform var(--duration-transition) var(--ease-out-soft),
+      border-color var(--duration-micro) var(--ease-out-soft);
   }
   @media (hover: hover) and (pointer: fine) {
     .marketing-interactive:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
   }
 
-  /* Primary button accent glow on hover */
+  /* Primary button accent glow on hover — interactive only */
   .btn-accent-glow {
     transition:
-      box-shadow 220ms ease,
-      transform 150ms ease;
+      box-shadow var(--duration-transition) var(--ease-out-soft),
+      transform var(--duration-micro) var(--ease-out-soft);
   }
   @media (hover: hover) and (pointer: fine) {
     .btn-accent-glow:hover {
@@ -382,7 +457,7 @@
     position: relative;
   }
 
-  /* Accent underline for section links */
+  /* Accent underline for section links — interactive */
   .link-accent-underline {
     position: relative;
   }
@@ -394,7 +469,7 @@
     width: 0;
     height: 1.5px;
     background: var(--color-accent);
-    transition: width 220ms ease;
+    transition: width var(--duration-transition) var(--ease-out-soft);
   }
   @media (hover: hover) and (pointer: fine) {
     .link-accent-underline:hover::after {
@@ -402,14 +477,14 @@
     }
   }
 
-  /* Stat card accent top border */
+  /* Stat card top border — ink, not brand accent (non-interactive) */
   .stat-card-accent {
-    border-top: 2px solid var(--color-accent);
+    border-top: 2px solid rgb(var(--ink-900));
   }
 
-  /* CTA band enhanced */
+  /* CTA band — surface shift only */
   .cta-band-accent {
-    background: linear-gradient(135deg, var(--surface-muted) 0%, color-mix(in oklab, var(--color-accent) 4%, var(--surface-muted)) 100%);
+    background: var(--surface-muted);
   }
 
   .nav-link {
@@ -966,10 +1041,13 @@ figure[class*="aspect-"] {
   height: 5px;
   margin-top: 0.55em;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: rgb(var(--ink-600));
 }
 
-/* ─── Site footer ───────────────────────────────────────────────── */
+.dark .type-eyebrow,
+.dark .type-badge-label {
+  color: var(--text-secondary);
+}
 .footer-watermark {
   position: absolute;
   right: -0.05em;

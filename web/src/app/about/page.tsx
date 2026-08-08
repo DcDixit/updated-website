@@ -148,7 +148,7 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="font-medium text-[var(--color-accent)] hover:opacity-90"
                 >
-                  KRIVA Technologies on LinkedIn
+                  {brand.legalName} on LinkedIn
                 </Link>
               </li>
               ) : null}
@@ -227,7 +227,7 @@ export default function AboutPage() {
       </Section>
 
       <MarketingTrustSection>
-        <MarketingTrustSignals withStats={false} withLogos withCertifications withCta />
+        <MarketingTrustSignals withStats={false} withLogos withCertifications />
       </MarketingTrustSection>
 
       <LeadCaptureCta

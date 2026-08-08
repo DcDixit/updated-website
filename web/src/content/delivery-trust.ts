@@ -7,7 +7,7 @@ export const deliveryTrustPrinciples = [
   },
   {
     title: "You own everything",
-    body: "Design files, code, and documentation - all of it transfers to you at handoff.",
+    body: "Design files, code, and documentation — all of it transfers to you at handoff.",
   },
   {
     title: "One team, no subcontracting",

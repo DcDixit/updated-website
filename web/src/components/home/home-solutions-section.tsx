@@ -98,7 +98,7 @@ export function HomeSolutionsSection() {
       <SectionHeader
         eyebrow="Solutions"
         title="Trucking platforms. SaaS products. Accounting integrations."
-        description="Every solution we offer comes from work we've actually done - not service categories we invented to fill a menu."
+        description="Every solution we offer comes from work we've actually done — not service categories we invented to fill a menu."
       />
 
       <ul className="bento-grid stagger-grid stagger-grid-visible mt-10 grid grid-cols-12">

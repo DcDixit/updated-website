@@ -1,7 +1,7 @@
 export const faqHome = [
   {
     q: "What services do you offer?",
-    a: "We design and build two types of software: SaaS products (onboarding, dashboards, MVPs, design systems) and trucking/logistics tools (dispatch CRM, fleet dashboards, driver apps). We also build QuickBooks and Xero integrations and set up workflow automation. We don't do everything - we do these things well because we've spent years on them.",
+    a: "We design and build two types of software: trucking and logistics tools (dispatch CRM, fleet dashboards, driver apps) and SaaS products (onboarding, dashboards, MVPs, design systems). We also build QuickBooks and Xero integrations and set up workflow automation. We don't do everything — we do these things well because we've spent years on them.",
   },
   {
     q: "How long does a typical project take?",
@@ -132,7 +132,7 @@ export const pillars = [
   },
   {
     title: "Faster delivery with AI tools",
-    body: "We use Claude, Cursor, and Figma AI to move faster on the work that benefits from it - with human review before anything ships.",
+    body: "We use Claude, Cursor, and Figma AI to move faster on the work that benefits from it — with human review before anything ships.",
   },
   {
     title: "Honest communication",
@@ -140,13 +140,13 @@ export const pillars = [
   },
   {
     title: "Products that scale without us",
-    body: "Design systems, typed codebases, and documentation - so your team isn't dependent on us for every future change.",
+    body: "Design systems, typed codebases, and documentation — so your team isn't dependent on us for every future change.",
   },
 ] as const;
 
 export const industries = [
   { label: "SaaS & Startups", href: "/solutions/saas", caption: "UK-focused SaaS UI/UX, MVP development, onboarding, and dashboards that support activation and demos." },
-  { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking software - custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps." },
+  { label: "Trucking & Logistics", href: "/solutions/trucking-logistics", caption: "US trucking software — custom TMS-style tools, dispatch CRM, fleet dashboards, and driver apps." },
   { label: "Accounting Integrations", href: "/solutions/accounting-integrations", caption: "QuickBooks and Xero API sync, reconciliation dashboards, and reliable operator tooling." },
   { label: "Car Transportation", href: "/solutions/car-transportation", caption: "Booking portals, carrier dispatch, customer tracking, and ops automation for vehicle logistics." },
   { label: "CRM & Automation", href: "/services/crm-development", caption: "Custom CRM UX, workflow automation, and integration-heavy consoles for ops teams." },

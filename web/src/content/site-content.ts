@@ -15,7 +15,6 @@ export {
 export {
   footerColumns,
   mainNav,
-  nav,
   navSecondary,
   primaryCtas,
   processNavItem,
@@ -97,7 +96,7 @@ export const homeHero = {
   eyebrowBadge: "Design engineering for trucking & SaaS",
   headline: "We design the software your ops team won't want to work around.",
   headlineEmphasis: "won't want to work around",
-  lead: "Dispatch consoles, fleet tools, SaaS dashboards, and QuickBooks/Xero integrations - designed and built for operators and product teams.",
+  lead: "Dispatch consoles, fleet tools, SaaS dashboards, and QuickBooks/Xero integrations — designed and built for operators and product teams.",
 } as const;
 
 

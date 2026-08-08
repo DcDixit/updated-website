@@ -30,7 +30,7 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
   {
     title: "UX Design",
     description:
-      "Wireframes, prototypes, and final UI - reviewed with you before any code is written. No design surprises later.",
+      "Wireframes, prototypes, and final UI — reviewed with you before any code is written. No design surprises later.",
   },
   {
     title: "Development",

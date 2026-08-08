@@ -32,8 +32,8 @@ export function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <p className={cn("type-badge-label inline-flex items-center gap-2 text-[12px]", eyebrowClassName)}>
-          <span className="inline-block size-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden />
+        <p className={cn("type-eyebrow inline-flex items-center gap-2", eyebrowClassName)}>
+          <span className="inline-block size-1.5 rounded-full bg-[rgb(var(--ink-600))]" aria-hidden />
           {eyebrow}
         </p>
       ) : null}

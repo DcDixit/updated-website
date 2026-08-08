@@ -62,7 +62,7 @@ export function ContactSidebar() {
               </p>
               <div className="flex flex-col gap-2.5">
                 <Link
-                  href={mailtoHref("hello@krivatechnologies.com", "Book a 20-minute fit call")}
+                  href={mailtoHref(siteContact.email, "Book a 20-minute fit call")}
                   className={cn(buttonVariants({ variant: "primary", size: "cta" }), "inline-flex w-full gap-2")}
                   data-track="cta_click"
                   data-track-location="contact-sidebar-book"

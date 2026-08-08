@@ -9,8 +9,8 @@ type SiteLogoProps = {
   href?: string;
 };
 
-const LOGO_WIDTH = 1024;
-const LOGO_HEIGHT = 284;
+const LOGO_WIDTH = 400;
+const LOGO_HEIGHT = 111;
 
 export function SiteLogo({ className, href = "/" }: SiteLogoProps) {
   return (

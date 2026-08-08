@@ -42,7 +42,7 @@ export const leadershipTeam = [
   {
     name: "Design Practice",
     role: "Product & UI/UX design",
-    bio: "SaaS dashboards, trucking ops consoles, onboarding flows, and design systems - designed by people who've built these specific interfaces before.",
+    bio: "SaaS dashboards, trucking ops consoles, onboarding flows, and design systems — designed by people who've built these specific interfaces before.",
     focus: ["UI/UX", "Product design", "Design systems"],
     linkedIn: companyLinkedIn,
   },
@@ -73,6 +73,6 @@ export const culturePoints = [
   },
   {
     title: "Build it to last",
-    body: "Clean Figma files, typed code, and documentation your team can use after we're done - not artifacts that only make sense to us.",
+    body: "Clean Figma files, typed code, and documentation your team can use after we're done — not artifacts that only make sense to us.",
   },
 ] as const;

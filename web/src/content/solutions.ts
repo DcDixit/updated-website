@@ -43,41 +43,11 @@ export type SolutionDetail = SolutionPillar & {
 
 export const solutionPillars: SolutionPillar[] = [
   {
-    slug: "saas",
-    title: "SaaS Product Solutions",
-    headline: "SaaS products that earn demos - and keep users after signup.",
-    summary:
-      "SaaS teams hire us when the product works but users aren't sticking. We fix the parts that cause drop-off - onboarding flows, permission screens, dashboards, and the UX patterns that turn trials into paying accounts.",
-    market: "UK & US SaaS",
-    href: "/solutions/saas",
-    icon: IconLayoutDashboard,
-    services: [
-      "SaaS UI/UX & onboarding",
-      "Dashboard design",
-      "MVP build (10-week sprints)",
-      "AI-assisted workflows",
-      "Design system setup",
-      "Post-launch retainer",
-    ],
-    cta: "Explore SaaS solutions",
-    seo: {
-      title: "SaaS Product Design & Development Agency UK",
-      description:
-        "Product design and development for UK B2B SaaS - onboarding UX, dashboards, MVP builds, and design systems that scale with your roadmap.",
-      keywords: [
-        "SaaS product design agency UK",
-        "SaaS UI/UX agency",
-        "B2B SaaS onboarding design",
-        "SaaS MVP development UK",
-      ],
-    },
-  },
-  {
     slug: "trucking-logistics",
     title: "Trucking & Logistics Solutions",
-    headline: "Dispatch and fleet software shaped around the desk - not a demo deck.",
+    headline: "Dispatch and fleet software shaped around the desk — not a demo deck.",
     summary:
-      "Dispatch boards, fleet dashboards, driver apps, and load management tools - built for how trucking ops teams actually work, not how software companies think they should.",
+      "Dispatch boards, fleet dashboards, driver apps, and load management tools — built for how trucking ops teams actually work, not how software companies think they should.",
     market: "Trucking & logistics",
     href: "/solutions/trucking-logistics",
     icon: IconTruck,
@@ -93,7 +63,7 @@ export const solutionPillars: SolutionPillar[] = [
     seo: {
       title: "Custom Trucking Software & Dispatch CRM Development USA",
       description:
-        "Custom trucking software for US operators - dispatch CRM, fleet dashboards, driver apps, TMS-style platforms, and logistics integrations.",
+        "Custom trucking software for US operators — dispatch CRM, fleet dashboards, driver apps, TMS-style platforms, and logistics integrations.",
       keywords: [
         "custom trucking software development",
         "dispatch CRM solutions",
@@ -103,6 +73,36 @@ export const solutionPillars: SolutionPillar[] = [
     },
   },
   {
+    slug: "saas",
+    title: "SaaS Product Solutions",
+    headline: "SaaS products that earn demos — and keep users after signup.",
+    summary:
+      "SaaS teams hire us when the product works but users aren't sticking. We fix the parts that cause drop-off — onboarding flows, permission screens, dashboards, and the UX patterns that turn trials into paying accounts.",
+    market: "UK & US SaaS",
+    href: "/solutions/saas",
+    icon: IconLayoutDashboard,
+    services: [
+      "SaaS UI/UX & onboarding",
+      "Dashboard design",
+      "MVP build (10-week sprints)",
+      "AI-assisted workflows",
+      "Design system setup",
+      "Post-launch retainer",
+    ],
+    cta: "Explore SaaS solutions",
+    seo: {
+      title: "SaaS Product Design & Development Agency UK",
+      description:
+        "Product design and development for UK B2B SaaS — onboarding UX, dashboards, MVP builds, and design systems that scale with your roadmap.",
+      keywords: [
+        "SaaS product design agency UK",
+        "SaaS UI/UX agency",
+        "B2B SaaS onboarding design",
+        "SaaS MVP development UK",
+      ],
+    },
+  },
+{
     slug: "accounting-integrations",
     title: "QuickBooks & Xero Integrations",
     headline: "Your sync drifts every month-end. Ours doesn't.",
@@ -123,7 +123,7 @@ export const solutionPillars: SolutionPillar[] = [
     seo: {
       title: "QuickBooks & Xero Integration Development",
       description:
-        "QuickBooks and Xero integration services - reliable sync, reconciliation dashboards, and API connectors for SaaS and logistics platforms.",
+        "QuickBooks and Xero integration services — reliable sync, reconciliation dashboards, and API connectors for SaaS and logistics platforms.",
       keywords: ["QuickBooks integration development", "Xero API integration", "Accounting software sync"],
     },
   },
@@ -132,7 +132,7 @@ export const solutionPillars: SolutionPillar[] = [
     title: "Car Transportation",
     headline: "Vehicle logistics software that matches how carriers actually operate.",
     summary:
-      "Quote calculators, shipment tracking, and operations tools for auto transport companies - designed around the workflow your dispatch and sales teams already follow.",
+      "Quote calculators, shipment tracking, and operations tools for auto transport companies — designed around the workflow your dispatch and sales teams already follow.",
     market: "Auto transport",
     href: "/solutions/car-transportation",
     icon: IconRoute,
@@ -148,7 +148,7 @@ export const solutionPillars: SolutionPillar[] = [
     seo: {
       title: "Car Transportation Software & Digital Product Design",
       description:
-        "Digital product design and development for car transportation companies - booking portals, dispatch CRM, and customer tracking experiences.",
+        "Digital product design and development for car transportation companies — booking portals, dispatch CRM, and customer tracking experiences.",
       keywords: ["Car transportation software", "Auto transport dispatch", "Vehicle logistics platform"],
     },
   },
@@ -162,7 +162,7 @@ export const homepageSolutionSections = [
     title: "CRM & Workflow Automation",
     headline: "CRM your ops team opens every morning, not just at month-end.",
     summary:
-      "Custom CRM layouts, pipeline views, and internal tools that match how your sales or ops team actually tracks work - not how a default CRM thinks they should.",
+      "Custom CRM layouts, pipeline views, and internal tools that match how your sales or ops team actually tracks work — not how a default CRM thinks they should.",
     market: "SaaS · Trucking · Professional services",
     href: "/services/crm-development",
     icon: IconChartBar,
@@ -209,9 +209,9 @@ export const homepageSolutionSections = [
 
 export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
   saas: {
-    ...solutionPillars[0],
+    ...solutionPillars.find((p) => p.slug === "saas")!,
     heroLead:
-      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards - with an in-house team that ships weekly, not just presents.",
+      "We partner with UK SaaS founders and product leaders to design MVPs, refine onboarding, and scale dashboards — with an in-house team that ships weekly, not just presents.",
     outcomes: [
       { label: "Typical MVP timeline", value: "8-12 weeks" },
       { label: "Engagement model", value: "Design + build" },
@@ -268,16 +268,16 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         q: "What's a typical first engagement?",
-        a: "A scoped discovery + design sprint, or a fixed MVP build with weekly demos. We recommend the lightest path that answers your biggest risk - activation, demo readiness, or technical feasibility.",
+        a: "A scoped discovery + design sprint, or a fixed MVP build with weekly demos. We recommend the lightest path that answers your biggest risk — activation, demo readiness, or technical feasibility.",
       },
     ],
     relatedServiceSlugs: ["saas-platforms", "product-design", "ui-ux-design", "ai-assisted-development"],
     relatedCaseSlugs: ["payroll-pro-saas", "crm-pulse-dashboard", "marketplace-mvp"],
   },
   "trucking-logistics": {
-    ...solutionPillars[1],
+    ...solutionPillars.find((p) => p.slug === "trucking-logistics")!,
     heroLead:
-      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators - freight brokers, carriers, logistics startups, and fleet businesses that have outgrown spreadsheets or rigid off-the-shelf TMS.",
+      "We build dispatch CRM, fleet dashboards, driver apps, and trucking websites for US operators — freight brokers, carriers, logistics startups, and fleet businesses that have outgrown spreadsheets or rigid off-the-shelf TMS.",
     outcomes: [
       { label: "Focus market", value: "US trucking" },
       { label: "Integrations", value: "ELD · accounting · CRM" },
@@ -318,11 +318,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     faq: [
       {
         q: "Do you work with US trucking companies and freight brokers?",
-        a: "Yes - this is a primary focus. We align stand-ups and delivery to US time zones and how dispatch desks actually run.",
+        a: "Yes — this is a primary focus. We align stand-ups and delivery to US time zones and how dispatch desks actually run.",
       },
       {
-        q: "Custom TMS vs off-the-shelf - how do you decide?",
-        a: "If a commercial TMS fits your workflows and integrations, we often recommend staying put and building around it. Custom makes sense when your processes, settlements, or integrations are the product - and off-the-shelf would force expensive workarounds.",
+        q: "Custom TMS vs off-the-shelf — how do you decide?",
+        a: "If a commercial TMS fits your workflows and integrations, we often recommend staying put and building around it. Custom makes sense when your processes, settlements, or integrations are the product — and off-the-shelf would force expensive workarounds.",
       },
       {
         q: "Can you redesign our dispatch CRM without stopping operations?",
@@ -330,7 +330,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       },
       {
         q: "Do you build driver mobile apps too?",
-        a: "Yes - React Native and Flutter paths for iOS and Android, designed alongside dispatch and fleet tools.",
+        a: "Yes — React Native and Flutter paths for iOS and Android, designed alongside dispatch and fleet tools.",
       },
       {
         q: "Who owns the software after launch?",
@@ -341,7 +341,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     relatedCaseSlugs: ["fleetflow-dispatch", "finance-sync-hub", "crm-pulse-dashboard"],
   },
   "accounting-integrations": {
-    ...solutionPillars[2],
+    ...solutionPillars.find((p) => p.slug === "accounting-integrations")!,
     heroLead:
       "Connect your product or ops platform to QuickBooks Online and Xero, with sync jobs finance teams trust, operator dashboards, and alerts when something breaks.",
     outcomes: [
@@ -399,7 +399,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     relatedCaseSlugs: ["finance-sync-hub", "payroll-pro-saas", "crm-pulse-dashboard"],
   },
   "car-transportation": {
-    ...solutionPillars[3],
+    ...solutionPillars.find((p) => p.slug === "car-transportation")!,
     heroLead:
       "Digital products for auto transport companies: quote flows, carrier dispatch, customer tracking, and ops automation built for vehicle logistics.",
     outcomes: [

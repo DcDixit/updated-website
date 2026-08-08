@@ -46,7 +46,7 @@ export function HomeStatsBento({ stats, className }: HomeStatsBentoProps) {
                 <AnimatedStatValue
                   value={featuredStat.value}
                   className={cn(
-                    "type-stat font-sans text-[var(--color-accent)]",
+                    "type-stat font-sans text-foreground",
                     isCollaborationOnly
                       ? "text-[clamp(2.5rem,5vw,3.5rem)]"
                       : "text-[clamp(3rem,6vw,4.5rem)]"
@@ -76,7 +76,7 @@ export function HomeStatsBento({ stats, className }: HomeStatsBentoProps) {
             <p>
               <AnimatedStatValue
                 value={stat.value}
-                className="type-stat text-[clamp(1.75rem,3vw,2.25rem)] font-sans text-[var(--color-accent)]"
+                className="type-stat text-[clamp(1.75rem,3vw,2.25rem)] font-sans text-foreground"
               />
             </p>
             <p className="type-stat-label mt-2 font-medium text-foreground">{stat.label}</p>

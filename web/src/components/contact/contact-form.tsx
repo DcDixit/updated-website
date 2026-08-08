@@ -14,8 +14,8 @@ import { trackEvent, trackGenerateLead } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const projectTypes = [
-  { label: "SaaS product (UK / US)", value: "SaaS product" },
   { label: "Trucking & logistics (US)", value: "Trucking & logistics" },
+  { label: "SaaS product (UK / US)", value: "SaaS product" },
   { label: "QuickBooks / Xero integration", value: "Accounting integration" },
   { label: "Car transportation platform", value: "Car transportation" },
   { label: "CRM & workflow automation", value: "CRM & automation" },
@@ -26,9 +26,9 @@ const markets = ["United States", "United Kingdom", "Other / Global"] as const;
 
 const budgets = [
   "Under $5k",
-  "$5k - $15k",
-  "$15k - $40k",
-  "$40k - $100k",
+  "$5k — $15k",
+  "$15k — $40k",
+  "$40k — $100k",
   "$100k+",
   "Not sure yet",
 ] as const;

@@ -159,7 +159,7 @@ export default async function CaseDetailPage({ params }: Props) {
           <SectionHeader
             eyebrow="Deliverables"
             title="Screens & artifacts"
-            description="Representative views from the engagement - product UI, dashboards, and key flows."
+            description="Representative views from the engagement — product UI, dashboards, and key flows."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {gallery.map((image, i) => (
@@ -175,20 +175,13 @@ export default async function CaseDetailPage({ params }: Props) {
               </div>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "inline-flex gap-2")}>
-              {primaryCtas.book.label}
-              <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
-            </Link>
-            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
-          </div>
         </Container>
       </Section>
 
       <LeadCaptureCta
         eyebrow="Start a project"
         title="Want results like these for your product?"
-        description="Share your goals and timeline - we'll outline a clear path forward."
+        description="Share your goals and timeline — we'll outline a clear path forward."
       />
     </>
   );

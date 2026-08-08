@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container";
 import { SectionShell } from "@/components/layout/section-shell";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { Reveal } from "@/components/marketing/reveal";
+import { primaryCtas } from "@/content/navigation";
 
 export function EngagementModel() {
   return (
@@ -71,10 +72,10 @@ export function EngagementModel() {
                 </div>
               </div>
               <Link
-                href="/contact#book"
+                href={primaryCtas.book.href}
                 className="block rounded-[var(--card-radius)] bg-white py-2.5 text-center text-sm font-semibold text-[var(--color-primary)] transition-colors duration-200 hover:bg-[var(--color-accent)] hover:text-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-primary)]"
               >
-                Book a call
+                {primaryCtas.book.label}
               </Link>
             </div>
 

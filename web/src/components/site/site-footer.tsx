@@ -110,7 +110,7 @@ export function SiteFooter() {
                   )}
                 >
                   <p className="type-badge-label mb-5 inline-flex items-center gap-2">
-                    <span className="size-1.5 rounded-full bg-[var(--color-accent)]" aria-hidden />
+                    <span className="size-1.5 rounded-full bg-[rgb(var(--ink-600))]" aria-hidden />
                     {col.heading}
                   </p>
                   <ul className="space-y-3">

@@ -201,7 +201,7 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
       <LeadCaptureCta
         eyebrow={solution.title}
         title={`Ready to discuss your ${solution.title.toLowerCase()} project?`}
-        description="Share your goals and timeline - we'll reply within 24 hours with fit, scope questions, and a sensible next step."
+        description="Share your goals and timeline — we'll reply within 24 hours with fit, scope questions, and a sensible next step."
       />
     </>
   );
