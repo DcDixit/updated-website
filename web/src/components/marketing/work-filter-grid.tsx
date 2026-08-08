@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { CaseStudyCard } from "@/components/marketing/case-study-card";
@@ -15,22 +15,26 @@ type WorkFilterGridProps = {
   initialTag?: string | null;
 };
 
+function tagFromSearch(searchParams: URLSearchParams, initialTag: string | null): WorkFilterTag {
+  const urlTag = searchParams.get("tag") ?? initialTag;
+  if (urlTag && workFilterTags.includes(urlTag as WorkFilterTag)) {
+    return urlTag as WorkFilterTag;
+  }
+  return "All";
+}
+
 export function WorkFilterGrid({ initialTag = null }: WorkFilterGridProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [activeTag, setActiveTag] = useState<WorkFilterTag>(
-    initialTag && workFilterTags.includes(initialTag as WorkFilterTag) ? (initialTag as WorkFilterTag) : "All"
-  );
-
-  useEffect(() => {
-    const urlTag = searchParams.get("tag");
-    if (!urlTag || !workFilterTags.includes(urlTag as WorkFilterTag)) return;
-    setActiveTag(urlTag as WorkFilterTag);
-  }, [searchParams]);
+  const searchKey = searchParams.toString();
+  const urlTag = tagFromSearch(searchParams, initialTag);
+  // Optimistic UI bound to the current URL key — no effect/setState sync needed
+  const [pending, setPending] = useState<{ tag: WorkFilterTag; forKey: string } | null>(null);
+  const activeTag = pending && pending.forKey === searchKey ? pending.tag : urlTag;
 
   function handleTagChange(tag: WorkFilterTag) {
-    setActiveTag(tag);
+    setPending({ tag, forKey: searchKey });
     trackEvent("work_filter_change", { filter: tag });
     const params = new URLSearchParams(searchParams.toString());
     if (tag === "All") {
@@ -102,13 +106,12 @@ export function WorkFilterGrid({ initialTag = null }: WorkFilterGridProps) {
             );
           })}
         </div>
-        {filtered.length === 0 ? (
-          <p className="type-body mt-6 text-[color:var(--text-secondary)]">
-            Showing {caseStudies.length} projects across SaaS, logistics, CRM, and automation.
+        {filtered.length === 0 && caseStudies.length > 0 ? (
+          <p className="type-caption mt-6 text-[color:var(--text-secondary)]">
+            Try another filter or view all work.
           </p>
         ) : null}
       </div>
     </>
   );
 }
-

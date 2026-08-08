@@ -23,7 +23,7 @@ export function TeamSection({ className, variant = "preview" }: TeamSectionProps
           <SectionHeader
             eyebrow="The team"
             title="Small team. Senior people."
-            description="KRIVA is founder-led with a core team of designers and engineers who've shipped SaaS products, trucking platforms, and accounting integrations for 9+ years. The people on your first call are the people building your product."
+            description="KRIVA is founder-led with a core team of designers and engineers who ship SaaS products, trucking platforms, and accounting integrations. The people on your first call are the people building your product."
             align="center"
             className="mx-auto max-w-2xl"
           />

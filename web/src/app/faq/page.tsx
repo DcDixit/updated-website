@@ -7,7 +7,6 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
 import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { MarketingImage } from "@/components/marketing/marketing-image";
-import { SectionHeader } from "@/components/marketing/section-header";
 import {
   Accordion,
   AccordionContent,
@@ -41,8 +40,8 @@ export default function FAQPage() {
         visual={pageHeroVisuals.faq}
         priority
         actions={
-          <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-            {primaryCtas.brief.label}
+          <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+            {primaryCtas.book.label}
             <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
           </Link>
         }

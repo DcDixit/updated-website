@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 
-import { brand, reviewProfiles, siteContact, socialLinks } from "@/content/brand";
+import {
+  activeSocialLinks,
+  brand,
+  reviewUrl,
+  siteContact,
+} from "@/content/brand";
 
-/** Public site URL - set NEXT_PUBLIC_SITE_URL in production. */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://krivatechnologies.com").replace(/\/$/, "");
+/** Public site URL — set NEXT_PUBLIC_SITE_URL in production; never hardcode at call sites. */
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://krivatechnologies.com").replace(
+  /\/$/,
+  ""
+);
 
 const defaultOgImage = `${siteUrl}/brand/og-default.png`;
 
@@ -31,19 +39,18 @@ export function buildPageMetadata({
   publishedTime,
   locale = "en_US",
 }: PageMetadataInput): Metadata {
-  const url = absoluteUrl(path);
   const ogImage = image ?? defaultOgImage;
 
   return {
     title,
     description,
     alternates: {
-      canonical: url,
+      canonical: path,
     },
     openGraph: {
       title,
       description,
-      url,
+      url: path,
       siteName: brand.shortName,
       locale,
       type,
@@ -60,30 +67,31 @@ export function buildPageMetadata({
 }
 
 export function organizationJsonLd() {
+  const sameAs = activeSocialLinks().map((link) => link.href);
+  if (reviewUrl) sameAs.push(reviewUrl);
+
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
-    name: brand.legalName,
-    alternateName: brand.shortName,
+    "@type": "ProfessionalService",
+    "@id": `${siteUrl}/#organization`,
+    name: brand.shortName,
+    legalName: brand.legalName,
     url: siteUrl,
+    logo: absoluteUrl(brand.logoSrc),
     description: brand.positioning,
     email: siteContact.email,
-    telephone: siteContact.telHref,
-    areaServed: ["United Kingdom", "United States"],
-    knowsAbout: [
-      "SaaS product design",
-      "Trucking software development",
-      "Dispatch CRM",
-      "QuickBooks integration",
-      "Xero integration",
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: reviewProfiles.google.rating,
-      bestRating: reviewProfiles.google.maxRating,
-      reviewCount: String(parseInt(reviewProfiles.google.reviewCount, 10) || 0),
+    telephone: siteContact.phoneIn.href.replace(/^tel:/, ""),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "511 - I The Address",
+      addressLocality: "Ahmedabad",
+      addressRegion: "Gujarat",
+      postalCode: "380060",
+      addressCountry: "IN",
     },
-    sameAs: [...socialLinks.map((link) => link.href), reviewProfiles.google.href],
+    areaServed: ["United States", "United Kingdom"],
+    // Do NOT emit aggregateRating — review data is unverified (manual-action risk).
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }
 
@@ -122,15 +130,8 @@ export function serviceJsonLd(input: { title: string; description: string; path:
       name: brand.legalName,
       url: siteUrl,
     },
-    areaServed: ["United Kingdom", "United States"],
+    areaServed: ["United States", "United Kingdom"],
     url: absoluteUrl(input.path),
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "USD",
-      price: "0",
-      description: "Discovery call and scoped proposal - pricing based on project requirements.",
-    },
   };
 }
 
@@ -212,4 +213,3 @@ export function caseStudyJsonLd(input: {
     keywords: input.metrics.map((metric) => `${metric.label} ${metric.value}`).join(", "),
   };
 }
-

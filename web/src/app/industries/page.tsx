@@ -7,7 +7,6 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
 import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
-import { SectionHeader } from "@/components/marketing/section-header";
 import { buttonVariants } from "@/components/ui/button";
 import { industries, primaryCtas } from "@/content/site-content";
 import { industryVisuals, pageHeroVisuals } from "@/content/visuals";
@@ -36,12 +35,15 @@ export default function IndustriesPage() {
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href="/solutions" className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              View solutions
+            <Link
+              href={primaryCtas.brief.href}
+              className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline"
+            >
+              {primaryCtas.brief.label}
             </Link>
           </>
         }

@@ -1,14 +1,11 @@
 import type { Icon } from "@tabler/icons-react";
 import {
   IconBrain,
-  IconBuildingWarehouse,
   IconChartBar,
-  IconDeviceMobile,
   IconLayoutDashboard,
   IconReceipt2,
   IconRoute,
   IconTruck,
-  IconWorld,
 } from "@tabler/icons-react";
 
 export type SolutionSlug =
@@ -51,6 +48,7 @@ export const solutionPillars: SolutionPillar[] = [
     headline: "SaaS products that earn demos - and keep users after signup.",
     summary:
       "SaaS teams hire us when the product works but users aren't sticking. We fix the parts that cause drop-off - onboarding flows, permission screens, dashboards, and the UX patterns that turn trials into paying accounts.",
+    market: "UK & US SaaS",
     href: "/solutions/saas",
     icon: IconLayoutDashboard,
     services: [
@@ -217,7 +215,7 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     outcomes: [
       { label: "Typical MVP timeline", value: "8-12 weeks" },
       { label: "Engagement model", value: "Design + build" },
-      { label: "Team", value: "15+ in-house" },
+      { label: "Team", value: "In-house only" },
     ],
     capabilities: [
       {
@@ -347,9 +345,9 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     heroLead:
       "Connect your product or ops platform to QuickBooks Online and Xero, with sync jobs finance teams trust, operator dashboards, and alerts when something breaks.",
     outcomes: [
-      { label: "Nightly sync reliability", value: "99%+" },
-      { label: "Manual reconciliation", value: "−60-80%" },
       { label: "Platforms supported", value: "QBO · Xero" },
+      { label: "Engagement model", value: "Sync + operator UX" },
+      { label: "Delivery", value: "Phased go-live" },
     ],
     capabilities: [
       {
@@ -405,8 +403,8 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
     heroLead:
       "Digital products for auto transport companies: quote flows, carrier dispatch, customer tracking, and ops automation built for vehicle logistics.",
     outcomes: [
-      { label: "Quote-to-book time", value: "−40%" },
-      { label: "Customer self-serve", value: "+30%" },
+      { label: "Focus market", value: "Auto transport" },
+      { label: "Typical scope", value: "Quote · dispatch · tracking" },
       { label: "Platform delivery", value: "6-14 weeks" },
     ],
     capabilities: [

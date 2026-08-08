@@ -1,16 +1,20 @@
 /** Leadership and team - aligned with KRIVA Technologies company profile. */
 
-import { brand, siteContact, socialLinks } from "@/content/brand";
+import { activeSocialLinks, brand, siteContact, siteStats } from "@/content/brand";
 
 const companyLinkedIn =
-  socialLinks.find((link) => link.label === "LinkedIn")?.href ??
-  "https://www.linkedin.com/company/kriva-technologies";
+  activeSocialLinks().find((link) => link.label === "LinkedIn")?.href ?? null;
 
+/** Only include stats with verified (non-null) values. */
 export const teamStats = [
-  { value: "40+", label: "Products shipped", caption: "SaaS, logistics, CRM & automation" },
-  { value: "9+", label: "Years of experience", caption: "In product design & engineering" },
-  { value: "4", label: "Time zones", caption: "US, UK, India, APAC overlap" },
-] as const;
+  siteStats.projects
+    ? { value: siteStats.projects, label: "Products shipped", caption: "SaaS, logistics, CRM & automation" }
+    : null,
+  siteStats.years
+    ? { value: siteStats.years, label: "Years of experience", caption: "In product design & engineering" }
+    : null,
+  { value: "4", label: "Time zones", caption: "US & UK call hours with India delivery overlap" },
+].filter((item): item is { value: string; label: string; caption: string } => item !== null);
 
 export const companyProfile = {
   legalName: brand.legalName,
@@ -19,9 +23,11 @@ export const companyProfile = {
   hqLabel: siteContact.hqLabel,
   email: siteContact.email,
   phone: siteContact.displayPhone,
-  schedulingUrl: siteContact.schedulingUrl,
+  schedulingUrl: siteContact.scheduler,
   linkedIn: companyLinkedIn,
-  founderExperience: "9+ years in product design & engineering",
+  founderExperience: siteStats.years
+    ? `${siteStats.years} years in product design & engineering`
+    : "Founder-led product design & engineering",
   deliveryModel: "Remote-first with dedicated squads for each project.",
 } as const;
 
@@ -70,4 +76,3 @@ export const culturePoints = [
     body: "Clean Figma files, typed code, and documentation your team can use after we're done - not artifacts that only make sense to us.",
   },
 ] as const;
-

@@ -36,33 +36,30 @@ const googleSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.shortName} · Product Design & Engineering`,
-    template: `%s · ${brand.shortName}`,
+    default: "Trucking Software & SaaS Product Development - KRIVA",
+    template: `%s - KRIVA`,
   },
-  description:
-    "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations - dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
+  description: brand.tagline,
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: brand.shortName,
-    title: `${brand.shortName} · Product Design & Engineering Agency`,
-    description:
-      "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations - dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
+    title: "Trucking Software & SaaS Product Development - KRIVA",
+    description: brand.tagline,
     images: [
       {
-        url: `${siteUrl}/brand/og-default.png`,
+        url: "/brand/og-default.png",
         width: 1200,
         height: 630,
-        alt: `${brand.legalName} · SaaS & Trucking Product Design Agency`,
+        alt: `${brand.legalName} · Trucking & SaaS Product Development`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.shortName} · Product Design & Engineering Agency`,
-    description:
-      "KRIVA Technologies designs and builds SaaS platforms, trucking software, and accounting integrations - dispatch CRM, fleet dashboards, QuickBooks/Xero sync. 40+ products shipped.",
-    images: [`${siteUrl}/brand/og-default.png`],
+    title: "Trucking Software & SaaS Product Development - KRIVA",
+    description: brand.tagline,
+    images: ["/brand/og-default.png"],
   },
   robots: {
     index: true,

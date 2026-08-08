@@ -1,17 +1,26 @@
 /** Central content barrel - import from domain files or this module. */
 
 export {
+  activeSocialLinks,
   brand,
+  mailtoHref,
   reviewProfiles,
+  reviewUrl,
   siteContact,
+  siteStats,
+  social,
   socialLinks,
+  whatsappHref,
 } from "@/content/brand";
 export {
   footerColumns,
+  mainNav,
   nav,
   navSecondary,
   primaryCtas,
+  processNavItem,
 } from "@/content/navigation";
+export type { NavChild, NavItem } from "@/content/navigation";
 
 export {
   faqHome,
@@ -83,12 +92,12 @@ export {
   companyProfile,
 } from "@/content/team";
 
-/** Homepage hero - dual-industry agency positioning. */
+/** Homepage hero - trucking-first agency positioning. */
 export const homeHero = {
-  eyebrowBadge: "Design engineering for SaaS & trucking",
+  eyebrowBadge: "Design engineering for trucking & SaaS",
   headline: "We design the software your ops team won't want to work around.",
   headlineEmphasis: "won't want to work around",
-  lead: "Dispatch consoles, SaaS dashboards, fleet tools, and QuickBooks/Xero integrations - designed and built by a team that's shipped 40+ of them.",
+  lead: "Dispatch consoles, fleet tools, SaaS dashboards, and QuickBooks/Xero integrations - designed and built for operators and product teams.",
 } as const;
 
 

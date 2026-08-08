@@ -73,13 +73,11 @@ export default async function ServiceDetailPage({ params }: Props) {
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
-            </Link>
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
           </>
         }
       >
@@ -125,10 +123,10 @@ export default async function ServiceDetailPage({ params }: Props) {
               ))}
             </ul>
             <Link
-              href={primaryCtas.brief.href}
+              href={primaryCtas.book.href}
               className={cn(buttonVariants({ variant: "primary", size: "cta" }), "mt-4 w-full")}
             >
-              {primaryCtas.brief.label}
+              {primaryCtas.book.label}
             </Link>
           </aside>
         </Container>
@@ -154,7 +152,14 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <Section tone="muted" dividerTop>
         <Container>
-          <SectionHeader eyebrow="Related work" title="Case studies" />
+          <SectionHeader
+            eyebrow="Related work"
+            title="Case studies"
+            description="Anonymized projects in this capability area. Client names and identifying details may be changed for confidentiality."
+          />
+          <p className="type-caption mt-3 max-w-2xl text-[color:var(--text-secondary)]">
+            Metrics on case pages describe project outcomes — not third-party ratings.
+          </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {related.map((c) => {
               const cover = caseStudyVisuals[c.slug];

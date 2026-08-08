@@ -32,10 +32,10 @@ export function CtaBand({
   title,
   description,
   eyebrow,
-  primaryLabel = primaryCtas.brief.label,
-  primaryHref = primaryCtas.brief.href,
-  secondaryLabel = primaryCtas.book.label,
-  secondaryHref = primaryCtas.book.href,
+  primaryLabel = primaryCtas.book.label,
+  primaryHref = primaryCtas.book.href,
+  secondaryLabel = primaryCtas.brief.label,
+  secondaryHref = primaryCtas.brief.href,
   align = "left",
   className,
   bordered = false,
@@ -53,7 +53,6 @@ export function CtaBand({
             centered ? "flex flex-col items-center text-center" : "flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between"
           )}
         >
-          {/* Background glow */}
           <div
             aria-hidden
             className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full opacity-[0.06] blur-3xl"
@@ -85,10 +84,10 @@ export function CtaBand({
             ) : null}
           </div>
 
-          <div className={cn("relative flex w-full flex-col gap-3 sm:w-auto sm:flex-row", centered && "justify-center")}>
+          <div className={cn("relative flex w-full flex-col gap-3 sm:w-auto sm:items-start", centered && "items-center")}>
             <Link
               href={primaryHref}
-              className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}
+              className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2 min-h-11")}
               data-track="cta_click"
               data-track-location={trackingLocation}
               data-track-label={primaryLabel}
@@ -99,7 +98,7 @@ export function CtaBand({
             {secondaryLabel ? (
               <Link
                 href={secondaryHref}
-                className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "gap-2")}
+                className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 transition-colors hover:text-foreground hover:underline"
                 data-track="cta_click_secondary"
                 data-track-location={trackingLocation}
                 data-track-label={secondaryLabel}

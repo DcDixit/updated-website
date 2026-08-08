@@ -10,24 +10,13 @@ function parseStat(value: string): { digits: number; suffix: string } | null {
   return { digits: Number(m[1]), suffix: m[2] ?? "" };
 }
 
-export function AnimatedStatValue({ value, className }: { value: string; className?: string }) {
+function AnimatedStatValueInner({ value, className }: { value: string; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const parsed = useMemo(() => parseStat(value), [value]);
   const target = parsed?.digits ?? 0;
   const suffix = parsed?.suffix ?? "";
   const hasAnimated = useRef(false);
-  const [display, setDisplay] = useState(value);
-
-  useEffect(() => {
-    hasAnimated.current = false;
-
-    if (!parsed) {
-      setDisplay(value);
-      return;
-    }
-
-    setDisplay(`0${suffix}`);
-  }, [parsed, suffix, value]);
+  const [display, setDisplay] = useState(() => (parsed ? `0${suffix}` : value));
 
   useEffect(() => {
     if (!parsed) return;
@@ -91,3 +80,7 @@ export function AnimatedStatValue({ value, className }: { value: string; classNa
   );
 }
 
+/** Remount on value change so animation state resets without syncing effects. */
+export function AnimatedStatValue({ value, className }: { value: string; className?: string }) {
+  return <AnimatedStatValueInner key={value} value={value} className={className} />;
+}

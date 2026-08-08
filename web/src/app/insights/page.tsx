@@ -72,7 +72,7 @@ export default function InsightsPage() {
                 Mention it in your project brief and we&apos;ll add you to our quarterly insights digest.
               </p>
             </div>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }))}>
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }))}>
               Get in touch
             </Link>
           </div>

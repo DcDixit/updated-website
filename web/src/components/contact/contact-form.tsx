@@ -22,7 +22,7 @@ const projectTypes = [
   { label: "AI product development", value: "AI development" },
 ] as const;
 
-const markets = ["United Kingdom", "United States", "Other / Global"] as const;
+const markets = ["United States", "United Kingdom", "Other / Global"] as const;
 
 const budgets = [
   "Under $5k",
@@ -129,7 +129,7 @@ export function ContactForm() {
       <div
         id="brief"
         role="status"
-        className="surface-card space-y-6 border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-[var(--space-card)] sm:p-8"
+        className="surface-card scroll-mt-[var(--header-offset)] space-y-6 border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-[var(--space-card)] sm:p-8"
       >
         <div className="space-y-3">
           <h2 className="type-h2 text-foreground">Thank you!</h2>
@@ -155,7 +155,7 @@ export function ContactForm() {
                 href={primaryCtas.book.href}
                 className="type-body inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent)] transition-opacity hover:opacity-85"
               >
-                Book a discovery call
+                {primaryCtas.book.label}
                 <IconArrowUpRight size={16} stroke={1.5} aria-hidden />
               </Link>
             </li>
@@ -175,7 +175,7 @@ export function ContactForm() {
   return (
     <form
       id="brief"
-      className="surface-card relative space-y-6 p-[var(--space-card)] sm:p-8"
+      className="surface-card relative scroll-mt-[var(--header-offset)] space-y-6 p-[var(--space-card)] sm:p-8"
       onSubmit={handleSubmit}
       onFocusCapture={trackFormStart}
       aria-labelledby="contact-form-title"

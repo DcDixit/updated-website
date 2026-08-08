@@ -1,4 +1,4 @@
-import { caseStudies, type CaseSlug, type ServiceSlug } from "@/content/site-content";
+import { caseStudies, type ServiceSlug } from "@/content/site-content";
 
 const serviceTagMap: Record<ServiceSlug, readonly string[]> = {
   "ui-ux-design": ["UI/UX", "Product", "Mobile"],

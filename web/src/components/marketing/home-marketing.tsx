@@ -61,8 +61,8 @@ function HeroHeadline({ headline, emphasis }: { headline: string; emphasis?: str
 }
 
 const heroTrustSignals = [
-  { label: "40+ projects delivered", href: "/work" },
-  { label: "NDA-first collaboration", href: "/faq" },
+  { label: "NDA from day one", href: "/faq" },
+  { label: "Weekly demos on a shared board", href: "/process" },
 ];
 
 const differentiators = [
@@ -204,19 +204,117 @@ export function HomeMarketing() {
         </Reveal>
       </SectionShell>
 
+      <SectionShell id="work" size="default">
+        <Reveal>
+          <Container>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <SectionHeader
+                className="sm:max-w-lg"
+                eyebrow="Recent work"
+                title="Projects we've shipped recently."
+                description="Some client details are anonymized under NDA. The metrics are real."
+              />
+              <Link
+                href={primaryCtas.viewWork.href}
+                className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full shrink-0 sm:w-auto")}
+              >
+                View all work
+              </Link>
+            </div>
+            <div className="stagger-grid mt-10 grid gap-6 lg:grid-cols-3">
+              {featuredCaseStudies.map((c) => (
+                <HomeCaseStudyCard
+                  key={c.slug}
+                  slug={c.slug as HomepageCaseStudySlug}
+                  title={c.title}
+                  summary={c.summary}
+                  href={`/work/${c.slug}`}
+                  tags={c.tags}
+                />
+              ))}
+            </div>
+          </Container>
+        </Reveal>
+      </SectionShell>
+
+      <HomeTestimonialsSection />
+
+      <SectionShell id="faq" size="default" className="bg-[var(--surface-muted)]">
+        <Reveal>
+          <Container>
+            <div className="grid-layout-12">
+              <div className="col-span-12 lg:col-span-8">
+                <SectionHeader eyebrow="FAQ" title="Questions we get asked before starting." />
+                <Accordion className="surface-card mt-8 px-6" defaultValue={["hq-0"]}>
+                  {homeFaq.map((item, idx) => (
+                    <AccordionItem key={item.q} value={`hq-${idx}`} className="border-[var(--surface-border)]">
+                      <AccordionTrigger className="type-body py-5 text-left font-semibold text-foreground hover:no-underline">
+                        {item.q}
+                      </AccordionTrigger>
+                      <AccordionContent className="type-body pb-5 text-[color:var(--text-secondary)]">
+                        {item.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+                <Link
+                  href="/faq"
+                  className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "mt-8 inline-flex")}
+                >
+                  View all FAQs
+                </Link>
+              </div>
+
+              <div className="col-span-12 lg:col-span-4">
+                <div className="surface-card cta-band-premium sticky top-24 space-y-5 p-6">
+                  <p className="highlight-badge">
+                    <span className="status-dot" aria-hidden />
+                    Next step
+                  </p>
+                  <h3 className="type-h3 text-foreground text-balance">Tell us what you&apos;re building.</h3>
+                  <p className="type-body text-sm text-[color:var(--text-secondary)]">
+                    Send a brief or reach out to book a 20-minute fit call. We&apos;ll reply within one business day with clear next steps.
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    <Link
+                      href={primaryCtas.book.href}
+                      className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow w-full gap-2 min-h-11")}
+                    >
+                      {primaryCtas.book.label}
+                      <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
+                    </Link>
+                    <Link
+                      href={primaryCtas.brief.href}
+                      className="type-body text-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline"
+                    >
+                      {primaryCtas.brief.label}
+                    </Link>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {["Replies within one business day", "NDA available", "No obligation to proceed"].map((item) => (
+                      <li key={item} className="feature-list-item text-sm">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </Reveal>
+      </SectionShell>
+
       <SectionShell id="stats" size="default" aria-labelledby="stats-heading">
         <Reveal>
           <Container>
             <h2 id="stats-heading" className="sr-only">
-              Delivery metrics and how we work
+              How we collaborate across time zones
             </h2>
             <HomeStatsBento stats={homepageStats} />
             <DeliveryTrustRow />
           </Container>
         </Reveal>
       </SectionShell>
-
-      <HomeTestimonialsSection />
 
       <SectionShell id="why" size="default" className="bg-[var(--surface-muted)]">
         <Reveal>
@@ -269,110 +367,12 @@ export function HomeMarketing() {
 
       <TeamSection variant="preview" />
 
-      <SectionShell id="work" size="default">
-        <Reveal>
-          <Container>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                className="sm:max-w-lg"
-                eyebrow="Recent work"
-                title="Projects we've shipped recently."
-                description="Some client details are anonymized under NDA. The metrics are real."
-              />
-              <Link
-                href={primaryCtas.viewWork.href}
-                className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full shrink-0 sm:w-auto")}
-              >
-                View all work
-              </Link>
-            </div>
-            <div className="stagger-grid mt-10 grid gap-6 lg:grid-cols-3">
-              {featuredCaseStudies.map((c) => (
-                <HomeCaseStudyCard
-                  key={c.slug}
-                  slug={c.slug as HomepageCaseStudySlug}
-                  title={c.title}
-                  summary={c.summary}
-                  href={`/work/${c.slug}`}
-                  tags={c.tags}
-                />
-              ))}
-            </div>
-          </Container>
-        </Reveal>
-      </SectionShell>
-
       <HomeInsightsPreview />
 
       <SectionShell id="process" size="default">
         <Reveal>
           <Container>
             <ProcessSection steps={homepageProcessSteps} />
-          </Container>
-        </Reveal>
-      </SectionShell>
-
-      <SectionShell id="faq" size="default">
-        <Reveal>
-          <Container>
-            <div className="grid-layout-12">
-              <div className="col-span-12 lg:col-span-8">
-                <SectionHeader eyebrow="FAQ" title="Questions we get asked before starting." />
-                <Accordion className="surface-card mt-8 px-6" defaultValue={["hq-0"]}>
-                  {homeFaq.map((item, idx) => (
-                    <AccordionItem key={item.q} value={`hq-${idx}`} className="border-[var(--surface-border)]">
-                      <AccordionTrigger className="type-body py-5 text-left font-semibold text-foreground hover:no-underline">
-                        {item.q}
-                      </AccordionTrigger>
-                      <AccordionContent className="type-body pb-5 text-[color:var(--text-secondary)]">
-                        {item.a}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-                <Link
-                  href="/faq"
-                  className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "mt-8 inline-flex")}
-                >
-                  View all FAQs
-                </Link>
-              </div>
-
-              <div className="col-span-12 lg:col-span-4">
-                <div className="surface-card cta-band-premium sticky top-24 space-y-5 p-6">
-                  <p className="highlight-badge">
-                    <span className="status-dot" aria-hidden />
-                    Next step
-                  </p>
-                  <h3 className="type-h3 text-foreground text-balance">Tell us what you&apos;re building.</h3>
-                  <p className="type-body text-sm text-[color:var(--text-secondary)]">
-                    Share your brief or book a call. We&apos;ll reply within one business day with a clear plan and honest next steps.
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <Link
-                      href={primaryCtas.book.href}
-                      className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow w-full gap-2")}
-                    >
-                      {primaryCtas.book.label}
-                      <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
-                    </Link>
-                    <Link
-                      href={primaryCtas.brief.href}
-                      className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full")}
-                    >
-                      {primaryCtas.brief.label}
-                    </Link>
-                  </div>
-                  <ul className="space-y-1.5">
-                    {["Replies within 24 hours", "NDA available", "No obligation to proceed"].map((item) => (
-                      <li key={item} className="feature-list-item text-sm">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
           </Container>
         </Reveal>
       </SectionShell>

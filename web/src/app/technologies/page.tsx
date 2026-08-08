@@ -51,8 +51,8 @@ export default function TechnologiesPage() {
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
             <Link href="/process" className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>

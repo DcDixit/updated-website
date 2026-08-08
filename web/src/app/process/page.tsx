@@ -43,13 +43,11 @@ export default function ProcessPage() {
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
-            </Link>
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
           </>
         }
       />

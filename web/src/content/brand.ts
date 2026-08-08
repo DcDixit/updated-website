@@ -1,4 +1,4 @@
-/** Brand identity, contact, and social - single source of truth for production content. */
+/** Brand identity, contact, and social — single source of truth for production content. */
 
 export const brand = {
   shortName: "KRIVA",
@@ -6,43 +6,129 @@ export const brand = {
   logoSrc: "/brand/kriva-logo.png",
   logoMarkSrc: "/brand/kriva-icon.png",
   founded: 2025,
+  /**
+   * Verified positioning for SEO / JSON-LD. Unverified headcount / project counts
+   * live in `siteStats` as nullables and must not render when null.
+   */
   positioning:
-    "KRIVA Technologies is a product design and engineering studio founded by a designer with 9+ years of experience. We design and build SaaS platforms, trucking software, and accounting integrations - including dispatch CRM, fleet dashboards, and QuickBooks/Xero integrations.",
-  tagline: "Product design & engineering · SaaS · Trucking · Integrations",
+    "Custom software for US trucking, moving, and auto-transport operators, and for SaaS teams who need onboarding, dashboards, and integrations that hold up.",
+  /** Short About / hero supporting line — distinct from SEO positioning. */
+  tagline: "Design and engineering for US trucking ops and SaaS product teams.",
+  /** What we exist to do — used where mission/purpose copy is needed. */
   mission:
-    "Product design and engineering for SaaS teams, trucking operators, and anyone who needs software that actually works.",
+    "We design and build dispatch tools, fleet software, SaaS dashboards, and accounting integrations that operators and product teams actually want to use.",
+  assurances: [
+    "NDA from day one",
+    "You own the design files, code, and documentation",
+    "No subcontracting, the kickoff team is the build team",
+    "Weekly demos on a shared board",
+  ],
 } as const;
+
+/** Unverified metrics — render nothing when null. */
+export const siteStats = {
+  projects: null as string | null,
+  years: null as string | null,
+  teamSize: null as string | null,
+  googleRating: null as number | null,
+} as const;
+
+export type SocialHandles = {
+  linkedin: string | null;
+  instagram: string | null;
+  x: string | null;
+  dribbble: string | null;
+};
+
+/** Unverified social handles — omit the row when all are null. */
+export const social: SocialHandles = {
+  linkedin: null,
+  instagram: null,
+  x: null,
+  dribbble: null,
+};
+
+/** Unverified Google Business Profile URL. */
+export const reviewUrl: string | null = null;
+
+const WHATSAPP_NUMBER = "919724454455";
+const WHATSAPP_MESSAGE = "Hi KRIVA, I'd like to discuss a project.";
+
+export function whatsappHref(
+  number = WHATSAPP_NUMBER,
+  message = WHATSAPP_MESSAGE
+): string {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
+
+export function mailtoHref(email = "hello@krivatechnologies.com", subject?: string): string {
+  if (!subject) return `mailto:${email}`;
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+}
 
 export const siteContact = {
   email: "hello@krivatechnologies.com",
-  displayPhone: "+91 97244 54455",
-  telHref: "+919724454455",
-  whatsappHref: "https://wa.me/919724454455?text=Hi%20KRIVA%2C%20I%27d%20like%20to%20discuss%20a%20project.",
-  /** Set your Cal.com or Calendly URL - leave empty to fall back to email booking. */
-  schedulingUrl: "https://cal.com/kriva/discovery" as string,
+  phoneIn: {
+    display: "+91 97244 54455",
+    href: "tel:+919724454455",
+  },
+  /** US phone — render before India when set. */
+  phoneUs: null as { display: string; href: string } | null,
+  whatsapp: {
+    number: WHATSAPP_NUMBER,
+    message: WHATSAPP_MESSAGE,
+  },
+  /**
+   * Cal.com / scheduler URL. Null until a verified slug is supplied.
+   * When null, `/contact#book` shows the contact block only — no dead button.
+   */
+  scheduler: null as string | null,
+  addressLine: "511 - I The Address, Ahmedabad, Gujarat 380060, IN",
   hqLabel: "Ahmedabad, India · Remote-first · Global clients",
-  addressLine: "511 - I The Address, Ahmedabad, Gujarat 380060, India",
   mapSearchUrl:
     "https://www.google.com/maps/search/?api=1&query=I+The+Address+Ahmedabad+Gujarat+380060",
-  responseTime: "Replies within 24 hours on business days",
-} as const;
+  responseTime:
+    "We reply within one business day and schedule fit calls across US and UK working hours.",
+  /** Compat aliases for existing call sites. */
+  displayPhone: "+91 97244 54455",
+  telHref: "+919724454455",
+  /** Empty string when scheduler is null — consumers must treat falsy as "no scheduler". */
+  schedulingUrl: "" as string,
+  whatsappHref: whatsappHref(),
+};
 
+/** Non-null social URLs only — for footer icons and JSON-LD sameAs. */
+export function activeSocialLinks(): Array<{ label: string; href: string }> {
+  const entries: Array<{ key: keyof SocialHandles; label: string }> = [
+    { key: "linkedin", label: "LinkedIn" },
+    { key: "instagram", label: "Instagram" },
+    { key: "x", label: "X" },
+    { key: "dribbble", label: "Dribbble" },
+  ];
+  return entries.flatMap(({ key, label }) => {
+    const href = social[key];
+    return href ? [{ label, href }] : [];
+  });
+}
+
+/**
+ * Empty while handles are unverified. Prefer activeSocialLinks().
+ * Existing `.map()` call sites render nothing.
+ */
+export const socialLinks: ReadonlyArray<{ label: string; href: string }> = [];
+
+/**
+ * Review profile for UI. Consumers must gate on `href` / `headline` and render
+ * nothing when unverified.
+ */
 export const reviewProfiles = {
   google: {
     label: "Google",
-    rating: "5.0",
-    maxRating: "5.0",
-    reviewCount: "8 reviews",
-    href: "https://g.page/r/kriva-technologies/review",
-    headline: "5.0 · 8 reviews",
-    subtitle: "Rated for communication, quality, and on-time delivery.",
+    rating: null as string | null,
+    maxRating: null as string | null,
+    reviewCount: null as string | null,
+    href: reviewUrl,
+    headline: null as string | null,
+    subtitle: null as string | null,
   },
 } as const;
-
-export const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/kriva-technologies" },
-  { label: "Instagram", href: "https://www.instagram.com/krivatechnologies" },
-  { label: "X", href: "https://x.com/krivatechnologies" },
-  { label: "Dribbble", href: "https://dribbble.com/krivatechnologies" },
-] as const;
-

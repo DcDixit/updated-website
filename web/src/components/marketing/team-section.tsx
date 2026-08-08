@@ -26,7 +26,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
           <p className="type-badge-label">Team</p>
           <h2 className="type-h2 text-foreground">Small team. Senior people.</h2>
           <p className="type-body text-[color:var(--text-secondary)]">
-            KRIVA is founder-led with a core team of designers and engineers who&apos;ve shipped SaaS products, trucking platforms, and accounting integrations for 9+ years. The people on your first call are the people building your product.
+            KRIVA is founder-led with a core team of designers and engineers who ship SaaS products, trucking platforms, and accounting integrations. The people on your first call are the people building your product.
           </p>
         </div>
       ) : null}
@@ -57,6 +57,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
                 ))}
               </ul>
             </div>
+            {member.linkedIn ? (
             <Link
               href={member.linkedIn}
               target="_blank"
@@ -69,6 +70,7 @@ export function TeamSection({ className, showHeader = true }: TeamSectionProps) 
               <IconBrandLinkedin size={16} stroke={1.5} aria-hidden />
               LinkedIn - KRIVA Technologies
             </Link>
+            ) : null}
           </article>
         ))}
       </div>

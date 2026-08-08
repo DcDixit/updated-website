@@ -10,14 +10,18 @@ type ReviewProofBarProps = {
 };
 
 export function ReviewProofBar({ className, variant = "default" }: ReviewProofBarProps) {
-  const profiles = [reviewProfiles.google];
+  const profiles = [reviewProfiles.google].filter(
+    (profile) => Boolean(profile.href) && Boolean(profile.headline)
+  );
+
+  if (profiles.length === 0) return null;
 
   return (
     <div className={cn("grid gap-4", variant === "compact" && "gap-3", className)}>
       {profiles.map((profile) => (
         <Link
           key={profile.label}
-          href={profile.href}
+          href={profile.href!}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -37,7 +41,9 @@ export function ReviewProofBar({ className, variant = "default" }: ReviewProofBa
             >
               {profile.headline}
             </p>
-            {variant !== "inline" ? <p className="type-caption">{profile.subtitle}</p> : null}
+            {variant !== "inline" && profile.subtitle ? (
+              <p className="type-caption">{profile.subtitle}</p>
+            ) : null}
           </div>
           <div
             className={cn(
@@ -60,4 +66,3 @@ export function ReviewProofBar({ className, variant = "default" }: ReviewProofBa
     </div>
   );
 }
-

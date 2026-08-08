@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   IconArrowUpRight,
   IconShieldCheck,
@@ -55,7 +56,7 @@ export function MarketingTrustSignals({
           <div className="flex flex-wrap items-center justify-center gap-6 sm:justify-start">
             {clientLogos.map((client) => (
               <div key={client.name} className="flex flex-col items-center gap-1.5 text-center">
-                <img
+                <Image
                   src={client.logoSrc}
                   alt=""
                   width={120}
@@ -63,8 +64,8 @@ export function MarketingTrustSignals({
                   className="h-8 w-auto object-contain dark:brightness-110"
                   aria-hidden
                 />
-                <span className="sr-only">{client.name}</span>
-                <span className="text-xs font-medium text-text-secondary-v2">{client.industry}</span>
+                <span className="text-xs font-semibold text-foreground">{client.name}</span>
+                <span className="text-[11px] text-text-secondary-v2">{client.industry}</span>
               </div>
             ))}
           </div>
@@ -86,12 +87,12 @@ export function MarketingTrustSignals({
       ) : null}
 
       {withCta ? (
-        <div className="flex flex-wrap justify-center gap-3 pt-2 sm:justify-start">
-          <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}>
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-2 sm:justify-start">
+          <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2 min-h-11")}>
             {primaryCtas.book.label}
             <IconArrowUpRight size={16} className="opacity-80" aria-hidden stroke={1.5} />
           </Link>
-          <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
+          <Link href={primaryCtas.brief.href} className="type-body font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">
             {primaryCtas.brief.label}
           </Link>
         </div>

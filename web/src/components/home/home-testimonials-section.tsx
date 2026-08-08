@@ -140,19 +140,19 @@ export function HomeTestimonialsSection({
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <SectionHeader
                 className="max-w-xl"
-                eyebrow={hasTestimonials ? "Testimonials" : "Client results"}
-                title={hasTestimonials ? "What our clients say." : "Outcomes from recent engagements."}
+                eyebrow={hasTestimonials ? "Testimonials" : "From case studies"}
+                title={hasTestimonials ? "What our clients say." : "Measured outcomes from recent work."}
                 description={
                   hasTestimonials
                     ? undefined
-                    : "Measured results from SaaS, trucking, and finance platforms - not invented quotes."
+                    : "Project metrics and outcomes from anonymized case studies — not invented quotes."
                 }
               />
               <Link
                 href={hasTestimonials ? primaryCtas.book.href : "/work"}
                 className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "shrink-0")}
               >
-                {hasTestimonials ? "Book a discovery call" : "View case studies"}
+                {hasTestimonials ? primaryCtas.book.label : "View case studies"}
               </Link>
             </div>
 
@@ -169,12 +169,6 @@ export function HomeTestimonialsSection({
                     />
                   ))}
             </div>
-
-            {hasTestimonials ? (
-              <p className="type-caption mt-6 text-[color:var(--text-secondary)]">
-                Some feedback was originally shared under our previous name, Northline Digital.
-              </p>
-            ) : null}
           </div>
         </Container>
       </Reveal>

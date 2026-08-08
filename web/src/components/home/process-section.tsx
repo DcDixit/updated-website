@@ -10,7 +10,7 @@ import {
 
 import { SectionHeader } from "@/components/marketing/section-header";
 import type { HomepageProcessStep } from "@/data/homepage";
-import { engagementModels } from "@/content/site-content";
+import { engagementModels, primaryCtas } from "@/content/site-content";
 import { cn } from "@/lib/utils";
 
 const stepIcons = [IconSearch, IconPencil, IconCode, IconRocket, IconHeartHandshake];
@@ -22,7 +22,7 @@ const engagementDetails = [
   {
     icon: IconSearch,
     timeline: "1-2 weeks",
-    cta: "Book a discovery call",
+    cta: primaryCtas.book.label,
     featured: false,
   },
   {

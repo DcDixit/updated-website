@@ -5,13 +5,12 @@ import { brand } from "@/content/site-content";
 import { pageHeroVisuals } from "@/content/visuals";
 import { buildPageMetadata } from "@/lib/seo";
 
-const homeTitle = `${brand.legalName} · SaaS & Trucking Product Design Agency`;
+const homeTitle = "Trucking Software & SaaS Product Development - KRIVA";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: homeTitle,
-    description:
-      "Product design and engineering for SaaS platforms, trucking dispatch software, and QuickBooks/Xero integrations. 40+ products shipped. Book a discovery call.",
+    description: brand.tagline,
     path: "/",
     image: pageHeroVisuals.home.src,
   }),

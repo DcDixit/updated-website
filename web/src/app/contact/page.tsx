@@ -20,7 +20,7 @@ const contactTitle = `Contact ${brand.legalName} · Send a Brief or Book a Call`
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: contactTitle,
-    description: `Start a project with ${brand.shortName}. Send a brief or book a 30-minute discovery call. We respond within one business day.`,
+    description: `Start a project with ${brand.shortName}. Send a brief or reach out to book a 20-minute fit call. We respond within one business day.`,
     path: "/contact",
     image: pageHeroVisuals.contact.src,
   }),
@@ -33,17 +33,17 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Start a conversation."
-        description="Send a brief or book a call. We'll get back to you within one business day with a clear plan and honest next steps."
+        description="Send a brief, or reach out to book a 20-minute fit call. We'll get back within one business day with a clear plan and honest next steps."
         visual={pageHeroVisuals.contact}
         priority
         actions={
           <>
-            <Link href="#brief" className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href="#book" className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2 min-h-11")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href="#book" className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
+            <Link href="#brief" className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">
+              {primaryCtas.brief.label}
             </Link>
           </>
         }

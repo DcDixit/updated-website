@@ -5,7 +5,6 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/layout/section";
-import { LeadCaptureCta } from "@/components/marketing/lead-capture-cta";
 import { MarketingImage } from "@/components/marketing/marketing-image";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { ServiceCard } from "@/components/marketing/service-card";
@@ -40,15 +39,13 @@ export default function ServicesPage() {
         actions={
           <>
             <Link
-              href={primaryCtas.brief.href}
+              href={primaryCtas.book.href}
               className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}
             >
-              {primaryCtas.brief.label}
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
-            </Link>
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
           </>
         }
       />
@@ -104,15 +101,13 @@ export default function ServicesPage() {
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href={primaryCtas.brief.href}
+                  href={primaryCtas.book.href}
                   className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}
                 >
-                  {primaryCtas.brief.label}
+                  {primaryCtas.book.label}
                   <IconArrowUpRight size={18} stroke={1.5} aria-hidden />
                 </Link>
-                <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-                  {primaryCtas.book.label}
-                </Link>
+                <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
               </div>
             </div>
           </div>

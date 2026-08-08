@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { IconArrowUpRight } from "@tabler/icons-react";
 
 import { PageHero } from "@/components/layout/page-hero";
@@ -29,6 +30,15 @@ export const metadata: Metadata = {
 
 type Props = { searchParams: Promise<{ tag?: string }> };
 
+function WorkFilterFallback() {
+  return (
+    <div className="surface-card h-40 animate-pulse p-6 sm:p-8" aria-hidden>
+      <div className="h-4 w-32 rounded bg-[var(--surface-muted)]" />
+      <div className="mt-4 h-3 w-full max-w-md rounded bg-[var(--surface-muted)]" />
+    </div>
+  );
+}
+
 export default async function WorkPage({ searchParams }: Props) {
   const { tag } = await searchParams;
 
@@ -42,12 +52,15 @@ export default async function WorkPage({ searchParams }: Props) {
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
+            <Link
+              href={primaryCtas.brief.href}
+              className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline"
+            >
+              {primaryCtas.brief.label}
             </Link>
           </>
         }
@@ -56,9 +69,12 @@ export default async function WorkPage({ searchParams }: Props) {
       <Section tone="muted" dividerTop>
         <Container>
           <p className="type-caption mb-8 max-w-2xl text-[color:var(--text-secondary)]">
-            Client names and identifying details are changed to protect confidentiality. Metrics describe project outcomes; they are not third-party ratings.
+            Client names and identifying details are changed to protect confidentiality. Metrics describe project
+            outcomes; they are not third-party ratings.
           </p>
-          <WorkFilterGrid initialTag={tag ?? null} />
+          <Suspense fallback={<WorkFilterFallback />}>
+            <WorkFilterGrid initialTag={tag ?? null} />
+          </Suspense>
         </Container>
       </Section>
 
@@ -74,4 +90,3 @@ export default async function WorkPage({ searchParams }: Props) {
     </>
   );
 }
-

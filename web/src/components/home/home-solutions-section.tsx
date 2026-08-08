@@ -25,15 +25,15 @@ const solutionLayout: Record<
   }
 > = {
   saas: {
+    gridClass: "col-span-12 lg:col-span-8",
+    maxTags: 3,
+    showVisual: true,
+  },
+  "trucking-logistics": {
     gridClass: "col-span-12",
     featured: true,
     visualAside: true,
     maxTags: 4,
-    showVisual: true,
-  },
-  "trucking-logistics": {
-    gridClass: "col-span-12 lg:col-span-8",
-    maxTags: 3,
     showVisual: true,
   },
   "accounting-integrations": {
@@ -97,12 +97,15 @@ export function HomeSolutionsSection() {
     <>
       <SectionHeader
         eyebrow="Solutions"
-        title="SaaS products. Trucking platforms. Accounting integrations."
+        title="Trucking platforms. SaaS products. Accounting integrations."
         description="Every solution we offer comes from work we've actually done - not service categories we invented to fill a menu."
       />
 
       <ul className="bento-grid stagger-grid stagger-grid-visible mt-10 grid grid-cols-12">
-        {homepageSolutionSections.map((solution) => (
+        {[
+          ...homepageSolutionSections.filter((s) => s.slug === "trucking-logistics"),
+          ...homepageSolutionSections.filter((s) => s.slug !== "trucking-logistics"),
+        ].map((solution) => (
           <SolutionBentoTile key={solution.slug} solution={solution} />
         ))}
       </ul>
@@ -120,7 +123,7 @@ export function HomeSolutionsSection() {
         </Link>
         <Link
           href={primaryCtas.book.href}
-          className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "w-full sm:w-auto")}
+          className={cn(buttonVariants({ variant: "primary", size: "cta" }), "min-h-11 w-full sm:w-auto")}
         >
           {primaryCtas.book.label}
         </Link>

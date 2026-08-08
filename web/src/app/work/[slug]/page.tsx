@@ -67,13 +67,11 @@ export default async function CaseDetailPage({ params }: Props) {
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
-            </Link>
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
             <Link href={primaryCtas.viewWork.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
               More case studies
             </Link>
@@ -97,7 +95,7 @@ export default async function CaseDetailPage({ params }: Props) {
       <Section tone="muted" dividerTop>
         <Container className="max-w-5xl space-y-6">
           <p className="type-caption text-[color:var(--text-secondary)]">
-            Client name and some project details have been changed to protect confidentiality. Metrics are representative of actual delivery outcomes.
+            Client name and some project details have been changed to protect confidentiality. Metrics shown are measured project outcomes from the engagement — not third-party ratings or illustrative estimates.
           </p>
           <div className="grid gap-6 sm:grid-cols-3">
             {d.metrics.map((m) => (
@@ -172,19 +170,17 @@ export default async function CaseDetailPage({ params }: Props) {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  priority={i === 0}
+                  loading={i === 0 ? "eager" : "lazy"}
                 />
               </div>
             ))}
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "inline-flex gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "inline-flex gap-2")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "inline-flex")}>
-              {primaryCtas.book.label}
-            </Link>
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
           </div>
         </Container>
       </Section>

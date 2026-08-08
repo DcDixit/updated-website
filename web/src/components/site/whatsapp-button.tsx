@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { siteContact } from "@/content/site-content";
+import { whatsappHref } from "@/content/brand";
 import { cn } from "@/lib/utils";
 
 export function WhatsAppButton() {
@@ -13,9 +13,9 @@ export function WhatsAppButton() {
   if (hiddenOnContact) return null;
 
   return (
-    <aside aria-label="WhatsApp chat">
+    <aside aria-label="WhatsApp chat" className="[[data-mobile-nav-open=true]_&]:hidden">
       <Link
-        href={siteContact.whatsappHref}
+        href={whatsappHref()}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
@@ -25,7 +25,8 @@ export function WhatsAppButton() {
         className={cn(
           "fixed z-40 flex size-12 items-center justify-center rounded-full",
           "bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105",
-          "right-4 bottom-[max(7rem,calc(env(safe-area-inset-bottom)+5.5rem))] lg:bottom-6",
+          // Mobile: sit left so it does not compete with the sticky book CTA on the right/bottom
+          "left-4 right-auto bottom-[max(7.5rem,calc(env(safe-area-inset-bottom)+6rem))] lg:left-auto lg:right-4 lg:bottom-6",
           "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#25D366]/50"
         )}
       >

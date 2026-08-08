@@ -55,15 +55,13 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
         actions={
           <>
             <Link
-              href={primaryCtas.brief.href}
+              href={primaryCtas.book.href}
               className={cn(buttonVariants({ variant: "primary", size: "cta" }), "link-subtle gap-2")}
             >
-              {primaryCtas.brief.label}
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
-            </Link>
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">{primaryCtas.brief.label}</Link>
           </>
         }
       />
@@ -132,7 +130,14 @@ export function SolutionPageLayout({ solution }: SolutionPageLayoutProps) {
       {relatedCases.length > 0 ? (
         <Section tone="default" dividerTop>
           <Container>
-            <SectionHeader eyebrow="Proof" title="Related work" description="Selected projects that reflect our experience in this space." />
+            <SectionHeader
+              eyebrow="Proof"
+              title="Related work"
+              description="Selected anonymized case studies in this space. Client names and identifying details may be changed for confidentiality; metrics describe project outcomes."
+            />
+            <p className="type-caption mt-3 max-w-2xl text-[color:var(--text-secondary)]">
+              Metrics shown on case pages are measured delivery outcomes — not third-party ratings.
+            </p>
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {relatedCases.map((c) => {
                 const cover = caseStudyVisuals[c.slug];

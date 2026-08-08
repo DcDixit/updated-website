@@ -4,26 +4,15 @@ export type HomepageStat = {
   caption: string;
 };
 
+/**
+ * Homepage stats strip. Unverified 40+/9+/15+ claims are omitted until confirmed
+ * in siteStats. An empty array hides the strip entirely at the call site.
+ */
 export const homepageStats: HomepageStat[] = [
-  {
-    value: "40+",
-    label: "Projects delivered",
-    caption: "SaaS, logistics, CRM & automation",
-  },
-  {
-    value: "9+",
-    label: "Years of experience",
-    caption: "In product design & engineering",
-  },
-  {
-    value: "15+",
-    label: "Senior team",
-    caption: "Designers, engineers & specialists",
-  },
   {
     value: "4",
     label: "Time zones covered",
-    caption: "US, UK, India & APAC overlap",
+    caption: "US & UK call hours with India delivery overlap",
   },
 ];
 
@@ -62,7 +51,7 @@ export const homepageProcessSteps: HomepageProcessStep[] = [
 
 export type HomepageCaseStudySlug = "fleetflow-dispatch" | "payroll-pro-saas" | "finance-sync-hub";
 
-export const portfolioFilterCategories = ["All", "SaaS", "Trucking", "Integrations", "AI"] as const;
+export const portfolioFilterCategories = ["All", "Trucking", "SaaS", "Integrations", "AI"] as const;
 
 export type PortfolioFilterCategory = (typeof portfolioFilterCategories)[number];
 
@@ -76,4 +65,3 @@ export const caseStudyFilterMap: Record<string, PortfolioFilterCategory[]> = {
   "ai-support-automation": ["AI"],
   "marketplace-mvp": ["SaaS"],
 };
-

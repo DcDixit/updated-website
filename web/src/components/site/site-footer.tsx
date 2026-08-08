@@ -11,10 +11,11 @@ import { Container } from "@/components/layout/container";
 import { FooterCtaBand } from "@/components/site/footer-cta-band";
 import { SiteLogo } from "@/components/site/site-logo";
 import {
+  activeSocialLinks,
   brand,
   footerColumns,
+  mailtoHref,
   primaryCtas,
-  socialLinks,
   siteContact,
 } from "@/content/site-content";
 import { cn } from "@/lib/utils";
@@ -25,8 +26,6 @@ const socialIconMap = {
   X: IconBrandX,
   Dribbble: IconBrandDribbble,
 } as const;
-
-const taglineLines = brand.tagline.split(". ").map((line) => line.replace(/\.$/, ""));
 
 function FooterNavLink({ href, label }: { href: string; label: string }) {
   return (
@@ -40,8 +39,10 @@ function FooterNavLink({ href, label }: { href: string; label: string }) {
 }
 
 export function SiteFooter() {
+  const socials = activeSocialLinks();
+
   return (
-    <footer className="border-t border-[var(--section-divider)]">
+    <footer className="border-t border-[var(--section-divider)] max-lg:pb-[calc(5.75rem+env(safe-area-inset-bottom,0px))]">
       <FooterCtaBand />
 
       <div className="relative overflow-hidden bg-[var(--surface-muted)]">
@@ -53,19 +54,8 @@ export function SiteFooter() {
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <div className="max-w-lg">
               <SiteLogo />
-              <h2 className="mt-8 text-pretty text-[clamp(1.5rem,3vw,2.125rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground">
-                {taglineLines.map((line, index) => (
-                  <span key={line} className="block">
-                    {index === 1 ? (
-                      <span className="text-[var(--color-accent)]">{line}.</span>
-                    ) : (
-                      <>{line}.</>
-                    )}
-                  </span>
-                ))}
-              </h2>
-              <p className="type-body-wide mt-5 max-w-md text-[color:var(--text-secondary)]">
-                {brand.mission}
+              <p className="type-body-wide mt-8 max-w-md text-[color:var(--text-secondary)]">
+                {brand.tagline}
               </p>
             </div>
 
@@ -73,18 +63,26 @@ export function SiteFooter() {
               <div>
                 <p className="type-badge-label">Get in touch</p>
                 <Link
-                  href={`mailto:${siteContact.email}`}
+                  href={mailtoHref()}
                   className="mt-2 inline-flex items-center gap-1.5 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-[var(--color-accent)]"
                 >
                   {siteContact.email}
                   <IconArrowUpRight size={18} stroke={1.5} className="opacity-60" aria-hidden />
                 </Link>
               </div>
+              {siteContact.phoneUs ? (
+                <Link
+                  href={siteContact.phoneUs.href}
+                  className="type-caption font-medium text-[color:var(--text-secondary)] transition-colors hover:text-foreground"
+                >
+                  {siteContact.phoneUs.display}
+                </Link>
+              ) : null}
               <Link
-                href={`tel:${siteContact.telHref}`}
+                href={siteContact.phoneIn.href}
                 className="type-caption font-medium text-[color:var(--text-secondary)] transition-colors hover:text-foreground"
               >
-                {siteContact.displayPhone}
+                {siteContact.phoneIn.display}
               </Link>
               <p className="type-caption max-w-xs text-[color:var(--text-secondary)]">
                 {siteContact.hqLabel}
@@ -129,7 +127,7 @@ export function SiteFooter() {
 
           <div className="mt-12 flex flex-col gap-8 lg:mt-14 lg:flex-row lg:items-center lg:justify-between">
             <p className="type-caption order-3 lg:order-1">
-              © {new Date().getFullYear()} {brand.legalName}. All rights reserved.
+              © {new Date().getFullYear()} {brand.legalName}
             </p>
 
             <div className="type-caption order-1 flex flex-wrap items-center gap-x-4 gap-y-2 lg:order-2">
@@ -148,28 +146,29 @@ export function SiteFooter() {
               <span>{siteContact.responseTime}</span>
             </div>
 
-            <ul className="order-2 flex items-center gap-5 lg:order-3" aria-label="Social links">
-              {socialLinks.map((s) => {
-                const SocialIcon = socialIconMap[s.label as keyof typeof socialIconMap];
-                return (
-                  <li key={s.href}>
-                    <Link
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={s.label}
-                      className="text-[color:var(--text-secondary)] transition-colors hover:text-[var(--color-accent)]"
-                    >
-                      {SocialIcon ? <SocialIcon size={18} stroke={1.5} aria-hidden /> : s.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            {socials.length > 0 ? (
+              <ul className="order-2 flex items-center gap-5 lg:order-3" aria-label="Social links">
+                {socials.map((s) => {
+                  const SocialIcon = socialIconMap[s.label as keyof typeof socialIconMap];
+                  return (
+                    <li key={s.href}>
+                      <Link
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={s.label}
+                        className="text-[color:var(--text-secondary)] transition-colors hover:text-[var(--color-accent)]"
+                      >
+                        {SocialIcon ? <SocialIcon size={18} stroke={1.5} aria-hidden /> : s.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : null}
           </div>
         </Container>
       </div>
     </footer>
   );
 }
-

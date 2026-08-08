@@ -14,20 +14,20 @@ type HeroCtaGroupProps = {
   secondaryHref?: string;
 };
 
-/** Primary + secondary CTA pair - matches hero styling. */
+/** One filled primary (book) + text-style secondary (brief). */
 export function HeroCtaGroup({
   className,
   trackingLocation = "home-cta",
-  primaryLabel = "Start a project →",
-  primaryHref = primaryCtas.brief.href,
-  secondaryLabel = primaryCtas.book.label,
-  secondaryHref = primaryCtas.book.href,
+  primaryLabel = primaryCtas.book.label,
+  primaryHref = primaryCtas.book.href,
+  secondaryLabel = primaryCtas.brief.label,
+  secondaryHref = primaryCtas.brief.href,
 }: HeroCtaGroupProps) {
   return (
     <div className={cn("flex max-w-full flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center", className)}>
       <Link
         href={primaryHref}
-        className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2")}
+        className={cn(buttonVariants({ variant: "primary", size: "cta" }), "btn-accent-glow gap-2 min-h-11")}
         data-track="cta_click"
         data-track-location={trackingLocation}
         data-track-label={primaryLabel}
@@ -37,7 +37,7 @@ export function HeroCtaGroup({
       </Link>
       <Link
         href={secondaryHref}
-        className={cn(buttonVariants({ variant: "secondary", size: "cta" }), "gap-2")}
+        className="type-body inline-flex min-h-11 items-center px-1 font-semibold text-[color:var(--text-secondary)] underline-offset-4 transition-colors hover:text-foreground hover:underline"
         data-track="cta_click_secondary"
         data-track-location={trackingLocation}
         data-track-label={secondaryLabel}
@@ -47,4 +47,3 @@ export function HeroCtaGroup({
     </div>
   );
 }
-

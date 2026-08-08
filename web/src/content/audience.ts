@@ -6,7 +6,7 @@ import { IconChartBar, IconRocket, IconTruck } from "@tabler/icons-react";
 export const clientPersonas = [
   {
     title: "SaaS founders & product teams",
-    description: "Pre-seed to Series B teams shipping MVPs, tightening onboarding, and getting product UI ready for demos, investors, or enterprise buyers. We've done this 20+ times.",
+    description: "Pre-seed to Series B teams shipping MVPs, tightening onboarding, and getting product UI ready for demos, investors, or enterprise buyers.",
     href: "/solutions/saas",
     cta: "SaaS solutions",
     icon: IconRocket,
@@ -49,11 +49,10 @@ export const aiToolLabels = [
 export const homeJumpLinks = [
   { label: "Clients", href: "#clients" },
   { label: "Solutions", href: "#solutions" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Work", href: "#work" },
+  { label: "FAQ", href: "#faq" },
   { label: "Tools", href: "#tools" },
   { label: "Team", href: "#team" },
-  { label: "Work", href: "#work" },
   { label: "Process", href: "#process" },
-  { label: "FAQ", href: "#faq" },
 ] as const;
 

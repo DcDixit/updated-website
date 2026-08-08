@@ -30,7 +30,7 @@ const aboutTitle = `About ${brand.legalName} · Team, Story & Experience`;
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: aboutTitle,
-    description: `${brand.legalName} — a product design studio founded by a designer with 9+ years of experience shipping SaaS, trucking, and accounting software.`,
+    description: brand.tagline,
     path: "/about",
   }),
   title: { absolute: aboutTitle },
@@ -41,23 +41,24 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="Founded by a designer who's shipped 40+ products — and decided to build a studio around that experience."
-        description="KRIVA Technologies is a product design and engineering studio. We build SaaS platforms, trucking software, and accounting integrations — the same work our founder has done for 9+ years, now under one roof with a dedicated team."
+        title="A product studio built around the work we already know how to ship."
+        description={brand.tagline}
         visual={pageHeroVisuals.about}
         priority
         actions={
           <>
-            <Link href={primaryCtas.brief.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2")}>
-              {primaryCtas.brief.label}
+            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "primary", size: "cta" }), "gap-2 min-h-11")}>
+              {primaryCtas.book.label}
               <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
             </Link>
-            <Link href={primaryCtas.book.href} className={cn(buttonVariants({ variant: "secondary", size: "cta" }))}>
-              {primaryCtas.book.label}
+            <Link href={primaryCtas.brief.href} className="type-body inline-flex min-h-11 items-center font-semibold text-[color:var(--text-secondary)] underline-offset-4 hover:underline">
+              {primaryCtas.brief.label}
             </Link>
           </>
         }
       />
 
+      {stats.length > 0 ? (
       <Section tone="muted" dividerTop>
         <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -71,11 +72,12 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+      ) : null}
 
       <Section tone="default" dividerTop>
         <Container className="grid max-w-5xl gap-12 lg:grid-cols-2 lg:items-start">
           <div className="space-y-6">
-            <SectionHeader eyebrow="Our story" title="Why we exist." />
+            <SectionHeader eyebrow="Our story" title="Why we exist." description={brand.mission} />
             <div className="space-y-4">
               <p className="type-body text-[color:var(--text-secondary)]">
                 I&apos;ve spent the last nine years designing and building software - SaaS dashboards, trucking dispatch tools, QuickBooks integrations, mobile apps. Most of that work was done inside agencies and product companies where I watched the same problems repeat: design teams handing off specs that engineering couldn&apos;t build, clients managing three vendors for one project, and products that looked polished in Figma but fell apart in production.
@@ -138,6 +140,7 @@ export default function AboutPage() {
                 </Link>
               </li>
               <li className="text-[color:var(--text-secondary)]">{companyProfile.phone}</li>
+              {companyProfile.linkedIn ? (
               <li>
                 <Link
                   href={companyProfile.linkedIn}
@@ -148,6 +151,7 @@ export default function AboutPage() {
                   KRIVA Technologies on LinkedIn
                 </Link>
               </li>
+              ) : null}
             </ul>
           </div>
         </Container>

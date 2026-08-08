@@ -60,10 +60,9 @@ export const faqPageExtra = [
   },
 ] as const;
 
+/** Verified-only stats. Unverified 40+/9+/15+ claims are gated via siteStats nulls. */
 export const stats = [
-  { value: "40+", label: "Products shipped", caption: "SaaS, logistics, CRM & automation" },
-  { value: "9+", label: "Years of experience", caption: "Shipping products across markets" },
-  { value: "4", label: "Time zones covered", caption: "US, UK, India & APAC overlap" },
+  { value: "4", label: "Time zones covered", caption: "US & UK call hours with India delivery overlap" },
   { value: "1", label: "Team, no subcontracting", caption: "Everyone on your project is ours" },
 ] as const;
 
