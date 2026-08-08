@@ -11,8 +11,6 @@ export type ClientLogo = {
   logoFit?: ClientLogoFit;
   /** Multiplier for logo display size, e.g. 0.95 = 5% smaller */
   logoScale?: number;
-  /** Logo asset has a dark baked-in background — use a dark plate */
-  plate?: "light" | "dark";
   /** Related public case study in the same industry vertical */
   caseStudySlug?: CaseSlug;
 };
@@ -57,13 +55,13 @@ export function clientIndustryGroupFor(
   }
 }
 
+/** Logos are transparent PNGs prepared for light UI surfaces. */
 export const clientLogosWorkedWith = [
   {
     name: "EliteOne Transportation",
     logoSrc: "/brand/logos/clients/eliteone-transportation.png",
     industry: "Transportation",
     logoFit: "wide",
-    plate: "dark",
     caseStudySlug: "fleetflow-dispatch",
   },
   {
@@ -77,22 +75,18 @@ export const clientLogosWorkedWith = [
     logoSrc: "/brand/logos/clients/xmileauto-transport.png",
     industry: "Auto Transport",
     logoFit: "tall",
-    plate: "dark",
   },
   {
     name: "DC Auto Transport",
     logoSrc: "/brand/logos/clients/dc-auto-transport.png",
     industry: "Auto Transport",
     logoFit: "wide",
-    plate: "dark",
   },
   {
     name: "eXTRA Mile Movers",
     logoSrc: "/brand/logos/clients/extra-mile-movers.png",
     industry: "Moving",
     logoFit: "wide",
-    logoScale: 0.95,
-    plate: "dark",
   },
   {
     name: "Cascadia Collection",
@@ -100,7 +94,6 @@ export const clientLogosWorkedWith = [
     industry: "Luxury Retail",
     logoFit: "wide",
     logoScale: 1.05,
-    plate: "dark",
     caseStudySlug: "brandlift-ecommerce",
   },
   {
@@ -114,14 +107,13 @@ export const clientLogosWorkedWith = [
     logoSrc: "/brand/logos/clients/xmile-transport-moving.png",
     industry: "Transport & Moving",
     logoFit: "wide",
-    plate: "dark",
   },
   {
     name: "Keep Moving Fitness Technicians",
     logoSrc: "/brand/logos/clients/keep-moving-fitness.png",
     industry: "Fitness Services",
-    logoFit: "wide",
-    logoScale: 1.15,
+    logoFit: "tall",
+    logoScale: 1.1,
   },
   {
     name: "Houzway",
@@ -134,20 +126,20 @@ export const clientLogosWorkedWith = [
     name: "CareerMoon",
     logoSrc: "/brand/logos/clients/careermoon.png",
     industry: "Coaching & Consulting",
-    logoFit: "default",
+    logoFit: "wide",
   },
   {
     name: "SCRIPT",
     logoSrc: "/brand/logos/clients/script.png",
     industry: "Science Education",
-    logoFit: "wide",
+    logoFit: "tall",
   },
   {
     name: "Global Crypto & Blockchain",
     logoSrc: "/brand/logos/clients/global-crypto-blockchain.png",
     industry: "Fintech",
     logoFit: "tall",
-    plate: "dark",
+    logoScale: 1.1,
     caseStudySlug: "finance-sync-hub",
   },
 ] satisfies readonly ClientLogo[];
@@ -164,4 +156,3 @@ export const clientTrustStats = {
   sectorCount: clientIndustryHighlights.length,
   caseStudyCount: clientLogosWorkedWith.filter((client) => client.caseStudySlug).length,
 } as const;
-

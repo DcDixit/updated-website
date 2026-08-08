@@ -43,4 +43,7 @@ next-env.d.ts
 # lighthouse reports
 .lighthouse/
 
+# local logo processing backups
+/public/brand/logos/clients/_originals/
+
 .vercel

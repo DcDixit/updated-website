@@ -19,9 +19,9 @@ type HomeClientsSectionProps = {
 };
 
 const logoFitClasses: Record<ClientLogoFit, string> = {
-  wide: "max-h-8 max-w-[9.5rem] sm:max-h-9 sm:max-w-[10.5rem]",
-  default: "max-h-8 max-w-[8.5rem] sm:max-h-[2.125rem] sm:max-w-[9.25rem]",
-  tall: "max-h-9 max-w-[7.25rem] sm:max-h-10 sm:max-w-32",
+  wide: "max-h-9 max-w-[10rem] sm:max-h-10 sm:max-w-[11rem]",
+  default: "max-h-9 max-w-[9rem] sm:max-h-10 sm:max-w-[10rem]",
+  tall: "max-h-11 max-w-[7.5rem] sm:max-h-12 sm:max-w-[8.25rem]",
 };
 
 function splitRows(logos: readonly ClientLogo[]) {
@@ -41,7 +41,6 @@ function ClientLogoTile({
 }) {
   const fit = client.logoFit ?? "default";
   const scale = client.logoScale ?? 1;
-  const dark = client.plate === "dark";
 
   return (
     <li
@@ -55,29 +54,28 @@ function ClientLogoTile({
     >
       <div
         className={cn(
-          "group/logo client-logo-tile flex h-[4.25rem] w-[11.5rem] items-center justify-center px-4 sm:h-[4.5rem] sm:w-[12.5rem]",
-          "rounded-2xl border transition-[border-color,background-color,box-shadow,transform] duration-300",
-          "motion-reduce:transform-none",
-          dark
-            ? "border-white/[0.08] bg-[#0c1118] hover:border-white/[0.16] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
-            : "border-[var(--surface-border)] bg-[var(--card)] hover:border-[color-mix(in_oklab,var(--color-accent)_22%,var(--surface-border))] hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)]"
+          "group/logo client-logo-tile flex h-[4.5rem] w-[12rem] items-center justify-center px-4 sm:h-[4.75rem] sm:w-[13rem]",
+          // Always light — client marks are prepared for light UI (dark ink / brand color)
+          "rounded-2xl border border-black/[0.08] bg-white",
+          "transition-[border-color,box-shadow,transform] duration-300 motion-reduce:transform-none",
+          "hover:border-[color-mix(in_oklab,var(--color-accent)_28%,transparent)]",
+          "hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
         )}
       >
         <Image
           src={client.logoSrc}
           alt=""
-          width={168}
-          height={56}
+          width={176}
+          height={64}
           style={{ width: "auto", height: "auto" }}
           className={cn(
-            "h-auto w-auto object-contain opacity-[0.88]",
-            "transition-[filter,opacity,transform] duration-300",
-            "group-hover/logo:scale-[1.03] group-hover/logo:opacity-100",
+            "h-auto w-auto object-contain opacity-[0.92]",
+            "transition-[opacity,transform,filter] duration-300",
+            "grayscale-[0.2] group-hover/logo:scale-[1.04] group-hover/logo:opacity-100 group-hover/logo:grayscale-0",
             "motion-reduce:transform-none motion-reduce:transition-none",
-            !dark && "grayscale-[0.45] group-hover/logo:grayscale-0",
             logoFitClasses[fit],
-            scale === 0.95 && "scale-[0.95] group-hover/logo:scale-[0.98]",
             scale === 1.05 && "scale-[1.05] group-hover/logo:scale-[1.08]",
+            scale === 1.1 && "scale-[1.1] group-hover/logo:scale-[1.14]",
             scale === 1.15 && "scale-[1.15] group-hover/logo:scale-[1.18]"
           )}
         />
@@ -145,7 +143,7 @@ function ClientsLogoShowcase() {
           <ClientLogoTile
             key={client.name}
             client={client}
-            className="[&_.client-logo-tile]:h-16 [&_.client-logo-tile]:w-[9.75rem]"
+            className="[&_.client-logo-tile]:h-[4.25rem] [&_.client-logo-tile]:w-[10.5rem]"
           />
         ))}
       </ul>
