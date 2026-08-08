@@ -15,33 +15,43 @@ type SolutionItem = (typeof homepageSolutionSections)[number];
 /** Grid spans per solution slug — asymmetric bento layout. */
 const solutionLayout: Record<
   string,
-  { gridClass: string; featured?: boolean; visualAside?: boolean; maxTags?: number }
+  {
+    gridClass: string;
+    featured?: boolean;
+    visualAside?: boolean;
+    maxTags?: number;
+    /** Wide / featured tiles keep imagery; equal bottom-row tiles stay text-led. */
+    showVisual?: boolean;
+  }
 > = {
   saas: {
     gridClass: "col-span-12",
     featured: true,
     visualAside: true,
     maxTags: 4,
+    showVisual: true,
   },
   "trucking-logistics": {
     gridClass: "col-span-12 lg:col-span-8",
     maxTags: 3,
+    showVisual: true,
   },
   "accounting-integrations": {
     gridClass: "col-span-12 lg:col-span-4",
     maxTags: 3,
+    showVisual: true,
   },
   "car-transportation": {
     gridClass: "col-span-12 sm:col-span-6 lg:col-span-4",
-    maxTags: 3,
+    maxTags: 2,
   },
   "crm-automation": {
     gridClass: "col-span-12 sm:col-span-6 lg:col-span-4",
-    maxTags: 3,
+    maxTags: 2,
   },
   "ai-productivity": {
     gridClass: "col-span-12 lg:col-span-4",
-    maxTags: 3,
+    maxTags: 2,
   },
 };
 
@@ -61,10 +71,10 @@ function solutionVisual(slug: string) {
 function SolutionBentoTile({ solution }: { solution: SolutionItem }) {
   const layout = solutionLayout[solution.slug] ?? { gridClass: "col-span-12" };
   const visual = solutionVisual(solution.slug);
-  const showVisual = solution.slug !== "crm-automation" && solution.slug !== "ai-productivity";
+  const showVisual = Boolean(layout.showVisual);
 
   return (
-    <li className={cn("min-h-[16rem]", layout.gridClass)}>
+    <li className={cn(showVisual ? "min-h-[16rem]" : "min-h-0", layout.gridClass)}>
       <BentoCard
         title={solution.title}
         description={solution.summary}

@@ -60,8 +60,6 @@ export function BentoCard({
         className
       )}
     >
-      <div className="bento-card-glow" aria-hidden />
-
       <div
         className={cn(
           "relative z-[1] flex flex-1 flex-col",
@@ -96,33 +94,42 @@ export function BentoCard({
         </p>
 
         {tags && tags.length > 0 ? (
-          <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${title} capabilities`}>
-            {tags.map((tag) => (
-              <li key={tag}>
-                <span className="type-caption inline-flex rounded-full border border-[var(--surface-border)] bg-[var(--surface-muted)] px-3 py-1 text-[11px]">
-                  {tag}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <p
+            className="type-caption mt-5 text-[color:var(--text-secondary)]"
+            aria-label={`${title} capabilities`}
+          >
+            {tags.join(" · ")}
+          </p>
         ) : null}
 
         {children}
 
         {cta && href ? (
           <div className="mt-auto pt-6">
-            <span
-              className={cn(
-                buttonVariants({
-                  variant: resolvedCtaVariant,
-                  size: featured ? "cta" : "lg",
-                }),
-                "pointer-events-none inline-flex gap-2"
-              )}
-            >
-              {cta}
-              <IconArrowUpRight size={featured ? 20 : 18} stroke={1.5} aria-hidden />
-            </span>
+            {featured ? (
+              <span
+                className={cn(
+                  buttonVariants({
+                    variant: resolvedCtaVariant,
+                    size: "cta",
+                  }),
+                  "pointer-events-none inline-flex gap-2"
+                )}
+              >
+                {cta}
+                <IconArrowUpRight size={20} stroke={1.5} aria-hidden />
+              </span>
+            ) : (
+              <span className="pointer-events-none inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-accent)] transition-colors group-hover:text-[var(--color-accent-strong)]">
+                {cta}
+                <IconArrowUpRight
+                  size={16}
+                  stroke={1.5}
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </span>
+            )}
           </div>
         ) : null}
       </div>

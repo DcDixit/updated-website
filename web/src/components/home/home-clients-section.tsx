@@ -7,6 +7,7 @@ import { SectionShell } from "@/components/layout/section-shell";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeader } from "@/components/marketing/section-header";
 import {
+  clientIndustryHighlights,
   clientLogosWorkedWith,
   type ClientLogo,
   type ClientLogoFit,
@@ -18,42 +19,66 @@ type HomeClientsSectionProps = {
 };
 
 const logoFitClasses: Record<ClientLogoFit, string> = {
-  wide: "max-h-[2.125rem] max-w-[86%] sm:max-h-9",
-  default: "max-h-[2rem] max-w-[80%] sm:max-h-[2.125rem]",
-  tall: "max-h-[2.375rem] max-w-[68%] sm:max-h-10",
+  wide: "max-h-8 max-w-[9.5rem] sm:max-h-9 sm:max-w-[10.5rem]",
+  default: "max-h-8 max-w-[8.5rem] sm:max-h-[2.125rem] sm:max-w-[9.25rem]",
+  tall: "max-h-9 max-w-[7.25rem] sm:max-h-10 sm:max-w-32",
 };
 
-function ClientLogoCell({ client, index }: { client: ClientLogo; index: number }) {
+function splitRows(logos: readonly ClientLogo[]) {
+  const mid = Math.ceil(logos.length / 2);
+  return [logos.slice(0, mid), logos.slice(mid)] as const;
+}
+
+function ClientLogoTile({
+  client,
+  className,
+  decorative = false,
+}: {
+  client: ClientLogo;
+  className?: string;
+  /** Duplicate marquee copy — hide from AT */
+  decorative?: boolean;
+}) {
   const fit = client.logoFit ?? "default";
   const scale = client.logoScale ?? 1;
+  const dark = client.plate === "dark";
 
   return (
     <li
-      className="client-logo-cell clients-grid-item bg-[var(--card)]"
-      style={{ animationDelay: `${Math.min(index, 12) * 35}ms` }}
-      aria-label={`${client.name}${client.industry ? `, ${client.industry}` : ""}`}
+      className={cn("shrink-0 list-none", className)}
+      aria-hidden={decorative || undefined}
+      aria-label={
+        decorative
+          ? undefined
+          : `${client.name}${client.industry ? `, ${client.industry}` : ""}`
+      }
     >
       <div
         className={cn(
-          "group/cell relative flex h-full min-h-[4.5rem] items-center justify-center px-4 py-3 sm:min-h-[5rem] sm:px-5",
-          "transition-[background-color] duration-300",
-          "hover:bg-[color-mix(in_oklab,var(--color-accent)_4%,var(--card))]"
+          "group/logo client-logo-tile flex h-[4.25rem] w-[11.5rem] items-center justify-center px-4 sm:h-[4.5rem] sm:w-[12.5rem]",
+          "rounded-2xl border transition-[border-color,background-color,box-shadow,transform] duration-300",
+          "motion-reduce:transform-none",
+          dark
+            ? "border-white/[0.08] bg-[#0c1118] hover:border-white/[0.16] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+            : "border-[var(--surface-border)] bg-[var(--card)] hover:border-[color-mix(in_oklab,var(--color-accent)_22%,var(--surface-border))] hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)]"
         )}
       >
         <Image
           src={client.logoSrc}
           alt=""
-          width={160}
-          height={52}
+          width={168}
+          height={56}
+          style={{ width: "auto", height: "auto" }}
           className={cn(
-            "h-auto w-auto object-contain opacity-[0.82]",
-            "grayscale-[0.35] transition-[filter,opacity,transform] duration-300",
-            "group-hover/cell:scale-[1.03] group-hover/cell:opacity-100 group-hover/cell:grayscale-0",
+            "h-auto w-auto object-contain opacity-[0.88]",
+            "transition-[filter,opacity,transform] duration-300",
+            "group-hover/logo:scale-[1.03] group-hover/logo:opacity-100",
             "motion-reduce:transform-none motion-reduce:transition-none",
+            !dark && "grayscale-[0.45] group-hover/logo:grayscale-0",
             logoFitClasses[fit],
-            scale === 0.95 && "scale-[0.95] group-hover/cell:scale-[0.98]",
-            scale === 1.05 && "scale-[1.05] group-hover/cell:scale-[1.08]",
-            scale === 1.15 && "scale-[1.15] group-hover/cell:scale-[1.18]"
+            scale === 0.95 && "scale-[0.95] group-hover/logo:scale-[0.98]",
+            scale === 1.05 && "scale-[1.05] group-hover/logo:scale-[1.08]",
+            scale === 1.15 && "scale-[1.15] group-hover/logo:scale-[1.18]"
           )}
         />
       </div>
@@ -61,53 +86,113 @@ function ClientLogoCell({ client, index }: { client: ClientLogo; index: number }
   );
 }
 
-function ClientsLogoGrid() {
+function ClientsMarqueeRow({
+  logos,
+  reverse = false,
+  duration = "42s",
+}: {
+  logos: readonly ClientLogo[];
+  reverse?: boolean;
+  duration?: string;
+}) {
+  const loop = [...logos, ...logos];
+
   return (
-    <div className="clients-logo-wall clients-grid-enter overflow-hidden rounded-[var(--bento-radius)] border border-[var(--surface-border)] bg-[var(--section-divider)] shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_28px_rgba(0,0,0,0.04)]">
+    <div className="relative overflow-hidden">
       <ul
-        className="clients-logo-grid list-none gap-px"
-        aria-label="Client logos"
+        className={cn(
+          "clients-logo-marquee flex w-max list-none items-center gap-3 sm:gap-3.5",
+          reverse && "clients-logo-marquee-reverse"
+        )}
+        style={{ animationDuration: duration }}
       >
-        {clientLogosWorkedWith.map((client, index) => (
-          <ClientLogoCell key={client.name} client={client} index={index} />
+        {loop.map((client, index) => (
+          <ClientLogoTile
+            key={`${client.name}-${index}`}
+            client={client}
+            decorative={index >= logos.length}
+          />
         ))}
       </ul>
     </div>
   );
 }
 
-/** Client trust section - header, stats, and uniform logo grid. */
+function ClientsLogoShowcase() {
+  const [rowA, rowB] = splitRows(clientLogosWorkedWith);
+
+  return (
+    <div className="clients-logo-showcase relative">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-12 bg-gradient-to-r from-[var(--surface-muted)] to-transparent sm:w-20 md:w-28"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-12 bg-gradient-to-l from-[var(--surface-muted)] to-transparent sm:w-20 md:w-28"
+      />
+
+      <div className="clients-logo-marquee-stack hidden space-y-3 sm:block" aria-label="Client logos">
+        <ClientsMarqueeRow logos={rowA} duration="48s" />
+        <ClientsMarqueeRow logos={rowB} reverse duration="54s" />
+      </div>
+
+      <ul
+        className="clients-logo-static mx-auto flex max-w-3xl list-none flex-wrap justify-center gap-2.5 sm:hidden"
+        aria-label="Client logos"
+      >
+        {clientLogosWorkedWith.map((client) => (
+          <ClientLogoTile
+            key={client.name}
+            client={client}
+            className="[&_.client-logo-tile]:h-16 [&_.client-logo-tile]:w-[9.75rem]"
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Client trust section — header, industry line, and logo showcase. */
 export function HomeClientsSection({ className }: HomeClientsSectionProps) {
   return (
     <SectionShell
       id="clients"
       size="default"
-      className={cn("bg-[var(--surface-muted)]/45", className)}
+      className={cn("bg-[var(--surface-muted)]", className)}
       aria-labelledby="clients-heading"
     >
       <Reveal>
         <Container>
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-2xl text-center">
             <SectionHeader
               eyebrow="Trusted by"
-              title={
-                <>
-                  Clients we&apos;ve worked with.
-                </>
-              }
-              description="Logos from companies we've designed and built products for - across logistics, transportation, commerce, and professional services."
+              title={<>Clients we&apos;ve worked with.</>}
+              description="Product design and engineering for teams across logistics, commerce, fintech, and services."
               align="center"
               titleId="clients-heading"
-              className="[&_h2]:mx-auto [&_p]:mx-auto"
-              descriptionClassName="max-w-2xl"
+              descriptionClassName="max-w-xl"
             />
+
+            <p className="type-caption mt-5 text-[color:var(--text-secondary)]">
+              {clientIndustryHighlights.map((label, index) => (
+                <span key={label} className="inline-flex items-center">
+                  {index > 0 ? (
+                    <span className="mx-2 text-[var(--surface-border)]" aria-hidden>
+                      ·
+                    </span>
+                  ) : null}
+                  {label}
+                </span>
+              ))}
+            </p>
           </div>
 
           <div className="mt-10 sm:mt-12">
-            <ClientsLogoGrid />
+            <ClientsLogoShowcase />
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-3 border-t border-[var(--section-divider)] pt-6 text-center sm:mt-10 sm:flex-row sm:justify-between sm:pt-8 sm:text-left">
+          <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-[var(--section-divider)] pt-6 text-center sm:mt-10 sm:flex-row sm:text-left">
             <p className="type-caption max-w-xl text-[color:var(--text-secondary)]">
               Some engagements remain under NDA.
             </p>
@@ -124,4 +209,3 @@ export function HomeClientsSection({ className }: HomeClientsSectionProps) {
     </SectionShell>
   );
 }
-

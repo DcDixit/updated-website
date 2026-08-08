@@ -19,8 +19,7 @@ export function HomeStatsBento({ stats, className }: HomeStatsBentoProps) {
     <div className={cn("bento-grid grid grid-cols-12", className)}>
       {/* Featured primary metric */}
       <article className="bento-card bento-card-featured relative col-span-12 overflow-hidden lg:col-span-6 lg:row-span-2">
-        <div className="bento-card-glow" aria-hidden />
-        <div className="relative z-[1] flex h-full flex-col justify-center p-8 sm:p-10 lg:p-12">
+        <div className="relative flex h-full flex-col justify-center p-8 sm:p-10 lg:p-12">
           <p className="type-badge-label">Track record</p>
           <p className="mt-4">
             <AnimatedStatValue
@@ -46,8 +45,7 @@ export function HomeStatsBento({ stats, className }: HomeStatsBentoProps) {
           key={stat.label}
           className="bento-card relative col-span-6 overflow-hidden sm:col-span-4 lg:col-span-2"
         >
-          <div className="bento-card-glow" aria-hidden />
-          <div className="relative z-[1] flex h-full flex-col justify-center p-6 sm:p-7">
+          <div className="relative flex h-full flex-col justify-center p-6 sm:p-7">
             <p>
               <AnimatedStatValue
                 value={stat.value}
@@ -67,8 +65,7 @@ export function HomeStatsBento({ stats, className }: HomeStatsBentoProps) {
         rel="noopener noreferrer"
         className="bento-card bento-card-interactive group relative col-span-12 overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--color-accent)]/35 lg:col-span-6"
       >
-        <div className="bento-card-glow" aria-hidden />
-        <div className="relative z-[1] flex h-full flex-col justify-between gap-4 p-7 sm:flex-row sm:items-center sm:p-8">
+        <div className="relative flex h-full flex-col justify-between gap-4 p-7 sm:flex-row sm:items-center sm:p-8">
           <div className="min-w-0">
             <p className="type-badge-label">{reviewProfile.label} reviews</p>
             <p className="type-h3 mt-2 text-foreground transition-colors group-hover:text-[var(--color-accent)]">

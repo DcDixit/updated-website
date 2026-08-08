@@ -28,15 +28,12 @@ export function DeliveryTrustRow({ className }: DeliveryTrustRowProps) {
           const Icon = principleIcons[index] ?? IconShieldLock;
           return (
             <li key={item.title}>
-              <article className="bento-card relative flex h-full flex-col overflow-hidden p-6 sm:p-7">
-                <div className="bento-card-glow" aria-hidden />
-                <div className="relative z-[1]">
-                  <Icon size={24} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
-                  <p className="mt-4 text-[0.9375rem] font-semibold leading-snug tracking-tight text-foreground">
-                    {item.title}
-                  </p>
-                  <p className="type-caption mt-2 leading-relaxed">{item.body}</p>
-                </div>
+              <article className="bento-card relative flex h-full flex-col p-6 sm:p-7">
+                <Icon size={24} stroke={1.5} className="text-[var(--color-accent)]" aria-hidden />
+                <p className="mt-4 text-[0.9375rem] font-semibold leading-snug tracking-tight text-foreground">
+                  {item.title}
+                </p>
+                <p className="type-caption mt-2 leading-relaxed">{item.body}</p>
               </article>
             </li>
           );

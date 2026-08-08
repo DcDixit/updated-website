@@ -11,6 +11,8 @@ export type ClientLogo = {
   logoFit?: ClientLogoFit;
   /** Multiplier for logo display size, e.g. 0.95 = 5% smaller */
   logoScale?: number;
+  /** Logo asset has a dark baked-in background — use a dark plate */
+  plate?: "light" | "dark";
   /** Related public case study in the same industry vertical */
   caseStudySlug?: CaseSlug;
 };
@@ -61,6 +63,7 @@ export const clientLogosWorkedWith = [
     logoSrc: "/brand/logos/clients/eliteone-transportation.png",
     industry: "Transportation",
     logoFit: "wide",
+    plate: "dark",
     caseStudySlug: "fleetflow-dispatch",
   },
   {
@@ -74,12 +77,14 @@ export const clientLogosWorkedWith = [
     logoSrc: "/brand/logos/clients/xmileauto-transport.png",
     industry: "Auto Transport",
     logoFit: "tall",
+    plate: "dark",
   },
   {
     name: "DC Auto Transport",
     logoSrc: "/brand/logos/clients/dc-auto-transport.png",
     industry: "Auto Transport",
     logoFit: "wide",
+    plate: "dark",
   },
   {
     name: "eXTRA Mile Movers",
@@ -87,6 +92,7 @@ export const clientLogosWorkedWith = [
     industry: "Moving",
     logoFit: "wide",
     logoScale: 0.95,
+    plate: "dark",
   },
   {
     name: "Cascadia Collection",
@@ -94,6 +100,7 @@ export const clientLogosWorkedWith = [
     industry: "Luxury Retail",
     logoFit: "wide",
     logoScale: 1.05,
+    plate: "dark",
     caseStudySlug: "brandlift-ecommerce",
   },
   {
@@ -107,6 +114,7 @@ export const clientLogosWorkedWith = [
     logoSrc: "/brand/logos/clients/xmile-transport-moving.png",
     industry: "Transport & Moving",
     logoFit: "wide",
+    plate: "dark",
   },
   {
     name: "Keep Moving Fitness Technicians",
@@ -139,6 +147,7 @@ export const clientLogosWorkedWith = [
     logoSrc: "/brand/logos/clients/global-crypto-blockchain.png",
     industry: "Fintech",
     logoFit: "tall",
+    plate: "dark",
     caseStudySlug: "finance-sync-hub",
   },
 ] satisfies readonly ClientLogo[];
